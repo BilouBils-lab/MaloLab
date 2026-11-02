@@ -1,7 +1,7 @@
 {
-  "name": "P'tit Écolier",
-  "short_name": "P'tit Écolier",
-  "description": "Petits exercices de maths, lecture et écriture pour le CP",
+  "name": "MaloLab",
+  "short_name": "MaloLab",
+  "description": "Exercices de maths, lecture (progression Alfi) et écriture pour le CP",
   "lang": "fr",
   "start_url": "./",
   "scope": "./",

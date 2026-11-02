@@ -118,7 +118,7 @@ button:disabled { cursor: default; }
 .choice.good { border-color: var(--good); background: #DDF7F3; animation: bounce .5s; }
 .choice.bad { border-color: var(--bad); opacity: .4; animation: shake .4s; }
 .choices.words { flex-direction: column; max-width: 440px; }
-.choices.words .choice { min-height: 76px; font-size: clamp(30px, 8vw, 46px); letter-spacing: 1px; }
+.choices.words .choice { flex-direction: row; min-height: 76px; font-size: clamp(30px, 8vw, 46px); letter-spacing: 1px; }
 .choices.pics .choice { font-size: clamp(60px, 16vw, 100px); }
 .dots { display: block; font-size: 15px; letter-spacing: 1px; max-width: 7em; line-height: 1.1; word-break: break-all; color: var(--c); }
 
@@ -214,3 +214,35 @@ button:disabled { cursor: default; }
 }
 @keyframes fall { to { transform: translateY(125vh) rotate(540deg); } }
 @media (prefers-reduced-motion: reduce) { * { animation-duration: .01s !important; } }
+
+/* ---------- Lecture : aides visuelles ---------- */
+.s0 { color: #1E6FE8; }
+.s1 { color: #E63946; }
+.mute { color: #B5AC9A; }
+.slot.mute { color: #B5AC9A; }
+.mo { text-decoration: underline dotted 3px; text-underline-offset: 6px; }
+.brand { display: block; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--ecriture); }
+
+.sentence {
+  font-size: clamp(30px, 7.5vw, 52px); font-weight: 800; line-height: 1.5; text-align: center;
+  background: var(--card); padding: 16px 22px; border-radius: 24px; box-shadow: 0 5px 0 rgba(0,0,0,.08); max-width: 820px;
+}
+.sentence .w { display: inline-block; }
+.choices.vf .choice { font-size: clamp(44px, 12vw, 70px); }
+.choices.vf small { font-size: 22px; }
+
+.sounds { display: grid; gap: 14px; padding: 16px; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+.snd {
+  position: relative; background: var(--card); border-radius: 22px; padding: 14px 8px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  border: 4px solid var(--lecture); box-shadow: 0 5px 0 var(--lecture);
+}
+.snd b { font-size: 34px; color: var(--lecture); text-align: center; line-height: 1.1; }
+.snd .se { font-size: 46px; }
+.snd .sm { font-size: 22px; font-weight: 800; }
+.snd i { position: absolute; top: -10px; right: -6px; background: var(--ecriture); color: #fff; font-style: normal; font-size: 13px; font-weight: 800; padding: 3px 8px; border-radius: 999px; }
+.empty { font-size: 20px; text-align: center; line-height: 1.5; opacity: .8; grid-column: 1 / -1; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips button { padding: 10px 14px; border-radius: 12px; background: var(--card); border: 3px solid var(--line); font-weight: 800; font-size: 18px; }
+.chips button.on { border-color: var(--lecture); background: #E3EEFF; color: #1E5BC6; }
