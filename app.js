@@ -108,21 +108,21 @@ const THEMES = {
     pop: '⚡', confetti: ['💥', '⚡', '🛡️', '⭐', '🚀', '✨'],
   },
   briques: {
-    name: 'Briques', img: 'assets/compagnon-briques.webp', bg: '#FCF4CF', buddyName: 'Brik le robot',
+    name: 'Briques', img: 'assets/compagnon-briques.webp', decor: 'assets/decor-briques.webp', bg: '#FCF4CF', buddyName: 'Brik le robot',
     hello: ['Bip bip ! On construit, {n} ?', 'Brique par brique, on apprend, {n} !', 'Prêt à bâtir, {n} ?'],
     count: ['🧱', '🔧', '🔩', '🏗️', '🤖', '🏠', '🚧', '⚙️'],
     praise: ['Bien construit', 'Super bâtisseur', 'Brique par brique', 'Bravo', 'Génial', 'Parfait'],
     pop: '🧱', confetti: ['🧱', '🔧', '⭐', '⚙️', '✨', '🎉'],
   },
   monstres: {
-    name: 'Monstres', img: 'assets/compagnon-monstres.webp', bg: '#E4D5FC', buddyName: 'Zapi',
+    name: 'Monstres', img: 'assets/compagnon-monstres.webp', decor: 'assets/decor-monstres.webp', bg: '#E4D5FC', buddyName: 'Zapi',
     hello: ['Zap zap ! On joue, {n} ?', 'Trouvons de nouveaux monstres, {n} !', 'Zapi a hâte de grandir avec toi, {n} !'],
     count: ['👾', '🐉', '⚡', '✨', '💎', '🌟', '🥚', '🔮'],
     praise: ['Monstre trouvé', 'Zapi est fier de toi', 'Super explorateur', 'Bravo', 'Génial', 'Incroyable'],
     pop: '⚡', confetti: ['⚡', '✨', '💎', '🌟', '🔮', '⭐'],
   },
   dinos: {
-    name: 'Dinosaures', img: 'assets/compagnon-dinos.webp', bg: '#E4D6FA', buddyName: 'Rex',
+    name: 'Dinosaures', img: 'assets/compagnon-dinos.webp', decor: 'assets/decor-dinos.webp', bg: '#E4D6FA', buddyName: 'Rex',
     hello: ['Roar ! On part en exploration, {n} ?', 'Rex est prêt, et toi {n} ?', 'Allons découvrir la vallée des dinos, {n} !'],
     count: ['🦖', '🦕', '🥚', '🦴', '🌋', '🌿', '🐾', '🪨'],
     praise: ['Rugissement de victoire', 'Bravo explorateur', 'Super', 'Génial', 'Excellent', 'Parfait'],
@@ -661,14 +661,19 @@ const ACTS = {
    5. ÉCRANS
    ========================================================= */
 const app = document.getElementById('app');
-const render = html => {
+// mode : '' (menus), 'play' (exercice : décor atténué), 'victory' (fin de partie)
+const render = (html, mode = '') => {
   window.speechSynthesis?.cancel();
+  document.body.dataset.mode = mode;
   document.querySelectorAll('.confetti,.pop').forEach(e => e.remove());
   app.innerHTML = html; window.scrollTo(0, 0);
 };
 
 function applyTheme() {
   document.body.dataset.theme = state.theme;
+  const decor = T().decor;
+  document.body.classList.toggle('has-decor', !!decor);
+  document.body.style.setProperty('--decor', decor ? `url("${decor}")` : 'none');
   const m = document.querySelector('meta[name="theme-color"]');
   if (m) m.content = getComputedStyle(document.body).getPropertyValue('--bg').trim() || '#FFF8E7';
 }
@@ -734,7 +739,7 @@ function album() {
     <main class="album">
       ${STICKERS.map(([e, name], i) => i < n
         ? `<button class="sticker" data-say="${esc(name)}"><span>${e}</span><small>${esc(name)}</small></button>`
-        : `<div class="sticker locked"><span>${e}</span><small>?</small></div>`).join('')}
+        : `<div class="sticker locked"><img src="assets/dos-de-carte.webp" alt="Carte mystère" draggable="false"></div>`).join('')}
     </main>`);
   $('#back').onclick = home;
 }
@@ -816,7 +821,7 @@ function runSession(act, dk) {
       <main class="play" style="--c:${ACTS[dk].color}">
         <h2 class="instr">${q.text}</h2>
         <div id="zone" class="zone" style="--c:${ACTS[dk].color}"></div>
-      </main>`);
+      </main>`, 'play');
     $('#back').onclick = () => domain(dk);
     const speak = () => say(q.say || q.text);
     $('#spk').onclick = speak;
@@ -852,7 +857,7 @@ function runSession(act, dk) {
           <button class="btn" id="again" style="--c:${ACTS[dk].color}">🔁 Rejouer</button>
           <button class="btn sec" id="menu">🏠 Menu</button>
         </div>
-      </main>`);
+      </main>`, 'victory');
     const fresh = STICKERS.slice(before, unlockedCount());
     if (fresh.length) {
       $('.earned').insertAdjacentHTML('afterend', `<div class="newsticker">🎁 Nouvel autocollant !<span>${fresh.map(f => f[0]).join(' ')}</span></div>`);

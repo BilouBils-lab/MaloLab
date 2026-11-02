@@ -379,3 +379,39 @@ body[data-theme="dinos"] {
 @keyframes cheer { 0% { scale: .3; rotate: -12deg; opacity: 0; } 55% { scale: 1.08; rotate: 4deg; opacity: 1; } 100% { scale: 1; rotate: 0deg; } }
 @media (min-width: 700px) { .bud { width: 140px; height: 140px; } .bubble { font-size: 21px; } }
 #themes { flex-wrap: nowrap; }
+
+/* =========================================================
+   Décors illustrés (images Gemini)
+   ========================================================= */
+body.has-decor::before {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--decor) center / cover no-repeat;
+  transition: opacity .4s;
+}
+/* Pendant l'exercice, le décor s'efface pour ne pas distraire */
+body.has-decor[data-mode="play"]::before { opacity: .22; }
+/* Lisibilité du texte posé directement sur le décor */
+body.has-decor .hello, body.has-decor .title, body.has-decor .instr, body.has-decor .album-info {
+  text-shadow: 0 1px 2px rgba(255,255,255,.7), 0 0 12px rgba(255,255,255,.6);
+}
+body.has-decor[data-theme="monstres"] .hello, body.has-decor[data-theme="monstres"] .title,
+body.has-decor[data-theme="monstres"] .instr, body.has-decor[data-theme="monstres"] .album-info {
+  text-shadow: 0 1px 3px rgba(0,0,0,.6), 0 0 12px rgba(30,20,70,.6);
+}
+body[data-theme="briques"] { --text: #4A3418; }
+body[data-theme="dinos"] { --text: #1F4D36; }
+
+/* Fin de partie : la coupe en fond */
+body[data-mode="victory"]::after {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: url("assets/victoire.webp") center / cover no-repeat;
+  animation: fadein .6s ease-out both;
+}
+body[data-mode="victory"] .end h2 { color: #3D2C00; text-shadow: 0 2px 0 #fff, 0 0 16px rgba(255,255,255,.9); }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+
+/* Album : cartes mystère */
+.sticker.locked { padding: 0; border: 0; overflow: hidden; background: none; box-shadow: 0 4px 0 rgba(0,0,0,.18); aspect-ratio: 1; }
+.sticker.locked img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Le body devient son propre plan : les images ::before/::after (z-index -1) passent au-dessus de son fond */
+body { isolation: isolate; }
