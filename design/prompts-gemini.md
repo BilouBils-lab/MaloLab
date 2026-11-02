@@ -87,3 +87,33 @@ Square 1:1 celebration illustration with no characters: a shiny golden trophy st
 ```
 Square 1:1 decorative illustration for the back of a collectible card: deep night-blue background, a glowing golden star in the center surrounded by a soft halo, delicate small sparkles and thin golden ornamental lines around the edges. Style: soft painterly anime illustration, watercolor and gouache textures, gentle glow, no text, no letters, no logo, no watermark.
 ```
+
+---
+
+## D. Décors horizontaux pour le mode paysage (format 16:9, sans personnage)
+À générer dans la même conversation Gemini. Nommez-les `decor-foot-paysage`, `decor-heros-paysage`, etc.
+
+### decor-foot-paysage
+```
+Horizontal 16:9 background illustration with no characters, same scene and exactly the same style as the vertical football background you made before: a sunny football pitch in a small peaceful town, green striped grass, a white goal net on one side, village houses and trees, blue sky with big fluffy white clouds, a few floating yellow petals. Keep a wide calm open area in the center of the image (buttons will be placed there); put the interesting details on the left and right edges. Style: soft painterly anime illustration in the look of a Japanese animated film, delicate thin linework, watercolor and gouache textures, soft natural lighting, warm luminous colors, peaceful and child-friendly, no text, no letters, no logo, no watermark. Generate the image directly, only one image.
+```
+
+### decor-heros-paysage
+```
+Horizontal 16:9 background illustration with no characters, same scene and exactly the same style as the vertical city background you made before: a friendly city skyline seen from a rooftop terrace at golden hour, warm glowing sunset sky, soft light rays, small sparkles in the air, plants on the terrace, peaceful and hopeful atmosphere. Keep a wide calm open area in the center of the image (buttons will be placed there); put the interesting details on the left and right edges. Style: soft painterly anime illustration in the look of a Japanese animated film, delicate thin linework, watercolor and gouache textures, soft natural lighting, warm luminous colors, peaceful and child-friendly, no text, no letters, no logo, no watermark. Generate the image directly, only one image.
+```
+
+### decor-briques-paysage
+```
+Horizontal 16:9 background illustration with no characters, same scene and exactly the same style as the vertical playroom background you made before: a cozy child's playroom with colorful toy construction bricks on a wooden floor, small houses and towers built from bricks, a window with warm afternoon sunlight, soft dust sparkles in the light. Generic bricks, no brand. Keep a wide calm open area in the center of the image (buttons will be placed there); put the interesting details on the left and right edges and at the bottom. Style: soft painterly anime illustration in the look of a Japanese animated film, delicate thin linework, watercolor and gouache textures, soft natural lighting, warm luminous colors, peaceful and child-friendly, no text, no letters, no logo, no watermark. Generate the image directly, only one image.
+```
+
+### decor-monstres-paysage
+```
+Horizontal 16:9 background illustration with no characters, same scene and exactly the same style as the vertical magical meadow background you made before: a magical meadow at dusk with gentle rolling hills, glowing fireflies and small floating orbs of soft light, small flowers, a purple and blue sky with the first stars. Keep a wide calm open area in the center of the image (buttons will be placed there); put the interesting details on the left and right edges and at the bottom. Style: soft painterly anime illustration in the look of a Japanese animated film, delicate thin linework, watercolor and gouache textures, soft natural lighting, luminous colors, peaceful and child-friendly, no text, no letters, no logo, no watermark. Generate the image directly, only one image.
+```
+
+### decor-dinos-paysage
+```
+Horizontal 16:9 background illustration with no characters, same scene and exactly the same style as the vertical prehistoric valley background you made before: a lush sunny prehistoric valley with giant ferns and palm trees, a calm lake and river, a gentle volcano with a small puff of smoke far in the distance, mountains, blue sky with soft clouds, warm light. Peaceful, not scary. Keep a wide calm open area in the center of the image (buttons will be placed there); put the interesting details on the left and right edges. Style: soft painterly anime illustration in the look of a Japanese animated film, delicate thin linework, watercolor and gouache textures, soft natural lighting, warm luminous colors, peaceful and child-friendly, no text, no letters, no logo, no watermark. Generate the image directly, only one image.
+```
