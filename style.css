@@ -640,3 +640,6 @@ svg.shape * { stroke: #4A3B33; stroke-width: 2.5; stroke-linejoin: round; }
 svg.hand .hit { fill: transparent; stroke: none; cursor: pointer; }
 .lf-tile svg.cw-mini { height: 1.15em; }
 .lf-tile svg.cw-mini path { stroke-width: 2.1; }
+.voices { display: flex; flex-wrap: wrap; gap: 8px; }
+.voices button { padding: 10px 14px; border-radius: 12px; background: var(--card); border: 3px solid var(--line); font-weight: 700; font-size: 16px; }
+.voices button.on { border-color: var(--good); background: #DDF7F3; }

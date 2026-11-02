@@ -297,19 +297,33 @@ function syllPool() {
 
 /* ---------- Voix & sons ---------- */
 let frVoice = null;
+// Voix « fantaisie » ou robotiques d'iOS / macOS à éviter
+const ROBOT = /Eddy|Flo|Grandma|Grandpa|Grand-mère|Grand-père|Reed|Rocko|Sandy|Shelley|Jacques|Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Wobble|Zarvox|Trinoids|Whisper|Good News|Jester|Organ|Superstar|Junior|Ralph|Fred|Kathy/i;
+const frVoices = () => ('speechSynthesis' in window ? speechSynthesis.getVoices() : []).filter(v => /^fr/i.test(v.lang));
+function voiceScore(v) {
+  const id = `${v.name} ${v.voiceURI}`;
+  let sc = 0;
+  if (/premium/i.test(id)) sc += 6;
+  if (/enhanced|amélior/i.test(id)) sc += 5;
+  if (/neural|natural|online/i.test(id)) sc += 4;          // voix naturelles (Edge, Chrome, Android)
+  if (/Amélie|Audrey|Aurélie|Thomas|Marie|Denise|Henri|Vivienne|Google/i.test(id)) sc += 2;
+  if (v.lang === 'fr-FR') sc += 1;
+  if (/compact/i.test(id)) sc -= 2;
+  if (ROBOT.test(v.name)) sc -= 20;
+  return sc;
+}
 function pickVoice() {
-  if (!('speechSynthesis' in window)) return;
-  const vs = speechSynthesis.getVoices();
-  frVoice = vs.find(v => v.lang === 'fr-FR' && /Amélie|Audrey|Marie|Thomas/i.test(v.name))
-         || vs.find(v => v.lang === 'fr-FR') || vs.find(v => v.lang.startsWith('fr')) || null;
+  const vs = frVoices();
+  frVoice = vs.find(v => v.voiceURI === state.voiceURI) || vs.slice().sort((a, b) => voiceScore(b) - voiceScore(a))[0] || null;
 }
 if ('speechSynthesis' in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
 
-function say(text, rate = 0.9) {
+function say(text, rate = 0.92) {
   if (!state.voice || !('speechSynthesis' in window) || !text) return;
   speechSynthesis.cancel();
+  if (!frVoice) pickVoice();
   const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'fr-FR'; u.rate = rate;
+  u.lang = 'fr-FR'; u.rate = rate; u.pitch = 1;
   if (frVoice) u.voice = frVoice;
   speechSynthesis.speak(u);
 }
@@ -732,8 +746,8 @@ function themes() {
   $('#back').onclick = home;
   app.querySelectorAll('.theme-card').forEach(b => b.onclick = () => {
     state.theme = b.dataset.t; save(); applyTheme();
-    sfxOK(); say(`Univers : ${T().name} !`);
-    confetti(); setTimeout(home, 900);
+    sfxOK(); confetti();
+    setTimeout(() => { home(); say(`${T().name} !`); }, 900);
   });
 }
 
@@ -936,6 +950,9 @@ function settings() {
       <div class="field">Voix
         ${seg('voice', [[true, '🔊 Activée'], [false, '🔇 Coupée']])}
         <small>Si vous n'entendez rien, vérifiez que l'appareil n'est pas en mode silencieux.</small>
+        <div class="voices" id="voices"></div>
+        <small><b>Pour une voix bien plus naturelle sur iPhone / iPad :</b> Réglages → Accessibilité → Contenu énoncé → Voix → Français (France)
+        → téléchargez <b>Amélie (premium)</b> ou <b>Thomas (améliorée)</b>, puis fermez et rouvrez MaloLab et choisissez-la ci-dessus.</small>
       </div>
       <div class="field">Progrès
         <div class="statsbox">Total : ⭐ ${state.stars}<br>${allActs.join('<br>')}</div>
@@ -958,6 +975,18 @@ function settings() {
   chips('#gr', 'known');
   chips('#mo', 'outils');
 
+  const listVoices = () => {
+    pickVoice();
+    const vs = frVoices().filter(v => !ROBOT.test(v.name)).sort((a, b) => voiceScore(b) - voiceScore(a));
+    $('#voices').innerHTML = vs.length ? vs.map(v => `<button class="${frVoice && v.voiceURI === frVoice.voiceURI ? 'on' : ''}" data-uri="${esc(v.voiceURI)}">▶️ ${esc(v.name.replace(/\s*\(.*?\)\s*/g, ' ').trim())}${/premium|enhanced|amélior/i.test(v.name + v.voiceURI) ? ' ✨' : ''}</button>`).join('')
+      : '<small>Aucune voix française trouvée sur cet appareil.</small>';
+    $('#voices').querySelectorAll('button').forEach(b => b.onclick = () => {
+      state.voiceURI = b.dataset.uri; save(); pickVoice(); listVoices();
+      say(`Bonjour ${state.name || ''} ! Je vais lire les consignes avec cette voix.`);
+    });
+  };
+  listVoices();
+  if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => { pickVoice(); if ($('#voices')) listVoices(); };
   $('#back').onclick = home;
   $('#name').oninput = e => { state.name = e.target.value.trim(); save(); };
   app.querySelectorAll('.seg').forEach(s => s.querySelectorAll('button').forEach(b => b.onclick = () => {
