@@ -43,11 +43,11 @@ const LEX = [
   // autres mots
   ['l.a/m.a', '🦙'], ['l.i.(t)', '🛏️'], ['m.u.r', '🧱'], ['r.o/b.(e)', '👗'], ['f.i.l', '🧵'], ['r.i.(z)', '🍚'],
   ['n.ez', '👃'], ['p.i.e=é.(d)', '🦶'], ['p.ou/l.(e)', '🐔'], ['ou.r.s', '🐻'], ['c.a/d.eau', '🎁'], ['s.a/p.in', '🎄'],
-  ['p.an/d.a', '🐼'], ['r.o/b.o.(t)', '🤖'], ['t.o.r/t.u.(e)', '🐢'], ['s.ou/r.i.(s)', '🐭'], ['v.a/ch.(e)', '🐮'],
+  ['p.an/d.a', '🐼'], ['r.o/b.o.(t)', '🤖', 'briques'], ['t.o.r/t.u.(e)', '🐢'], ['s.ou/r.i.(s)', '🐭'], ['v.a/ch.(e)', '🐮'],
   ['l.i/v.r.(e)', '📖'], ['f.l.eu.r', '🌸'], ['é/t.oi/l.(e)', '⭐'], ['p.oi/ss.on', '🐟'], ['b.u.s', '🚌'],
   ['s.a.c', '👜'], ['m.ai/s=z.on', '🏠'], ['c.a/m.i/on', '🚚'], ['a/v.i/on', '✈️'], ['r.e/n.a.r.(d)', '🦊'],
   ['d.en.(t)', '🦷'], ['v.a/l.i/s=z.(e)', '🧳'], ['ch.ou', '🥬'], ['b.i/b.e/r.on', '🍼'], ['m.e/l.on', '🍈'],
-  ['c.a/r.o/tt.(e)', '🥕'], ['s.a/l.a/d.(e)', '🥗'], ['v.o.l/c.an', '🌋'], ['b.a/ll.on', '🎈'], ['r.o/b.i/n.et', '🚰'],
+  ['c.a/r.o/tt.(e)', '🥕'], ['s.a/l.a/d.(e)', '🥗'], ['v.o.l/c.an', '🌋', 'dinos'], ['b.a/ll.on', '🎈'], ['r.o/b.i/n.et', '🚰'],
   ['b.o.l', '🥣'], ['ch.â/t.eau', '🏰'], ['m.ou/ch.(e)', '🪰'], ['b.a/l.ai', '🧹'], ['l.ai.(t)', '🥛'],
   ['r.ou.(e)', '🛞'], ['n.u/a/g=j.(e)', '☁️'], ['p.a/r.a/s.o.l', '⛱️'], ['c.o.q=c', '🐓'], ['s.a/v.on', '🧼'],
   ['c.a/f.é', '☕'], ['p.o.r/t.(e)', '🚪'], ['l.ou/p.(e)', '🔍'], ['f.ou.r/ch.e=è/tt.(e)', '🍴'], ['t.u/l.i/p.(e)', '🌷'],
@@ -55,9 +55,12 @@ const LEX = [
   // mots des univers (3e colonne = univers)
   ['b.u.t', '🥅', 'foot'], ['c.ou/p.(e)', '🏆', 'foot'], ['s.t.a/d.(e)', '🏟️', 'foot'], ['f.i/l.et', '🥅', 'foot'],
   ['(h).é/r.o.(s)', '🦸', 'heros'], ['é/c.l.ai.r', '⚡', 'heros'], ['m.a.s/qu.(e)', '🎭', 'heros'], ['t.i/g.r.(e)', '🐯', 'heros'],
-  ['m.i/c.r.o', '🎤', 'kpop'], ['s.t.a.r', '🌟', 'kpop'], ['d.an/s.(e)', '💃', 'kpop'], ['d.é/m.on', '👹', 'kpop'], ['é/p.é.(e)', '🗡️', 'kpop'],
-  ['f.é.(e)', '🧚', 'magie'], ['r.ei/n.(e)', '👸', 'magie'], ['p.r.in/c=s.(e)', '🤴', 'magie'], ['d.r.a/g.on', '🐉', 'magie'],
-  ['s.i/r.è/n.(e)', '🧜‍♀️', 'magie'], ['g=j.é/n.i.(e)', '🧞', 'magie'], ['m.a/g=j.i.(e)', '🪄', 'magie'],
+  ['m.i/c.r.o', '🎤'], ['s.t.a.r', '🌟'], ['d.an/s.(e)', '💃'], ['é/p.é.(e)', '🗡️'],
+  ['f.é.(e)', '🧚'], ['r.ei/n.(e)', '👸'], ['p.r.in/c=s.(e)', '🤴'], ['d.r.a/g.on', '🐉', 'monstres'],
+  ['s.i/r.è/n.(e)', '🧜‍♀️'], ['g=j.é/n.i.(e)', '🧞'], ['m.a/g=j.i.(e)', '🪄'],
+  ['b.r.i/qu.(e)', '🧱', 'briques'], ['t.ou.r', '🗼', 'briques'], ['g.r.u.(e)', '🏗️', 'briques'],
+  ['m.on.s/t.r.(e)', '👾', 'monstres'], ['d.é/m.on', '👹', 'monstres'],
+  ['d.i/n.o', '🦕', 'dinos'], ['o.s', '🦴', 'dinos'], ['r.e=è.x', '🦖', 'dinos'],
 ];
 // Verbes et adjectifs utilisés dans les phrases
 const EXTRA = [
@@ -90,57 +93,56 @@ const PHRASES = [
    UNIVERS (thèmes visuels choisis par l'enfant)
    ========================================================= */
 const THEMES = {
-  classique: {
-    name: 'Classique', icon: '🐘', buddy: '🐘', buddyName: 'Pompon',
-    hello: ['Coucou {n} ! On apprend ensemble ?', 'Prêt pour un exercice, {n} ?'],
-    count: ['🍎', '⭐', '🐞', '🐟', '🎈', '🍓', '🚗', '🐥', '🌼', '🍪'],
-    praise: ['Bravo', 'Super', 'Génial', 'Bien joué', 'Excellent', 'Parfait'],
-    pop: '⭐', confetti: ['⭐', '🎉', '🌟', '🎈', '✨', '🐘'],
-  },
   foot: {
-    name: 'Foot', icon: '⚽', buddy: '🦁', buddyName: 'Capitaine Lion',
+    name: 'Foot', img: 'assets/compagnon-foot.webp', bg: '#F4A259', buddyName: 'Tom le buteur',
     hello: ["Salut {n} ! Prêt pour l'entraînement ?", 'Allez {n}, on va marquer des buts !', "C'est le match, {n} ! En avant !"],
     count: ['⚽', '👟', '🏆', '🧤', '🥅', '🥇', '🎽', '📣'],
     praise: ['But', 'Quel tir', 'Champion', 'Superbe action', 'Bravo le buteur', 'Incroyable'],
     pop: '⚽', confetti: ['⚽', '🏆', '🥇', '🎉', '⭐', '📣'],
   },
   heros: {
-    name: 'Super-héros', icon: '🦸', buddy: '🦸', buddyName: 'Super {n}',
+    name: 'Super-héros', img: 'assets/compagnon-heros.webp', bg: '#A9D6F5', buddyName: 'Super {n}',
     hello: ['Super {n}, la ville a besoin de toi !', 'Active tes super-pouvoirs, {n} !', 'Mission du jour, {n} : apprendre !'],
     count: ['🦸', '🛡️', '⚡', '💥', '🚀', '🦸‍♀️', '🔨', '🤖'],
-    praise: ['Super-pouvoir', 'Mission réussie', 'Héroïque', 'Bravo super-héros', 'Boum, bien joué', 'Incroyable'],
-    pop: '💥', confetti: ['💥', '⚡', '🛡️', '🦸', '⭐', '🚀'],
+    praise: ['Super-pouvoir', 'Mission réussie', 'Héroïque', 'Bravo super-héros', 'Bien joué', 'Incroyable'],
+    pop: '⚡', confetti: ['💥', '⚡', '🛡️', '⭐', '🚀', '✨'],
   },
-  kpop: {
-    name: 'Stars & démons', icon: '🎤', buddy: '👩‍🎤', buddyName: 'Luna la star',
-    hello: ['Hey {n} ! On chante et on chasse les démons ?', 'Prêt pour le concert, {n} ?', 'Allume ta lumière, {n} !'],
-    count: ['🎤', '🎶', '💜', '✨', '🌙', '🗡️', '🎧', '🌟'],
-    praise: ['Quelle star', 'Démon vaincu', 'Tu brilles', 'Bravo la star', 'Trop fort', 'Génial'],
-    pop: '🌟', confetti: ['🎶', '💜', '✨', '🌟', '🎤', '💖'],
+  briques: {
+    name: 'Briques', img: 'assets/compagnon-briques.svg', bg: '#FFE8A3', buddyName: 'Brik le robot',
+    hello: ['Bip bip ! On construit, {n} ?', 'Brique par brique, on apprend, {n} !', 'Prêt à bâtir, {n} ?'],
+    count: ['🧱', '🔧', '🔩', '🏗️', '🤖', '🏠', '🚧', '⚙️'],
+    praise: ['Bien construit', 'Super bâtisseur', 'Brique par brique', 'Bravo', 'Génial', 'Parfait'],
+    pop: '🧱', confetti: ['🧱', '🔧', '⭐', '⚙️', '✨', '🎉'],
   },
-  magie: {
-    name: 'Royaume magique', icon: '🏰', buddy: '🧚', buddyName: 'Fée Lila',
-    hello: ['Bienvenue au royaume, {n} !', 'Un peu de magie, {n} ?', 'Prêt pour une aventure magique, {n} ?'],
-    count: ['🏰', '👑', '🧚', '🪄', '🐉', '🍎', '❄️', '🧞'],
-    praise: ['Magique', 'Féerique', 'Bravo petit prince', 'Enchanté', 'Merveilleux', 'Formidable'],
-    pop: '✨', confetti: ['✨', '👑', '🪄', '❄️', '🏰', '⭐'],
+  monstres: {
+    name: 'Monstres', img: 'assets/compagnon-monstres.svg', bg: '#D9C8FF', buddyName: 'Zapi',
+    hello: ['Zap zap ! On joue, {n} ?', 'Trouvons de nouveaux monstres, {n} !', 'Zapi a hâte de grandir avec toi, {n} !'],
+    count: ['👾', '🐉', '⚡', '✨', '💎', '🌟', '🥚', '🔮'],
+    praise: ['Monstre trouvé', 'Zapi est fier de toi', 'Super explorateur', 'Bravo', 'Génial', 'Incroyable'],
+    pop: '⚡', confetti: ['⚡', '✨', '💎', '🌟', '🔮', '⭐'],
+  },
+  dinos: {
+    name: 'Dinosaures', img: 'assets/compagnon-dinos.svg', bg: '#BDE8CF', buddyName: 'Rex',
+    hello: ['Roar ! On part en exploration, {n} ?', 'Rex est prêt, et toi {n} ?', 'Allons découvrir la vallée des dinos, {n} !'],
+    count: ['🦖', '🦕', '🥚', '🦴', '🌋', '🌿', '🐾', '🪨'],
+    praise: ['Rugissement de victoire', 'Bravo explorateur', 'Super', 'Génial', 'Excellent', 'Parfait'],
+    pop: '🦖', confetti: ['🦕', '🦖', '🥚', '🌿', '⭐', '✨'],
   },
 };
-const T = () => THEMES[state.theme] || THEMES.classique;
+const T = () => THEMES[state.theme] || THEMES.foot;
+const buddyName = t => t.buddyName.replace('{n}', state.name || 'Héros');
 
 // Album : un autocollant tous les 5 ⭐ (ordre de déblocage)
 const STARS_PAR_AUTOCOLLANT = 5;
 const STICKERS = [
-  ['⚽', 'Ballon'], ['🦸', 'Super-héros'], ['🎤', 'Micro'], ['🏰', 'Château'],
-  ['🥅', 'Cage'], ['🛡️', 'Bouclier'], ['🎶', 'Chanson'], ['👑', 'Couronne'],
-  ['👟', 'Crampons'], ['⚡', 'Éclair'], ['💜', 'Cœur violet'], ['🧚', 'Fée'],
-  ['🧤', 'Gants du gardien'], ['🕷️', 'Araignée'], ['🌙', 'Lune magique'], ['🧞', 'Génie'],
-  ['🏆', 'Coupe'], ['🔨', 'Marteau magique'], ['🗡️', 'Épée de lumière'], ['🧜‍♀️', 'Sirène'],
-  ['🏟️', 'Stade'], ['🤖', 'Armure robot'], ['👹', 'Démon'], ['❄️', 'Flocon magique'],
-  ['🥇', 'Médaille'], ['🐆', 'Panthère'], ['🎧', 'Casque'], ['🪄', 'Baguette'],
-  ['🎽', 'Maillot'], ['💥', 'Boum'], ['💃', 'Danse'], ['🐉', 'Dragon'],
-  ['📣', 'Supporters'], ['🦹', 'Méchant'], ['🌟', 'Star'], ['🍎', 'Pomme magique'],
-  ['🟨', 'Carton jaune'], ['🚀', 'Jet'], ['🎆', "Feu d'artifice"], ['🦁', 'Lion'],
+  ['⚽', 'Ballon'], ['🦸', 'Super-héros'], ['🧱', 'Brique'], ['👾', 'Petit monstre'], ['🦖', 'T-rex'],
+  ['🥅', 'Cage'], ['🛡️', 'Bouclier'], ['🔧', 'Clé'], ['🥚', 'Œuf mystère'], ['🦕', 'Diplodocus'],
+  ['👟', 'Crampons'], ['⚡', 'Éclair'], ['🏗️', 'Grue'], ['💎', 'Cristal'], ['🌋', 'Volcan'],
+  ['🧤', 'Gants du gardien'], ['🚀', 'Jet'], ['🤖', 'Robot'], ['🐉', 'Dragon'], ['🦴', 'Os de dino'],
+  ['🏆', 'Coupe'], ['🔨', 'Marteau magique'], ['🏠', 'Maison en briques'], ['🔮', 'Boule magique'], ['🐾', 'Empreinte'],
+  ['🏟️', 'Stade'], ['💥', 'Boum'], ['⚙️', 'Engrenage'], ['🌟', 'Étoile filante'], ['🌿', 'Fougère géante'],
+  ['🥇', 'Médaille'], ['🦹', 'Méchant'], ['🚧', 'Chantier'], ['✨', 'Poussière magique'], ['🪨', 'Fossile'],
+  ['🎽', 'Maillot'], ['🐆', 'Panthère'], ['🔩', 'Boulon'], ['🥚', 'Gros œuf'], ['🦖', 'Roi des dinos'],
 ];
 const unlockedCount = () => Math.min(STICKERS.length, Math.floor(state.stars / STARS_PAR_AUTOCOLLANT));
 const RETRY = ['Essaie encore !', 'Presque ! Essaie encore.', 'Oups, essaie encore.'];
@@ -148,12 +150,13 @@ const QUESTIONS_PAR_PARTIE = 5;
 
 /* ---------- Sauvegarde locale ---------- */
 const KEY = 'malolab';
-const DEFAULTS = { theme: 'classique', name: 'Malo', level: 1, caps: false, voice: true, syl: true, stars: 0, act: {}, known: DEFAULT_KNOWN, outils: DEFAULT_OUTILS };
+const DEFAULTS = { theme: 'foot', name: 'Malo', level: 1, caps: false, voice: true, syl: true, stars: 0, act: {}, known: DEFAULT_KNOWN, outils: DEFAULT_OUTILS };
 const state = (() => {
   let saved = {};
   try { saved = JSON.parse(localStorage.getItem(KEY) || localStorage.getItem('ptit-ecolier') || '{}'); } catch {}
   const s = Object.assign({}, DEFAULTS, saved);
   if (!s.name) s.name = DEFAULTS.name;
+  if (!THEMES[s.theme]) s.theme = 'foot';
   return s;
 })();
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} };
@@ -680,8 +683,8 @@ function home() {
       <button class="icon" id="gear" aria-label="Espace parents">⚙️</button>
     </header>
     <section class="buddy" data-say="${esc(msg)}">
-      <span class="bud">${t.buddy}</span>
-      <span class="bubble"><b>${esc(t.buddyName.replace('{n}', state.name || 'Héros'))}</b>${esc(msg)}</span>
+      <span class="bud" style="--bb:${t.bg}"><img src="${t.img}" alt="${esc(buddyName(t))}" draggable="false"></span>
+      <span class="bubble"><b>${esc(buddyName(t))}</b>${esc(msg)}</span>
     </section>
     <main class="home">
       ${Object.entries(ACTS).map(([k, d]) => `
@@ -689,7 +692,7 @@ function home() {
     </main>
     <nav class="homebar">
       <button class="pill" id="album">📒 Mon album <small>${unlockedCount()}/${STICKERS.length}${unlockedCount() < STICKERS.length ? ` · encore ${left} ⭐` : ''}</small></button>
-      <button class="pill" id="themes">${t.icon} Mon univers</button>
+      <button class="pill" id="themes"><img class="pill-img" src="${t.img}" alt=""> Mon univers</button>
     </nav>`);
   app.querySelectorAll('.domain').forEach(b => b.onclick = () => { say(ACTS[b.dataset.d].title); domain(b.dataset.d); });
   $('#album').onclick = album;
@@ -707,7 +710,7 @@ function themes() {
     <main class="themes">
       ${Object.entries(THEMES).map(([k, t]) => `
         <button class="theme-card ${k === state.theme ? 'on' : ''}" data-theme-card="${k}" data-t="${k}">
-          <span class="tc-icon">${t.icon}</span><span class="tc-name">${esc(t.name)}</span><span class="tc-row">${t.count.slice(0, 4).join('')}</span>
+          <span class="tc-img" style="--bb:${t.bg}"><img src="${t.img}" alt="" draggable="false"></span><span class="tc-name">${esc(t.name)}</span><span class="tc-buddy">${esc(buddyName(t))}</span>
         </button>`).join('')}
     </main>`);
   $('#back').onclick = home;
@@ -842,7 +845,7 @@ function runSession(act, dk) {
     const msg = got >= 4 ? 'Bravo' : got >= 2 ? 'Bien joué' : 'Continue comme ça';
     render(`
       <main class="end">
-        <div class="big">${got >= 4 ? '🏆' : got >= 2 ? '🎉' : '💪'}</div>
+        <div class="end-buddy" style="--bb:${T().bg}"><img src="${T().img}" alt="${esc(buddyName(T()))}" draggable="false"></div>
         <h2>${msg}${state.name ? ' ' + esc(state.name) : ''} !</h2>
         <div class="earned">${'⭐'.repeat(got)}${'<span class="off">⭐</span>'.repeat(total - got)}</div>
         <div class="row">

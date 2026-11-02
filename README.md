@@ -1,4 +1,4 @@
-# MaloLab 🐘
+# MaloLab
 
 Petite application (PWA) d'exercices pour le CP : maths, lecture, écriture.
 Fonctionne sur iPhone et iPad, même hors ligne, une fois ajoutée à l'écran d'accueil.
@@ -18,8 +18,10 @@ Fonctionne sur iPhone et iPad, même hors ligne, une fois ajoutée à l'écran d
 
 ## Univers et récompenses
 
-- **Mon univers** (accueil) : l'enfant choisit entre Classique, Foot, Super-héros, Stars & démons, Royaume magique.
-  Chaque univers a ses couleurs, son compagnon, ses images à compter, ses félicitations et ses mots de lecture.
+- **Mon univers** (accueil) : l'enfant choisit entre Foot (Tom le buteur), Super-héros (Super Malo), Briques (Brik), Monstres (Zapi) et Dinosaures (Rex).
+  Chaque univers a ses couleurs, son compagnon illustré, ses images à compter, ses félicitations et ses mots de lecture.
+- Illustrations des compagnons : dossier `assets/` (WebP 512 px, ≈ 25 Ko). Descriptions Gemini : `design/prompts-gemini.md`.
+  Pour remplacer un compagnon : déposer `assets/compagnon-<univers>.webp` et mettre à jour `img` dans `THEMES` (`app.js`).
 - **Mon album** : un autocollant est gagné tous les 5 ⭐ (40 à collectionner).
 - Univers inspirés des goûts de l'enfant, sans reprendre de personnages officiels.
 - Pour modifier un univers : objet `THEMES` dans `app.js` et section « UNIVERS » de `style.css`.

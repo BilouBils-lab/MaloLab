@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <circle cx="110" cy="104" r="88" fill="#95D5B2" opacity=".35"/>
+  <circle cx="110" cy="104" r="68" fill="#FFB703" opacity=".3"/>
+  <polygon points="30.0,32.0 32.0,38.0 38.0,40.0 32.0,42.0 30.0,48.0 28.0,42.0 22.0,40.0 28.0,38.0" fill="#FFD60A" stroke="#1B1B2F" stroke-width="2"/><polygon points="172.0,24.0 174.5,31.5 182.0,34.0 174.5,36.5 172.0,44.0 169.5,36.5 162.0,34.0 169.5,31.5" fill="#FFD60A" stroke="#1B1B2F" stroke-width="2"/><polygon points="178.0,114.0 179.5,118.5 184.0,120.0 179.5,121.5 178.0,126.0 176.5,121.5 172.0,120.0 176.5,118.5" fill="#FFD60A" stroke="#1B1B2F" stroke-width="2"/><polygon points="24.0,114.0 25.5,118.5 30.0,120.0 25.5,121.5 24.0,126.0 22.5,121.5 18.0,120.0 22.5,118.5" fill="#FFD60A" stroke="#1B1B2F" stroke-width="2"/>
+    <path d="M46 172 Q14 164 4 128 Q28 152 56 150Z" fill="#40916C" stroke="#1B1B2F" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <polygon points="58,110 52,92 72,104" fill="#FB8500" stroke="#1B1B2F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><polygon points="46,132 40,114 60,126" fill="#FB8500" stroke="#1B1B2F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><polygon points="38,156 32,138 52,150" fill="#FB8500" stroke="#1B1B2F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+    <defs><clipPath id="r1"><path d="M40 198 Q30 140 70 104 Q92 94 112 116 Q126 152 116 198Z"/></clipPath></defs>
+  <g clip-path="url(#r1)"><rect width="200" height="200" fill="#40916C"/><path d="M40 198 Q30 140 70 104 Q92 94 112 116 Q126 152 116 198Z" fill="#52B788" transform="translate(-8 -5)"/></g>
+  <path d="M40 198 Q30 140 70 104 Q92 94 112 116 Q126 152 116 198Z" fill="none" stroke="#1B1B2F" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M66 150 Q82 160 100 150 M70 170 Q86 178 104 170" fill="none" stroke="#40916C" stroke-width="4" stroke-linecap="round"/>
+    <path d="M110 136 q16 0 20 12 q-8 2 -14 -4" fill="#52B788" stroke="#1B1B2F" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <defs><clipPath id="r2"><path d="M68 72 Q72 34 120 36 Q170 38 174 76 Q174 104 140 110 L118 112 Q94 118 80 108 Q64 96 68 72Z"/></clipPath></defs>
+  <g clip-path="url(#r2)"><rect width="200" height="200" fill="#40916C"/><path d="M68 72 Q72 34 120 36 Q170 38 174 76 Q174 104 140 110 L118 112 Q94 118 80 108 Q64 96 68 72Z" fill="#52B788" transform="translate(-8 -5)"/></g>
+  <path d="M68 72 Q72 34 120 36 Q170 38 174 76 Q174 104 140 110 L118 112 Q94 118 80 108 Q64 96 68 72Z" fill="none" stroke="#1B1B2F" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M118 94 Q146 104 168 90 Q160 108 140 106 Q126 106 118 94Z" fill="#7A1F2B" stroke="#1B1B2F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="146" cy="102" rx="8" ry="3" fill="#FF7A8A"/>
+    <polygon points="152,96 156,103 160,95" fill="#fff" stroke="#1B1B2F" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <ellipse cx="118" cy="86" rx="9" ry="5" fill="#FF8FA3" opacity=".6"/>
+    <circle cx="164" cy="60" r="3" fill="#1B1B2F"/>
+    <path d="M72 56 Q120 42 170 56 L168 70 Q120 58 74 70Z" fill="#E63946" stroke="#1B1B2F" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M76 60 Q50 44 28 52 Q50 60 76 66Z M76 64 Q56 70 36 84 Q60 80 78 70Z" fill="#E63946" stroke="#1B1B2F" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M122 68 Q132 62 142 68" fill="none" stroke="#1B1B2F" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/>
+    <g>
+  <ellipse cx="132" cy="80" rx="11" ry="14" fill="#1B1B2F"/>
+  <ellipse cx="132" cy="84" rx="8" ry="9" fill="#FFB703"/>
+  <ellipse cx="132" cy="88" rx="5" ry="4" fill="#fff" opacity=".35"/>
+  <circle cx="135" cy="75" r="4.6" fill="#fff"/>
+  <circle cx="128" cy="86" r="2" fill="#fff"/></g></svg>
