@@ -509,3 +509,11 @@ svg.cursive.ok .ink path { stroke: #2EC4B6; }
   .zone .row { flex-wrap: nowrap; gap: 8px; }
   .zone .row .btn { padding: 10px 12px; font-size: 16px; white-space: nowrap; }
 }
+
+/* =========================================================
+   Illustrations vectorielles des exercices
+   ========================================================= */
+svg.art { width: 1em; height: 1em; display: inline-block; vertical-align: middle; overflow: visible; }
+.pic svg.art { width: 1.05em; height: 1.05em; filter: drop-shadow(0 4px 6px rgba(90,69,53,.15)); }
+.count span, .grp span { display: inline-flex; }
+.snd .se svg.art { width: 1.2em; height: 1.2em; }

@@ -55,9 +55,9 @@ const LEX = [
   // mots des univers (3e colonne = univers)
   ['b.u.t', '🥅', 'foot'], ['c.ou/p.(e)', '🏆', 'foot'], ['s.t.a/d.(e)', '🏟️', 'foot'], ['f.i/l.et', '🥅', 'foot'],
   ['(h).é/r.o.(s)', '🦸', 'heros'], ['é/c.l.ai.r', '⚡', 'heros'], ['m.a.s/qu.(e)', '🎭', 'heros'], ['t.i/g.r.(e)', '🐯', 'heros'],
-  ['m.i/c.r.o', '🎤'], ['s.t.a.r', '🌟'], ['d.an/s.(e)', '💃'], ['é/p.é.(e)', '🗡️'],
+  ['m.i/c.r.o', '🎤'], ['d.an/s.(e)', '💃'], ['é/p.é.(e)', '🗡️'],
   ['f.é.(e)', '🧚'], ['r.ei/n.(e)', '👸'], ['p.r.in/c=s.(e)', '🤴'], ['d.r.a/g.on', '🐉', 'monstres'],
-  ['s.i/r.è/n.(e)', '🧜‍♀️'], ['g=j.é/n.i.(e)', '🧞'], ['m.a/g=j.i.(e)', '🪄'],
+  ['s.i/r.è/n.(e)', '🧜‍♀️'], ['m.a/g=j.i.(e)', '🪄'],
   ['b.r.i/qu.(e)', '🧱', 'briques'], ['t.ou.r', '🗼', 'briques'], ['g.r.u.(e)', '🏗️', 'briques'],
   ['m.on.s/t.r.(e)', '👾', 'monstres'], ['d.é/m.on', '👹', 'monstres'],
   ['d.i/n.o', '🦕', 'dinos'], ['o.s', '🦴', 'dinos'], ['r.e=è.x', '🦖', 'dinos'],
@@ -84,9 +84,9 @@ const PHRASES = [
   ['La rose est rouge.', true], ['Le phoque nage.', true], ['Le lion dort.', true], ['La poule a un ballon.', false],
   ['Le lama a un vélo.', false], ['Il a un ami.', true], ['Le chat est sur le mur.', true],
   ['Le cheval a un vélo.', false], ['Le rat a un vélo.', false], ['La fusée a un vélo.', false], ['Le chat a un vélo.', false],
-  ['Le héros vole.', true], ['Le dragon vole.', true], ['Le ballon chante.', false], ['La star chante.', true],
+  ['Le héros vole.', true], ['Le dragon vole.', true], ['Le ballon chante.', false],
   ['La sirène nage.', true], ['Le tigre chante.', false], ['Le dragon a un vélo.', false], ['La fée vole.', true],
-  ['La star danse.', true], ['Le héros a un masque.', true], ['La reine a un micro.', false],
+  ['Le héros a un masque.', true], ['La reine a un micro.', false],
 ];
 
 /* =========================================================
@@ -96,35 +96,35 @@ const THEMES = {
   foot: {
     name: 'Foot', img: 'assets/compagnon-foot.webp', decor: 'assets/decor-foot.webp', decorL: 'assets/decor-foot-paysage.webp', bg: '#F4A259', buddyName: 'Tom le buteur',
     hello: ["Salut {n} ! Prêt pour l'entraînement ?", 'Allez {n}, on va marquer des buts !', "C'est le match, {n} ! En avant !"],
-    count: ['⚽', '👟', '🏆', '🧤', '🥅', '🥇', '🎽', '📣'],
+    count: ['ballon', 'crampon', 'coupe', 'gant', 'médaille'],
     praise: ['But', 'Quel tir', 'Champion', 'Superbe action', 'Bravo le buteur', 'Incroyable'],
     pop: '⚽', confetti: ['⚽', '🏆', '🥇', '🎉', '⭐', '📣'],
   },
   heros: {
     name: 'Super-héros', img: 'assets/compagnon-heros.webp', decor: 'assets/decor-heros.webp', decorL: 'assets/decor-heros-paysage.webp', bg: '#A9D6F5', buddyName: 'Super {n}',
     hello: ['Super {n}, la ville a besoin de toi !', 'Active tes super-pouvoirs, {n} !', 'Mission du jour, {n} : apprendre !'],
-    count: ['🦸', '🛡️', '⚡', '💥', '🚀', '🦸‍♀️', '🔨', '🤖'],
+    count: ['bouclier', 'éclair', 'masque', 'étoile', 'fusée'],
     praise: ['Super-pouvoir', 'Mission réussie', 'Héroïque', 'Bravo super-héros', 'Bien joué', 'Incroyable'],
     pop: '⚡', confetti: ['💥', '⚡', '🛡️', '⭐', '🚀', '✨'],
   },
   briques: {
     name: 'Briques', img: 'assets/compagnon-briques.webp', decor: 'assets/decor-briques.webp', decorL: 'assets/decor-briques-paysage.webp', bg: '#FCF4CF', buddyName: 'Brik le robot',
     hello: ['Bip bip ! On construit, {n} ?', 'Brique par brique, on apprend, {n} !', 'Prêt à bâtir, {n} ?'],
-    count: ['🧱', '🔧', '🔩', '🏗️', '🤖', '🏠', '🚧', '⚙️'],
+    count: ['brique', 'clé', 'boulon', 'engrenage', 'tour'],
     praise: ['Bien construit', 'Super bâtisseur', 'Brique par brique', 'Bravo', 'Génial', 'Parfait'],
     pop: '🧱', confetti: ['🧱', '🔧', '⭐', '⚙️', '✨', '🎉'],
   },
   monstres: {
     name: 'Monstres', img: 'assets/compagnon-monstres.webp', decor: 'assets/decor-monstres.webp', decorL: 'assets/decor-monstres-paysage.webp', bg: '#E4D5FC', buddyName: 'Zapi',
     hello: ['Zap zap ! On joue, {n} ?', 'Trouvons de nouveaux monstres, {n} !', 'Zapi a hâte de grandir avec toi, {n} !'],
-    count: ['👾', '🐉', '⚡', '✨', '💎', '🌟', '🥚', '🔮'],
+    count: ['monstre', 'cristal', 'œuf', 'boule', 'étoile'],
     praise: ['Monstre trouvé', 'Zapi est fier de toi', 'Super explorateur', 'Bravo', 'Génial', 'Incroyable'],
     pop: '⚡', confetti: ['⚡', '✨', '💎', '🌟', '🔮', '⭐'],
   },
   dinos: {
     name: 'Dinosaures', img: 'assets/compagnon-dinos.webp', decor: 'assets/decor-dinos.webp', decorL: 'assets/decor-dinos-paysage.webp', bg: '#E4D6FA', buddyName: 'Rex',
     hello: ['Roar ! On part en exploration, {n} ?', 'Rex est prêt, et toi {n} ?', 'Allons découvrir la vallée des dinos, {n} !'],
-    count: ['🦖', '🦕', '🥚', '🦴', '🌋', '🌿', '🐾', '🪨'],
+    count: ['œuf-dino', 'os', 'empreinte', 'fougère', 'dino'],
     praise: ['Rugissement de victoire', 'Bravo explorateur', 'Super', 'Génial', 'Excellent', 'Parfait'],
     pop: '🦖', confetti: ['🦕', '🦖', '🥚', '🌿', '⭐', '✨'],
   },
@@ -170,7 +170,7 @@ const sample = (a, n) => shuffle(a).slice(0, n);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const maxN = () => [5, 10, 20][state.level - 1];
 const L = s => state.caps ? s.toUpperCase() : s;
-const emojis = (e, n) => Array(n).fill(`<span>${e}</span>`).join('');
+const emojis = (e, n) => Array(n).fill(`<span>${artHTML(e, e)}</span>`).join('');
 const FONT = getComputedStyle(document.documentElement).getPropertyValue('--font');
 
 function numChoices(ans, lo, hi, k = 3) {
@@ -586,7 +586,7 @@ const ACTS = {
           const ds = sample(K.filter(x => x !== f), 2);
           return {
             key: w.text, text: "Quel son entends-tu au début du mot ?", say: `Quel son entends-tu au début du mot : ${w.text} ?`,
-            build: choiceBuild({ top: `<button class="pic" data-say="${esc(w.text)}">${w.e}</button>`, choices: shuffle([f, ...ds]), isRight: x => x === f, label: x => esc(L(x)) }),
+            build: choiceBuild({ top: `<button class="pic" data-say="${esc(w.text)}">${artHTML(w.text, w.e)}</button>`, choices: shuffle([f, ...ds]), isRight: x => x === f, label: x => esc(L(x)) }),
           };
         },
       },
@@ -597,7 +597,7 @@ const ACTS = {
           const w = pickWord(W), ds = sample(W.filter(x => x !== w), 2);
           return {
             key: w.text, text: 'Quel est le bon mot ?', say: "Regarde l'image, et touche le bon mot.",
-            build: choiceBuild({ top: `<div class="pic">${w.e}</div>`, choices: shuffle([w, ...ds]), isRight: x => x === w, label: x => wordHTML(x), cls: 'words' }),
+            build: choiceBuild({ top: `<div class="pic">${artHTML(w.text, w.e)}</div>`, choices: shuffle([w, ...ds]), isRight: x => x === w, label: x => wordHTML(x), cls: 'words' }),
           };
         },
       },
@@ -608,7 +608,7 @@ const ACTS = {
           const w = pickWord(W), ds = sample(W.filter(x => x !== w), 2);
           return {
             key: w.text, text: 'Lis le mot et touche la bonne image', say: 'Lis le mot, et touche la bonne image.',
-            build: choiceBuild({ top: `<div class="word">${wordHTML(w)}</div>`, choices: shuffle([w, ...ds]), isRight: x => x === w, label: x => x.e, cls: 'pics' }),
+            build: choiceBuild({ top: `<div class="word">${wordHTML(w)}</div>`, choices: shuffle([w, ...ds]), isRight: x => x === w, label: x => artHTML(x.text, x.e), cls: 'pics' }),
           };
         },
       },
@@ -638,7 +638,7 @@ const ACTS = {
         make() {
           const W = readableWords().filter(w => w.toks.length <= 7); if (!W.length) return null;
           const w = pickWord(W);
-          return spellQ({ units: w.toks, word: w.text, emoji: w.e, kind: 'mot' });
+          return spellQ({ units: w.toks, word: w.text, emoji: artHTML(w.text, w.e), kind: 'mot' });
         },
       },
       {
@@ -800,7 +800,7 @@ function soundsScreen(dk) {
         const w = DICT.get(g[2]);
         return `<button class="snd" data-say="${esc(g[2])}">
           ${g === newest ? '<i>Nouveau</i>' : ''}
-          <b>${esc(L(g[1]))}</b><span class="se">${g[3]}</span><span class="sm">${w ? wordHTML(w) : esc(g[2])}</span>
+          <b>${esc(L(g[1]))}</b><span class="se">${artHTML(g[2], g[3])}</span><span class="sm">${w ? wordHTML(w) : esc(g[2])}</span>
         </button>`;
       }).join('') : '<p class="empty">Demande à papa ou maman de choisir tes sons dans l\'espace parents.</p>'}
     </main>`);
