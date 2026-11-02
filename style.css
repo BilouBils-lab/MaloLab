@@ -420,3 +420,72 @@ body[data-theme="foot"] { --bg: #9BD4F2; --text: #1F3D2B; }
 body[data-theme="heros"] { --bg: #F6B98A; --text: #4A2511; }
 /* Sous un décor illustré, fond uni de la couleur du décor (visible quand le décor s'atténue) */
 body.has-decor { background: var(--bg); }
+
+/* =========================================================
+   MODE PAYSAGE
+   ========================================================= */
+/* Décor horizontal quand l'appareil est tourné */
+@media (orientation: landscape) {
+  body.has-decor::before { background-image: var(--decor-l); }
+}
+
+/* Écrans bas (iPhone à l'horizontale) : mise en page compacte, sans défilement */
+@media (orientation: landscape) and (max-height: 560px) {
+  .top { padding: 6px 16px; }
+  .icon { width: 44px; height: 44px; font-size: 22px; }
+  .stars { padding: 6px 14px; font-size: 17px; }
+  .hello, .title { font-size: 20px; }
+  .brand { font-size: 11px; }
+
+  /* Accueil : compagnon + bulle sur une ligne, 3 tuiles côte à côte */
+  .buddy { padding: 0 16px; }
+  .bud { width: 64px; height: 64px; border-width: 3px; }
+  .bubble { font-size: 15px; padding: 8px 12px; }
+  .home { grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 8px 16px; align-content: stretch; }
+  .domain { flex-direction: column; min-height: 0; padding: 10px; gap: 4px; font-size: 22px; }
+  .domain .di { font-size: 1.5em; }
+  .homebar { padding: 0 16px 8px; }
+  .pill { padding: 6px 10px; font-size: 16px; }
+  .pill-img { width: 28px; height: 28px; }
+
+  /* Exercices : image / consigne à gauche, réponse à droite */
+  .play { padding: 0 16px 10px; gap: 4px; }
+  .instr { font-size: 20px; }
+  .zone {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    grid-auto-rows: auto; align-items: center; justify-items: center; align-content: center;
+    gap: 10px 24px;
+  }
+  .zone > :first-child { grid-row: 1 / span 2; }
+  .zone > :only-child { grid-column: 1 / -1; }
+  .pic { font-size: min(34vh, 140px); }
+  .ear { width: 90px; height: 90px; font-size: 48px; }
+  .count { font-size: min(9vh, 44px); }
+  .add { font-size: min(7vh, 34px); }
+  .eq { font-size: min(12vh, 56px); }
+  .seq { font-size: min(11vh, 52px); }
+  .word { font-size: min(14vh, 64px); padding: 4px 24px; }
+  .sentence { font-size: min(9vh, 40px); padding: 10px 18px; }
+  .choices { gap: 10px; }
+  .choice { min-width: min(22vh, 110px); min-height: min(22vh, 110px); font-size: min(11vh, 52px); border-radius: 20px; }
+  .choices.words { max-width: none; }
+  .choices.words .choice { min-height: 56px; font-size: min(8vh, 36px); }
+  .choices.pics .choice { font-size: min(13vh, 64px); }
+  .choices.vf .choice { font-size: min(11vh, 52px); }
+  .slot, .tile { --s: min(84px, 21vh, calc((52vw - 48px - (var(--n) - 1) * 8px) / var(--n))); }
+  .row { gap: 10px; }
+  .btn { padding: 10px 18px; font-size: 18px; }
+
+  /* Fin de partie : compagnon à gauche, résultat à droite */
+  .end { display: grid; grid-template-columns: auto auto; justify-content: center; align-content: center; gap: 8px 32px; padding: 12px; }
+  .end-buddy { grid-row: 1 / span 4; width: min(200px, 62vh); }
+  .end h2 { font-size: 26px; }
+  .earned { font-size: 34px; }
+  .newsticker { padding: 6px 14px; font-size: 17px; }
+  .newsticker span { font-size: 40px; }
+}
+/* Grand écran en paysage (iPad) : les tuiles de l'accueil tiennent dans la hauteur */
+@media (orientation: landscape) and (min-height: 561px) {
+  .domain { min-height: min(300px, 34vh); }
+  .home { padding-top: 8px; }
+}

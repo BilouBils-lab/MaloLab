@@ -94,35 +94,35 @@ const PHRASES = [
    ========================================================= */
 const THEMES = {
   foot: {
-    name: 'Foot', img: 'assets/compagnon-foot.webp', decor: 'assets/decor-foot.webp', bg: '#F4A259', buddyName: 'Tom le buteur',
+    name: 'Foot', img: 'assets/compagnon-foot.webp', decor: 'assets/decor-foot.webp', decorL: 'assets/decor-foot-paysage.webp', bg: '#F4A259', buddyName: 'Tom le buteur',
     hello: ["Salut {n} ! Prêt pour l'entraînement ?", 'Allez {n}, on va marquer des buts !', "C'est le match, {n} ! En avant !"],
     count: ['⚽', '👟', '🏆', '🧤', '🥅', '🥇', '🎽', '📣'],
     praise: ['But', 'Quel tir', 'Champion', 'Superbe action', 'Bravo le buteur', 'Incroyable'],
     pop: '⚽', confetti: ['⚽', '🏆', '🥇', '🎉', '⭐', '📣'],
   },
   heros: {
-    name: 'Super-héros', img: 'assets/compagnon-heros.webp', decor: 'assets/decor-heros.webp', bg: '#A9D6F5', buddyName: 'Super {n}',
+    name: 'Super-héros', img: 'assets/compagnon-heros.webp', decor: 'assets/decor-heros.webp', decorL: 'assets/decor-heros-paysage.webp', bg: '#A9D6F5', buddyName: 'Super {n}',
     hello: ['Super {n}, la ville a besoin de toi !', 'Active tes super-pouvoirs, {n} !', 'Mission du jour, {n} : apprendre !'],
     count: ['🦸', '🛡️', '⚡', '💥', '🚀', '🦸‍♀️', '🔨', '🤖'],
     praise: ['Super-pouvoir', 'Mission réussie', 'Héroïque', 'Bravo super-héros', 'Bien joué', 'Incroyable'],
     pop: '⚡', confetti: ['💥', '⚡', '🛡️', '⭐', '🚀', '✨'],
   },
   briques: {
-    name: 'Briques', img: 'assets/compagnon-briques.webp', decor: 'assets/decor-briques.webp', bg: '#FCF4CF', buddyName: 'Brik le robot',
+    name: 'Briques', img: 'assets/compagnon-briques.webp', decor: 'assets/decor-briques.webp', decorL: 'assets/decor-briques-paysage.webp', bg: '#FCF4CF', buddyName: 'Brik le robot',
     hello: ['Bip bip ! On construit, {n} ?', 'Brique par brique, on apprend, {n} !', 'Prêt à bâtir, {n} ?'],
     count: ['🧱', '🔧', '🔩', '🏗️', '🤖', '🏠', '🚧', '⚙️'],
     praise: ['Bien construit', 'Super bâtisseur', 'Brique par brique', 'Bravo', 'Génial', 'Parfait'],
     pop: '🧱', confetti: ['🧱', '🔧', '⭐', '⚙️', '✨', '🎉'],
   },
   monstres: {
-    name: 'Monstres', img: 'assets/compagnon-monstres.webp', decor: 'assets/decor-monstres.webp', bg: '#E4D5FC', buddyName: 'Zapi',
+    name: 'Monstres', img: 'assets/compagnon-monstres.webp', decor: 'assets/decor-monstres.webp', decorL: 'assets/decor-monstres-paysage.webp', bg: '#E4D5FC', buddyName: 'Zapi',
     hello: ['Zap zap ! On joue, {n} ?', 'Trouvons de nouveaux monstres, {n} !', 'Zapi a hâte de grandir avec toi, {n} !'],
     count: ['👾', '🐉', '⚡', '✨', '💎', '🌟', '🥚', '🔮'],
     praise: ['Monstre trouvé', 'Zapi est fier de toi', 'Super explorateur', 'Bravo', 'Génial', 'Incroyable'],
     pop: '⚡', confetti: ['⚡', '✨', '💎', '🌟', '🔮', '⭐'],
   },
   dinos: {
-    name: 'Dinosaures', img: 'assets/compagnon-dinos.webp', decor: 'assets/decor-dinos.webp', bg: '#E4D6FA', buddyName: 'Rex',
+    name: 'Dinosaures', img: 'assets/compagnon-dinos.webp', decor: 'assets/decor-dinos.webp', decorL: 'assets/decor-dinos-paysage.webp', bg: '#E4D6FA', buddyName: 'Rex',
     hello: ['Roar ! On part en exploration, {n} ?', 'Rex est prêt, et toi {n} ?', 'Allons découvrir la vallée des dinos, {n} !'],
     count: ['🦖', '🦕', '🥚', '🦴', '🌋', '🌿', '🐾', '🪨'],
     praise: ['Rugissement de victoire', 'Bravo explorateur', 'Super', 'Génial', 'Excellent', 'Parfait'],
@@ -436,7 +436,10 @@ function traceQ(ch, kind) {
         <div class="row"><button class="btn sec" id="clr">🧽 Effacer</button><button class="btn" id="fin">✅ J'ai fini</button></div>`;
       const box = z.querySelector('.tracebox');
       const [g, ink] = box.querySelectorAll('canvas');
-      const S = Math.floor(Math.min(z.clientWidth - 8, window.innerHeight * 0.52, 460));
+      // Taille de la zone de tracé : en paysage compact, les boutons sont à droite ; sinon en dessous
+      const compact = matchMedia('(orientation: landscape) and (max-height: 560px)').matches;
+      const avail = window.innerHeight - z.getBoundingClientRect().top - (compact ? 16 : 90);
+      const S = Math.floor(Math.max(160, Math.min(compact ? z.clientWidth * 0.45 : z.clientWidth - 8, avail, 460)));
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       box.style.width = box.style.height = S + 'px';
       for (const c of [g, ink]) c.width = c.height = Math.round(S * dpr);
@@ -674,6 +677,7 @@ function applyTheme() {
   const decor = T().decor;
   document.body.classList.toggle('has-decor', !!decor);
   document.body.style.setProperty('--decor', decor ? `url("${decor}")` : 'none');
+  document.body.style.setProperty('--decor-l', T().decorL ? `url("${T().decorL}")` : (decor ? `url("${decor}")` : 'none'));
   const m = document.querySelector('meta[name="theme-color"]');
   if (m) m.content = getComputedStyle(document.body).getPropertyValue('--bg').trim() || '#FFF8E7';
 }
