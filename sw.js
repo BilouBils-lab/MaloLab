@@ -1,6 +1,6 @@
 // Service worker : permet à l'application de fonctionner hors ligne.
 // ⚠️ Après chaque modification de l'app, augmentez le numéro de version ci-dessous.
-const CACHE = 'malolab-v5';
+const CACHE = 'malolab-v6';
 const ASSETS = [
   './', './index.html', './style.css', './app.js', './manifest.webmanifest',
   './icon-192.png', './icon-512.png', './apple-touch-icon.png',
