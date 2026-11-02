@@ -46,11 +46,18 @@ const diceSVG = n => `<svg class="dice" viewBox="0 0 100 100"><rect x="5" y="5" 
 const FINGERS = [{ x: 4, yU: 40, h: 36, rot: -35 }, { x: 22, yU: 8, h: 62 }, { x: 39, yU: 2, h: 68 }, { x: 56, yU: 6, h: 64 }, { x: 72, yU: 18, h: 52 }];
 function handSVG(up, flip = false, hid = '') {
   const fingers = FINGERS.map((f, i) => {
-    const isUp = up[i], y = isUp ? f.yU : 56, h = isUp ? f.h : 22;
-    const tr = f.rot ? ` transform="rotate(${isUp ? f.rot : -75} ${f.x + 8} ${y + h})"` : '';
+    const isUp = up[i];
+    // Pouce baissé : replié contre la paume ; autres doigts baissés : seul le bout dépasse
+    const y = isUp ? f.yU : f.rot ? 72 : 40, h = isUp ? f.h : f.rot ? 26 : 30;
+    const tr = f.rot && isUp ? ` transform="rotate(${f.rot} ${f.x + 8} ${y + h})"` : '';
+    if (f.rot && !isUp) return `<rect class="finger" data-f="${i}" x="14" y="${y}" width="16" height="${h}" rx="8"/>`;
     return `<rect class="finger${isUp ? ' up' : ''}" data-f="${i}" x="${f.x}" y="${y}" width="16" height="${h}" rx="8"${tr}/>`;
   }).join('');
-  return `<svg class="hand" viewBox="0 0 100 130"${flip ? ' style="transform:scaleX(-1)"' : ''} data-h="${hid}">${fingers}<rect class="palm" x="18" y="62" width="68" height="62" rx="24"/></svg>`;
+  // Zones tactiles invisibles, une par doigt, sur toute la hauteur (faciles à toucher pour un enfant)
+  const hits = [[0, 20], [20, 17], [37, 17], [54, 17], [71, 29]].map(([x, w], i) =>
+    `<rect class="hit" data-f="${i}" x="${x}" y="0" width="${w}" height="130"/>`).join('');
+  const thumbDown = up[0] ? '' : `<rect class="finger thumb-in" x="14" y="72" width="16" height="26" rx="8"/>`;
+  return `<svg class="hand" viewBox="0 0 100 130"${flip ? ' style="transform:scaleX(-1)"' : ''} data-h="${hid}">${fingers}<rect class="palm" x="18" y="62" width="68" height="62" rx="24"/>${thumbDown}${hid !== '' ? hits : ''}</svg>`;
 }
 const upTo = k => [0, 1, 2, 3, 4].map(i => i < k);
 const handsFor = n => `<div class="hands">${handSVG(upTo(Math.min(n, 5)), true)}${n > 5 ? handSVG(upTo(n - 5)) : ''}</div>`;
@@ -83,7 +90,7 @@ function doigtsQ() {
       const draw = () => {
         z.querySelector('.hands').innerHTML = handSVG(st[0], true, 0) + handSVG(st[1], false, 1);
         z.querySelectorAll('.hand').forEach(h => h.addEventListener('click', e => {
-          const f = e.target.closest('.finger'); if (!f) return;
+          const f = e.target.closest('[data-f]'); if (!f) return;
           const k = +h.dataset.h, i = +f.dataset.f; st[k][i] = !st[k][i]; sfxPop(); draw();
         }));
       };

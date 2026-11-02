@@ -637,3 +637,6 @@ svg.bond text.b { fill: #1E6FE8; } svg.bond text.g { fill: #2E9E5B; } svg.bond t
 /* Formes */
 svg.shape { width: clamp(80px, 22vw, 120px); }
 svg.shape * { stroke: #4A3B33; stroke-width: 2.5; stroke-linejoin: round; }
+svg.hand .hit { fill: transparent; stroke: none; cursor: pointer; }
+.lf-tile svg.cw-mini { height: 1.15em; }
+.lf-tile svg.cw-mini path { stroke-width: 2.1; }
