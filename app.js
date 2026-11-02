@@ -650,10 +650,24 @@ const ACTS = {
         },
       },
       {
-        id: 'tracelettres', title: 'Tracer les lettres', icon: '✍️',
+        id: 'cursive-lettres', title: 'Lettres attachées', icon: '✒️',
         make() {
-          const letters = state.known.filter(id => id.length === 1);
-          return traceQ(pick(letters.length ? letters : 'aioulrm'.split('')), 'la lettre');
+          const letters = [...new Set(state.known.flatMap(id => [...id]))].filter(c => cursiveSupports(c));
+          return cursiveQ(pick(letters.length ? letters : 'aioulrm'.split('')), 'la lettre');
+        },
+      },
+      {
+        id: 'cursive-syllabes', title: 'Syllabes attachées', icon: '✍️',
+        make() {
+          const P = syllPool().map(([c, v]) => c + v).filter(cursiveSupports); if (!P.length) return null;
+          return cursiveQ(pick(P), 'la syllabe');
+        },
+      },
+      {
+        id: 'cursive-mots', title: 'Mots attachés', icon: '📝',
+        make() {
+          const W = readableWords().filter(w => w.text.length <= 7 && cursiveSupports(w.text)); if (!W.length) return null;
+          return cursiveQ(pickWord(W).text, 'le mot');
         },
       },
     ],

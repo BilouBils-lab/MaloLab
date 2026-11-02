@@ -9,7 +9,7 @@ Fonctionne sur iPhone et iPad, même hors ligne, une fois ajoutée à l'écran d
 |---|---|
 | 🔢 Maths | Compter · Additions · Le plus grand · La suite · Tracer les chiffres |
 | 📖 Lecture | Mes sons (mots repères) · Les syllabes · Le premier son · Quel mot ? · Lis le mot · Vrai ou faux ? (phrases) |
-| ✏️ Écriture | Écris le mot (graphèmes à glisser : ch, ou, on…) · Dictée de syllabes · Tracer les lettres |
+| ✏️ Écriture | Écris le mot (graphèmes à glisser : ch, ou, on…) · Dictée de syllabes · Lettres, syllabes et mots attachés (cursive, Apple Pencil) |
 
 - Une partie compte 5 questions. Une réponse juste du premier coup rapporte une ⭐.
 - Une voix lit les consignes (🔊 pour réécouter). Toucher l'image ou l'oreille fait entendre le mot.
@@ -25,6 +25,13 @@ Fonctionne sur iPhone et iPad, même hors ligne, une fois ajoutée à l'écran d
 - **Mon album** : un autocollant est gagné tous les 5 ⭐ (40 à collectionner).
 - Univers inspirés des goûts de l'enfant, sans reprendre de personnages officiels.
 - Pour modifier un univers : objet `THEMES` dans `app.js` et section « UNIVERS » de `style.css`.
+
+## Écriture cursive (Apple Pencil)
+
+- Modèle en écriture attachée sur lignes Seyès, point de départ vert, flèches de sens, démonstration animée (« Revoir »).
+- Vérification : départ au bon endroit, sens du geste, couverture du modèle, précision, points / barres / accents.
+- Dès que l'Apple Pencil est utilisé, la main posée sur l'écran est ignorée.
+- Lettres dessinées dans `cursive.js` (tracés vectoriels) ; les mots proposés n'utilisent que les sons étudiés.
 
 ## Lecture : principes de la méthode Alfi
 
