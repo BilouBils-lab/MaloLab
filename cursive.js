@@ -106,13 +106,15 @@ function samplePath(svg, d, step = 0.6) {
   return { pts, len };
 }
 
-function cursiveQ(text, kind) {
+// opts.layout : fonction de tracé (cursive par défaut, ou chiffres) ; opts.title : consigne affichée
+function cursiveQ(text, kind, opts = {}) {
+  const layout = opts.layout || cursiveLayout;
   return {
     key: text,
-    text: `Écris en attaché : <b class="cw">${esc(text)}</b>`,
+    text: opts.title || `Écris en attaché : <b class="cw">${esc(text)}</b>`,
     say: `Repasse sur ${kind} ${text}, en partant du point vert.`,
     build(z, answer) {
-      const L = cursiveLayout(text);
+      const L = layout(text);
       const minW = 34, pad = Math.max(5, (minW - L.width) / 2);
       const x0 = -1.5 - pad, x1 = L.width + pad, y0 = -34, y1 = 22, W = x1 - x0, H = y1 - y0;
       z.innerHTML = `

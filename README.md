@@ -7,8 +7,8 @@ Fonctionne sur iPhone et iPad, même hors ligne, une fois ajoutée à l'écran d
 
 | Domaine | Activités |
 |---|---|
-| 🔢 Maths | Compter · Additions · Le plus grand · La suite · Tracer les chiffres |
-| 📖 Lecture | Mes sons (mots repères) · Les syllabes · Le premier son · Quel mot ? · Lis le mot · Vrai ou faux ? (phrases) |
+| 🔢 Maths | Compter (objets, boîte de 10, doigts, dé) · Montre avec tes doigts · Nombres en lettres · La suite des nombres (à rebours, avant/après) · Ajouter 1 · Comparer (plus/moins/autant, < = >) · Additions · Soustractions · Les motifs · Les formes · Tracer les chiffres |
+| 📖 Lecture | Mes sons · Les lettres · J'entends le son · Combine les lettres · Les syllabes · Méli-mélo · Le premier son · Quel mot ? · Lis le mot · Vrai ou faux ? · Fluence (chronomètre) |
 | ✏️ Écriture | Écris le mot (graphèmes à glisser : ch, ou, on…) · Dictée de syllabes · Lettres, syllabes et mots attachés (cursive, Apple Pencil) |
 
 - Une partie compte 5 questions. Une réponse juste du premier coup rapporte une ⭐.
@@ -32,6 +32,17 @@ Fonctionne sur iPhone et iPad, même hors ligne, une fois ajoutée à l'écran d
 - Vérification : départ au bon endroit, sens du geste, couverture du modèle, précision, points / barres / accents.
 - Dès que l'Apple Pencil est utilisé, la main posée sur l'écran est ignorée.
 - Lettres dessinées dans `cursive.js` (tracés vectoriels) ; les mots proposés n'utilisent que les sons étudiés.
+
+## Alignement sur la classe
+
+- **Lecture** : progression du fichier de la classe (L1 a, i, r, o, l, é, u, s, f, e, m, ch, ou, L14 n), mêmes mots repères,
+  mots outils de la classe (un, à, il y a, et, est, dans, c'est…), arcs sous les syllabes comme dans le fichier.
+  Exercices sur le modèle du fichier : lire les lettres sous toutes leurs formes, entendre un son, combiner les lettres
+  (ra / ar), méli-mélo, fluence chronométrée (temps 1, 2, 3).
+- **Maths** : taille des nombres réglée automatiquement selon le mois (10 en septembre, 30 jusqu'en décembre, 60 jusqu'en mars, 90 ensuite),
+  jeu des doigts, boîte de 10, « maison » du nombre, signes < et >, soustraction en barrant, motifs, solides et formes planes,
+  tracé des chiffres avec point de départ et sens.
+- Les mots et phrases sont écrits pour l'application (les textes des manuels ne sont pas recopiés).
 
 ## Lecture : principes de la méthode Alfi
 

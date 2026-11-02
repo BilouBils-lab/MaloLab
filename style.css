@@ -517,3 +517,123 @@ svg.art { width: 1em; height: 1em; display: inline-block; vertical-align: middle
 .pic svg.art { width: 1.05em; height: 1.05em; filter: drop-shadow(0 4px 6px rgba(90,69,53,.15)); }
 .count span, .grp span { display: inline-flex; }
 .snd .se svg.art { width: 1.2em; height: 1.2em; }
+
+/* =========================================================
+   Exercices du fichier de la classe
+   ========================================================= */
+/* Arcs sous les syllabes (comme dans le fichier) */
+.arc {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20' preserveAspectRatio='none'%3E%3Cpath d='M4 3 Q50 30 96 3' fill='none' stroke='%23A39A8C' stroke-width='2.5' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") no-repeat center bottom / 92% .34em;
+  padding-bottom: .3em; margin: 0 .02em;
+}
+.mo { font-weight: 900; text-decoration: none; }
+
+/* Les lettres sous toutes leurs formes */
+.lf-band { display: flex; align-items: center; justify-content: center; gap: 18px; background: var(--card); border-radius: 22px; padding: 8px 18px; box-shadow: 0 4px 0 rgba(0,0,0,.08); }
+.lf-band > span { font-size: clamp(34px, 9vw, 54px); font-weight: 700; line-height: 1; }
+.lfb-c { color: #D62828; } .lfb-s { color: #1E6FE8; } .lfb-k { color: var(--ink); }
+.lfb-pic { width: 64px; height: 64px; font-size: 56px; }
+svg.cw-mini { height: 1em; width: auto; overflow: visible; }
+svg.cw-mini path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.lfb-c svg.cw-mini path { stroke: #D62828; }
+.lf-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; width: 100%; max-width: 520px; }
+.lf-tile {
+  aspect-ratio: 1; background: var(--card); border-radius: 18px; border: 3px solid #4A3B33; color: var(--ink);
+  font-size: clamp(30px, 9vw, 52px); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 0 rgba(0,0,0,.12);
+}
+.lf-tile.good { border-color: var(--good); background: #DDF7F3; animation: bounce .4s; }
+.lf-tile.bad { border-color: var(--bad); opacity: .45; }
+.lf-script { font-family: var(--font); font-weight: 500; }
+.lf-caps { font-family: system-ui, sans-serif; font-weight: 600; }
+.lf-serif { font-family: Georgia, "Times New Roman", serif; }
+
+/* Entends-tu le son ? */
+.hear { display: flex; align-items: center; gap: 18px; }
+.hear-snd { font-size: clamp(36px, 10vw, 60px); font-weight: 800; color: #D62828; background: var(--card); border-radius: 50%; width: 1.7em; height: 1.7em; display: grid; place-items: center; box-shadow: 0 4px 0 rgba(0,0,0,.1); }
+
+/* Combine les lettres */
+.fusion { display: flex; align-items: center; gap: 4px; font-size: clamp(36px, 10vw, 60px); font-weight: 800; }
+.chev { background: var(--card); color: var(--ink); padding: .1em .7em .1em .45em; clip-path: polygon(0 0, 78% 0, 100% 50%, 78% 100%, 0 100%, 16% 50%); margin-right: -.18em; min-width: 1.8em; text-align: center; filter: drop-shadow(0 2px 0 #4A3B33); }
+.chev:first-child { clip-path: polygon(0 0, 78% 0, 100% 50%, 78% 100%, 0 100%); }
+.farrow { margin: 0 .3em; color: var(--text, var(--ink)); }
+.fbox { background: var(--card); border: 3px solid #4A3B33; border-radius: 16px; padding: 0 .4em; }
+
+/* Fluence */
+.fl-tip { margin: 0; text-align: center; opacity: .85; }
+.fl-box { background: var(--card); color: var(--ink); border-radius: 22px; padding: 14px 20px; box-shadow: 0 5px 0 rgba(0,0,0,.08); transition: filter .3s; width: 100%; max-width: 640px; }
+.fl-box.blur { filter: blur(9px); }
+.fl-syl, .fl-mots { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px 20px; }
+.fl-syl .fl-item { font-size: clamp(34px, 9vw, 48px); font-weight: 700; text-align: center; }
+.fl-mots .fl-item { font-size: clamp(28px, 7vw, 40px); font-weight: 700; text-align: center; }
+.fl-phr .fl-item { font-size: clamp(24px, 6vw, 36px); font-weight: 700; line-height: 1.7; }
+.fl-meli { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px 24px; }
+.fl-meli .fl-item { font-size: clamp(24px, 6vw, 34px); font-weight: 700; text-align: center; }
+.fl-meli .sep { font-style: normal; opacity: .4; }
+.fl-timer { font-size: clamp(40px, 10vw, 64px); font-weight: 800; font-variant-numeric: tabular-nums; }
+.fl-hist { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; font-size: 16px; opacity: .9; }
+.fl-hist span { background: var(--card); color: var(--ink); padding: 4px 12px; border-radius: 999px; }
+.fl-result { font-size: 26px; font-weight: 800; background: var(--card); color: var(--ink); padding: 10px 20px; border-radius: 18px; animation: bounce .6s; }
+.fl-result small { font-size: 16px; opacity: .7; }
+
+/* =========================================================
+   Maths (méthode de la classe)
+   ========================================================= */
+.bignum { font-size: clamp(64px, 18vw, 110px); font-weight: 800; line-height: 1; color: var(--c); background: var(--card); border-radius: 26px; padding: 4px 30px; box-shadow: 0 5px 0 rgba(0,0,0,.08); }
+/* Boîte de 10 */
+.tfs { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.tf { display: grid; grid-template-columns: repeat(5, 1fr); border: 2.5px solid #4A3B33; background: #fff; }
+.tf span { width: clamp(30px, 8vw, 44px); aspect-ratio: 1; border: 1px solid #9C948A; display: grid; place-items: center; }
+.tf i { width: 74%; aspect-ratio: 1; border-radius: 50%; background: #3A86FF; box-shadow: inset -3px -3px 0 rgba(0,0,0,.15); }
+.tf i.g { background: #2E9E5B; }
+/* Dé */
+svg.dice { width: clamp(110px, 30vw, 160px); }
+svg.dice rect { fill: #fff; stroke: #4A3B33; stroke-width: 4; }
+svg.dice circle { fill: #4A3B33; }
+/* Mains */
+.hands { display: flex; gap: 6px; justify-content: center; }
+svg.hand { width: clamp(90px, 26vw, 150px); overflow: visible; }
+.hands.big svg.hand { width: clamp(130px, 40vw, 220px); cursor: pointer; }
+svg.hand .finger, svg.hand .palm { fill: #F2C29B; stroke: #5A4535; stroke-width: 2.5; }
+svg.hand .finger { transition: all .15s; }
+.hands.big svg.hand .finger { fill: #EBB78F; }
+.hands.big svg.hand .finger.up { fill: #F6CFA8; }
+.nword { display: flex; flex-direction: column; align-items: center; gap: 4px; background: var(--card); color: var(--ink); border-radius: 24px; padding: 10px 28px; box-shadow: 0 5px 0 rgba(0,0,0,.08); font-size: 22px; }
+svg.cw-big { height: clamp(70px, 18vw, 110px); width: auto; overflow: visible; }
+svg.cw-big path { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+/* Comparer */
+.cmp { display: flex; align-items: flex-end; gap: 18px; font-size: clamp(48px, 13vw, 76px); font-weight: 800; }
+.cmp > div { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.cmp b { background: var(--card); color: var(--ink); border-radius: 18px; padding: 0 .35em; }
+.cubes { display: flex; flex-wrap: wrap; width: 5.6em; gap: 3px; justify-content: center; font-size: 18px; }
+.cube { width: 1.15em; height: 1.15em; background: #3A86FF; border-radius: 3px; box-shadow: 3px -3px 0 #6FA8FF, inset 0 0 0 1.5px #1E5BC6; }
+.sign { font-size: 1.2em; }
+.cmp-col { display: flex; flex-direction: column; gap: 14px; background: var(--card); padding: 14px 20px; border-radius: 22px; }
+.cmp-col div { display: flex; gap: 8px; flex-wrap: wrap; }
+.dot { display: inline-block; width: 26px; height: 26px; border-radius: 50%; vertical-align: middle; }
+.dot.or { background: #F2A23A; } .dot.pk { background: #E05A8F; }
+.choices.cmp3 .choice { font-size: clamp(24px, 6vw, 34px); }
+.choices.cmp3 small { font-size: 14px; font-weight: 600; }
+.choices.cmp3 small .dot { width: 14px; height: 14px; }
+/* Addition : maison du nombre */
+.add-row { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; justify-content: center; }
+svg.bond { width: clamp(130px, 34vw, 180px); }
+svg.bond line { stroke: #4A3B33; stroke-width: 2.5; }
+svg.bond circle { fill: #fff; stroke: #4A3B33; stroke-width: 2.5; }
+svg.bond text { font: 800 24px var(--font); text-anchor: middle; }
+svg.bond text.b { fill: #1E6FE8; } svg.bond text.g { fill: #2E9E5B; } svg.bond text.t { fill: #D62828; }
+/* Soustraction : on barre */
+.subs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 520px; }
+.sub { position: relative; width: clamp(34px, 9vw, 48px); aspect-ratio: 1; border-radius: 50%; border: 3px solid #4A3B33; background: #fff; }
+.sub.marble { background: radial-gradient(circle at 35% 35%, #fff 0 12%, #6FA8DC 13% 100%); }
+.sub.x::after { content: ''; position: absolute; left: -12%; right: -12%; top: 50%; height: 4px; background: #D62828; border-radius: 2px;
+  transform: rotate(-45deg) scaleX(0); animation: barre .35s ease-out var(--d) forwards; }
+@keyframes barre { to { transform: rotate(-45deg) scaleX(1); } }
+/* Motifs */
+.motif { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; align-items: center; background: var(--card); padding: 12px 16px; border-radius: 22px; max-width: 640px; }
+.motif .q { font-size: 40px; font-weight: 800; margin-left: 6px; }
+.motif.art svg.art { width: clamp(34px, 9vw, 52px); height: clamp(34px, 9vw, 52px); }
+.bead { display: inline-block; width: clamp(30px, 8vw, 44px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff8 0 15%, var(--b) 16%); border: 2.5px solid #4A3B33; }
+.choices .bead { width: 60px; }
+/* Formes */
+svg.shape { width: clamp(80px, 22vw, 120px); }
+svg.shape * { stroke: #4A3B33; stroke-width: 2.5; stroke-linejoin: round; }

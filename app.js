@@ -12,18 +12,21 @@
    [identifiant, graphies, mot repère, image]
    ========================================================= */
 const GRAPHEMES = [
-  ['a', 'a', 'ananas', '🍍'], ['i', 'i y', 'île', '🏝️'], ['o', 'o', 'olive', '🫒'], ['u', 'u', 'lune', '🌙'],
-  ['é', 'é', 'éléphant', '🐘'], ['e', 'e', 'cheval', '🐴'], ['l', 'l', 'lion', '🦁'], ['r', 'r', 'rat', '🐀'],
-  ['m', 'm', 'moto', '🏍️'], ['s', 's', 'serpent', '🐍'], ['f', 'f', 'fusée', '🚀'], ['ch', 'ch', 'chat', '🐱'],
-  ['v', 'v', 'vélo', '🚲'], ['j', 'j', 'judo', '🥋'], ['n', 'n', 'nid', '🪺'], ['p', 'p', 'pomme', '🍎'],
-  ['t', 't', 'tomate', '🍅'], ['ou', 'ou', 'loup', '🐺'], ['d', 'd', 'dé', '🎲'], ['b', 'b', 'banane', '🍌'],
-  ['on', 'on om', 'mouton', '🐑'], ['c', 'c k qu', 'canard', '🦆'], ['an', 'an am en em', 'pantalon', '👖'],
-  ['è', 'è ê ai ei', 'fraise', '🍓'], ['g', 'g gu', 'gâteau', '🎂'], ['oi', 'oi', 'roi', '👑'],
-  ['in', 'in im ain', 'lapin', '🐰'], ['eu', 'eu œu', 'feu', '🔥'], ['au', 'au eau', 'bateau', '⛵'],
+  // L1 à L14 du fichier de la classe
+  ['a', 'a', 'amis', '🧒'], ['i', 'i y', 'île', '🏝️'], ['r', 'r', 'rat', '🐀'], ['o', 'o', 'olive', '🫒'],
+  ['l', 'l', 'lit', '🛏️'], ['é', 'é', 'héros', '🦸'], ['u', 'u', 'rue', '🏙️'], ['s', 's', 'os', '🦴'],
+  ['f', 'f', 'fée', '🧚'], ['e', 'e', 'ressort', '🌀'], ['m', 'm', 'mur', '🧱'], ['ch', 'ch', 'chat', '🐱'],
+  ['ou', 'ou', 'souris', '🐭'], ['n', 'n', 'niche', '🏠'],
+  // suite proposée (à ajuster selon le fichier)
+  ['p', 'p', 'pomme', '🍎'], ['t', 't', 'tomate', '🍅'], ['v', 'v', 'vélo', '🚲'], ['d', 'd', 'dé', '🎲'],
+  ['b', 'b', 'banane', '🍌'], ['j', 'j', 'judo', '🥋'], ['on', 'on om', 'mouton', '🐑'], ['c', 'c k qu', 'canard', '🦆'],
+  ['an', 'an am en em', 'pantalon', '👖'], ['è', 'è ê ai ei', 'fraise', '🍓'], ['g', 'g gu', 'gâteau', '🎂'],
+  ['oi', 'oi', 'roi', '👑'], ['in', 'in im ain', 'lapin', '🐰'], ['eu', 'eu œu', 'feu', '🔥'], ['au', 'au eau', 'bateau', '⛵'],
   ['z', 'z', 'zèbre', '🦓'], ['gn', 'gn', 'champignon', '🍄'], ['ill', 'ill', 'gorille', '🦍'],
   ['ph', 'ph', 'phoque', '🦭'], ['x', 'x', 'taxi', '🚕'],
 ];
 const DEFAULT_KNOWN = GRAPHEMES.slice(0, 14).map(g => g[0]);
+const OLD_DEFAULT_KNOWN = ['a', 'i', 'o', 'u', 'é', 'e', 'l', 'r', 'm', 's', 'f', 'ch', 'v', 'j'];
 
 /* =========================================================
    2. MOTS
@@ -52,6 +55,11 @@ const LEX = [
   ['r.ou.(e)', '🛞'], ['n.u/a/g=j.(e)', '☁️'], ['p.a/r.a/s.o.l', '⛱️'], ['c.o.q=c', '🐓'], ['s.a/v.on', '🧼'],
   ['c.a/f.é', '☕'], ['p.o.r/t.(e)', '🚪'], ['l.ou/p.(e)', '🔍'], ['f.ou.r/ch.e=è/tt.(e)', '🍴'], ['t.u/l.i/p.(e)', '🌷'],
   ['r.o/s=z.(e)', '🌹'], ['p.i/l.(e)', '🔋'],
+  // mots du fichier de la classe (L1 à L14)
+  ['a/m.i.(s)', '🧒'], ['r.u.(e)', '🏙️'], ['r.e/ss.o.r.(t)', '🌀'], ['n.i/ch.(e)', '🏠'], ['a/r.a', '🦜'],
+  ['l.i/l.a.(s)', '🪻'], ['i/r.i.s', '🌸'], ['s.i/r.o.(p)', '🍯'], ['l.a/ss.o', '🪢'], ['s.o/f.a', '🛋️'],
+  ['f.ou.r/m.i', '🐜'], ['l.ou/ch.(e)', '🥄'], ['f.ou/l.a.r.(d)', '🧣'], ['r.u/ch.(e)', '🐝'], ['f.a/r.i/n.(e)', '🌾'],
+  ['m.o/m.i.(e)', '🧟'], ['r.a/m.(e)', '🚣'], ['ch.e/m.i/n.é.(e)', '🔥'], ['m.a/m.i.(e)', '👵'],
   // mots des univers (3e colonne = univers)
   ['b.u.t', '🥅', 'foot'], ['c.ou/p.(e)', '🏆', 'foot'], ['s.t.a/d.(e)', '🏟️', 'foot'], ['f.i/l.et', '🥅', 'foot'],
   ['(h).é/r.o.(s)', '🦸', 'heros'], ['é/c.l.ai.r', '⚡', 'heros'], ['m.a.s/qu.(e)', '🎭', 'heros'], ['t.i/g.r.(e)', '🐯', 'heros'],
@@ -67,10 +75,13 @@ const EXTRA = [
   'v.o/l.(e)', 'm.a.r/ch.(e)', 'r.ou/l.(e)', 'n.a/g=j.(e)', 'm.i/au/l.(e)', 'd.o.r.(t)', 'm.an/g=j.(e)',
   'r.ou/g=j.(e)', 'v.e=è.r/t.(e)', 'p.e/t.i/t.(e)', 'p.e/t.i.(t)', 'j.au/n.(e)', 'p.a.r/l.(e)', 's.au/t.(e)',
   'ch.an/t.(e)', 'r.i.(t)', 'a/m.i', 'd.an/s.(e)',
+  'm.a/l.o', 'f.i/l.(e)', 'ch.a/ss.(e)', 's.a/l.(e)', 's.a/l.é', 'r.ou.(x)', 'é/n.o.r/m.(e)', 'f.â/ch.é', 'l.u',
+  'r.i/r.(e)', 'l.i/r.(e)', 'm.o.r.(d)', 's.o.r.(t)', 's.o.l', 'm.o.(t)', 'f.ou', 'm.ou', 'l.i/r.a', 'r.i/r.a', 'a/f.o/l.é.(e)',
 ];
 // Mots outils (appris « par cœur », sans décodage)
-const MOTS_OUTILS = ['le', 'la', 'les', 'un', 'une', 'il', 'elle', 'est', 'et', 'a', 'sur', 'dans', 'de', 'des', 'au', 'avec'];
-const DEFAULT_OUTILS = MOTS_OUTILS.slice(0, 14);
+const MOTS_OUTILS = ['un', 'le', 'la', "l'", 'a', 'à', 'il', 'y', 'et', 'est', 'dans', "c'est", 'sur', 'les', 'une', 'elle', 'de', 'des', 'au', 'avec'];
+const DEFAULT_OUTILS = MOTS_OUTILS.slice(0, 13);
+const OLD_DEFAULT_OUTILS = ['le', 'la', 'les', 'un', 'une', 'il', 'elle', 'est', 'et', 'a', 'sur', 'dans', 'de', 'des'];
 // Phrases pour « Vrai ou faux ? » (n'apparaissent que si tous les mots sont lisibles)
 const PHRASES = [
   ['Le chat dort sur le lit.', true], ['La moto vole.', false], ['Le poisson nage.', true], ['Le rat a une robe.', false],
@@ -87,6 +98,13 @@ const PHRASES = [
   ['Le héros vole.', true], ['Le dragon vole.', true], ['Le ballon chante.', false],
   ['La sirène nage.', true], ['Le tigre chante.', false], ['Le dragon a un vélo.', false], ['La fée vole.', true],
   ['Le héros a un masque.', true], ['La reine a un micro.', false],
+  // lisibles avec les sons du fichier de la classe (L1 à L14)
+  ['Le chat chasse la souris.', true], ['La mouche marche sur le mur.', true], ['Le renard est roux.', true],
+  ["L'ours a un nez.", true], ['Le loup chasse le rat.', true], ['Il y a un ara sur le mur.', true],
+  ['Malo lit sur le sofa.', true], ['La fourmi marche.', true], ["C'est un lama.", true], ['Le lama marche dans la rue.', true],
+  ['La lune est sur le sofa.', false], ['Le riz chasse le chat.', false], ['La fourmi est énorme.', false],
+  ['Le mur rit.', false], ['Le lit marche.', false], ["L'olive a un lasso.", false], ['Le rat lit.', false],
+  ['La roue rit.', false], ['Le sofa file dans la rue.', false], ['Il y a un ours dans la niche.', false],
 ];
 
 /* =========================================================
@@ -150,13 +168,21 @@ const QUESTIONS_PAR_PARTIE = 5;
 
 /* ---------- Sauvegarde locale ---------- */
 const KEY = 'malolab';
-const DEFAULTS = { theme: 'foot', name: 'Malo', level: 1, caps: false, voice: true, syl: true, stars: 0, act: {}, known: DEFAULT_KNOWN, outils: DEFAULT_OUTILS };
+const DEFAULTS = { theme: 'foot', name: 'Malo', level: 'auto', caps: false, voice: true, syl: 'arcs', stars: 0, act: {}, known: DEFAULT_KNOWN, outils: DEFAULT_OUTILS, fluence: {}, v2: true };
+const sameSet = (a, b) => Array.isArray(a) && a.length === b.length && b.every(x => a.includes(x));
 const state = (() => {
   let saved = {};
   try { saved = JSON.parse(localStorage.getItem(KEY) || localStorage.getItem('ptit-ecolier') || '{}'); } catch {}
   const s = Object.assign({}, DEFAULTS, saved);
   if (!s.name) s.name = DEFAULTS.name;
   if (!THEMES[s.theme]) s.theme = 'foot';
+  if (!saved.v2) { // passage à la progression de la classe (sans écraser des réglages personnalisés)
+    if (!saved.known || sameSet(saved.known, OLD_DEFAULT_KNOWN)) s.known = DEFAULT_KNOWN;
+    if (!saved.outils || sameSet(saved.outils, OLD_DEFAULT_OUTILS)) s.outils = DEFAULT_OUTILS;
+    s.syl = saved.syl === false ? 'aucune' : 'arcs';
+    s.level = 'auto';
+    s.v2 = true;
+  }
   return s;
 })();
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} };
@@ -168,7 +194,6 @@ const pick = a => a[Math.floor(Math.random() * a.length)];
 const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const sample = (a, n) => shuffle(a).slice(0, n);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const maxN = () => [5, 10, 20][state.level - 1];
 const L = s => state.caps ? s.toUpperCase() : s;
 const emojis = (e, n) => Array(n).fill(`<span>${artHTML(e, e)}</span>`).join('');
 const FONT = getComputedStyle(document.documentElement).getPropertyValue('--font');
@@ -211,11 +236,16 @@ const decodable = (w, K = knownSet()) => w.toks.every(t => t.silent || K.has(t.i
 const readableWords = () => { const K = knownSet(); return LEXICON.filter(w => decodable(w, K)); };
 
 function parseSentence(s) {
-  return s.split(' ').map(raw => {
+  const out = [];
+  s.replace(/’/g, "'").split(' ').forEach(raw => {
     const [, word, punct] = raw.match(/^(.*?)([.,!?]*)$/);
-    const low = word.toLowerCase();
-    return { word, low, punct, w: DICT.get(low) };
+    const low = word.toLowerCase(), m = low.match(/^([lcdjmnst]')(.+)$/);
+    if (m && low !== "c'est") {
+      out.push({ word: word.slice(0, 2), low: m[1], punct: '', glue: true });
+      out.push({ word: word.slice(2), low: m[2], punct, w: DICT.get(m[2]) });
+    } else out.push({ word, low, punct, w: DICT.get(low) });
   });
+  return out;
 }
 function sentenceReadable(p, K = knownSet(), MO = new Set(state.outils)) {
   return p.every(x => MO.has(x.low) || (x.w && decodable(x.w, K)));
@@ -225,28 +255,36 @@ const readableSentences = () => {
   return PHRASES.filter(([s]) => sentenceReadable(parseSentence(s), K, MO));
 };
 
-// Affichage d'un mot : syllabes en couleurs alternées, lettres muettes en gris
+// Affichage d'un mot : arcs sous les syllabes (comme en classe) ou syllabes en couleur ;
+// lettres muettes en gris, hors de l'arc
 function wordHTML(w, cap = false) {
-  const up = (s, first) => (cap && first) ? s.charAt(0).toUpperCase() + s.slice(1) : s;
-  if (!state.syl) return esc(L(up(w.text, true)));
   let first = true;
-  return w.syls.map((syl, i) => `<span class="s${i % 2}">${syl.map(t => {
-    const txt = esc(L(up(t.sp, first))); first = false;
-    return t.silent ? `<span class="mute">${txt}</span>` : txt;
-  }).join('')}</span>`).join('');
+  const txt = t => { const v = esc(L(cap && first ? t.sp.charAt(0).toUpperCase() + t.sp.slice(1) : t.sp)); first = false; return v; };
+  if (state.syl === 'aucune' || state.syl === false) return w.toks.map(txt).join('');
+  const arcs = state.syl !== 'couleurs';
+  return w.syls.map((syl, i) => {
+    let a = 0, b = syl.length;
+    while (a < b && syl[a].silent) a++;
+    while (b > a && syl[b - 1].silent) b--;
+    const mute = ts => ts.map(t => `<span class="mute">${txt(t)}</span>`).join('');
+    const core = syl.slice(a, b).map(t => t.silent ? `<span class="mute">${txt(t)}</span>` : txt(t)).join('');
+    const pre = mute(syl.slice(0, a));
+    return pre + (core ? `<span class="${arcs ? 'arc' : 's' + (i % 2)}">${core}</span>` : '') + mute(syl.slice(b));
+  }).join('');
 }
 function sentenceHTML(p) {
   return p.map((x, i) => {
+    const capital = /^[A-ZÀ-Ý]/.test(x.word);
     const inner = x.w && !state.outils.includes(x.low)
-      ? wordHTML(x.w, i === 0)
-      : `<span class="${state.syl ? 'mo' : ''}">${esc(L(x.word))}</span>`;
-    return `<span class="w" data-say="${esc(x.low)}">${inner}${esc(x.punct)}</span>`;
-  }).join(' ');
+      ? wordHTML(x.w, capital)
+      : `<span class="${state.syl === 'aucune' ? '' : 'mo'}">${esc(L(x.word))}</span>`;
+    return `<span class="w" data-say="${esc(x.low)}">${inner}${esc(x.punct)}</span>${x.glue || i === p.length - 1 ? '' : ' '}`;
+  }).join('');
 }
 
 // Syllabes possibles avec les sons connus
 const CONS = ['l', 'r', 'm', 's', 'f', 'ch', 'v', 'j', 'n', 'p', 't', 'd', 'b', 'c', 'g', 'z'];
-const VOW = ['a', 'i', 'o', 'u', 'é', 'ou', 'on', 'an', 'in', 'oi'];
+const VOW = ['a', 'i', 'o', 'u', 'é', 'e', 'ou', 'on', 'an', 'in', 'oi'];
 const HARD = ['a', 'o', 'u', 'ou', 'on', 'an', 'oi']; // c et g restent durs devant ces sons
 function syllPool() {
   const K = knownSet(), out = [];
@@ -508,55 +546,17 @@ const ACTS = {
   maths: {
     title: 'Maths', icon: '🔢', color: 'var(--maths)',
     list: [
-      {
-        id: 'compter', title: 'Compter', icon: '🍎',
-        make() {
-          const n = rnd(1, state.level === 1 ? 5 : state.level === 2 ? 10 : 15), e = pick(T().count);
-          return {
-            key: n, text: 'Combien y en a-t-il ?', say: 'Compte, et touche le bon nombre.',
-            build: choiceBuild({ top: `<div class="count">${emojis(e, n)}</div>`, choices: numChoices(n, 1, 20), isRight: c => c === n }),
-          };
-        },
-      },
-      {
-        id: 'additions', title: 'Additions', icon: '➕',
-        make() {
-          const M = maxN(), s = rnd(2, M), a = rnd(1, s - 1), b = s - a, e = pick(T().count);
-          const vis = s <= 10 ? `<div class="add"><div class="grp">${emojis(e, a)}</div>+<div class="grp">${emojis(e, b)}</div></div>` : '';
-          return {
-            key: `${a}+${b}`, text: `${a} + ${b} = ?`, say: `Combien font ${a} plus ${b} ?`,
-            build: choiceBuild({ top: vis + `<div class="eq">${a} + ${b} = <span class="q">?</span></div>`, choices: numChoices(s, 0, M + 3), isRight: c => c === s }),
-          };
-        },
-      },
-      {
-        id: 'plusgrand', title: 'Le plus grand', icon: '🐘',
-        make() {
-          const M = maxN(), a = rnd(0, M); let b; do b = rnd(0, M); while (b === a);
-          return {
-            key: [a, b].sort().join('-'), text: 'Touche le nombre le plus grand', say: 'Touche le nombre le plus grand.',
-            build: choiceBuild({
-              choices: [a, b], isRight: c => c === Math.max(a, b),
-              label: c => `${c}${c > 0 && c <= 10 ? `<small class="dots">${'●'.repeat(c)}</small>` : ''}`,
-            }),
-          };
-        },
-      },
-      {
-        id: 'suite', title: 'La suite', icon: '🪜',
-        make() {
-          const M = maxN(), len = 4, s = rnd(0, Math.max(0, M - len + 1)), miss = rnd(0, len - 1);
-          const seq = Array.from({ length: len }, (_, i) => s + i), ans = seq[miss];
-          return {
-            key: `${s}-${miss}`, text: 'Quel nombre manque ?', say: 'Quel nombre manque dans la suite ?',
-            build: choiceBuild({
-              top: `<div class="seq">${seq.map((v, i) => i === miss ? '<span class="q">?</span>' : `<span>${v}</span>`).join('')}</div>`,
-              choices: numChoices(ans, 0, M + 1), isRight: c => c === ans,
-            }),
-          };
-        },
-      },
-      { id: 'tracechiffres', title: 'Tracer les chiffres', icon: '✍️', make: () => traceQ(String(rnd(0, 9)), 'le chiffre') },
+      { id: 'compter', title: 'Compter', icon: '🍎', make: compterQ },
+      { id: 'doigts', title: 'Montre avec tes doigts', icon: '✋', make: doigtsQ },
+      { id: 'nlettres', title: 'Nombres en lettres', icon: '🔤', make: nombresLettresQ },
+      { id: 'suite', title: 'La suite des nombres', icon: '🪜', make: suiteQ },
+      { id: 'plusun', title: 'Ajouter 1', icon: '➕', make: plusUnQ },
+      { id: 'comparer', title: 'Comparer', icon: '⚖️', make: comparerQ },
+      { id: 'additions', title: 'Additions', icon: '🧮', make: additionQ },
+      { id: 'soustractions', title: 'Soustractions', icon: '➖', make: soustractionQ },
+      { id: 'motifs', title: 'Les motifs', icon: '🔴', make: motifQ },
+      { id: 'formes', title: 'Les formes', icon: '🔷', make: formesQ },
+      { id: 'tracechiffres', title: 'Tracer les chiffres', icon: '✍️', make: chiffreTraceQ },
     ],
   },
 
@@ -564,19 +564,11 @@ const ACTS = {
     title: 'Lecture', icon: '📖', color: 'var(--lecture)',
     list: [
       { id: 'messons', title: 'Mes sons', icon: '🐘', screen: k => soundsScreen(k) },
-      {
-        id: 'syllabes', title: 'Les syllabes', icon: '👂',
-        make() {
-          const P = syllPool(); if (P.length < 3) return null;
-          const [c, v] = pick(P), syl = c + v, all = P.map(x => x.join(''));
-          const near = P.filter(([c2, v2]) => (c2 === c) !== (v2 === v)).map(x => x.join(''));
-          const ds = sample(near.length >= 2 ? near : all.filter(x => x !== syl), 2);
-          return {
-            key: syl, text: 'Écoute et touche la syllabe', say: `Touche la syllabe : ${syl}`,
-            build: choiceBuild({ top: `<button class="ear" data-say="${syl}" aria-label="Écouter">👂</button>`, choices: shuffle([syl, ...ds]), isRight: x => x === syl, label: x => esc(L(x)) }),
-          };
-        },
-      },
+      { id: 'lettres', title: 'Les lettres', icon: '🔠', make: lettresQ },
+      { id: 'entends', title: "J'entends le son", icon: '👂', make: entendsQ },
+      { id: 'fusion', title: 'Combine les lettres', icon: '🧲', make: fusionQ },
+      { id: 'syllabes', title: 'Les syllabes', icon: '🎧', make: syllabesQ },
+      { id: 'meli', title: 'Méli-mélo', icon: '🔀', make: meliQ },
       {
         id: 'premierson', title: 'Le premier son', icon: '🔤',
         make() {
@@ -627,6 +619,7 @@ const ACTS = {
           };
         },
       },
+      { id: 'fluence', title: 'Fluence', icon: '⏱️', screen: k => fluenceScreen(k) },
     ],
   },
 
@@ -774,7 +767,7 @@ function domain(k) {
       ${d.list.map((a, i) => `
         <button class="act" style="--c:${d.color}" data-i="${i}">
           <span class="ai">${a.icon}</span><span class="at">${a.title}</span>
-          <span class="as">${a.screen ? `${state.known.length} sons` : `⭐ ${state.act[a.id] || 0}`}</span>
+          <span class="as">${a.id === 'messons' ? `${state.known.length} sons` : `⭐ ${state.act[a.id] || 0}`}</span>
         </button>`).join('')}
     </main>`);
   $('#back').onclick = home;
@@ -850,8 +843,8 @@ function runSession(act, dk) {
         locked = true;
         if (firstTry) got++;
         sfxOK(); pop(firstTry ? T().pop : '👍');
-        say(`${pick(T().praise)}${state.name ? ' ' + state.name : ''} !`);
-        setTimeout(() => { i++; next(); }, 1500);
+        say(`${pick(T().praise)}${state.name ? ' ' + state.name : ''} ! ${q.after || ''}`);
+        setTimeout(() => { i++; next(); }, q.after ? 2600 : 1500);
       } else {
         firstTry = false; sfxNo();
         setTimeout(() => say(msg || pick(RETRY)), 250);
@@ -929,14 +922,16 @@ function settings() {
       </div>
 
       <div class="field">Aide à la lecture
-        ${seg('syl', [[true, 'Syllabes en couleur'], [false, 'Texte normal']])}
-        <small>Syllabes alternées <span class="s0">bleu</span> / <span class="s1">rouge</span>, lettres muettes en <span class="mute">gris</span>, mots outils <span class="mo">soulignés</span>.</small>
+        ${seg('syl', [['arcs', 'Arcs (comme en classe)'], ['couleurs', 'Couleurs'], ['aucune', 'Sans aide']])}
+        <small>Arcs sous les syllabes ou syllabes <span class="s0">bleu</span> / <span class="s1">rouge</span>, lettres muettes en <span class="mute">gris</span>, mots outils <span class="mo">en gras</span>.</small>
       </div>
       <div class="field">Lettres
         ${seg('caps', [[false, 'minuscules'], [true, 'MAJUSCULES']])}
       </div>
       <div class="field">Niveau en maths
-        ${seg('level', [[1, "jusqu'à 5"], [2, "jusqu'à 10"], [3, "jusqu'à 20"]])}
+        ${seg('level', [['auto', 'Auto (selon le mois)'], [10, '10'], [30, '30'], [60, '60'], [90, '90']])}
+        <small>En automatique, comme les fiches d'aide aux devoirs : jusqu'à 10 en septembre, 30 d'octobre à décembre,
+        60 de janvier à mars, 90 ensuite. Aujourd'hui : nombres jusqu'à <b>${numMax()}</b>, calculs jusqu'à <b>${calcMax()}</b>.</small>
       </div>
       <div class="field">Voix
         ${seg('voice', [[true, '🔊 Activée'], [false, '🔇 Coupée']])}
