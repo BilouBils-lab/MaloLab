@@ -94,14 +94,14 @@ const PHRASES = [
    ========================================================= */
 const THEMES = {
   foot: {
-    name: 'Foot', img: 'assets/compagnon-foot.webp', bg: '#F4A259', buddyName: 'Tom le buteur',
+    name: 'Foot', img: 'assets/compagnon-foot.webp', decor: 'assets/decor-foot.webp', bg: '#F4A259', buddyName: 'Tom le buteur',
     hello: ["Salut {n} ! Prêt pour l'entraînement ?", 'Allez {n}, on va marquer des buts !', "C'est le match, {n} ! En avant !"],
     count: ['⚽', '👟', '🏆', '🧤', '🥅', '🥇', '🎽', '📣'],
     praise: ['But', 'Quel tir', 'Champion', 'Superbe action', 'Bravo le buteur', 'Incroyable'],
     pop: '⚽', confetti: ['⚽', '🏆', '🥇', '🎉', '⭐', '📣'],
   },
   heros: {
-    name: 'Super-héros', img: 'assets/compagnon-heros.webp', bg: '#A9D6F5', buddyName: 'Super {n}',
+    name: 'Super-héros', img: 'assets/compagnon-heros.webp', decor: 'assets/decor-heros.webp', bg: '#A9D6F5', buddyName: 'Super {n}',
     hello: ['Super {n}, la ville a besoin de toi !', 'Active tes super-pouvoirs, {n} !', 'Mission du jour, {n} : apprendre !'],
     count: ['🦸', '🛡️', '⚡', '💥', '🚀', '🦸‍♀️', '🔨', '🤖'],
     praise: ['Super-pouvoir', 'Mission réussie', 'Héroïque', 'Bravo super-héros', 'Bien joué', 'Incroyable'],

@@ -415,3 +415,8 @@ body[data-mode="victory"] .end h2 { color: #3D2C00; text-shadow: 0 2px 0 #fff, 0
 .sticker.locked img { width: 100%; height: 100%; object-fit: cover; display: block; }
 /* Le body devient son propre plan : les images ::before/::after (z-index -1) passent au-dessus de son fond */
 body { isolation: isolate; }
+/* Foot et Super-héros : décors clairs → texte foncé */
+body[data-theme="foot"] { --bg: #9BD4F2; --text: #1F3D2B; }
+body[data-theme="heros"] { --bg: #F6B98A; --text: #4A2511; }
+/* Sous un décor illustré, fond uni de la couleur du décor (visible quand le décor s'atténue) */
+body.has-decor { background: var(--bg); }
