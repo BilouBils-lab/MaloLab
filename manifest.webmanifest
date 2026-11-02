@@ -1,0 +1,17 @@
+{
+  "name": "P'tit Écolier",
+  "short_name": "P'tit Écolier",
+  "description": "Petits exercices de maths, lecture et écriture pour le CP",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FFF8E7",
+  "theme_color": "#FFF8E7",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
