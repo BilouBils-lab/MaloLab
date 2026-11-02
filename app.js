@@ -52,12 +52,18 @@ const LEX = [
   ['r.ou.(e)', '🛞'], ['n.u/a/g=j.(e)', '☁️'], ['p.a/r.a/s.o.l', '⛱️'], ['c.o.q=c', '🐓'], ['s.a/v.on', '🧼'],
   ['c.a/f.é', '☕'], ['p.o.r/t.(e)', '🚪'], ['l.ou/p.(e)', '🔍'], ['f.ou.r/ch.e=è/tt.(e)', '🍴'], ['t.u/l.i/p.(e)', '🌷'],
   ['r.o/s=z.(e)', '🌹'], ['p.i/l.(e)', '🔋'],
+  // mots des univers (3e colonne = univers)
+  ['b.u.t', '🥅', 'foot'], ['c.ou/p.(e)', '🏆', 'foot'], ['s.t.a/d.(e)', '🏟️', 'foot'], ['f.i/l.et', '🥅', 'foot'],
+  ['(h).é/r.o.(s)', '🦸', 'heros'], ['é/c.l.ai.r', '⚡', 'heros'], ['m.a.s/qu.(e)', '🎭', 'heros'], ['t.i/g.r.(e)', '🐯', 'heros'],
+  ['m.i/c.r.o', '🎤', 'kpop'], ['s.t.a.r', '🌟', 'kpop'], ['d.an/s.(e)', '💃', 'kpop'], ['d.é/m.on', '👹', 'kpop'], ['é/p.é.(e)', '🗡️', 'kpop'],
+  ['f.é.(e)', '🧚', 'magie'], ['r.ei/n.(e)', '👸', 'magie'], ['p.r.in/c=s.(e)', '🤴', 'magie'], ['d.r.a/g.on', '🐉', 'magie'],
+  ['s.i/r.è/n.(e)', '🧜‍♀️', 'magie'], ['g=j.é/n.i.(e)', '🧞', 'magie'], ['m.a/g=j.i.(e)', '🪄', 'magie'],
 ];
 // Verbes et adjectifs utilisés dans les phrases
 const EXTRA = [
   'v.o/l.(e)', 'm.a.r/ch.(e)', 'r.ou/l.(e)', 'n.a/g=j.(e)', 'm.i/au/l.(e)', 'd.o.r.(t)', 'm.an/g=j.(e)',
   'r.ou/g=j.(e)', 'v.e=è.r/t.(e)', 'p.e/t.i/t.(e)', 'p.e/t.i.(t)', 'j.au/n.(e)', 'p.a.r/l.(e)', 's.au/t.(e)',
-  'ch.an/t.(e)', 'r.i.(t)', 'a/m.i',
+  'ch.an/t.(e)', 'r.i.(t)', 'a/m.i', 'd.an/s.(e)',
 ];
 // Mots outils (appris « par cœur », sans décodage)
 const MOTS_OUTILS = ['le', 'la', 'les', 'un', 'une', 'il', 'elle', 'est', 'et', 'a', 'sur', 'dans', 'de', 'des', 'au', 'avec'];
@@ -75,16 +81,74 @@ const PHRASES = [
   ['La rose est rouge.', true], ['Le phoque nage.', true], ['Le lion dort.', true], ['La poule a un ballon.', false],
   ['Le lama a un vélo.', false], ['Il a un ami.', true], ['Le chat est sur le mur.', true],
   ['Le cheval a un vélo.', false], ['Le rat a un vélo.', false], ['La fusée a un vélo.', false], ['Le chat a un vélo.', false],
+  ['Le héros vole.', true], ['Le dragon vole.', true], ['Le ballon chante.', false], ['La star chante.', true],
+  ['La sirène nage.', true], ['Le tigre chante.', false], ['Le dragon a un vélo.', false], ['La fée vole.', true],
+  ['La star danse.', true], ['Le héros a un masque.', true], ['La reine a un micro.', false],
 ];
 
-const EMOJIS_COUNT = ['🍎', '⭐', '🐞', '🐟', '🎈', '🍓', '🚗', '🐥', '🌼', '🍪'];
-const PRAISE = ['Bravo', 'Super', 'Génial', 'Bien joué', 'Excellent', 'Parfait'];
+/* =========================================================
+   UNIVERS (thèmes visuels choisis par l'enfant)
+   ========================================================= */
+const THEMES = {
+  classique: {
+    name: 'Classique', icon: '🐘', buddy: '🐘', buddyName: 'Pompon',
+    hello: ['Coucou {n} ! On apprend ensemble ?', 'Prêt pour un exercice, {n} ?'],
+    count: ['🍎', '⭐', '🐞', '🐟', '🎈', '🍓', '🚗', '🐥', '🌼', '🍪'],
+    praise: ['Bravo', 'Super', 'Génial', 'Bien joué', 'Excellent', 'Parfait'],
+    pop: '⭐', confetti: ['⭐', '🎉', '🌟', '🎈', '✨', '🐘'],
+  },
+  foot: {
+    name: 'Foot', icon: '⚽', buddy: '🦁', buddyName: 'Capitaine Lion',
+    hello: ["Salut {n} ! Prêt pour l'entraînement ?", 'Allez {n}, on va marquer des buts !', "C'est le match, {n} ! En avant !"],
+    count: ['⚽', '👟', '🏆', '🧤', '🥅', '🥇', '🎽', '📣'],
+    praise: ['But', 'Quel tir', 'Champion', 'Superbe action', 'Bravo le buteur', 'Incroyable'],
+    pop: '⚽', confetti: ['⚽', '🏆', '🥇', '🎉', '⭐', '📣'],
+  },
+  heros: {
+    name: 'Super-héros', icon: '🦸', buddy: '🦸', buddyName: 'Super {n}',
+    hello: ['Super {n}, la ville a besoin de toi !', 'Active tes super-pouvoirs, {n} !', 'Mission du jour, {n} : apprendre !'],
+    count: ['🦸', '🛡️', '⚡', '💥', '🚀', '🦸‍♀️', '🔨', '🤖'],
+    praise: ['Super-pouvoir', 'Mission réussie', 'Héroïque', 'Bravo super-héros', 'Boum, bien joué', 'Incroyable'],
+    pop: '💥', confetti: ['💥', '⚡', '🛡️', '🦸', '⭐', '🚀'],
+  },
+  kpop: {
+    name: 'Stars & démons', icon: '🎤', buddy: '👩‍🎤', buddyName: 'Luna la star',
+    hello: ['Hey {n} ! On chante et on chasse les démons ?', 'Prêt pour le concert, {n} ?', 'Allume ta lumière, {n} !'],
+    count: ['🎤', '🎶', '💜', '✨', '🌙', '🗡️', '🎧', '🌟'],
+    praise: ['Quelle star', 'Démon vaincu', 'Tu brilles', 'Bravo la star', 'Trop fort', 'Génial'],
+    pop: '🌟', confetti: ['🎶', '💜', '✨', '🌟', '🎤', '💖'],
+  },
+  magie: {
+    name: 'Royaume magique', icon: '🏰', buddy: '🧚', buddyName: 'Fée Lila',
+    hello: ['Bienvenue au royaume, {n} !', 'Un peu de magie, {n} ?', 'Prêt pour une aventure magique, {n} ?'],
+    count: ['🏰', '👑', '🧚', '🪄', '🐉', '🍎', '❄️', '🧞'],
+    praise: ['Magique', 'Féerique', 'Bravo petit prince', 'Enchanté', 'Merveilleux', 'Formidable'],
+    pop: '✨', confetti: ['✨', '👑', '🪄', '❄️', '🏰', '⭐'],
+  },
+};
+const T = () => THEMES[state.theme] || THEMES.classique;
+
+// Album : un autocollant tous les 5 ⭐ (ordre de déblocage)
+const STARS_PAR_AUTOCOLLANT = 5;
+const STICKERS = [
+  ['⚽', 'Ballon'], ['🦸', 'Super-héros'], ['🎤', 'Micro'], ['🏰', 'Château'],
+  ['🥅', 'Cage'], ['🛡️', 'Bouclier'], ['🎶', 'Chanson'], ['👑', 'Couronne'],
+  ['👟', 'Crampons'], ['⚡', 'Éclair'], ['💜', 'Cœur violet'], ['🧚', 'Fée'],
+  ['🧤', 'Gants du gardien'], ['🕷️', 'Araignée'], ['🌙', 'Lune magique'], ['🧞', 'Génie'],
+  ['🏆', 'Coupe'], ['🔨', 'Marteau magique'], ['🗡️', 'Épée de lumière'], ['🧜‍♀️', 'Sirène'],
+  ['🏟️', 'Stade'], ['🤖', 'Armure robot'], ['👹', 'Démon'], ['❄️', 'Flocon magique'],
+  ['🥇', 'Médaille'], ['🐆', 'Panthère'], ['🎧', 'Casque'], ['🪄', 'Baguette'],
+  ['🎽', 'Maillot'], ['💥', 'Boum'], ['💃', 'Danse'], ['🐉', 'Dragon'],
+  ['📣', 'Supporters'], ['🦹', 'Méchant'], ['🌟', 'Star'], ['🍎', 'Pomme magique'],
+  ['🟨', 'Carton jaune'], ['🚀', 'Jet'], ['🎆', "Feu d'artifice"], ['🦁', 'Lion'],
+];
+const unlockedCount = () => Math.min(STICKERS.length, Math.floor(state.stars / STARS_PAR_AUTOCOLLANT));
 const RETRY = ['Essaie encore !', 'Presque ! Essaie encore.', 'Oups, essaie encore.'];
 const QUESTIONS_PAR_PARTIE = 5;
 
 /* ---------- Sauvegarde locale ---------- */
 const KEY = 'malolab';
-const DEFAULTS = { name: 'Malo', level: 1, caps: false, voice: true, syl: true, stars: 0, act: {}, known: DEFAULT_KNOWN, outils: DEFAULT_OUTILS };
+const DEFAULTS = { theme: 'classique', name: 'Malo', level: 1, caps: false, voice: true, syl: true, stars: 0, act: {}, known: DEFAULT_KNOWN, outils: DEFAULT_OUTILS };
 const state = (() => {
   let saved = {};
   try { saved = JSON.parse(localStorage.getItem(KEY) || localStorage.getItem('ptit-ecolier') || '{}'); } catch {}
@@ -133,7 +197,9 @@ function parseWord(seg) {
   const toks = syls.flat();
   return { seg, syls, toks, text: toks.map(t => t.sp).join('') };
 }
-const LEXICON = LEX.map(([seg, e]) => ({ ...parseWord(seg), e }));
+const LEXICON = LEX.map(([seg, e, th]) => ({ ...parseWord(seg), e, th }));
+// Mot au hasard, avec une chance sur deux de prendre un mot de l'univers choisi
+const pickWord = W => { const T = W.filter(w => w.th === state.theme); return T.length && Math.random() < .5 ? pick(T) : pick(W); };
 const DICT = new Map();
 [...LEXICON, ...EXTRA.map(parseWord)].forEach(w => { if (!DICT.has(w.text)) DICT.set(w.text, w); });
 
@@ -243,7 +309,7 @@ function pop(emoji) {
   document.body.appendChild(d); setTimeout(() => d.remove(), 1100);
 }
 function confetti() {
-  const set = ['⭐', '🎉', '🌟', '🎈', '✨', '🐘'];
+  const set = T().confetti;
   for (let i = 0; i < 28; i++) {
     const d = document.createElement('div');
     d.className = 'confetti'; d.textContent = pick(set);
@@ -439,7 +505,7 @@ const ACTS = {
       {
         id: 'compter', title: 'Compter', icon: '🍎',
         make() {
-          const n = rnd(1, state.level === 1 ? 5 : state.level === 2 ? 10 : 15), e = pick(EMOJIS_COUNT);
+          const n = rnd(1, state.level === 1 ? 5 : state.level === 2 ? 10 : 15), e = pick(T().count);
           return {
             key: n, text: 'Combien y en a-t-il ?', say: 'Compte, et touche le bon nombre.',
             build: choiceBuild({ top: `<div class="count">${emojis(e, n)}</div>`, choices: numChoices(n, 1, 20), isRight: c => c === n }),
@@ -449,7 +515,7 @@ const ACTS = {
       {
         id: 'additions', title: 'Additions', icon: '➕',
         make() {
-          const M = maxN(), s = rnd(2, M), a = rnd(1, s - 1), b = s - a, e = pick(EMOJIS_COUNT);
+          const M = maxN(), s = rnd(2, M), a = rnd(1, s - 1), b = s - a, e = pick(T().count);
           const vis = s <= 10 ? `<div class="add"><div class="grp">${emojis(e, a)}</div>+<div class="grp">${emojis(e, b)}</div></div>` : '';
           return {
             key: `${a}+${b}`, text: `${a} + ${b} = ?`, say: `Combien font ${a} plus ${b} ?`,
@@ -510,7 +576,7 @@ const ACTS = {
         make() {
           const W = readableWords(), K = [...state.known];
           if (!W.length || K.length < 3) return null;
-          const w = pick(W), f = w.toks.find(t => !t.silent).id;
+          const w = pickWord(W), f = w.toks.find(t => !t.silent).id;
           const ds = sample(K.filter(x => x !== f), 2);
           return {
             key: w.text, text: "Quel son entends-tu au début du mot ?", say: `Quel son entends-tu au début du mot : ${w.text} ?`,
@@ -522,7 +588,7 @@ const ACTS = {
         id: 'quelmot', title: 'Quel mot ?', icon: '🖼️',
         make() {
           const W = readableWords(); if (W.length < 3) return null;
-          const w = pick(W), ds = sample(W.filter(x => x !== w), 2);
+          const w = pickWord(W), ds = sample(W.filter(x => x !== w), 2);
           return {
             key: w.text, text: 'Quel est le bon mot ?', say: "Regarde l'image, et touche le bon mot.",
             build: choiceBuild({ top: `<div class="pic">${w.e}</div>`, choices: shuffle([w, ...ds]), isRight: x => x === w, label: x => wordHTML(x), cls: 'words' }),
@@ -533,7 +599,7 @@ const ACTS = {
         id: 'lismot', title: 'Lis le mot', icon: '👀',
         make() {
           const W = readableWords(); if (W.length < 3) return null;
-          const w = pick(W), ds = sample(W.filter(x => x !== w), 2);
+          const w = pickWord(W), ds = sample(W.filter(x => x !== w), 2);
           return {
             key: w.text, text: 'Lis le mot et touche la bonne image', say: 'Lis le mot, et touche la bonne image.',
             build: choiceBuild({ top: `<div class="word">${wordHTML(w)}</div>`, choices: shuffle([w, ...ds]), isRight: x => x === w, label: x => x.e, cls: 'pics' }),
@@ -565,7 +631,7 @@ const ACTS = {
         id: 'ecrismot', title: 'Écris le mot', icon: '🧩',
         make() {
           const W = readableWords().filter(w => w.toks.length <= 7); if (!W.length) return null;
-          const w = pick(W);
+          const w = pickWord(W);
           return spellQ({ units: w.toks, word: w.text, emoji: w.e, kind: 'mot' });
         },
       },
@@ -598,19 +664,76 @@ const render = html => {
   app.innerHTML = html; window.scrollTo(0, 0);
 };
 
+function applyTheme() {
+  document.body.dataset.theme = state.theme;
+  const m = document.querySelector('meta[name="theme-color"]');
+  if (m) m.content = getComputedStyle(document.body).getPropertyValue('--bg').trim() || '#FFF8E7';
+}
+
 function home() {
+  const t = T(), msg = pick(t.hello).replace('{n}', state.name || '');
+  const left = STARS_PAR_AUTOCOLLANT - (state.stars % STARS_PAR_AUTOCOLLANT);
   render(`
     <header class="top">
-      <div class="hello"><span class="brand">MaloLab</span>${state.name ? `Coucou ${esc(state.name)} !` : 'Coucou !'} 👋</div>
+      <div class="hello"><span class="brand">MaloLab</span>${state.name ? `Coucou ${esc(state.name)} !` : 'Coucou !'}</div>
       <div class="stars">⭐ ${state.stars}</div>
       <button class="icon" id="gear" aria-label="Espace parents">⚙️</button>
     </header>
+    <section class="buddy" data-say="${esc(msg)}">
+      <span class="bud">${t.buddy}</span>
+      <span class="bubble"><b>${esc(t.buddyName.replace('{n}', state.name || 'Héros'))}</b>${esc(msg)}</span>
+    </section>
     <main class="home">
       ${Object.entries(ACTS).map(([k, d]) => `
         <button class="domain" style="--c:${d.color}" data-d="${k}"><span class="di">${d.icon}</span><span>${d.title}</span></button>`).join('')}
-    </main>`);
+    </main>
+    <nav class="homebar">
+      <button class="pill" id="album">📒 Mon album <small>${unlockedCount()}/${STICKERS.length}${unlockedCount() < STICKERS.length ? ` · encore ${left} ⭐` : ''}</small></button>
+      <button class="pill" id="themes">${t.icon} Mon univers</button>
+    </nav>`);
   app.querySelectorAll('.domain').forEach(b => b.onclick = () => { say(ACTS[b.dataset.d].title); domain(b.dataset.d); });
+  $('#album').onclick = album;
+  $('#themes').onclick = themes;
   holdToOpen($('#gear'), 1500, settings);
+}
+
+// Choix de l'univers par l'enfant
+function themes() {
+  render(`
+    <header class="top">
+      <button class="icon" id="back" aria-label="Retour">⬅️</button>
+      <div class="title">Choisis ton univers</div>
+    </header>
+    <main class="themes">
+      ${Object.entries(THEMES).map(([k, t]) => `
+        <button class="theme-card ${k === state.theme ? 'on' : ''}" data-theme-card="${k}" data-t="${k}">
+          <span class="tc-icon">${t.icon}</span><span class="tc-name">${esc(t.name)}</span><span class="tc-row">${t.count.slice(0, 4).join('')}</span>
+        </button>`).join('')}
+    </main>`);
+  $('#back').onclick = home;
+  app.querySelectorAll('.theme-card').forEach(b => b.onclick = () => {
+    state.theme = b.dataset.t; save(); applyTheme();
+    sfxOK(); say(`Univers : ${T().name} !`);
+    confetti(); setTimeout(home, 900);
+  });
+}
+
+// Album d'autocollants
+function album() {
+  const n = unlockedCount(), left = STARS_PAR_AUTOCOLLANT - (state.stars % STARS_PAR_AUTOCOLLANT);
+  render(`
+    <header class="top">
+      <button class="icon" id="back" aria-label="Retour">⬅️</button>
+      <div class="title">📒 Mon album</div>
+      <div class="stars">⭐ ${state.stars}</div>
+    </header>
+    <p class="album-info">${n < STICKERS.length ? `Encore <b>${left} ⭐</b> pour le prochain autocollant !` : 'Album complet, bravo ! 🏆'}</p>
+    <main class="album">
+      ${STICKERS.map(([e, name], i) => i < n
+        ? `<button class="sticker" data-say="${esc(name)}"><span>${e}</span><small>${esc(name)}</small></button>`
+        : `<div class="sticker locked"><span>${e}</span><small>?</small></div>`).join('')}
+    </main>`);
+  $('#back').onclick = home;
 }
 
 function domain(k) {
@@ -700,8 +823,8 @@ function runSession(act, dk) {
       if (ok) {
         locked = true;
         if (firstTry) got++;
-        sfxOK(); pop(firstTry ? '⭐' : '👍');
-        say(`${pick(PRAISE)}${state.name ? ' ' + state.name : ''} !`);
+        sfxOK(); pop(firstTry ? T().pop : '👍');
+        say(`${pick(T().praise)}${state.name ? ' ' + state.name : ''} !`);
         setTimeout(() => { i++; next(); }, 1500);
       } else {
         firstTry = false; sfxNo();
@@ -712,6 +835,7 @@ function runSession(act, dk) {
   };
 
   const finish = () => {
+    const before = unlockedCount();
     state.stars += got;
     state.act[act.id] = (state.act[act.id] || 0) + got;
     save();
@@ -726,8 +850,12 @@ function runSession(act, dk) {
           <button class="btn sec" id="menu">🏠 Menu</button>
         </div>
       </main>`);
+    const fresh = STICKERS.slice(before, unlockedCount());
+    if (fresh.length) {
+      $('.earned').insertAdjacentHTML('afterend', `<div class="newsticker">🎁 Nouvel autocollant !<span>${fresh.map(f => f[0]).join(' ')}</span></div>`);
+    }
     confetti();
-    setTimeout(() => say(`${msg}${state.name ? ' ' + state.name : ''} ! Tu as gagné ${got} étoile${got > 1 ? 's' : ''}.`), 200);
+    setTimeout(() => say(`${msg}${state.name ? ' ' + state.name : ''} ! Tu as gagné ${got} étoile${got > 1 ? 's' : ''}.${fresh.length ? ' Et un nouvel autocollant : ' + fresh.map(f => f[1]).join(', ') + ' !' : ''}`), 200);
     $('#again').onclick = () => runSession(act, dk);
     $('#menu').onclick = () => domain(dk);
   };
@@ -821,6 +949,7 @@ function settings() {
 }
 
 /* ---------- Démarrage ---------- */
+applyTheme();
 home();
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));

@@ -16,6 +16,14 @@ Fonctionne sur iPhone et iPad, même hors ligne, une fois ajoutée à l'écran d
 - Après 2 erreurs dans « Écris le mot », la bonne lettre clignote.
 - **Espace parents** : **maintenir** ⚙️ appuyé 1,5 s. Vous y réglez le prénom, le niveau (1 à 3), les minuscules ou MAJUSCULES, la voix, et voyez les étoiles par activité.
 
+## Univers et récompenses
+
+- **Mon univers** (accueil) : l'enfant choisit entre Classique, Foot, Super-héros, Stars & démons, Royaume magique.
+  Chaque univers a ses couleurs, son compagnon, ses images à compter, ses félicitations et ses mots de lecture.
+- **Mon album** : un autocollant est gagné tous les 5 ⭐ (40 à collectionner).
+- Univers inspirés des goûts de l'enfant, sans reprendre de personnages officiels.
+- Pour modifier un univers : objet `THEMES` dans `app.js` et section « UNIVERS » de `style.css`.
+
 ## Lecture : principes de la méthode Alfi
 
 - **Progression par sons (graphèmes)** : dans l'espace parents, cochez les sons déjà étudiés en classe.
