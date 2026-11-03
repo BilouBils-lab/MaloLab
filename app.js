@@ -345,10 +345,18 @@ document.addEventListener('click', e => { const t = e.target.closest('[data-say]
 document.addEventListener('gesturestart', e => e.preventDefault());
 
 /* ---------- Effets ---------- */
-function pop(emoji) {
+// Récompense discrète : un petit « +1 ⭐ » monte depuis la bonne réponse, sans cacher l'exercice
+function reward(text) {
+  // Point de départ : la bonne réponse (dans cet ordre de priorité)
+  const last = sel => { const l = document.querySelectorAll(sel); return l[l.length - 1]; };
+  const src = last('.choice.good') || last('.slot.ok') || last('svg.cursive.ok') || last('.lf-tile.good') || document.querySelector('#zone');
+  const r = src ? src.getBoundingClientRect() : { left: innerWidth / 2, top: innerHeight / 2, width: 0, height: 0 };
   const d = document.createElement('div');
-  d.className = 'pop'; d.textContent = emoji;
-  document.body.appendChild(d); setTimeout(() => d.remove(), 1100);
+  d.className = 'reward'; d.textContent = text;
+  d.style.left = (r.left + r.width / 2) + 'px'; d.style.top = Math.max(70, r.top - 22) + 'px';
+  document.body.appendChild(d); setTimeout(() => d.remove(), 1200);
+  const dot = document.querySelector('.prog .cur');
+  if (dot) { dot.classList.remove('cur'); dot.classList.add('done', 'just'); }
 }
 function confetti() {
   const set = T().confetti;
@@ -675,7 +683,7 @@ const app = document.getElementById('app');
 const render = (html, mode = '') => {
   window.speechSynthesis?.cancel();
   document.body.dataset.mode = mode; window.__screen = '';
-  document.querySelectorAll('.confetti,.pop').forEach(e => e.remove());
+  document.querySelectorAll('.confetti,.pop,.reward').forEach(e => e.remove());
   app.innerHTML = html; window.scrollTo(0, 0);
 };
 
@@ -827,7 +835,7 @@ function runSession(act, dk) {
       if (ok) {
         locked = true;
         if (firstTry) got++;
-        sfxOK(); pop(firstTry ? T().pop : '👍');
+        sfxOK(); reward(firstTry ? '+1 ⭐' : '👍');
         say(`${pick(T().praise)}${state.name ? ' ' + state.name : ''} ! ${q.after || ''}`);
         setTimeout(() => { i++; next(); }, q.after ? 2600 : 1500);
       } else {
