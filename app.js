@@ -966,10 +966,24 @@ function settings() {
       box.innerHTML = `<small>Pour retrouver les étoiles et les progrès sur tous les appareils.</small>
         <div class="row left"><button class="btn" id="sy-new">✨ Créer un code famille</button></div>
         <small>Sur le 2ᵉ appareil, tapez le code déjà créé :</small>
-        <div class="row left"><input id="sy-code" placeholder="MALO-XXXX-XXXX-XXXX-XXXX" autocapitalize="characters" autocomplete="off"><button class="btn sec" id="sy-join">Rejoindre</button></div>`;
+        <div class="code-in"><span class="code-pre">MALO-</span><input id="sy-code" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="19"
+          autocapitalize="characters" autocomplete="off" autocorrect="off" spellcheck="false" inputmode="text" enterkeyhint="go"></div>
+        <div class="row left"><button class="btn" id="sy-join" disabled>Rejoindre</button><small id="sy-left">16 caractères à taper</small></div>`;
       $('#sy-new').onclick = async () => { state.syncCode = newFamilyCode(); markSettings(); save(); drawSync(); await syncNow(); drawSync(); };
+      // Saisie guidée : majuscules, caractères du code uniquement, tirets ajoutés tous les 4 caractères
+      const inp = $('#sy-code');
+      const raw = () => inp.value.toUpperCase().replace(/^MALO-?/, '').replace(/[^A-Z0-9]/g, '').split('').filter(ch => CODE_CHARS.includes(ch)).join('').slice(0, 16);
+      const fmt = () => {
+        const r = raw(), f = r.replace(/(.{4})(?=.)/g, '$1-');
+        if (inp.value !== f) inp.value = f;
+        $('#sy-join').disabled = r.length !== 16;
+        $('#sy-left').textContent = r.length === 16 ? 'Code complet ✓' : `Encore ${16 - r.length} caractère${16 - r.length > 1 ? 's' : ''}`;
+      };
+      inp.addEventListener('input', fmt);
+      inp.addEventListener('paste', () => setTimeout(fmt));
+      inp.addEventListener('keydown', e => { if (e.key === 'Enter' && !$('#sy-join').disabled) $('#sy-join').click(); });
       $('#sy-join').onclick = async () => {
-        const c = normCode($('#sy-code').value); if (c.length < 24) return alert('Le code doit ressembler à MALO-XXXX-XXXX-XXXX-XXXX.');
+        const c = 'MALO-' + raw().replace(/(.{4})(?=.)/g, '$1-'); if (raw().length !== 16) return;
         state.syncCode = c; state.settingsAt = 0; save(); drawSync();
         const ok = await syncNow(); settings(); if (!ok) alert('Synchronisation impossible : ' + state.syncError);
       };

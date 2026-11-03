@@ -795,3 +795,11 @@ svg.hand .hit { fill: transparent; stroke: none; cursor: pointer; }
 .slot.pulse { animation: bounce .45s; }
 .tile.wiggle { animation: wiggle .4s; }
 @keyframes wiggle { 0%,100% { rotate: 0deg; } 25% { rotate: -8deg; } 75% { rotate: 8deg; } }
+/* Saisie du code famille */
+.code-in { display: flex; align-items: center; background: var(--card); border: 3px solid var(--line); border-radius: 14px; padding: 0 12px; }
+.code-in:focus-within { border-color: var(--good); }
+.code-pre { font: 800 20px ui-monospace, Menlo, monospace; color: var(--ink); opacity: .6; letter-spacing: 1px; }
+.code-in input#sy-code { flex: 1; min-width: 0; border: 0; background: none; padding: 12px 0 12px 4px; font: 800 20px ui-monospace, Menlo, monospace; letter-spacing: 1px; color: var(--ink); text-transform: uppercase; outline: none; }
+.code-in input#sy-code::placeholder { color: #C9C1B2; }
+#sy-join:disabled { opacity: .45; }
+#sy-left { align-self: center; }
