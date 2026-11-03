@@ -1,0 +1,57 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "familles": {
+      "$code": {
+        ".read": "$code.matches(/^MALO-[A-Z2-9]{4}-[A-Z2-9]{4}-[A-Z2-9]{4}-[A-Z2-9]{4}$/)",
+        ".write": "$code.matches(/^MALO-[A-Z2-9]{4}-[A-Z2-9]{4}-[A-Z2-9]{4}-[A-Z2-9]{4}$/) && newData.exists()",
+        "resetAt": { ".validate": "newData.isNumber() && newData.val() > 0" },
+        "settings": {
+          ".validate": "newData.hasChild('at')",
+          "at": { ".validate": "newData.isNumber()" },
+          "name": { ".validate": "newData.isString() && newData.val().length <= 30" },
+          "level": { ".validate": "(newData.isString() && newData.val() == 'auto') || (newData.isNumber() && newData.val() >= 1 && newData.val() <= 100)" },
+          "caps": { ".validate": "newData.isBoolean()" },
+          "voice": { ".validate": "newData.isBoolean()" },
+          "syl": { ".validate": "newData.isString() && newData.val().length <= 12" },
+          "theme": { ".validate": "newData.isString() && newData.val().length <= 20" },
+          "goal": { ".validate": "newData.isString() && newData.val().length <= 40" },
+          "known": { "$i": { ".validate": "$i.matches(/^[0-9]{1,2}$/) && newData.isString() && newData.val().length <= 4" } },
+          "outils": { "$i": { ".validate": "$i.matches(/^[0-9]{1,2}$/) && newData.isString() && newData.val().length <= 8" } },
+          "$autre": { ".validate": false }
+        },
+        "devices": {
+          "$dev": {
+            ".validate": "$dev.matches(/^d[a-z0-9]{4,12}$/) && newData.hasChildren(['at'])",
+            "at": { ".validate": "newData.isNumber()" },
+            "device": { ".validate": "newData.isString() && newData.val().length <= 20" },
+            "stars": { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000" },
+            "act": { "$a": { ".validate": "$a.length <= 24 && newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000" } },
+            "buys": { "$c": { ".validate": "$c.length <= 30 && newData.isNumber()" } },
+            "mem": {
+              "$a": {
+                ".validate": "$a.length <= 24",
+                "$q": {
+                  ".validate": "$q.length <= 60",
+                  "$i": { ".validate": "$i.matches(/^[0-3]$/) && newData.isNumber()" }
+                }
+              }
+            },
+            "fluence": {
+              "$k": {
+                ".validate": "$k.length <= 24",
+                "$p": {
+                  ".validate": "$p.length <= 12",
+                  "$i": { ".validate": "$i.matches(/^[0-9]$/) && newData.isNumber() && newData.val() >= 0 && newData.val() < 10000" }
+                }
+              }
+            },
+            "$autre": { ".validate": false }
+          }
+        },
+        "$autre": { ".validate": false }
+      }
+    }
+  }
+}

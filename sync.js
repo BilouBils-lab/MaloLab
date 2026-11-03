@@ -9,6 +9,17 @@
 const SYNC_DB = window.MALOLAB_SYNC_DB || 'https://malolab-default-rtdb.europe-west1.firebasedatabase.app';
 const SYNC_ROOT = 'familles';
 
+// Firebase refuse . $ # [ ] / dans les noms : on les encode (« # » devient « %23 »…)
+const safeKey = k => String(k).replace(/[.$#\[\]\/%]/g, c => '%' + c.charCodeAt(0).toString(16).toUpperCase().padStart(2, '0')).slice(0, 60);
+// Identifiant court et sûr pour une fiche de fluence
+const fluKey = raw => { let h = 5381; for (let i = 0; i < raw.length; i++) h = (Math.imul(h, 33) ^ raw.charCodeAt(i)) >>> 0; return 'f' + h.toString(36) + raw.length.toString(36); };
+// Conversion des données déjà enregistrées avec d'anciens noms
+function migrateKeys() {
+  let changed = false;
+  Object.values(state.mem || {}).forEach(m => Object.keys(m).forEach(k => { const n = safeKey(k); if (n !== k) { m[n] = m[k]; delete m[k]; changed = true; } }));
+  Object.keys(state.fluence || {}).forEach(k => { if (!/^f[a-z0-9]+$/.test(k)) { state.fluence[fluKey(k)] = state.fluence[k]; delete state.fluence[k]; changed = true; } });
+  if (changed) try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {}
+}
 const devId = () => state.devId || (state.devId = 'd' + Math.random().toString(36).slice(2, 10));
 const deviceName = () => {
   const ua = navigator.userAgent;
@@ -45,7 +56,7 @@ function memGet(actId) {
 }
 function memRecord(actId, key, ok) {
   state.mem = state.mem || {};
-  const m = state.mem[actId] = state.mem[actId] || {}, k = String(key);
+  const m = state.mem[actId] = state.mem[actId] || {}, k = safeKey(key);
   const e = m[k] || [0, 0, 0, 1];
   e[0] = Date.now(); if (ok) e[1]++; else e[2]++; e[3] = ok ? 1 : 0;
   m[k] = e;
@@ -61,7 +72,7 @@ function memChoose(act, seen) {
     const q = act.make(); if (!q) break;
     if (!first) first = q;
     if (seen.has(q.key)) continue;
-    const e = M[String(q.key)], min = e ? (now - e[0]) / 60000 : 0;
+    const e = M[safeKey(q.key)], min = e ? (now - e[0]) / 60000 : 0;
     let sc = Math.random() * 2;
     if (!e) sc += 3;
     else if (e[3] === 0) sc += min > 2 ? 6 : 1;                      // ratée : revient dans une prochaine partie

@@ -13,27 +13,13 @@ Durée : environ 10 minutes, sur un ordinateur de préférence.
 4. Mode : **Démarrer en mode verrouillé** → **Activer**.
 
 ## 3. Coller les règles de sécurité
-Onglet **Règles** : remplacez tout le contenu par le texte ci-dessous, puis **Publier**.
+Onglet **Règles** : remplacez tout le contenu par celui du fichier `design/firebase-rules.json`, puis **Publier**.
 
-```json
-{
-  "rules": {
-    ".read": false,
-    ".write": false,
-    "familles": {
-      "$code": {
-        ".read": "$code.length >= 24",
-        ".write": "$code.length >= 24 && newData.val() != null"
-      }
-    }
-  }
-}
-```
-
-Ces règles signifient :
-- personne ne peut lister ni lire la base dans son ensemble ;
-- on ne peut lire et écrire qu'une famille dont on connaît le code complet (`MALO-XXXX-XXXX-XXXX-XXXX`, impossible à deviner) ;
-- on ne peut pas effacer une famille d'un coup.
+Ces règles :
+- interdisent de lire ou lister la base dans son ensemble ;
+- n'autorisent qu'une famille dont on connaît le code exact (`MALO-XXXX-XXXX-XXXX-XXXX`) ;
+- n'acceptent que les données de MaloLab, avec la bonne forme et une taille limitée (impossible d'y stocker autre chose) ;
+- interdisent d'effacer une famille.
 
 ## 4. M'envoyer l'adresse de la base
 En haut de l'onglet **Données**, copiez l'adresse qui ressemble à :

@@ -890,3 +890,7 @@ button.stars.to-shop:active, .newsticker.to-shop:active { transform: translateY(
   .dc-ic { width: 70px; height: 70px; }
 }
 .dc-ic { background: #FBF3E3; }
+/* Question pour adulte */
+.gate #gate-in { width: 120px; text-align: center; font: 800 28px var(--font); padding: 8px; border-radius: 14px; border: 3px solid var(--line); color: var(--ink); background: #fff; }
+.gate #gate-in:focus { outline: none; border-color: var(--good); }
+.gate #gate-in.shake { animation: shake .4s; border-color: var(--bad); }

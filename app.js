@@ -745,7 +745,7 @@ function home() {
   app.querySelectorAll('.dcard').forEach(b => b.onclick = () => { say(ACTS[b.dataset.d].title); domain(b.dataset.d); });
   $('#album').onclick = () => shop(goalOn ? g.th : undefined);
   $('#themes').onclick = themes;
-  holdToOpen($('#gear'), 1500, settings);
+  holdToOpen($('#gear'), 1500, parentGate);
   window.__screen = 'home';
 }
 // Après une synchronisation qui apporte du nouveau : rafraîchir l'accueil s'il est affiché
@@ -897,6 +897,32 @@ function runSession(act, dk) {
   next();
 }
 
+// Question pour adulte avant l'espace parents (une multiplication à taper)
+function parentGate() {
+  document.querySelectorAll('.modal').forEach(m => m.remove());
+  const x = rnd(6, 9), y = rnd(6, 9);
+  let tries = 0;
+  document.body.insertAdjacentHTML('beforeend', `
+    <div class="modal gate"><div class="m-box">
+      <h2>Espace parents</h2>
+      <p class="m-txt">Pour continuer, combien font <b>${x} × ${y}</b> ?</p>
+      <input id="gate-in" inputmode="numeric" pattern="[0-9]*" maxlength="3" autocomplete="off" aria-label="Réponse">
+      <div class="row"><button class="btn" id="gate-ok">Valider</button><button class="btn sec" id="gate-no">Annuler</button></div>
+    </div></div>`);
+  const m = document.querySelector('.modal.gate'), inp = m.querySelector('#gate-in');
+  const close = () => m.remove();
+  const check = () => {
+    if (+inp.value === x * y) { close(); settings(); return; }
+    if (++tries >= 2) { close(); return; }
+    inp.value = ''; inp.classList.remove('shake'); void inp.offsetWidth; inp.classList.add('shake'); inp.focus();
+  };
+  m.querySelector('#gate-ok').onclick = check;
+  m.querySelector('#gate-no').onclick = close;
+  m.onclick = e => { if (e.target === m) close(); };
+  inp.addEventListener('keydown', e => { if (e.key === 'Enter') check(); });
+  setTimeout(() => inp.focus(), 50);
+}
+
 function holdToOpen(el, ms, fn) {
   let t;
   const stop = () => { clearTimeout(t); el.classList.remove('holding'); };
@@ -1045,6 +1071,7 @@ function settings() {
 }
 
 /* ---------- Démarrage ---------- */
+migrateKeys();
 devId();
 applyTheme();
 home();

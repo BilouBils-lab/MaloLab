@@ -172,8 +172,8 @@ function meliQ() {
 
 /* ---------- 6. Fluence : je lis et je me chronomètre ---------- */
 function fluenceContent() {
-  const key = [...state.known].sort().join('|') + '#' + [...state.outils].sort().join('|');
-  const r = seeded(key);
+  const raw = [...state.known].sort().join('|') + '#' + [...state.outils].sort().join('|');
+  const r = seeded(raw), key = fluKey(raw);
   const syl = sShuffle(r, [...new Set(fusionPool().map(p => p[2]))]).slice(0, 8);
   const words = sShuffle(r, [...new Set([...DICT.values()].filter(w => decodable(w) && w.text.length > 2).map(w => w.text))]).slice(0, 8);
   const sents = sShuffle(r, readableSentences().map(p => p[0])).slice(0, 3);
