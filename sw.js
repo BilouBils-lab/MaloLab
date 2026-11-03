@@ -1,8 +1,8 @@
 // Service worker : permet à l'application de fonctionner hors ligne.
 // ⚠️ Après chaque modification de l'app, augmentez le numéro de version ci-dessous.
-const CACHE = 'malolab-v43';
+const CACHE = 'malolab-v45';
 const ASSETS = [
-  './', './index.html', './style.css', './art.js', './icons.js', './cursive.js', './lecture.js', './maths.js', './sync.js', './shop.js', './dashboard.js', './app.js', './manifest.webmanifest',
+  './', './index.html', './style.css', './art.js', './icons.js', './cursive.js', './lecture.js', './maths.js', './sync.js', './shop.js', './dashboard.js', './daily.js', './app.js', './manifest.webmanifest',
   './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png',
   './assets/compagnon-foot.webp', './assets/compagnon-heros.webp', './assets/compagnon-briques.webp',
   './assets/compagnon-monstres.webp', './assets/compagnon-dinos.webp',

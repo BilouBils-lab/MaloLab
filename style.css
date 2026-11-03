@@ -972,3 +972,45 @@ body.has-decor::before { position: fixed; inset: 0; height: 100lvh; }
 .db-flu { display: flex; justify-content: space-between; gap: 10px; font-size: 15px; }
 .db-dom summary em, .db-row em { width: 54px; white-space: nowrap; }
 .db-dom summary b { width: 72px; }
+
+/* =========================================================
+   Entraînement du jour
+   ========================================================= */
+.daily {
+  display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 26px; text-align: left; color: #fff;
+  background: linear-gradient(135deg, #2EC4B6, #3A86FF); box-shadow: 0 8px 20px rgba(58,134,255,.35); border: 3px solid rgba(255,255,255,.85);
+  position: relative; overflow: hidden;
+}
+.daily::after { content: ''; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.35) 50%, transparent 65%); background-size: 250% 100%; animation: shine 4s ease-in-out infinite; pointer-events: none; }
+.daily.done { background: linear-gradient(135deg, #7BD389, #2EB67D); box-shadow: 0 6px 16px rgba(46,182,125,.3); }
+.daily.done::after { display: none; }
+.daily:active { transform: translateY(2px); }
+.dl-ic { flex: none; width: 54px; height: 54px; border-radius: 50%; background: rgba(255,255,255,.95); display: grid; place-items: center; color: #2EB67D; }
+.dl-ic svg.ico { width: 32px; height: 32px; }
+.dl-txt { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.dl-txt b { font-size: 20px; font-weight: 900; }
+.dl-txt small { font-size: 14px; font-weight: 700; opacity: .92; }
+.dl-go svg.ico { width: 28px; height: 28px; }
+.q-tag { align-self: center; font-size: 13px; font-weight: 800; color: #fff; background: var(--c); padding: 3px 12px; border-radius: 999px; }
+.daily-bonus { background: var(--card); color: var(--ink); font-weight: 900; font-size: 22px; padding: 8px 18px; border-radius: 18px; box-shadow: 0 4px 10px rgba(0,0,0,.12); animation: bounce .7s .3s both; display: flex; flex-direction: column; align-items: center; }
+.daily-bonus small { font-size: 15px; color: #E07A1F; }
+.earned.many svg.ico.star { width: 34px; height: 34px; margin: 0; }
+.beta { font-size: 12px; font-weight: 800; color: #fff; background: #9B5DE5; padding: 2px 8px; border-radius: 999px; vertical-align: middle; margin-left: 6px; }
+@media (max-width: 699px) and (orientation: portrait) {
+  .daily { padding: 10px 14px; } .dl-ic { width: 46px; height: 46px; } .dl-txt b { font-size: 18px; }
+}
+@media (orientation: landscape) and (max-height: 560px) {
+  .dcards .daily { flex-basis: 100%; padding: 6px 12px; } .dcards { flex-wrap: wrap; }
+  .dl-ic { width: 36px; height: 36px; } .dl-txt b { font-size: 16px; } .dl-txt small { font-size: 12px; }
+}
+.daily-bonus { flex-direction: row; gap: 6px; font-size: 19px; padding: 6px 16px; }
+/* iPhone portrait : accueil compact quand l'entraînement du jour est affiché */
+@media (max-width: 699px) and (orientation: portrait) {
+  .dcards:has(.daily) { gap: 8px; }
+  .dcards:has(.daily) .dcard { padding-top: 6px; padding-bottom: 6px; }
+  .dcards:has(.daily) .dc-ic { width: 58px; height: 58px; }
+  .dcards:has(.daily) .dc-txt b { font-size: 24px; }
+  .home2:has(.daily) { gap: 10px; }
+  .home2:has(.daily) .hero-bud { width: 96px; height: 96px; }
+  .home2:has(.daily) .hero-bubble { font-size: 16px; padding: 10px 14px; }
+}

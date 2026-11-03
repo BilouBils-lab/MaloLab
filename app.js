@@ -155,7 +155,7 @@ const QUESTIONS_PAR_PARTIE = 5;
 
 /* ---------- Sauvegarde locale ---------- */
 const KEY = 'malolab';
-const DEFAULTS = { theme: 'foot', name: 'Malo', level: 'auto', caps: false, voice: true, syl: 'arcs', stars: 0, act: {}, known: DEFAULT_KNOWN, outils: DEFAULT_OUTILS, fluence: {}, v2: true };
+const DEFAULTS = { dailyOn: true, theme: 'foot', name: 'Malo', level: 'auto', caps: false, voice: true, syl: 'arcs', stars: 0, act: {}, known: DEFAULT_KNOWN, outils: DEFAULT_OUTILS, fluence: {}, v2: true };
 const sameSet = (a, b) => Array.isArray(a) && a.length === b.length && b.every(x => a.includes(x));
 const state = (() => {
   let saved = {};
@@ -725,6 +725,7 @@ function home() {
         <span class="hero-bubble"><b>${esc(buddyName(t))}</b>${esc(msg)}</span>
       </section>
       <main class="dcards">
+        ${dailyCardHTML()}
         ${Object.entries(ACTS).map(([k, d]) => {
           const n = d.list.filter(a => !a.screen || a.id === 'fluence').length;
           const st = d.list.reduce((x, a) => x + actStars(a.id), 0);
@@ -746,6 +747,7 @@ function home() {
         </button>
       </nav>
     </div>`);
+  { const dl = $('#daily'); if (dl) dl.onclick = () => { sfxPop(); say('Mon entraînement du jour'); startDaily(); }; }
   app.querySelectorAll('.dcard').forEach(b => b.onclick = () => { say(ACTS[b.dataset.d].title); domain(b.dataset.d); });
   $('#album').onclick = () => shop(goalOn ? g.th : undefined);
   $('#themes').onclick = themes;
@@ -822,6 +824,7 @@ function soundsScreen(dk) {
 }
 
 function runSession(act, dk) {
+  const back = act.back || (() => domain(dk)), color = act.color || ACTS[dk].color;
   if (!act.make()) {
     render(`
       <header class="top"><button class="icon" id="back" aria-label="Retour">${ico('back')}</button><div class="title">${act.title}</div></header>
@@ -830,16 +833,16 @@ function runSession(act, dk) {
         <p class="empty">Il faut encore apprendre quelques sons en classe pour cet exercice.<br>Essaie « Mes sons » ou « Les syllabes » !</p>
       </main>`);
     say('Bientôt ! Il faut encore apprendre quelques sons en classe pour cet exercice.');
-    $('#back').onclick = () => domain(dk);
+    $('#back').onclick = back;
     return;
   }
 
-  const total = QUESTIONS_PAR_PARTIE, seen = new Set(), t0 = Date.now();
+  const total = act.total || QUESTIONS_PAR_PARTIE, seen = new Set(), t0 = Date.now();
   let i = 0, got = 0;
 
   const next = () => {
     if (i >= total) return finish();
-    const q = memChoose(act, seen);
+    const q = act.pick ? act.pick(i, seen) : memChoose(act, seen);
     seen.add(q.key);
     let firstTry = true, locked = false, recorded = false;
 
@@ -849,17 +852,18 @@ function runSession(act, dk) {
         <div class="prog">${Array.from({ length: total }, (_, j) => `<span class="${j < i ? 'done' : j === i ? 'cur' : ''}"></span>`).join('')}</div>
         <button class="icon" id="spk" aria-label="Réécouter la consigne">${ico('speaker')}</button>
       </header>
-      <main class="play" style="--c:${ACTS[dk].color}">
+      <main class="play" style="--c:${q.color || color}">
+        ${q.tag ? `<span class="q-tag" style="--c:${q.color || color}">${esc(q.tag)}</span>` : ''}
         <h2 class="instr">${q.text}</h2>
-        <div id="zone" class="zone" style="--c:${ACTS[dk].color}"></div>
+        <div id="zone" class="zone" style="--c:${q.color || color}"></div>
       </main>`, 'play');
-    $('#back').onclick = () => { logTime((Date.now() - t0) / 1000); save(); domain(dk); };
+    $('#back').onclick = () => { logTime((Date.now() - t0) / 1000); save(); back(); };
     const speak = () => say(q.say || q.text);
     $('#spk').onclick = speak;
 
     q.build($('#zone'), (ok, msg) => {
       if (locked) return;
-      if (!recorded) { recorded = true; memRecord(act.id, q.key, ok); }
+      if (!recorded) { recorded = true; memRecord(q.actId || act.id, q.key, ok); }
       if (ok) {
         locked = true;
         if (firstTry) got++;
@@ -878,25 +882,27 @@ function runSession(act, dk) {
     logTime((Date.now() - t0) / 1000, 1);
     state.stars += got;
     state.act[act.id] = (state.act[act.id] || 0) + got;
+    const extra = act.onFinish ? act.onFinish(got, total) : null;
     save();
     const msg = got >= 4 ? 'Bravo' : got >= 2 ? 'Bien joué' : 'Continue comme ça';
     render(`
       <main class="end">
         <div class="end-buddy" style="--bb:${T().bg}"><img src="${T().img}" alt="${esc(buddyName(T()))}" draggable="false"></div>
-        <h2>${msg}${state.name ? ' ' + esc(state.name) : ''} !</h2>
-        <div class="earned">${STAR.repeat(got)}${STAR_OFF.repeat(total - got)}</div>
+        <h2>${extra && extra.title ? esc(extra.title) : `${msg}${state.name ? ' ' + esc(state.name) : ''} !`}</h2>
+        <div class="earned${total > 6 ? ' many' : ''}">${STAR.repeat(got)}${STAR_OFF.repeat(total - got)}</div>
+        ${extra && extra.html ? extra.html : ''}
         <div class="row">
-          <button class="btn" id="again" style="--c:${ACTS[dk].color}">${ico('replay')} Rejouer</button>
+          ${act.noReplay ? '' : `<button class="btn" id="again" style="--c:${color}">${ico('replay')} Rejouer</button>`}
           <button class="btn sec" id="menu">${ico('home')} Menu</button>
         </div>
       </main>`, 'victory');
     const bal = balance(), g = cardById(state.goal), gOk = g && !owned(g.id);
     const tip = gOk ? (bal >= g.price ? `Tu peux acheter ton objectif : ${g.name} !` : `Encore ${etoiles(g.price - bal)} pour ${g.name}.`) : '';
-    $('.earned').insertAdjacentHTML('afterend', `<button class="newsticker to-shop" aria-label="Ouvrir la boutique">Ma tirelire : <b>${bal} ${STAR}</b>${tip ? `<small>${esc(tip)}</small>` : ''}</button>`);
+    $('.daily-bonus, .earned') && ($('.daily-bonus') || $('.earned')).insertAdjacentHTML('afterend', `<button class="newsticker to-shop" aria-label="Ouvrir la boutique">Ma tirelire : <b>${bal} ${STAR}</b>${tip ? `<small>${esc(tip)}</small>` : ''}</button>`);
     confetti();
-    setTimeout(() => say(`${msg}${state.name ? ' ' + state.name : ''} ! Tu as gagné ${etoiles(got)}. Dans ta tirelire, tu as ${etoiles(bal)}. ${tip}`), 200);
-    $('#again').onclick = () => runSession(act, dk);
-    $('#menu').onclick = () => domain(dk);
+    setTimeout(() => say(extra && extra.say ? extra.say + ` Dans ta tirelire, tu as ${etoiles(bal)}.` : `${msg}${state.name ? ' ' + state.name : ''} ! Tu as gagné ${etoiles(got)}. Dans ta tirelire, tu as ${etoiles(bal)}. ${tip}`), 200);
+    if ($('#again')) $('#again').onclick = () => runSession(act, dk);
+    $('#menu').onclick = back;
   };
 
   next();
@@ -971,6 +977,10 @@ function settings() {
       <div class="field">Aide à la lecture
         ${seg('syl', [['arcs', 'Arcs (comme en classe)'], ['couleurs', 'Couleurs'], ['aucune', 'Sans aide']])}
         <small>Arcs sous les syllabes ou syllabes <span class="s0">bleu</span> / <span class="s1">rouge</span>, lettres muettes en <span class="mute">gris</span>, mots outils <span class="mo">en gras</span>.</small>
+      </div>
+      <div class="field">Entraînement du jour <span class="beta">bêta</span>
+        ${seg('dailyOn', [[true, 'Affiché'], [false, 'Masqué']])}
+        <small>10 questions par jour choisies automatiquement : le dernier son étudié, puis les exercices les moins réussis. 2 étoiles bonus une fois par jour.</small>
       </div>
       <div class="field">Lettres
         ${seg('caps', [[false, 'minuscules'], [true, 'MAJUSCULES']])}

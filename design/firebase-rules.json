@@ -17,6 +17,7 @@
           "syl": { ".validate": "newData.isString() && newData.val().length <= 12" },
           "theme": { ".validate": "newData.isString() && newData.val().length <= 20" },
           "goal": { ".validate": "newData.isString() && newData.val().length <= 40" },
+          "dailyOn": { ".validate": "newData.isBoolean()" },
           "known": { "$i": { ".validate": "$i.matches(/^[0-9]{1,2}$/) && newData.isString() && newData.val().length <= 4" } },
           "outils": { "$i": { ".validate": "$i.matches(/^[0-9]{1,2}$/) && newData.isString() && newData.val().length <= 8" } },
           "$autre": { ".validate": false }

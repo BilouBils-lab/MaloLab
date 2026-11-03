@@ -44,10 +44,10 @@ const bandHTML = id => `
     <button class="lfb-pic" data-say="${esc(repere(id))}">${artHTML(repere(id), (grapheme(id) || [])[3])}</button>
   </div>`;
 
-function lettresQ() {
+function lettresQ(force) {
   const K = state.known.filter(id => grapheme(id) && id !== 'ill');
   if (K.length < 2) return null;
-  const target = pick(K);
+  const target = force && K.includes(force) ? force : pick(K);
   const forms = shuffle(letterForms(target));
   const targets = Array.from({ length: 5 }, (_, i) => forms[i % forms.length]);
   // Distracteurs : autres sons connus, sans ceux qui contiennent la lettre cherchée (o / ou…)
@@ -78,11 +78,11 @@ const CONFUS = {
   'é': ['è', 'e'], ou: ['o', 'u'], s: ['z', 'x', 'ch'], ch: ['s', 'j'], f: ['v', 'ph'], r: [], l: ['ill'], m: ['n'], n: ['m', 'gn'],
 };
 const hearIds = t => t.id === 'ph' ? ['f'] : t.id === 'x' ? ['c', 's'] : [t.id];
-function entendsQ() {
+function entendsQ(force) {
   const K = state.known.filter(id => grapheme(id) && id !== 'ill');
   if (!K.length) return null;
   for (let tries = 0; tries < 20; tries++) {
-    const target = pick(K), bad = CONFUS[target] || [];
+    const target = force && K.includes(force) && tries < 12 ? force : pick(K), bad = CONFUS[target] || [];
     const W = LEXICON.filter(w => hasArt(w.text) && w.text !== repere(target) &&
       !w.toks.some(t => !t.silent && bad.includes(t.id)));
     const has = w => w.toks.some(t => !t.silent && hearIds(t).includes(target));

@@ -104,6 +104,7 @@ function dashboard() {
         <div class="db-week">${week.map(x => `<div class="db-day${dayKey(x.d) === dayKey() ? ' today' : ''}">
           <span class="db-col"><i style="height:${Math.round(x.v[1] / maxSec * 100)}%"></i></span>
           <small>${dayName(x.d)}</small><em>${x.v[1] ? Math.round(x.v[1] / 60) + "'" : ''}</em></div>`).join('')}</div>
+        ${typeof dailyStreak === 'function' ? `<small class="db-note">Entraînement du jour : ${dailyDays().size} jour${dailyDays().size > 1 ? 's' : ''} réussi${dailyDays().size > 1 ? 's' : ''}${dailyStreak() > 1 ? ` · série actuelle : ${dailyStreak()} jours` : ''}${dailyDoneToday() ? ' · fait aujourd\'hui' : ''}</small>` : ''}
         <small class="db-note">Depuis le début : ${fmtMin(totalSec)} · ${etoiles(totalStars())} gagnée${totalStars() > 1 ? 's' : ''} · ${Object.keys(buysAll()).length}/${CARDS.length} cartes</small>
       </section>
 
