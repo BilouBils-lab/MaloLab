@@ -6,7 +6,7 @@
    ========================================================= */
 
 // Adresse de la base Firebase de la famille (Realtime Database). Vide = synchronisation désactivée.
-const SYNC_DB = window.MALOLAB_SYNC_DB || '';
+const SYNC_DB = window.MALOLAB_SYNC_DB || 'https://malolab-default-rtdb.europe-west1.firebasedatabase.app';
 const SYNC_ROOT = 'familles';
 
 const devId = () => state.devId || (state.devId = 'd' + Math.random().toString(36).slice(2, 10));
