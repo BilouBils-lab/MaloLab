@@ -233,6 +233,7 @@ function fluenceScreen(dk, part = 0) {
     cancelAnimationFrame(raf);
     const t = (performance.now() - t0) / 1000;
     hist.push(t); state.fluence[F.key][P.id] = hist.slice(-10);
+    logTime(t + 20, part === F.parts.length - 1 ? 1 : 0);
     const record = best !== null && t < best;
     state.stars += record ? 2 : 1; state.act.fluence = (state.act.fluence || 0) + (record ? 2 : 1); save();
     sfxOK(); confetti();

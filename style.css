@@ -931,3 +931,44 @@ svg.ico.star { width: 1.05em; height: 1.05em; vertical-align: -0.15em; }
 html { background: var(--bg); min-height: 100%; }
 body.has-decor { min-height: 100vh; min-height: 100dvh; }
 body.has-decor::before { position: fixed; inset: 0; height: 100lvh; }
+
+/* =========================================================
+   Tableau de bord parents
+   ========================================================= */
+.db-open { align-self: stretch; }
+.dashboard { gap: 14px; }
+.db-card { background: rgba(255,253,248,.95); color: var(--ink); border-radius: 20px; padding: 14px 16px; box-shadow: 0 4px 14px rgba(40,30,20,.12); display: flex; flex-direction: column; gap: 10px; }
+.db-card h3 { margin: 0; font-size: 19px; }
+.db-card.warn { flex-direction: row; align-items: center; font-weight: 600; background: #FFF4D6; }
+.db-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; }
+.db-kpis div { background: #F6F0E4; border-radius: 14px; padding: 8px 4px; display: flex; flex-direction: column; }
+.db-kpis b { font-size: 24px; } .db-kpis small { font-size: 13px; opacity: .7; font-weight: 700; }
+.db-week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; align-items: end; height: 110px; }
+.db-day { display: flex; flex-direction: column; align-items: center; gap: 2px; height: 100%; }
+.db-col { flex: 1; width: 70%; display: flex; align-items: flex-end; background: #F1EADC; border-radius: 8px; overflow: hidden; }
+.db-col i { width: 100%; background: linear-gradient(180deg, #7BC6F0, #3A86FF); border-radius: 8px; min-height: 0; }
+.db-day.today .db-col i { background: linear-gradient(180deg, #FFD36A, #F2A23A); }
+.db-day small { font-size: 12px; font-weight: 700; opacity: .7; text-transform: capitalize; }
+.db-day em { font-style: normal; font-size: 11px; opacity: .6; height: 13px; }
+.db-note { font-size: 13px; opacity: .7; }
+.db-dom { border-top: 1px solid #EFE6D6; padding-top: 8px; }
+.db-dom summary { display: flex; align-items: center; gap: 10px; cursor: pointer; list-style: none; }
+.db-dom summary::-webkit-details-marker { display: none; }
+.db-dom summary .dt-ic { width: 34px; height: 34px; border-radius: 10px; }
+.db-dom summary b { width: 78px; font-size: 16px; }
+.db-dom summary em, .db-row em { font-style: normal; font-weight: 800; width: 46px; text-align: right; }
+.db-bar { flex: 1; height: 10px; border-radius: 999px; background: #EFE6D6; overflow: hidden; }
+.db-bar i { display: block; height: 100%; border-radius: 999px; }
+.db-row { display: flex; align-items: center; gap: 8px; padding: 6px 0 0 44px; font-size: 14px; }
+.db-row span:first-child { width: 120px; font-weight: 700; }
+.db-row small { width: 40px; text-align: right; opacity: .6; }
+.db-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.db-list li { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 15px; }
+.db-list small { opacity: .65; margin-left: auto; }
+.db-tag { font-size: 12px; font-weight: 800; color: #fff; padding: 2px 8px; border-radius: 999px; background: var(--c); }
+.db-big { margin: 0; font-size: 30px; font-weight: 900; } .db-big small { font-size: 14px; font-weight: 600; opacity: .7; }
+.db-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.db-chips span { background: #E9F6EF; color: #1F7A4D; border-radius: 999px; padding: 3px 10px; font-size: 13px; font-weight: 700; }
+.db-flu { display: flex; justify-content: space-between; gap: 10px; font-size: 15px; }
+.db-dom summary em, .db-row em { width: 54px; white-space: nowrap; }
+.db-dom summary b { width: 72px; }

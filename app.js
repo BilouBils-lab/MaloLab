@@ -834,7 +834,7 @@ function runSession(act, dk) {
     return;
   }
 
-  const total = QUESTIONS_PAR_PARTIE, seen = new Set();
+  const total = QUESTIONS_PAR_PARTIE, seen = new Set(), t0 = Date.now();
   let i = 0, got = 0;
 
   const next = () => {
@@ -853,7 +853,7 @@ function runSession(act, dk) {
         <h2 class="instr">${q.text}</h2>
         <div id="zone" class="zone" style="--c:${ACTS[dk].color}"></div>
       </main>`, 'play');
-    $('#back').onclick = () => domain(dk);
+    $('#back').onclick = () => { logTime((Date.now() - t0) / 1000); save(); domain(dk); };
     const speak = () => say(q.say || q.text);
     $('#spk').onclick = speak;
 
@@ -875,6 +875,7 @@ function runSession(act, dk) {
   };
 
   const finish = () => {
+    logTime((Date.now() - t0) / 1000, 1);
     state.stars += got;
     state.act[act.id] = (state.act[act.id] || 0) + got;
     save();
@@ -950,6 +951,7 @@ function settings() {
       <div class="title">Espace parents</div>
     </header>
     <main class="settings">
+      <button class="btn db-open" id="db-open">${ico('trophy')} Tableau de bord</button>
       <label>Prénom de l'enfant
         <input id="name" value="${esc(state.name)}" maxlength="20" autocomplete="off" autocapitalize="words">
       </label>
@@ -1063,6 +1065,7 @@ function settings() {
   drawSync();
   navigator.serviceWorker?.controller?.postMessage('version');
   if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => { pickVoice(); if ($('#voices')) listVoices(); };
+  $('#db-open').onclick = dashboard;
   $('#back').onclick = home;
   $('#name').oninput = e => { state.name = e.target.value.trim(); markSettings(); save(); };
   app.querySelectorAll('.seg').forEach(s => s.querySelectorAll('button').forEach(b => b.onclick = () => {

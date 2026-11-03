@@ -10,13 +10,19 @@ const SYNC_DB = window.MALOLAB_SYNC_DB || 'https://malolab-default-rtdb.europe-w
 const SYNC_ROOT = 'familles';
 
 // Firebase refuse . $ # [ ] / dans les noms : on les encode (« # » devient « %23 »…)
-const safeKey = k => String(k).replace(/[.$#\[\]\/%]/g, c => '%' + c.charCodeAt(0).toString(16).toUpperCase().padStart(2, '0')).slice(0, 60);
+const safeKey = k => String(k).replace(/[.$#\[\]\/]/g, c => '%' + c.charCodeAt(0).toString(16).toUpperCase().padStart(2, '0')).slice(0, 60);
+// Répare les noms encodés plusieurs fois par la version précédente (« %252F » → « %2F »)
+const fixKey = k => { let x = String(k); while (/%25[0-9A-F]{2}/.test(x)) x = x.replace(/%25([0-9A-F]{2})/g, '%$1'); return safeKey(x); };
 // Identifiant court et sûr pour une fiche de fluence
 const fluKey = raw => { let h = 5381; for (let i = 0; i < raw.length; i++) h = (Math.imul(h, 33) ^ raw.charCodeAt(i)) >>> 0; return 'f' + h.toString(36) + raw.length.toString(36); };
 // Conversion des données déjà enregistrées avec d'anciens noms
 function migrateKeys() {
   let changed = false;
-  Object.values(state.mem || {}).forEach(m => Object.keys(m).forEach(k => { const n = safeKey(k); if (n !== k) { m[n] = m[k]; delete m[k]; changed = true; } }));
+  Object.values(state.mem || {}).forEach(m => Object.keys(m).forEach(k => {
+    const n = fixKey(k); if (n === k) return;
+    const e = m[k], o = m[n]; delete m[k]; changed = true;
+    if (!o) m[n] = e; else { o[1] += e[1]; o[2] += e[2]; if (e[0] > o[0]) { o[0] = e[0]; o[3] = e[3]; } }
+  }));
   Object.keys(state.fluence || {}).forEach(k => { if (!/^f[a-z0-9]+$/.test(k)) { state.fluence[fluKey(k)] = state.fluence[k]; delete state.fluence[k]; changed = true; } });
   if (changed) try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {}
 }
@@ -46,8 +52,8 @@ const fluenceAll = (key, part) => [...others().flatMap(d => (((d.fluence || {})[
 function memGet(actId) {
   const out = {};
   [...others().map(d => (d.mem || {})[actId] || {}), (state.mem || {})[actId] || {}].forEach(m => {
-    Object.entries(m).forEach(([k, e]) => {
-      const o = out[k];
+    Object.entries(m).forEach(([k0, e]) => {
+      const k = fixKey(k0), o = out[k];
       if (!o) out[k] = [...e];
       else { o[1] += e[1]; o[2] += e[2]; if (e[0] > o[0]) { o[0] = e[0]; o[3] = e[3]; } }
     });
@@ -118,10 +124,17 @@ async function syncNow() {
     delete state.remote[devId()];
     if (JSON.stringify(state.remote) !== before) changed = true;
     // Envoi : uniquement les données de cet appareil (+ réglages s'ils sont plus récents)
-    const up = { [`devices/${devId()}`]: { stars: state.stars || 0, act: state.act || {}, mem: state.mem || {}, fluence: state.fluence || {}, buys: state.buys || {}, at: Date.now(), device: deviceName() } };
+    const dev = { stars: state.stars || 0, act: state.act || {}, mem: state.mem || {}, fluence: state.fluence || {}, buys: state.buys || {}, at: Date.now(), device: deviceName() };
+    if (!state.logBlocked) dev.log = state.log || {};
+    const up = { [`devices/${devId()}`]: dev };
     if ((state.settingsAt || 0) > ((rs && rs.at) || 0)) up.settings = Object.assign({ at: state.settingsAt }, ...SETTINGS_KEYS.map(k => ({ [k]: state[k] })));
     if ((state.resetAt || 0) > (fam.resetAt || 0)) up.resetAt = state.resetAt;
-    const w = await fetch(famURL(), { method: 'PATCH', body: JSON.stringify(up) });
+    let w = await fetch(famURL(), { method: 'PATCH', body: JSON.stringify(up) });
+    // Anciennes règles Firebase qui ne connaissent pas encore le journal du temps : on réessaie sans lui
+    if (!w.ok && (w.status === 401 || w.status === 403) && dev.log) {
+      delete dev.log; w = await fetch(famURL(), { method: 'PATCH', body: JSON.stringify(up) });
+      if (w.ok) state.logBlocked = true;
+    } else if (w.ok && dev.log) state.logBlocked = false;
     if (!w.ok) throw new Error('écriture ' + w.status);
     state.lastSync = Date.now(); state.syncError = '';
   } catch (e) {

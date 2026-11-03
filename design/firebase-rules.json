@@ -47,6 +47,12 @@
                 }
               }
             },
+            "log": {
+              "$d": {
+                ".validate": "$d.matches(/^[0-9]{8}$/)",
+                "$i": { ".validate": "$i.matches(/^[01]$/) && newData.isNumber() && newData.val() >= 0 && newData.val() < 1000000" }
+              }
+            },
             "$autre": { ".validate": false }
           }
         },
