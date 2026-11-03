@@ -789,3 +789,9 @@ svg.hand .hit { fill: transparent; stroke: none; cursor: pointer; }
 .shop-bank { margin: 0 16px 6px; text-align: center; font-size: 18px; }
 .choices.phrases .choice { font-size: clamp(22px, 6vw, 32px); min-height: 64px; padding: 10px 18px; }
 .sentence-choice .w { pointer-events: none; }
+/* Écris le mot : case à remplir mise en évidence */
+.slot.next { border-color: var(--c, #3A86FF); border-style: solid; background: rgba(255,255,255,.9); animation: nextglow 1.4s ease-in-out infinite; }
+@keyframes nextglow { 0%,100% { box-shadow: 0 0 0 0 rgba(58,134,255,.0); } 50% { box-shadow: 0 0 0 6px rgba(58,134,255,.35); } }
+.slot.pulse { animation: bounce .45s; }
+.tile.wiggle { animation: wiggle .4s; }
+@keyframes wiggle { 0%,100% { rotate: 0deg; } 25% { rotate: -8deg; } 75% { rotate: 8deg; } }

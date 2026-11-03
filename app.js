@@ -406,6 +406,9 @@ function spellQ({ units, word, emoji, kind }) {
       const slots = [...z.querySelectorAll('.slot')];
       let errors = 0, done = 0;
       const nextSlot = () => slots.find(s => !s.classList.contains('ok'));
+      // La case à remplir est mise en évidence : les lettres se placent dans l'ordre
+      const markNext = () => { slots.forEach(x => x.classList.remove('next')); const n = nextSlot(); if (n) n.classList.add('next'); };
+      let tapTold = false;
       const hint = () => {
         z.querySelectorAll('.hint').forEach(t => t.classList.remove('hint'));
         if (errors < 2) return;
@@ -417,6 +420,7 @@ function spellQ({ units, word, emoji, kind }) {
         slot.textContent = tile.textContent; slot.classList.add('ok');
         if (units[slot.dataset.k].silent && state.syl) slot.classList.add('mute');
         tile.classList.add('used'); done++; sfxPop(); hint();
+        markNext();
         if (done === n) answer(true);
       };
       const wrong = tile => {
@@ -428,11 +432,12 @@ function spellQ({ units, word, emoji, kind }) {
         for (const s of slots) {
           const r = s.getBoundingClientRect();
           const d = Math.hypot(x - (r.left + r.width / 2), y - (r.top + r.height / 2));
-          if (d < bd && d < r.width * 1.1) { bd = d; best = s; }
+          if (d < bd && d < r.width * 0.8) { bd = d; best = s; }
         }
         return best;
       };
 
+      markNext();
       z.querySelectorAll('.tile').forEach(tile => {
         tile.addEventListener('pointerdown', e => {
           if (tile.classList.contains('used')) return;
@@ -451,8 +456,17 @@ function spellQ({ units, word, emoji, kind }) {
             tile.removeEventListener('pointercancel', up);
             tile.classList.remove('drag'); tile.style.transform = '';
             if (ev.type === 'pointercancel') return;
-            const target = moved ? slotAt(ev.clientX, ev.clientY) : nextSlot();
-            if (!target || target.classList.contains('ok')) return;
+            if (!moved) {                                     // simple toucher : on rappelle qu'il faut glisser
+              tile.classList.remove('wiggle'); void tile.offsetWidth; tile.classList.add('wiggle');
+              if (!tapTold) { tapTold = true; say("Fais glisser la lettre jusqu'à la case qui clignote."); }
+              return;
+            }
+            const target = slotAt(ev.clientX, ev.clientY), nx = nextSlot();
+            if (!target || target.classList.contains('ok')) return;   // lâchée à côté : la lettre revient, sans pénalité
+            if (target !== nx) {                              // autre case que la suivante : on montre la bonne case
+              nx.classList.remove('pulse'); void nx.offsetWidth; nx.classList.add('pulse');
+              return;
+            }
             if (units[target.dataset.k].sp === tile.dataset.l) fill(tile, target); else wrong(tile);
           };
           tile.addEventListener('pointermove', mv);
