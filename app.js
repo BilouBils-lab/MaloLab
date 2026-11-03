@@ -343,6 +343,10 @@ document.addEventListener('pointerdown', () => {
 }, { once: true });
 document.addEventListener('click', e => { const t = e.target.closest('[data-say]'); if (t) say(t.dataset.say, 0.8); });
 document.addEventListener('gesturestart', e => e.preventDefault());
+document.addEventListener('click', e => {
+  if (!e.target.closest('.to-shop') || document.body.dataset.mode === 'play') return;
+  const g = cardById(state.goal); sfxPop(); shop(g && !owned(g.id) ? g.th : undefined);
+});
 
 /* ---------- Effets ---------- */
 // Récompense discrète : un petit « +1 ⭐ » monte depuis la bonne réponse, sans cacher l'exercice
@@ -702,7 +706,7 @@ function home() {
   render(`
     <header class="top">
       <div class="hello"><span class="brand">MaloLab</span>${state.name ? `Coucou ${esc(state.name)} !` : 'Coucou !'}</div>
-      <div class="stars">⭐ ${balance()}</div>
+      <button class="stars to-shop" aria-label="Ouvrir la boutique">⭐ ${balance()}</button>
       <button class="icon" id="gear" aria-label="Espace parents">⚙️</button>
     </header>
     <section class="buddy" data-say="${esc(msg)}">
@@ -754,7 +758,7 @@ function domain(k) {
     <header class="top">
       <button class="icon" id="back" aria-label="Retour">⬅️</button>
       <div class="title">${d.icon} ${d.title}</div>
-      <div class="stars">⭐ ${balance()}</div>
+      <button class="stars to-shop" aria-label="Ouvrir la boutique">⭐ ${balance()}</button>
     </header>
     <main class="acts">
       ${d.list.map((a, i) => `
@@ -863,7 +867,7 @@ function runSession(act, dk) {
       </main>`, 'victory');
     const bal = balance(), g = cardById(state.goal), gOk = g && !owned(g.id);
     const tip = gOk ? (bal >= g.price ? `Tu peux acheter ton objectif : ${g.name} !` : `Encore ${etoiles(g.price - bal)} pour ${g.name}.`) : '';
-    $('.earned').insertAdjacentHTML('afterend', `<div class="newsticker">⭐ Ma tirelire : <b>${bal} ⭐</b>${tip ? `<small>${esc(tip)}</small>` : ''}</div>`);
+    $('.earned').insertAdjacentHTML('afterend', `<button class="newsticker to-shop" aria-label="Ouvrir la boutique"><span>Ma tirelire : <b>${bal} ⭐</b></span>${tip ? `<small>${esc(tip)}</small>` : ''}<span class="go">🛍️ Voir la boutique</span></button>`);
     confetti();
     setTimeout(() => say(`${msg}${state.name ? ' ' + state.name : ''} ! Tu as gagné ${etoiles(got)}. Dans ta tirelire, tu as ${etoiles(bal)}. ${tip}`), 200);
     $('#again').onclick = () => runSession(act, dk);
