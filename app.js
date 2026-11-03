@@ -931,6 +931,7 @@ function settings() {
       </div>
       <button class="btn danger" id="reset">Remettre étoiles et vignettes à zéro</button>
       <p class="tip">Pour installer l'application : ouvrez le site dans Safari, touchez Partager, puis « Sur l'écran d'accueil ».</p>
+      <p class="tip">Version installée : <b id="appver">${window.__swVersion || '…'}</b></p>
     </main>`);
 
   const updateCount = () => {
@@ -984,6 +985,7 @@ function settings() {
     $('#sy-off').onclick = () => { if (confirm('Arrêter la synchronisation sur cet appareil ?')) { state.syncCode = ''; state.remote = {}; save(); settings(); } };
   };
   drawSync();
+  navigator.serviceWorker?.controller?.postMessage('version');
   if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => { pickVoice(); if ($('#voices')) listVoices(); };
   $('#back').onclick = home;
   $('#name').oninput = e => { state.name = e.target.value.trim(); markSettings(); save(); };
@@ -1002,6 +1004,20 @@ applyTheme();
 home();
 startSync();
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  // updateViaCache 'none' : le fichier sw.js est toujours redemandé au serveur
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then(reg => {
+    const check = () => reg.update().catch(() => {});
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') check(); });
+    setInterval(check, 30 * 60 * 1000);
+  }).catch(() => {}));
+  // Nouvelle version installée : recharger une fois, sauf pendant un exercice (au prochain retour à l'accueil)
+  let hadController = !!navigator.serviceWorker.controller, reloading = false;
+  const reloadSoon = () => {
+    if (reloading) return;
+    if (document.body.dataset.mode === 'play') { setTimeout(reloadSoon, 5000); return; }
+    reloading = true; location.reload();
+  };
+  navigator.serviceWorker.addEventListener('controllerchange', () => { if (hadController) reloadSoon(); hadController = true; });
+  navigator.serviceWorker.addEventListener('message', e => { if (e.data && e.data.version) window.__swVersion = e.data.version.replace('malolab-', ''); const el = document.getElementById('appver'); if (el) el.textContent = window.__swVersion; });
 }
 navigator.storage?.persist?.().catch(() => {});
