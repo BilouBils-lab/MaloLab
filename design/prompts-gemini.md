@@ -117,3 +117,35 @@ Horizontal 16:9 background illustration with no characters, same scene and exact
 ```
 Horizontal 16:9 background illustration with no characters, same scene and exactly the same style as the vertical prehistoric valley background you made before: a lush sunny prehistoric valley with giant ferns and palm trees, a calm lake and river, a gentle volcano with a small puff of smoke far in the distance, mountains, blue sky with soft clouds, warm light. Peaceful, not scary. Keep a wide calm open area in the center of the image (buttons will be placed there); put the interesting details on the left and right edges. Style: soft painterly anime illustration in the look of a Japanese animated film, delicate thin linework, watercolor and gouache textures, soft natural lighting, warm luminous colors, peaceful and child-friendly, no text, no letters, no logo, no watermark. Generate the image directly, only one image.
 ```
+
+---
+
+## E. Vignettes légendaires de la boutique (format vertical 3:4)
+Conseil : **joignez l'image du compagnon** correspondant à chaque description (bouton « + » de Gemini), pour qu'il soit identique.
+Pas de cadre ni de texte dans l'image : l'application ajoute elle-même le cadre doré de la vignette.
+Noms à donner : `legende-foot`, `legende-heros`, `legende-briques`, `legende-monstres`, `legende-dinos`.
+
+### legende-foot
+```
+Vertical 3:4 illustration. Use exactly the same character as in the attached image: Tom, the cheerful 7-year-old boy footballer with messy reddish-brown spiky hair, green eyes, red jersey and a small bandage on his cheek. Epic but joyful moment: Tom performs a spectacular bicycle kick in mid-air and the ball flies into the top corner of the goal net, the net bulging. Sunny village football pitch, golden afternoon light, light rays, sparkles and floating golden petals, a feeling of victory. Tom is big in the frame, full body, dynamic pose, big happy smile. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+### legende-heros
+```
+Vertical 3:4 illustration. Use exactly the same character as in the attached image: the joyful 6-year-old boy superhero with messy spiky hair, dark blue eye mask, blue suit with a yellow lightning bolt emblem and a red cape. Epic but joyful moment: he flies high above a friendly city skyline at golden hour, one fist forward, cape flowing in the wind, leaving a trail of golden sparkles; little birds fly beside him. Warm glowing sunset sky with soft clouds and light rays. He is big in the frame, full body, dynamic flying pose, confident kind smile. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+### legende-briques
+```
+Vertical 3:4 illustration. Use exactly the same character as in the attached image: Brik, the cute friendly robot built from colorful toy construction bricks (red brick head with two studs and a tiny antenna, blue body with a yellow button, yellow arms, big round cyan eyes). Epic but joyful moment: Brik stands proudly on the top of a huge colorful castle he built from generic toy bricks, arms raised in victory, with a little flag on the highest tower. Cozy playroom around, warm afternoon sunlight from a window, dust sparkles in the light, a few loose bricks on the wooden floor. Brik is clearly visible, full body, happy smile. Generic bricks, no brand. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+### legende-monstres
+```
+Vertical 3:4 illustration. Use exactly the same character as in the attached image: Zapi, the cute round sky-blue little creature with a white belly and a yellow star, a purple flame-shaped crest, fin-like ears and big golden eyes. Magical moment: Zapi is evolving, floating slightly above the grass, surrounded by a soft glowing aura of gentle electric sparkles and swirling light, with small glowing crystals around. Magical meadow at dusk, purple and blue sky with the first stars, fireflies and floating orbs of light, wildflowers. Zapi is big in the frame, full body, joyful amazed expression. Cute and gentle, not scary. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+### legende-dinos
+```
+Vertical 3:4 illustration. Use exactly the same character as in the attached image: Rex, the friendly young green T-rex with small orange back spikes, a red headband with floating ribbons and big amber eyes. Joyful epic moment: Rex stands proudly on a big rock with his tiny arms raised, happily roaring (cute, mouth open in a big smile, not scary), next to three spotted dinosaur eggs that are hatching with tiny cute baby dinosaurs peeking out. Lush sunny prehistoric valley with giant ferns and palm trees, a gentle volcano with a small puff of smoke far away, warm golden light and sparkles. Rex is big in the frame, full body. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
