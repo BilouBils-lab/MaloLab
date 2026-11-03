@@ -5,29 +5,35 @@
    (Chargé avant app.js : n'utilise ses fonctions qu'au moment de l'appel.)
    ========================================================= */
 const RARITY = {
-  c: { name: 'Commune', price: 3 },
-  r: { name: 'Rare', price: 8 },
-  s: { name: 'Super rare', price: 15 },
-  l: { name: 'Légendaire', price: 30 },
+  c: { name: 'Commune', price: 3, sym: '●' },
+  r: { name: 'Rare', price: 8, sym: '◆' },
+  s: { name: 'Brillante', price: 15, sym: '★' },
+  l: { name: 'Légendaire', price: 30, sym: '♛' },
 };
-// [univers, rareté, nom, dessin (clé de art.js) ou image]
-const CARDS = [
-  ['foot', 'c', 'Ballon', 'ballon'], ['foot', 'c', 'Crampons', 'crampon'], ['foot', 'c', 'Gants du gardien', 'gant'],
-  ['foot', 'r', 'Coupe', 'coupe'], ['foot', 'r', 'Médaille', 'médaille'], ['foot', 'r', 'But !', 'but'],
-  ['foot', 's', 'Le stade', 'stade'], ['foot', 'l', 'Le retourné de Tom', 'assets/legende-foot.webp'],
-  ['heros', 'c', 'Éclair', 'éclair'], ['heros', 'c', 'Bouclier', 'bouclier'], ['heros', 'c', 'Masque', 'masque'],
-  ['heros', 'r', 'Super-héros', 'héros'], ['heros', 'r', 'Étoile', 'étoile'],
-  ['heros', 's', 'Fusée', 'fusée'], ['heros', 'l', "L'envol de Super Malo", 'assets/legende-heros.webp'],
-  ['briques', 'c', 'Brique', 'brique'], ['briques', 'c', 'Clé', 'clé'], ['briques', 'c', 'Boulon', 'boulon'],
-  ['briques', 'r', 'Robot', 'robot'], ['briques', 'r', 'Tour', 'tour'],
-  ['briques', 's', 'Engrenage', 'engrenage'], ['briques', 'l', 'Le château de Brik', 'assets/legende-briques.webp'],
-  ['monstres', 'c', 'Cristal', 'cristal'], ['monstres', 'c', 'Œuf mystère', 'œuf'],
-  ['monstres', 'r', 'Petit monstre', 'monstre'], ['monstres', 'r', 'Boule magique', 'boule'],
-  ['monstres', 's', 'Baguette magique', 'magie'], ['monstres', 'l', "L'évolution de Zapi", 'assets/legende-monstres.webp'],
-  ['dinos', 'c', 'Os', 'os'], ['dinos', 'c', 'Empreinte', 'empreinte'], ['dinos', 'c', 'Fougère', 'fougère'],
-  ['dinos', 'r', 'Œuf de dino', 'œuf-dino'], ['dinos', 'r', 'Tortue', 'tortue'],
-  ['dinos', 's', 'Dino', 'dino'], ['dinos', 'l', 'Rex et les bébés', 'assets/legende-dinos.webp'],
-].map(([th, r, name, art]) => ({ id: th + ':' + art.replace(/^assets\/|\.webp$/g, ''), th, r, name, art, price: RARITY[r].price }));
+// [identifiant (= assets/carte-<id>.webp), rareté, nom, dessin provisoire en attendant l'illustration]
+const CARD_LIST = [
+  ['foot-ballon', 'c', 'Le ballon de cuir', 'ballon'], ['foot-crampons', 'c', 'Les crampons', 'crampon'], ['foot-gants', 'c', 'Les gants du gardien', 'gant'],
+  ['foot-coupe', 'r', "La coupe d'or", 'coupe'], ['foot-capitaine', 'r', 'Le capitaine', 'assets/compagnon-foot.webp'],
+  ['foot-tir', 's', 'Le tir de feu', 'but'], ['foot-legende', 'l', 'Le retourné de Tom', 'assets/legende-foot.webp'],
+  ['heros-bouclier', 'c', 'Le bouclier étoilé', 'bouclier'], ['heros-masque', 'c', 'Le masque', 'masque'], ['heros-cape', 'c', 'La cape', 'héros'],
+  ['heros-repaire', 'r', 'Le repaire secret', 'porte'], ['heros-chien', 'r', 'Super Toutou', 'étoile'],
+  ['heros-eclair', 's', "L'éclair de Super Malo", 'éclair'], ['heros-legende', 'l', "L'envol de Super Malo", 'assets/legende-heros.webp'],
+  ['briques-brique', 'c', 'La brique rouge', 'brique'], ['briques-cle', 'c', 'La clé à molette', 'clé'], ['briques-voiture', 'c', 'La voiture en briques', 'roue'],
+  ['briques-geant', 'r', 'Le robot géant', 'robot'], ['briques-fusee', 'r', 'La fusée en briques', 'fusée'],
+  ['briques-turbo', 's', 'Brik turbo', 'engrenage'], ['briques-legende', 'l', 'Le château de Brik', 'assets/legende-briques.webp'],
+  ['monstres-oeuf', 'c', "L'œuf mystère", 'œuf'], ['monstres-cristal', 'c', 'Le cristal', 'cristal'], ['monstres-flammeche', 'c', 'Flammèche', 'renard'],
+  ['monstres-aquabulle', 'r', 'Aquabulle', 'boule'], ['monstres-feuillo', 'r', 'Feuillo', 'fougère'],
+  ['monstres-zapi', 's', 'Zapi électrique', 'monstre'], ['monstres-legende', 'l', "L'évolution de Zapi", 'assets/legende-monstres.webp'],
+  ['dinos-os', 'c', "L'os fossile", 'os'], ['dinos-empreinte', 'c', "L'empreinte", 'empreinte'], ['dinos-oeuf', 'c', "L'œuf de dino", 'œuf-dino'],
+  ['dinos-triceratops', 'r', 'Le tricératops', 'dino'], ['dinos-pterodactyle', 'r', 'Le ptérodactyle', 'lune'],
+  ['dinos-volcan', 's', 'Rex et le volcan', 'tortue'], ['dinos-legende', 'l', 'Rex et les bébés', 'assets/legende-dinos.webp'],
+];
+// Illustrations déjà reçues (assets/carte-<id>.webp) : ajouter l'identifiant ici
+const CARD_IMAGES = new Set([]);
+const CARDS = CARD_LIST.map(([id, r, name, art], i) => ({
+  id, th: id.split('-')[0], r, name, price: RARITY[r].price, num: i + 1,
+  art: CARD_IMAGES.has(id) ? `assets/carte-${id}.webp` : art,
+}));
 const cardById = id => CARDS.find(c => c.id === id);
 
 /* ---------- Comptes ---------- */
@@ -41,11 +47,28 @@ const spent = () => Object.keys(buysAll()).reduce((s, id) => s + ((cardById(id) 
 const balance = () => Math.max(0, totalStars() - spent());
 const etoiles = n => `${n} étoile${n > 1 ? 's' : ''}`;
 
-/* ---------- Affichage d'une vignette ---------- */
+/* ---------- Affichage d'une carte (cadre façon cartes à collectionner) ---------- */
 const cardArt = c => c.art.startsWith('assets/')
   ? `<img src="${c.art}" alt="" draggable="false">`
   : artHTML(c.art, '', c.name);
-const cardFace = (c, big = false) => `<span class="vc-face r-${c.r}${big ? ' big' : ''}"><span class="vc-art">${cardArt(c)}</span>${c.r === 's' || c.r === 'l' ? '<span class="vc-shine"></span>' : ''}</span>`;
+const cardFace = (c, big = false) => `
+  <span class="vc-face r-${c.r} th-${c.th}${big ? ' big' : ''}">
+    <span class="vc-art">${cardArt(c)}</span>
+    ${big ? `<span class="vc-band"><span class="vc-bname">${esc(c.name)}</span></span>` : ''}
+    <span class="vc-foot"><span class="vc-sym">${RARITY[c.r].sym}</span><span class="vc-num">${c.num}/${CARDS.length}</span></span>
+    ${c.r !== 'c' ? '<span class="vc-holo"></span>' : ''}${c.r === 'l' ? '<span class="vc-spark"></span>' : ''}
+  </span>`;
+// Effet 3D : la carte s'incline et le reflet suit le doigt
+function tiltCard(el) {
+  if (!el) return;
+  const move = e => {
+    const r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    el.style.setProperty('--rx', `${(0.5 - y) * 16}deg`); el.style.setProperty('--ry', `${(x - 0.5) * 18}deg`);
+    el.style.setProperty('--mx', `${x * 100}%`); el.style.setProperty('--my', `${y * 100}%`);
+  };
+  const reset = () => { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); };
+  el.addEventListener('pointermove', move); el.addEventListener('pointerleave', reset); el.addEventListener('pointerup', reset);
+}
 
 /* ---------- Objectif (vignette épinglée) ---------- */
 function goalHTML() {
@@ -109,6 +132,7 @@ function cardModal(c) {
       <div class="m-body">${body}</div>
     </div></div>`);
   const m = document.querySelector('.modal');
+  tiltCard(m.querySelector('.vc-face'));
   m.onclick = e => { if (e.target === m) closeModal(); };
   const on = (id, f) => { const el = m.querySelector('#' + id); if (el) el.onclick = f; };
   on('m-ok', closeModal); on('m-no', closeModal);

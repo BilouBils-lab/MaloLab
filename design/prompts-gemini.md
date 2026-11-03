@@ -149,3 +149,170 @@ Vertical 3:4 illustration. Use exactly the same character as in the attached ima
 ```
 Vertical 3:4 illustration. Use exactly the same character as in the attached image: Rex, the friendly young green T-rex with small orange back spikes, a red headband with floating ribbons and big amber eyes. Joyful epic moment: Rex stands proudly on a big rock with his tiny arms raised, happily roaring (cute, mouth open in a big smile, not scary), next to three spotted dinosaur eggs that are hatching with tiny cute baby dinosaurs peeking out. Lush sunny prehistoric valley with giant ferns and palm trees, a gentle volcano with a small puff of smoke far away, warm golden light and sparkles. Rex is big in the frame, full body. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
 ```
+
+---
+
+## F. Toutes les cartes de la boutique (style cartes à collectionner)
+Format **vertical 3:4**, sans texte ni cadre : l'application ajoute le cadre de carte, le nom et les effets brillants.
+Pour les cartes qui montrent un compagnon (« Use exactly the same character… »), **joignez l'image du compagnon** avec le bouton « + » de Gemini.
+Nom de fichier à me donner : celui indiqué en titre (ex. `foot-ballon`).
+
+### Univers Foot
+
+#### `foot-ballon` — Le ballon de cuir (Commune)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A classic black-and-white leather football resting on fresh green grass with morning dew, a few daisies around, soft blurred village football pitch in the background, warm morning light. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `foot-crampons` — Les crampons (Commune)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A pair of bright red children's football boots with white laces, standing on green grass next to a goal line, a little mud on the studs, soft blurred pitch behind, warm light. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `foot-gants` — Les gants du gardien (Commune)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A pair of orange goalkeeper gloves hanging on the white post of a goal net, a football at the bottom, sunny village pitch blurred behind. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `foot-coupe` — La coupe d'or (Rare)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A shining golden trophy cup with two handles standing on a small wooden podium on a football pitch, golden confetti falling, sunset light rays, sparkles. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `foot-capitaine` — Le capitaine (Rare)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. Use exactly the same character as in the attached image (Tom). Tom proudly wears a yellow captain armband on his red jersey, holding a football under his arm, smiling, his teammates' silhouettes cheering softly in the background on the sunny pitch. Upper body. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `foot-tir` — Le tir de feu (Brillante)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. Use exactly the same character as in the attached image (Tom). Tom kicks the ball with all his strength; the ball flies leaving a magical glowing trail of golden and orange light (gentle, not scary), sparkles everywhere, dynamic full-body action pose, big smile, sunny pitch. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+### Univers Super-héros
+
+#### `heros-bouclier` — Le bouclier étoilé (Commune)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A round red, white and blue shield with a big white star in the middle, leaning against a brick wall on a rooftop, golden-hour city light, small sparkles. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `heros-masque` — Le masque (Commune)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A dark blue superhero eye mask floating gently in the air with a soft glow, over a friendly city skyline at dusk, small sparkles. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `heros-cape` — La cape (Commune)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A red superhero cape fluttering in the wind, hanging on a clothesline on a sunny rooftop, city skyline in the background, light and joyful. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `heros-repaire` — Le repaire secret (Rare)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A cozy secret superhero hideout inside a treehouse: a big round window looking at the city, a map with stars on the wall, a small control desk with glowing buttons, a cape hanging on a hook, warm lamplight. No people. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `heros-chien` — Super Toutou (Rare)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A cute fluffy little dog wearing a tiny red cape and a small blue eye mask, standing proudly on a rooftop with one paw up, wind in its cape, golden-hour city behind, sparkles. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `heros-eclair` — L'éclair de Super Malo (Brillante)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. Use exactly the same character as in the attached image (the boy superhero). He raises one hand and a bright friendly lightning bolt of yellow and blue light swirls around him like a ribbon, full-body heroic pose on a rooftop at dusk, sparkles, confident kind smile. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+### Univers Briques
+
+#### `briques-brique` — La brique rouge (Commune)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A single shiny red toy construction brick with round studs on top, close-up on a wooden floor, other colorful bricks blurred around, warm afternoon sunlight, dust sparkles. Generic brick, no brand. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `briques-cle` — La clé à molette (Commune)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A small friendly silver wrench and a few colorful screws and bolts on a wooden workbench, warm light from a window, cozy workshop feeling. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `briques-voiture` — La voiture en briques (Commune)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A small toy car built from colorful construction bricks (red body, yellow wheels, blue roof) on a wooden floor ramp, warm sunlight, cozy playroom. Generic bricks, no brand. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `briques-geant` — Le robot géant (Rare)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A big friendly robot built from hundreds of colorful toy bricks, standing tall in a cozy playroom next to toy shelves, looking proud, a child-height scale, warm sunlight. Generic bricks, no brand. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `briques-fusee` — La fusée en briques (Rare)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A tall colorful rocket built from toy construction bricks standing on a launch pad made of bricks, ready for takeoff, a little cotton smoke at the base, playroom window with a starry sky, warm lamp light. Generic bricks, no brand. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `briques-turbo` — Brik turbo (Brillante)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. Use exactly the same character as in the attached image (Brik, the brick robot). Brik flies through the playroom with a jetpack made of bricks, leaving a sparkling rainbow trail of light, arms forward, happy face, toy blocks floating around, dynamic full-body pose. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+### Univers Monstres
+
+#### `monstres-oeuf` — L'œuf mystère (Commune)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A mysterious spotted creature egg (pale lavender with purple spots) glowing softly in a nest of moss and flowers, a tiny crack on top, magical meadow at dusk, fireflies. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `monstres-cristal` — Le cristal (Commune)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A glowing purple and blue crystal growing from a mossy rock, soft light rays, small floating sparkles, magical meadow at dusk. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `monstres-flammeche` — Flammèche (Commune)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A tiny cute original creature: a small round orange fox-like creature with a little gentle flame on the tip of its tail, big shiny eyes, rosy cheeks, sitting on a rock, magical meadow at dusk. Completely original design, not resembling any existing creature or game. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `monstres-aquabulle` — Aquabulle (Rare)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A cute original water creature: a round light-blue axolotl-like creature floating inside a big soap bubble above a small pond with water lilies, big shiny eyes, happy smile, soft evening light. Completely original design, not resembling any existing creature or game. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `monstres-feuillo` — Feuillo (Rare)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A cute original plant creature: a small green round creature with a big leaf growing on its head like a hat and tiny flowers, big shiny eyes, sitting among wildflowers in a sunny clearing, butterflies. Completely original design, not resembling any existing creature or game. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `monstres-zapi` — Zapi électrique (Brillante)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. Use exactly the same character as in the attached image (Zapi). Zapi jumps joyfully in the air surrounded by gentle crackling electric sparkles of blue and yellow light shaped like little stars, full-body dynamic pose, magical meadow at dusk with fireflies. Cute, not scary. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+### Univers Dinosaures
+
+#### `dinos-os` — L'os fossile (Commune)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A big fossil dinosaur bone half buried in sandy earth with a small brush and a little shovel next to it, ferns around, warm sunlight, discovery feeling. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `dinos-empreinte` — L'empreinte (Commune)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A giant three-toed dinosaur footprint in the mud with a little puddle of water inside reflecting the sky, ferns and pebbles around, sunny prehistoric valley. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `dinos-oeuf` — L'œuf de dino (Commune)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A big cream dinosaur egg with green spots in a nest of leaves and twigs, a tiny crack on top, giant ferns around, warm golden light. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `dinos-triceratops` — Le tricératops (Rare)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A cute friendly young triceratops (soft orange with three small horns and a pink frill), big shiny eyes, smiling, eating ferns in a lush sunny prehistoric valley. Cute, not scary. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `dinos-pterodactyle` — Le ptérodactyle (Rare)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A cute friendly young pterodactyl (light blue with soft wings) gliding happily above a lush prehistoric valley with a lake and palm trees, big shiny eyes, sunny sky with soft clouds. Cute, not scary. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
+
+#### `dinos-volcan` — Rex et le volcan (Brillante)
+```
+Vertical 3:4 illustration for a collectible card, the subject centered and large. Use exactly the same character as in the attached image (Rex, the green T-rex with a red headband). Rex stands on a hill in front of a gentle volcano whose smoke turns into colorful sparkling fireworks in the sky, Rex cheering with tiny arms raised, warm evening light. Cute, not scary. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+```
