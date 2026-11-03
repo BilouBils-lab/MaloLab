@@ -88,8 +88,9 @@ function shop(th = state.theme) {
     <header class="top">
       <button class="icon" id="back" aria-label="Retour">⬅️</button>
       <div class="title">🛍️ Boutique</div>
-      <div class="stars piggy">🐷 ${bal} ⭐</div>
+      <div class="stars">⭐ ${bal}</div>
     </header>
+    <p class="shop-bank">Ma tirelire : <b>${bal} ⭐</b> à dépenser</p>
     ${goalHTML()}
     <nav class="shop-tabs">${Object.entries(THEMES).map(([k, t]) => {
       const n = CARDS.filter(c => c.th === k), o = n.filter(c => B[c.id]).length;
@@ -117,7 +118,7 @@ function cardModal(c) {
   let body;
   if (own) body = `<p class="m-big">Elle est à toi ! 🎉</p><div class="row"><button class="btn" id="m-ok">👍 Super</button></div>`;
   else if (can) body = `
-    <p class="m-calc"><span>🐷 ${bal} ⭐</span><b>−</b><span class="r-${c.r}">${c.price} ⭐</span><b>=</b><span class="q">?</span></p>
+    <p class="m-calc"><span>${bal} ⭐</span><b>−</b><span class="r-${c.r}">${c.price} ⭐</span><b>=</b><span class="q">?</span></p>
     <p class="m-txt">Tu as <b>${bal}</b> étoiles. Cette vignette coûte <b>${c.price}</b> étoiles.</p>
     <div class="row"><button class="btn" id="m-buy">🛒 Acheter</button><button class="btn sec" id="m-no">Pas maintenant</button></div>
     ${state.goal === c.id ? '' : '<button class="m-link" id="m-goal">📌 En faire mon objectif</button>'}`;

@@ -778,3 +778,12 @@ svg.hand .hit { fill: transparent; stroke: none; cursor: pointer; }
 .vc-face.r-l .vc-holo { opacity: .38; mix-blend-mode: overlay; }
 .vc-face.r-r .vc-holo { opacity: .25; mix-blend-mode: soft-light; }
 .vcard.cant .vc-face { filter: saturate(.8); }
+/* Correctif Safari : vraie bordure autour de l'illustration (au-dessus de l'image) et découpe forcée des coins */
+.vc-art {
+  box-shadow: none; border: 3px solid var(--tc, #ccc); box-sizing: border-box;
+  clip-path: inset(0 round 6px); -webkit-mask-image: -webkit-radial-gradient(white, black); transform: translateZ(0);
+}
+.vc-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 3px; }
+.vc-face { -webkit-transform-style: flat; transform-style: flat; }
+.vc-face.r-l .vc-art { border-color: #E9B10E; }
+.shop-bank { margin: 0 16px 6px; text-align: center; font-size: 18px; }
