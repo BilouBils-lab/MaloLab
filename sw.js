@@ -1,6 +1,6 @@
 // Service worker : permet à l'application de fonctionner hors ligne.
 // ⚠️ Après chaque modification de l'app, augmentez le numéro de version ci-dessous.
-const CACHE = 'malolab-v28';
+const CACHE = 'malolab-v29';
 const ASSETS = [
   './', './index.html', './style.css', './art.js', './cursive.js', './lecture.js', './maths.js', './sync.js', './shop.js', './app.js', './manifest.webmanifest',
   './icon-192.png', './icon-512.png', './apple-touch-icon.png',
@@ -14,7 +14,7 @@ const ASSETS = [
   './assets/legende-foot.webp', './assets/legende-heros.webp', './assets/legende-briques.webp',
   './assets/legende-monstres.webp', './assets/legende-dinos.webp',
   // cartes de la boutique
-  ...['foot-ballon', 'foot-crampons', 'foot-tir', 'foot-capitaine', 'foot-coupe', 'foot-gants', 'heros-eclair', 'heros-chien', 'heros-repaire', 'heros-cape', 'heros-masque', 'heros-bouclier', 'briques-brique', 'briques-cle', 'briques-fusee', 'briques-geant', 'briques-voiture', 'monstres-aquabulle', 'monstres-flammeche', 'monstres-cristal', 'monstres-oeuf', 'briques-turbo', 'dinos-empreinte', 'dinos-os', 'monstres-zapi', 'monstres-feuillo'].map(id => `./assets/carte-${id}.webp`),
+  ...['foot-ballon', 'foot-crampons', 'foot-tir', 'foot-capitaine', 'foot-coupe', 'foot-gants', 'heros-eclair', 'heros-chien', 'heros-repaire', 'heros-cape', 'heros-masque', 'heros-bouclier', 'briques-brique', 'briques-cle', 'briques-fusee', 'briques-geant', 'briques-voiture', 'monstres-aquabulle', 'monstres-flammeche', 'monstres-cristal', 'monstres-oeuf', 'briques-turbo', 'dinos-empreinte', 'dinos-os', 'monstres-zapi', 'monstres-feuillo', 'dinos-triceratops', 'dinos-oeuf', 'dinos-volcan', 'dinos-pterodactyle'].map(id => `./assets/carte-${id}.webp`),
 ];
 
 // Le numéro de version est envoyé à la page sur demande (affiché dans l'espace parents)

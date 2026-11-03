@@ -29,7 +29,7 @@ const CARD_LIST = [
   ['dinos-volcan', 's', 'Rex et le volcan', 'tortue'], ['dinos-legende', 'l', 'Rex et les bébés', 'assets/legende-dinos.webp'],
 ];
 // Illustrations déjà reçues (assets/carte-<id>.webp) : ajouter l'identifiant ici
-const CARD_IMAGES = new Set(['foot-ballon', 'foot-crampons', 'foot-tir', 'foot-capitaine', 'foot-coupe', 'foot-gants', 'heros-eclair', 'heros-chien', 'heros-repaire', 'heros-cape', 'heros-masque', 'heros-bouclier', 'briques-brique', 'briques-cle', 'briques-fusee', 'briques-geant', 'briques-voiture', 'monstres-aquabulle', 'monstres-flammeche', 'monstres-cristal', 'monstres-oeuf', 'briques-turbo', 'dinos-empreinte', 'dinos-os', 'monstres-zapi', 'monstres-feuillo']);
+const CARD_IMAGES = new Set(['foot-ballon', 'foot-crampons', 'foot-tir', 'foot-capitaine', 'foot-coupe', 'foot-gants', 'heros-eclair', 'heros-chien', 'heros-repaire', 'heros-cape', 'heros-masque', 'heros-bouclier', 'briques-brique', 'briques-cle', 'briques-fusee', 'briques-geant', 'briques-voiture', 'monstres-aquabulle', 'monstres-flammeche', 'monstres-cristal', 'monstres-oeuf', 'briques-turbo', 'dinos-empreinte', 'dinos-os', 'monstres-zapi', 'monstres-feuillo', 'dinos-triceratops', 'dinos-oeuf', 'dinos-volcan', 'dinos-pterodactyle']);
 const CARDS = CARD_LIST.map(([id, r, name, art], i) => ({
   id, th: id.split('-')[0], r, name, price: RARITY[r].price, num: i + 1,
   art: CARD_IMAGES.has(id) ? `assets/carte-${id}.webp` : art,
