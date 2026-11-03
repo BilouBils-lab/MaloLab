@@ -701,29 +701,49 @@ function applyTheme() {
   if (m) m.content = getComputedStyle(document.body).getPropertyValue('--bg').trim() || '#FFF8E7';
 }
 
+// Icône de chaque domaine : illustration si présente (assets/domaine-<id>.webp), sinon dessin provisoire
+const DOMAIN_IMG = new Set([]);
+const DOMAIN_ART = { maths: 'dé', lecture: 'livre', ecriture: 'fil' };
+const domainIcon = k => DOMAIN_IMG.has(k) ? `<img src="assets/domaine-${k}.webp" alt="" draggable="false">` : artHTML(DOMAIN_ART[k], ACTS[k].icon);
+
 function home() {
   const t = T(), msg = pick(t.hello).replace('{n}', state.name || '');
+  const g = cardById(state.goal), goalOn = g && !owned(g.id), miss = goalOn ? g.price - balance() : 0;
   render(`
-    <header class="top">
+    <header class="top home-top">
       <div class="hello"><span class="brand">MaloLab</span>${state.name ? `Coucou ${esc(state.name)} !` : 'Coucou !'}</div>
       <button class="stars to-shop" aria-label="Ouvrir la boutique">⭐ ${balance()}</button>
       <button class="icon" id="gear" aria-label="Espace parents">⚙️</button>
     </header>
-    <section class="buddy" data-say="${esc(msg)}">
-      <span class="bud" style="--bb:${t.bg}"><img src="${t.img}" alt="${esc(buddyName(t))}" draggable="false"></span>
-      <span class="bubble"><b>${esc(buddyName(t))}</b>${esc(msg)}</span>
-    </section>
-    <main class="home">
-      ${Object.entries(ACTS).map(([k, d]) => `
-        <button class="domain" style="--c:${d.color}" data-d="${k}"><span class="di">${d.icon}</span><span>${d.title}</span></button>`).join('')}
-    </main>
-    <nav class="homebar">
-      <button class="pill" id="album">🛍️ Boutique <small>${(() => { const g = cardById(state.goal); if (!g || owned(g.id)) return `${Object.keys(buysAll()).length}/${CARDS.length} vignettes`;
-        const m = g.price - balance(); return m > 0 ? `📌 encore ${m} ⭐ pour ${esc(g.name)}` : `📌 ${esc(g.name)} : tu peux l'acheter !`; })()}</small></button>
-      <button class="pill" id="themes"><img class="pill-img" src="${t.img}" alt=""> Mon univers</button>
-    </nav>`);
-  app.querySelectorAll('.domain').forEach(b => b.onclick = () => { say(ACTS[b.dataset.d].title); domain(b.dataset.d); });
-  $('#album').onclick = () => { const g = cardById(state.goal); shop(g && !owned(g.id) ? g.th : undefined); };
+    <div class="home2">
+      <section class="hero" data-say="${esc(msg)}">
+        <span class="hero-bud" style="--bb:${t.bg}"><img src="${t.img}" alt="${esc(buddyName(t))}" draggable="false"></span>
+        <span class="hero-bubble"><b>${esc(buddyName(t))}</b>${esc(msg)}</span>
+      </section>
+      <main class="dcards">
+        ${Object.entries(ACTS).map(([k, d]) => {
+          const n = d.list.filter(a => !a.screen || a.id === 'fluence').length;
+          const st = d.list.reduce((x, a) => x + actStars(a.id), 0);
+          return `<button class="dcard" style="--c:${d.color}" data-d="${k}">
+            <span class="dc-ic">${domainIcon(k)}</span>
+            <span class="dc-txt"><b>${d.title}</b><small>${n} jeux · ⭐ ${st}</small></span>
+            <span class="dc-go">›</span>
+          </button>`;
+        }).join('')}
+      </main>
+      <nav class="homebar2">
+        <button class="hb" id="album">
+          ${goalOn ? `<span class="hb-card">${cardFace(g)}</span>` : '<span class="hb-ic">🛍️</span>'}
+          <span class="hb-txt"><b>Boutique</b><small>${goalOn ? (miss > 0 ? `Encore ${miss} ⭐` : 'Tu peux l\'acheter !') : `${Object.keys(buysAll()).length}/${CARDS.length} cartes`}</small></span>
+        </button>
+        <button class="hb" id="themes">
+          <span class="hb-ic img" style="--bb:${t.bg}"><img src="${t.img}" alt=""></span>
+          <span class="hb-txt"><b>Mon univers</b><small>${esc(t.name)}</small></span>
+        </button>
+      </nav>
+    </div>`);
+  app.querySelectorAll('.dcard').forEach(b => b.onclick = () => { say(ACTS[b.dataset.d].title); domain(b.dataset.d); });
+  $('#album').onclick = () => shop(goalOn ? g.th : undefined);
   $('#themes').onclick = themes;
   holdToOpen($('#gear'), 1500, settings);
   window.__screen = 'home';

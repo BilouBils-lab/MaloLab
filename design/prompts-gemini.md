@@ -316,3 +316,24 @@ Vertical 3:4 illustration for a collectible card, the subject centered and large
 ```
 Vertical 3:4 illustration for a collectible card, the subject centered and large. Use exactly the same character as in the attached image (Rex, the green T-rex with a red headband). Rex stands on a hill in front of a gentle volcano whose smoke turns into colorful sparkling fireworks in the sky, Rex cheering with tiny arms raised, warm evening light. Cute, not scary. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
 ```
+
+---
+
+## G. Icônes de l'accueil (format carré 1:1, fond uni)
+Trois icônes pour les cartes Maths, Lecture et Écriture de l'accueil. Même conversation pour les trois, pour un style identique.
+Noms : `domaine-maths`, `domaine-lecture`, `domaine-ecriture`.
+
+### domaine-maths
+```
+Square 1:1 icon illustration, a single object centered and large, on a plain soft cream background, no scenery. A small stack of three colorful wooden number blocks (orange, blue, red) with big rounded numbers 1, 2 and 3 painted on them, a tiny golden sparkle. Simple shapes, readable at very small size, soft shadow under the blocks. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting, warm luminous colors, wholesome and child-friendly, no other text, no logo, no frame, no border, no watermark. Generate the image directly, only one image.
+```
+
+### domaine-lecture
+```
+Square 1:1 icon illustration, a single object centered and large, on a plain soft cream background, no scenery. An open children's picture book seen slightly from above, with soft colorful illustrations on the pages and a few small golden sparkles floating above it, a red ribbon bookmark. Simple shapes, readable at very small size, soft shadow under the book. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting, warm luminous colors, wholesome and child-friendly, no text, no letters, no logo, no frame, no border, no watermark. Generate the image directly, only one image.
+```
+
+### domaine-ecriture
+```
+Square 1:1 icon illustration, a single object centered and large, on a plain soft cream background, no scenery. A cheerful yellow pencil with a pink eraser, drawn diagonally, writing a soft swirly line on a small sheet of lined school paper, with a few golden sparkles. Simple shapes, readable at very small size, soft shadow. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting, warm luminous colors, wholesome and child-friendly, no text, no letters, no logo, no frame, no border, no watermark. Generate the image directly, only one image.
+```
