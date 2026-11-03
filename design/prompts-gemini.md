@@ -330,7 +330,7 @@ Square 1:1 icon illustration, a single object centered and large, on a plain sof
 
 ### domaine-lecture
 ```
-Square 1:1 icon illustration, a single object centered and large, on a plain soft cream background, no scenery. An open children's picture book seen slightly from above, with soft colorful illustrations on the pages and a few small golden sparkles floating above it, a red ribbon bookmark. Simple shapes, readable at very small size, soft shadow under the book. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting, warm luminous colors, wholesome and child-friendly, no text, no letters, no logo, no frame, no border, no watermark. Generate the image directly, only one image.
+Square 1:1 icon illustration, a single object centered and large, on a plain soft cream background, no scenery. An open book seen slightly from above, its pages filled with neat lines of handwritten-style text (small abstract wavy lines, no pictures), and three big rounded lowercase letters "a", "b" and "c" in red, blue and yellow floating up out of the book with small golden sparkles. A red ribbon bookmark. Simple shapes, readable at very small size, soft shadow under the book. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting, warm luminous colors, wholesome and child-friendly, no other text, no logo, no frame, no border, no watermark. Generate the image directly, only one image.
 ```
 
 ### domaine-ecriture
