@@ -1,7 +1,7 @@
 'use strict';
 /* =========================================================
    Exercices de maths inspirés de la méthode de la classe :
-   représentations des nombres, doigts, suite des nombres,
+   représentations des nombres, suite des nombres,
    +1, comparer (< >), addition, soustraction, motifs,
    solides et formes planes, tracé des chiffres.
    (Chargé avant app.js : n'utilise ses fonctions qu'au moment de l'appel.)
@@ -42,33 +42,12 @@ const DICE = { 1: [[50, 50]], 2: [[28, 28], [72, 72]], 3: [[25, 25], [50, 50], [
   5: [[28, 28], [72, 28], [50, 50], [28, 72], [72, 72]], 6: [[28, 24], [72, 24], [28, 50], [72, 50], [28, 76], [72, 76]] };
 const diceSVG = n => `<svg class="dice" viewBox="0 0 100 100"><rect x="5" y="5" width="90" height="90" rx="18"/>${DICE[n].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="9"/>`).join('')}</svg>`;
 
-// Main : pouce puis 4 doigts ; up[i] = doigt levé
-const FINGERS = [{ x: 4, yU: 40, h: 36, rot: -35 }, { x: 22, yU: 8, h: 62 }, { x: 39, yU: 2, h: 68 }, { x: 56, yU: 6, h: 64 }, { x: 72, yU: 18, h: 52 }];
-function handSVG(up, flip = false, hid = '') {
-  const fingers = FINGERS.map((f, i) => {
-    const isUp = up[i];
-    // Pouce baissé : replié contre la paume ; autres doigts baissés : seul le bout dépasse
-    const y = isUp ? f.yU : f.rot ? 72 : 40, h = isUp ? f.h : f.rot ? 26 : 30;
-    const tr = f.rot && isUp ? ` transform="rotate(${f.rot} ${f.x + 8} ${y + h})"` : '';
-    if (f.rot && !isUp) return `<rect class="finger" data-f="${i}" x="14" y="${y}" width="16" height="${h}" rx="8"/>`;
-    return `<rect class="finger${isUp ? ' up' : ''}" data-f="${i}" x="${f.x}" y="${y}" width="16" height="${h}" rx="8"${tr}/>`;
-  }).join('');
-  // Zones tactiles invisibles, une par doigt, sur toute la hauteur (faciles à toucher pour un enfant)
-  const hits = [[0, 20], [20, 17], [37, 17], [54, 17], [71, 29]].map(([x, w], i) =>
-    `<rect class="hit" data-f="${i}" x="${x}" y="0" width="${w}" height="130"/>`).join('');
-  const thumbDown = up[0] ? '' : `<rect class="finger thumb-in" x="14" y="72" width="16" height="26" rx="8"/>`;
-  return `<svg class="hand" viewBox="0 0 100 130"${flip ? ' style="transform:scaleX(-1)"' : ''} data-h="${hid}">${fingers}<rect class="palm" x="18" y="62" width="68" height="62" rx="24"/>${thumbDown}${hid !== '' ? hits : ''}</svg>`;
-}
-const upTo = k => [0, 1, 2, 3, 4].map(i => i < k);
-const handsFor = n => `<div class="hands">${handSVG(upTo(Math.min(n, 5)), true)}${n > 5 ? handSVG(upTo(n - 5)) : ''}</div>`;
-
-/* ---------- Compter (objets, boîte de 10, doigts, dé) ---------- */
+/* ---------- Compter (objets, boîte de 10, dé) ---------- */
 function compterQ() {
   const top = Math.min(numMax(), 20);
-  const mode = pick(['objets', 'objets', 'boite', 'doigts', 'de']);
+  const mode = pick(['objets', 'objets', 'boite', 'de']);
   let n, vis;
   if (mode === 'de') { n = rnd(1, 6); vis = diceSVG(n); }
-  else if (mode === 'doigts') { n = rnd(1, 10); vis = handsFor(n); }
   else if (mode === 'boite') { n = rnd(1, top); vis = tenFrame(n); }
   else { n = rnd(1, Math.min(10, top)); vis = `<div class="count">${emojis(pick(T().count), n)}</div>`; }
   return {

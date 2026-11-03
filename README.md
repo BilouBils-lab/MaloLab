@@ -7,7 +7,7 @@ Fonctionne sur iPhone et iPad, même hors ligne, une fois ajoutée à l'écran d
 
 | Domaine | Activités |
 |---|---|
-| 🔢 Maths | Compter (objets, boîte de 10, doigts, dé) · Montre avec tes doigts · Nombres en lettres · La suite des nombres (à rebours, avant/après) · Ajouter 1 · Comparer (plus/moins/autant, < = >) · Additions · Soustractions · Les motifs · Les formes · Tracer les chiffres |
+| 🔢 Maths | Compter (objets, boîte de 10, dé) · Nombres en lettres · La suite des nombres (à rebours, avant/après) · Ajouter 1 · Comparer (plus/moins/autant, < = >) · Additions · Soustractions · Les motifs · Les formes · Tracer les chiffres |
 | 📖 Lecture | Mes sons · Les lettres · J'entends le son · Combine les lettres · Les syllabes · Méli-mélo · Le premier son · Quel mot ? · Lis le mot · Vrai ou faux ? · Fluence (chronomètre) |
 | ✏️ Écriture | Écris le mot (graphèmes à glisser : ch, ou, on…) · Dictée de syllabes · Lettres, syllabes et mots attachés (cursive, Apple Pencil) |
 
@@ -43,7 +43,7 @@ Fonctionne sur iPhone et iPad, même hors ligne, une fois ajoutée à l'écran d
   Exercices sur le modèle du fichier : lire les lettres sous toutes leurs formes, entendre un son, combiner les lettres
   (ra / ar), méli-mélo, fluence chronométrée (temps 1, 2, 3).
 - **Maths** : taille des nombres réglée automatiquement selon le mois (10 en septembre, 30 jusqu'en décembre, 60 jusqu'en mars, 90 ensuite),
-  jeu des doigts, boîte de 10, « maison » du nombre, signes < et >, soustraction en barrant, motifs, solides et formes planes,
+  boîte de 10, « maison » du nombre, signes < et >, soustraction en barrant, motifs, solides et formes planes,
   tracé des chiffres avec point de départ et sens.
 - Les mots et phrases sont écrits pour l'application (les textes des manuels ne sont pas recopiés).
 

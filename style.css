@@ -589,14 +589,6 @@ svg.cw-mini path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-l
 svg.dice { width: clamp(110px, 30vw, 160px); }
 svg.dice rect { fill: #fff; stroke: #4A3B33; stroke-width: 4; }
 svg.dice circle { fill: #4A3B33; }
-/* Mains */
-.hands { display: flex; gap: 6px; justify-content: center; }
-svg.hand { width: clamp(90px, 26vw, 150px); overflow: visible; }
-.hands.big svg.hand { width: clamp(130px, 40vw, 220px); cursor: pointer; }
-svg.hand .finger, svg.hand .palm { fill: #F2C29B; stroke: #5A4535; stroke-width: 2.5; }
-svg.hand .finger { transition: all .15s; }
-.hands.big svg.hand .finger { fill: #EBB78F; }
-.hands.big svg.hand .finger.up { fill: #F6CFA8; }
 .nword { display: flex; flex-direction: column; align-items: center; gap: 4px; background: var(--card); color: var(--ink); border-radius: 24px; padding: 10px 28px; box-shadow: 0 5px 0 rgba(0,0,0,.08); font-size: 22px; }
 svg.cw-big { height: clamp(70px, 18vw, 110px); width: auto; overflow: visible; }
 svg.cw-big path { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
@@ -637,7 +629,6 @@ svg.bond text.b { fill: #1E6FE8; } svg.bond text.g { fill: #2E9E5B; } svg.bond t
 /* Formes */
 svg.shape { width: clamp(80px, 22vw, 120px); }
 svg.shape * { stroke: #4A3B33; stroke-width: 2.5; stroke-linejoin: round; }
-svg.hand .hit { fill: transparent; stroke: none; cursor: pointer; }
 .lf-tile svg.cw-mini { height: 1.15em; }
 .lf-tile svg.cw-mini path { stroke-width: 2.1; }
 .voices { display: flex; flex-wrap: wrap; gap: 8px; }
