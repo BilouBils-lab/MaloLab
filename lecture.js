@@ -201,7 +201,8 @@ function fluenceScreen(dk, part = 0) {
   const P = F.parts[part], color = ACTS[dk].color;
   state.fluence = state.fluence || {};
   const hist = (state.fluence[F.key] = state.fluence[F.key] || {})[P.id] || [];
-  const best = hist.length ? Math.min(...hist) : null;
+  const allHist = fluenceAll(F.key, P.id);
+  const best = allHist.length ? Math.min(...allHist) : null;
   render(`
     <header class="top">
       <button class="icon" id="back" aria-label="Retour">⬅️</button>
@@ -214,7 +215,7 @@ function fluenceScreen(dk, part = 0) {
       <div class="fl-box ${P.cls} blur">${P.items.map(t => `<div class="fl-item">${P.html(t)}</div>`).join('')}</div>
       <div class="fl-timer" id="tm">0,0 s</div>
       <div class="row"><button class="btn" id="go" style="--c:${color}">▶️ C'est parti !</button></div>
-      <div class="fl-hist">${hist.slice(-3).map((t, i) => `<span>Temps ${i + 1} : <b>${fmtTime(t)}</b></span>`).join('') || '<span>Premier essai !</span>'}</div>
+      <div class="fl-hist">${allHist.slice(-3).map((t, i) => `<span>Temps ${i + 1} : <b>${fmtTime(t)}</b></span>`).join('') || '<span>Premier essai !</span>'}</div>
     </main>`, 'play');
   const speak = () => say(`${P.title}. Lis à voix haute, le plus vite possible sans te tromper. Appuie sur C'est parti pour lancer le chrono.`);
   $('#spk').onclick = speak; setTimeout(speak, 300);

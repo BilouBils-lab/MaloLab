@@ -162,7 +162,7 @@ const STICKERS = [
   ['🥇', 'Médaille'], ['🦹', 'Méchant'], ['🚧', 'Chantier'], ['✨', 'Poussière magique'], ['🪨', 'Fossile'],
   ['🎽', 'Maillot'], ['🐆', 'Panthère'], ['🔩', 'Boulon'], ['🥚', 'Gros œuf'], ['🦖', 'Roi des dinos'],
 ];
-const unlockedCount = () => Math.min(STICKERS.length, Math.floor(state.stars / STARS_PAR_AUTOCOLLANT));
+const unlockedCount = () => Math.min(STICKERS.length, Math.floor(totalStars() / STARS_PAR_AUTOCOLLANT));
 const RETRY = ['Essaie encore !', 'Presque ! Essaie encore.', 'Oups, essaie encore.'];
 const QUESTIONS_PAR_PARTIE = 5;
 
@@ -185,7 +185,7 @@ const state = (() => {
   }
   return s;
 })();
-const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} };
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} scheduleSync(); };
 
 /* ---------- Outils ---------- */
 const $ = s => document.querySelector(s);
@@ -561,7 +561,6 @@ const ACTS = {
     title: 'Maths', icon: '🔢', color: 'var(--maths)',
     list: [
       { id: 'compter', title: 'Compter', icon: '🍎', make: compterQ },
-      { id: 'doigts', title: 'Montre avec tes doigts', icon: '✋', make: doigtsQ },
       { id: 'nlettres', title: 'Nombres en lettres', icon: '🔤', make: nombresLettresQ },
       { id: 'suite', title: 'La suite des nombres', icon: '🪜', make: suiteQ },
       { id: 'plusun', title: 'Ajouter 1', icon: '➕', make: plusUnQ },
@@ -688,7 +687,7 @@ const app = document.getElementById('app');
 // mode : '' (menus), 'play' (exercice : décor atténué), 'victory' (fin de partie)
 const render = (html, mode = '') => {
   window.speechSynthesis?.cancel();
-  document.body.dataset.mode = mode;
+  document.body.dataset.mode = mode; window.__screen = '';
   document.querySelectorAll('.confetti,.pop').forEach(e => e.remove());
   app.innerHTML = html; window.scrollTo(0, 0);
 };
@@ -705,11 +704,11 @@ function applyTheme() {
 
 function home() {
   const t = T(), msg = pick(t.hello).replace('{n}', state.name || '');
-  const left = STARS_PAR_AUTOCOLLANT - (state.stars % STARS_PAR_AUTOCOLLANT);
+  const left = STARS_PAR_AUTOCOLLANT - (totalStars() % STARS_PAR_AUTOCOLLANT);
   render(`
     <header class="top">
       <div class="hello"><span class="brand">MaloLab</span>${state.name ? `Coucou ${esc(state.name)} !` : 'Coucou !'}</div>
-      <div class="stars">⭐ ${state.stars}</div>
+      <div class="stars">⭐ ${totalStars()}</div>
       <button class="icon" id="gear" aria-label="Espace parents">⚙️</button>
     </header>
     <section class="buddy" data-say="${esc(msg)}">
@@ -728,7 +727,10 @@ function home() {
   $('#album').onclick = album;
   $('#themes').onclick = themes;
   holdToOpen($('#gear'), 1500, settings);
+  window.__screen = 'home';
 }
+// Après une synchronisation qui apporte du nouveau : rafraîchir l'accueil s'il est affiché
+function onSyncChange() { if (window.__screen === 'home') home(); }
 
 // Choix de l'univers par l'enfant
 function themes() {
@@ -745,7 +747,7 @@ function themes() {
     </main>`);
   $('#back').onclick = home;
   app.querySelectorAll('.theme-card').forEach(b => b.onclick = () => {
-    state.theme = b.dataset.t; save(); applyTheme();
+    state.theme = b.dataset.t; markSettings(); save(); applyTheme();
     sfxOK(); confetti();
     setTimeout(() => { home(); say(`${T().name} !`); }, 900);
   });
@@ -753,12 +755,12 @@ function themes() {
 
 // Album d'autocollants
 function album() {
-  const n = unlockedCount(), left = STARS_PAR_AUTOCOLLANT - (state.stars % STARS_PAR_AUTOCOLLANT);
+  const n = unlockedCount(), left = STARS_PAR_AUTOCOLLANT - (totalStars() % STARS_PAR_AUTOCOLLANT);
   render(`
     <header class="top">
       <button class="icon" id="back" aria-label="Retour">⬅️</button>
       <div class="title">📒 Mon album</div>
-      <div class="stars">⭐ ${state.stars}</div>
+      <div class="stars">⭐ ${totalStars()}</div>
     </header>
     <p class="album-info">${n < STICKERS.length ? `Encore <b>${left} ⭐</b> pour le prochain autocollant !` : 'Album complet, bravo ! 🏆'}</p>
     <main class="album">
@@ -775,13 +777,13 @@ function domain(k) {
     <header class="top">
       <button class="icon" id="back" aria-label="Retour">⬅️</button>
       <div class="title">${d.icon} ${d.title}</div>
-      <div class="stars">⭐ ${state.stars}</div>
+      <div class="stars">⭐ ${totalStars()}</div>
     </header>
     <main class="acts">
       ${d.list.map((a, i) => `
         <button class="act" style="--c:${d.color}" data-i="${i}">
           <span class="ai">${a.icon}</span><span class="at">${a.title}</span>
-          <span class="as">${a.id === 'messons' ? `${state.known.length} sons` : `⭐ ${state.act[a.id] || 0}`}</span>
+          <span class="as">${a.id === 'messons' ? `${state.known.length} sons` : `⭐ ${actStars(a.id)}`}</span>
         </button>`).join('')}
     </main>`);
   $('#back').onclick = home;
@@ -832,10 +834,9 @@ function runSession(act, dk) {
 
   const next = () => {
     if (i >= total) return finish();
-    let q, t = 0;
-    do q = act.make(); while (seen.has(q.key) && t++ < 20);
+    const q = memChoose(act, seen);
     seen.add(q.key);
-    let firstTry = true, locked = false;
+    let firstTry = true, locked = false, recorded = false;
 
     render(`
       <header class="top">
@@ -853,6 +854,7 @@ function runSession(act, dk) {
 
     q.build($('#zone'), (ok, msg) => {
       if (locked) return;
+      if (!recorded) { recorded = true; memRecord(act.id, q.key, ok); }
       if (ok) {
         locked = true;
         if (firstTry) got++;
@@ -910,7 +912,7 @@ function holdToOpen(el, ms, fn) {
 function settings() {
   const seg = (k, opts) => `<div class="seg" data-k="${k}">${opts.map(([v, lab]) =>
     `<button data-v='${JSON.stringify(v)}' class="${state[k] === v ? 'on' : ''}">${lab}</button>`).join('')}</div>`;
-  const allActs = Object.values(ACTS).flatMap(d => d.list.filter(a => !a.screen).map(a => `${a.icon} ${a.title} : ⭐ ${state.act[a.id] || 0}`));
+  const allActs = Object.values(ACTS).flatMap(d => d.list.filter(a => !a.screen).map(a => `${a.icon} ${a.title} : ⭐ ${actStars(a.id)}`));
   const K = knownSet();
 
   render(`
@@ -954,8 +956,11 @@ function settings() {
         <small><b>Pour une voix bien plus naturelle sur iPhone / iPad :</b> Réglages → Accessibilité → Contenu énoncé → Voix → Français (France)
         → téléchargez <b>Amélie (premium)</b> ou <b>Thomas (améliorée)</b>, puis fermez et rouvrez MaloLab et choisissez-la ci-dessus.</small>
       </div>
+      <div class="field">Synchronisation iPhone ↔ iPad
+        <div class="sync" id="sync"></div>
+      </div>
       <div class="field">Progrès
-        <div class="statsbox">Total : ⭐ ${state.stars}<br>${allActs.join('<br>')}</div>
+        <div class="statsbox">Total : ⭐ ${totalStars()}<br>${allActs.join('<br>')}</div>
       </div>
       <button class="btn danger" id="reset">Remettre les étoiles à zéro</button>
       <p class="tip">Pour installer l'application : ouvrez le site dans Safari, touchez Partager, puis « Sur l'écran d'accueil ».</p>
@@ -968,7 +973,7 @@ function settings() {
   const chips = (sel, key) => app.querySelectorAll(`${sel} button`).forEach(b => b.onclick = () => {
     const id = b.dataset.id, set = new Set(state[key]);
     set.has(id) ? set.delete(id) : set.add(id);
-    state[key] = [...set]; save();
+    state[key] = [...set]; markSettings(); save();
     b.classList.toggle('on', set.has(id));
     updateCount();
   });
@@ -986,21 +991,49 @@ function settings() {
     });
   };
   listVoices();
+  const drawSync = () => {
+    const box = $('#sync'); if (!box) return;
+    if (!SYNC_DB) { box.innerHTML = `<small>Pas encore activée : la base de données en ligne n'est pas configurée.</small>`; return; }
+    if (!state.syncCode) {
+      box.innerHTML = `<small>Pour retrouver les étoiles et les progrès sur tous les appareils.</small>
+        <div class="row left"><button class="btn" id="sy-new">✨ Créer un code famille</button></div>
+        <small>Sur le 2ᵉ appareil, tapez le code déjà créé :</small>
+        <div class="row left"><input id="sy-code" placeholder="MALO-XXXX-XXXX-XXXX-XXXX" autocapitalize="characters" autocomplete="off"><button class="btn sec" id="sy-join">Rejoindre</button></div>`;
+      $('#sy-new').onclick = async () => { state.syncCode = newFamilyCode(); markSettings(); save(); drawSync(); await syncNow(); drawSync(); };
+      $('#sy-join').onclick = async () => {
+        const c = normCode($('#sy-code').value); if (c.length < 24) return alert('Le code doit ressembler à MALO-XXXX-XXXX-XXXX-XXXX.');
+        state.syncCode = c; state.settingsAt = 0; save(); drawSync();
+        const ok = await syncNow(); settings(); if (!ok) alert('Synchronisation impossible : ' + state.syncError);
+      };
+      return;
+    }
+    const when = state.lastSync ? new Date(state.lastSync).toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' }) : 'jamais';
+    const devs = others().map(d => d.device || 'appareil').join(', ');
+    box.innerHTML = `<div class="sync-code">${esc(state.syncCode)}</div>
+      <small>Tapez ce code sur l'autre appareil (Espace parents → Rejoindre).<br>
+      Dernière synchronisation : <b>${when}</b>${devs ? ` · reliés : ${esc(devs)}` : ''}${state.syncError ? `<br>⚠️ ${esc(state.syncError)}` : ''}</small>
+      <div class="row left"><button class="btn sec" id="sy-now">🔄 Synchroniser</button><button class="btn sec" id="sy-off">Déconnecter</button></div>`;
+    $('#sy-now').onclick = async () => { $('#sy-now').textContent = '…'; await syncNow(); settings(); };
+    $('#sy-off').onclick = () => { if (confirm('Arrêter la synchronisation sur cet appareil ?')) { state.syncCode = ''; state.remote = {}; save(); settings(); } };
+  };
+  drawSync();
   if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => { pickVoice(); if ($('#voices')) listVoices(); };
   $('#back').onclick = home;
-  $('#name').oninput = e => { state.name = e.target.value.trim(); save(); };
+  $('#name').oninput = e => { state.name = e.target.value.trim(); markSettings(); save(); };
   app.querySelectorAll('.seg').forEach(s => s.querySelectorAll('button').forEach(b => b.onclick = () => {
-    state[s.dataset.k] = JSON.parse(b.dataset.v); save();
+    state[s.dataset.k] = JSON.parse(b.dataset.v); markSettings(); save();
     s.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
   }));
   $('#reset').onclick = () => {
-    if (confirm('Remettre toutes les étoiles à zéro ?')) { state.stars = 0; state.act = {}; save(); settings(); }
+    if (confirm('Remettre toutes les étoiles à zéro (sur tous les appareils) ?')) { state.stars = 0; state.act = {}; state.resetAt = state.resetSeen = Date.now(); save(); settings(); }
   };
 }
 
 /* ---------- Démarrage ---------- */
+devId();
 applyTheme();
 home();
+startSync();
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 }

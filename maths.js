@@ -77,32 +77,6 @@ function compterQ() {
   };
 }
 
-/* ---------- Le jeu des doigts : montre ce nombre avec tes doigts ---------- */
-function doigtsQ() {
-  const max = numMax() >= 10 ? 10 : 5;
-  const n = Math.random() < .5 ? rnd(1, 5) : rnd(1, max);
-  return {
-    key: 'd' + n, text: `Montre ${n} avec tes doigts`,
-    say: `Montre-moi ${n} avec tes doigts. Touche les doigts pour les lever ou les baisser.`,
-    build(z, answer) {
-      const st = [Array(5).fill(false), Array(5).fill(false)];
-      z.innerHTML = `<div class="bignum">${n}</div><div class="hands big"></div><div class="row"><button class="btn" id="fin">✅ J'ai fini</button></div>`;
-      const draw = () => {
-        z.querySelector('.hands').innerHTML = handSVG(st[0], true, 0) + handSVG(st[1], false, 1);
-        z.querySelectorAll('.hand').forEach(h => h.addEventListener('click', e => {
-          const f = e.target.closest('[data-f]'); if (!f) return;
-          const k = +h.dataset.h, i = +f.dataset.f; st[k][i] = !st[k][i]; sfxPop(); draw();
-        }));
-      };
-      draw();
-      z.querySelector('#fin').onclick = () => {
-        const c = st.flat().filter(Boolean).length;
-        c === n ? answer(true) : answer(false, c < n ? 'Il manque des doigts. Compte bien.' : 'Il y a trop de doigts levés.');
-      };
-    },
-  };
-}
-
 /* ---------- Les nombres en chiffres et en lettres ---------- */
 function nombresLettresQ() {
   const n = rnd(0, 10), ds = sample([...Array(11).keys()].filter(x => x !== n), 2);
