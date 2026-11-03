@@ -29,7 +29,7 @@ const CARD_LIST = [
   ['dinos-volcan', 's', 'Rex et le volcan', 'tortue'], ['dinos-legende', 'l', 'Rex et les bébés', 'assets/legende-dinos.webp'],
 ];
 // Illustrations déjà reçues (assets/carte-<id>.webp) : ajouter l'identifiant ici
-const CARD_IMAGES = new Set(['foot-ballon', 'foot-tir', 'foot-capitaine', 'foot-coupe', 'foot-gants']);
+const CARD_IMAGES = new Set(['foot-ballon', 'foot-crampons', 'foot-tir', 'foot-capitaine', 'foot-coupe', 'foot-gants']);
 const CARDS = CARD_LIST.map(([id, r, name, art], i) => ({
   id, th: id.split('-')[0], r, name, price: RARITY[r].price, num: i + 1,
   art: CARD_IMAGES.has(id) ? `assets/carte-${id}.webp` : art,
