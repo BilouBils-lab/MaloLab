@@ -22,7 +22,10 @@ Fonctionne sur iPhone et iPad, même hors ligne, une fois ajoutée à l'écran d
   Chaque univers a ses couleurs, son compagnon illustré, ses images à compter, ses félicitations et ses mots de lecture.
 - Illustrations des compagnons : dossier `assets/` (WebP 512 px, ≈ 25 Ko). Descriptions Gemini : `design/prompts-gemini.md`.
   Pour remplacer un compagnon : déposer `assets/compagnon-<univers>.webp` et mettre à jour `img` dans `THEMES` (`app.js`).
-- **Mon album** : un autocollant est gagné tous les 5 ⭐ (40 à collectionner).
+- **Boutique de vignettes** : les étoiles gagnées vont dans la tirelire 🐷 et servent à acheter des vignettes
+  (35, 7 par univers environ) : commune 3 ⭐, rare 8 ⭐, super rare 15 ⭐ (animée, brillante), légendaire 30 ⭐ (illustration).
+  Avant l'achat : « 12 − 3 = ? ». Une vignette peut être épinglée comme objectif. Pas de tirage au hasard.
+  Achats synchronisés entre appareils (`shop.js`).
 - Univers inspirés des goûts de l'enfant, sans reprendre de personnages officiels.
 - Pour modifier un univers : objet `THEMES` dans `app.js` et section « UNIVERS » de `style.css`.
 

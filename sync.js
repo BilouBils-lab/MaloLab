@@ -22,7 +22,7 @@ const deviceName = () => {
 function others() {
   return Object.entries(state.remote || {})
     .filter(([id]) => id !== state.devId)
-    .map(([, d]) => (d && (d.at || 0) < (state.resetSeen || 0)) ? { ...d, stars: 0, act: {} } : (d || {}));
+    .map(([, d]) => (d && (d.at || 0) < (state.resetSeen || 0)) ? { ...d, stars: 0, act: {}, buys: {} } : (d || {}));
 }
 const totalStars = () => (state.stars || 0) + others().reduce((s, d) => s + (d.stars || 0), 0);
 const actStars = id => (state.act[id] || 0) + others().reduce((s, d) => s + ((d.act || {})[id] || 0), 0);
@@ -75,7 +75,7 @@ function memChoose(act, seen) {
    2. SYNCHRONISATION
    Arborescence : familles/<code>/devices/<appareil>, familles/<code>/settings, familles/<code>/resetAt
    ========================================================= */
-const SETTINGS_KEYS = ['name', 'level', 'caps', 'voice', 'syl', 'known', 'outils', 'theme'];
+const SETTINGS_KEYS = ['name', 'level', 'caps', 'voice', 'syl', 'known', 'outils', 'theme', 'goal'];
 const CODE_CHARS = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
 const newFamilyCode = () => 'MALO-' + Array.from({ length: 4 }, () =>
   Array.from({ length: 4 }, () => CODE_CHARS[crypto.getRandomValues(new Uint32Array(1))[0] % CODE_CHARS.length]).join('')).join('-');
@@ -101,13 +101,13 @@ async function syncNow() {
       if (typeof applyTheme === 'function') applyTheme();
     }
     // Remise à zéro demandée depuis un autre appareil
-    if ((fam.resetAt || 0) > (state.resetSeen || 0)) { state.stars = 0; state.act = {}; state.resetSeen = fam.resetAt; changed = true; }
+    if ((fam.resetAt || 0) > (state.resetSeen || 0)) { state.stars = 0; state.act = {}; state.buys = {}; state.resetSeen = fam.resetAt; changed = true; }
     const before = JSON.stringify(state.remote || {});
     state.remote = fam.devices || {};
     delete state.remote[devId()];
     if (JSON.stringify(state.remote) !== before) changed = true;
     // Envoi : uniquement les données de cet appareil (+ réglages s'ils sont plus récents)
-    const up = { [`devices/${devId()}`]: { stars: state.stars || 0, act: state.act || {}, mem: state.mem || {}, fluence: state.fluence || {}, at: Date.now(), device: deviceName() } };
+    const up = { [`devices/${devId()}`]: { stars: state.stars || 0, act: state.act || {}, mem: state.mem || {}, fluence: state.fluence || {}, buys: state.buys || {}, at: Date.now(), device: deviceName() } };
     if ((state.settingsAt || 0) > ((rs && rs.at) || 0)) up.settings = Object.assign({ at: state.settingsAt }, ...SETTINGS_KEYS.map(k => ({ [k]: state[k] })));
     if ((state.resetAt || 0) > (fam.resetAt || 0)) up.resetAt = state.resetAt;
     const w = await fetch(famURL(), { method: 'PATCH', body: JSON.stringify(up) });

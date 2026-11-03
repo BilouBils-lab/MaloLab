@@ -150,19 +150,6 @@ const THEMES = {
 const T = () => THEMES[state.theme] || THEMES.foot;
 const buddyName = t => t.buddyName.replace('{n}', state.name || 'Héros');
 
-// Album : un autocollant tous les 5 ⭐ (ordre de déblocage)
-const STARS_PAR_AUTOCOLLANT = 5;
-const STICKERS = [
-  ['⚽', 'Ballon'], ['🦸', 'Super-héros'], ['🧱', 'Brique'], ['👾', 'Petit monstre'], ['🦖', 'T-rex'],
-  ['🥅', 'Cage'], ['🛡️', 'Bouclier'], ['🔧', 'Clé'], ['🥚', 'Œuf mystère'], ['🦕', 'Diplodocus'],
-  ['👟', 'Crampons'], ['⚡', 'Éclair'], ['🏗️', 'Grue'], ['💎', 'Cristal'], ['🌋', 'Volcan'],
-  ['🧤', 'Gants du gardien'], ['🚀', 'Jet'], ['🤖', 'Robot'], ['🐉', 'Dragon'], ['🦴', 'Os de dino'],
-  ['🏆', 'Coupe'], ['🔨', 'Marteau magique'], ['🏠', 'Maison en briques'], ['🔮', 'Boule magique'], ['🐾', 'Empreinte'],
-  ['🏟️', 'Stade'], ['💥', 'Boum'], ['⚙️', 'Engrenage'], ['🌟', 'Étoile filante'], ['🌿', 'Fougère géante'],
-  ['🥇', 'Médaille'], ['🦹', 'Méchant'], ['🚧', 'Chantier'], ['✨', 'Poussière magique'], ['🪨', 'Fossile'],
-  ['🎽', 'Maillot'], ['🐆', 'Panthère'], ['🔩', 'Boulon'], ['🥚', 'Gros œuf'], ['🦖', 'Roi des dinos'],
-];
-const unlockedCount = () => Math.min(STICKERS.length, Math.floor(totalStars() / STARS_PAR_AUTOCOLLANT));
 const RETRY = ['Essaie encore !', 'Presque ! Essaie encore.', 'Oups, essaie encore.'];
 const QUESTIONS_PAR_PARTIE = 5;
 
@@ -704,11 +691,10 @@ function applyTheme() {
 
 function home() {
   const t = T(), msg = pick(t.hello).replace('{n}', state.name || '');
-  const left = STARS_PAR_AUTOCOLLANT - (totalStars() % STARS_PAR_AUTOCOLLANT);
   render(`
     <header class="top">
       <div class="hello"><span class="brand">MaloLab</span>${state.name ? `Coucou ${esc(state.name)} !` : 'Coucou !'}</div>
-      <div class="stars">⭐ ${totalStars()}</div>
+      <div class="stars piggy">🐷 ${balance()} ⭐</div>
       <button class="icon" id="gear" aria-label="Espace parents">⚙️</button>
     </header>
     <section class="buddy" data-say="${esc(msg)}">
@@ -720,17 +706,18 @@ function home() {
         <button class="domain" style="--c:${d.color}" data-d="${k}"><span class="di">${d.icon}</span><span>${d.title}</span></button>`).join('')}
     </main>
     <nav class="homebar">
-      <button class="pill" id="album">📒 Mon album <small>${unlockedCount()}/${STICKERS.length}${unlockedCount() < STICKERS.length ? ` · encore ${left} ⭐` : ''}</small></button>
+      <button class="pill" id="album">🛍️ Boutique <small>${(() => { const g = cardById(state.goal); if (!g || owned(g.id)) return `${Object.keys(buysAll()).length}/${CARDS.length} vignettes`;
+        const m = g.price - balance(); return m > 0 ? `📌 encore ${m} ⭐ pour ${esc(g.name)}` : `📌 ${esc(g.name)} : tu peux l'acheter !`; })()}</small></button>
       <button class="pill" id="themes"><img class="pill-img" src="${t.img}" alt=""> Mon univers</button>
     </nav>`);
   app.querySelectorAll('.domain').forEach(b => b.onclick = () => { say(ACTS[b.dataset.d].title); domain(b.dataset.d); });
-  $('#album').onclick = album;
+  $('#album').onclick = () => { const g = cardById(state.goal); shop(g && !owned(g.id) ? g.th : undefined); };
   $('#themes').onclick = themes;
   holdToOpen($('#gear'), 1500, settings);
   window.__screen = 'home';
 }
 // Après une synchronisation qui apporte du nouveau : rafraîchir l'accueil s'il est affiché
-function onSyncChange() { if (window.__screen === 'home') home(); }
+function onSyncChange() { if (document.querySelector('.modal')) return; const sc = window.__screen || ''; if (sc === 'home') home(); else if (sc.startsWith('shop:')) shop(sc.slice(5)); }
 
 // Choix de l'univers par l'enfant
 function themes() {
@@ -753,31 +740,13 @@ function themes() {
   });
 }
 
-// Album d'autocollants
-function album() {
-  const n = unlockedCount(), left = STARS_PAR_AUTOCOLLANT - (totalStars() % STARS_PAR_AUTOCOLLANT);
-  render(`
-    <header class="top">
-      <button class="icon" id="back" aria-label="Retour">⬅️</button>
-      <div class="title">📒 Mon album</div>
-      <div class="stars">⭐ ${totalStars()}</div>
-    </header>
-    <p class="album-info">${n < STICKERS.length ? `Encore <b>${left} ⭐</b> pour le prochain autocollant !` : 'Album complet, bravo ! 🏆'}</p>
-    <main class="album">
-      ${STICKERS.map(([e, name], i) => i < n
-        ? `<button class="sticker" data-say="${esc(name)}"><span>${e}</span><small>${esc(name)}</small></button>`
-        : `<div class="sticker locked"><img src="assets/dos-de-carte.webp" alt="Carte mystère" draggable="false"></div>`).join('')}
-    </main>`);
-  $('#back').onclick = home;
-}
-
 function domain(k) {
   const d = ACTS[k];
   render(`
     <header class="top">
       <button class="icon" id="back" aria-label="Retour">⬅️</button>
       <div class="title">${d.icon} ${d.title}</div>
-      <div class="stars">⭐ ${totalStars()}</div>
+      <div class="stars piggy">🐷 ${balance()} ⭐</div>
     </header>
     <main class="acts">
       ${d.list.map((a, i) => `
@@ -870,7 +839,6 @@ function runSession(act, dk) {
   };
 
   const finish = () => {
-    const before = unlockedCount();
     state.stars += got;
     state.act[act.id] = (state.act[act.id] || 0) + got;
     save();
@@ -885,12 +853,11 @@ function runSession(act, dk) {
           <button class="btn sec" id="menu">🏠 Menu</button>
         </div>
       </main>`, 'victory');
-    const fresh = STICKERS.slice(before, unlockedCount());
-    if (fresh.length) {
-      $('.earned').insertAdjacentHTML('afterend', `<div class="newsticker">🎁 Nouvel autocollant !<span>${fresh.map(f => f[0]).join(' ')}</span></div>`);
-    }
+    const bal = balance(), g = cardById(state.goal), gOk = g && !owned(g.id);
+    const tip = gOk ? (bal >= g.price ? `Tu peux acheter ton objectif : ${g.name} !` : `Encore ${etoiles(g.price - bal)} pour ${g.name}.`) : '';
+    $('.earned').insertAdjacentHTML('afterend', `<div class="newsticker">🐷 Ma tirelire : <b>${bal} ⭐</b>${tip ? `<small>${esc(tip)}</small>` : ''}</div>`);
     confetti();
-    setTimeout(() => say(`${msg}${state.name ? ' ' + state.name : ''} ! Tu as gagné ${got} étoile${got > 1 ? 's' : ''}.${fresh.length ? ' Et un nouvel autocollant : ' + fresh.map(f => f[1]).join(', ') + ' !' : ''}`), 200);
+    setTimeout(() => say(`${msg}${state.name ? ' ' + state.name : ''} ! Tu as gagné ${etoiles(got)}. Dans ta tirelire, tu as ${etoiles(bal)}. ${tip}`), 200);
     $('#again').onclick = () => runSession(act, dk);
     $('#menu').onclick = () => domain(dk);
   };
@@ -960,9 +927,9 @@ function settings() {
         <div class="sync" id="sync"></div>
       </div>
       <div class="field">Progrès
-        <div class="statsbox">Total : ⭐ ${totalStars()}<br>${allActs.join('<br>')}</div>
+        <div class="statsbox">Étoiles gagnées : ⭐ ${totalStars()} · dépensées : ${spent()} · dans la tirelire : <b>${balance()}</b><br>Vignettes : ${Object.keys(buysAll()).length} / ${CARDS.length}<br>${allActs.join('<br>')}</div>
       </div>
-      <button class="btn danger" id="reset">Remettre les étoiles à zéro</button>
+      <button class="btn danger" id="reset">Remettre étoiles et vignettes à zéro</button>
       <p class="tip">Pour installer l'application : ouvrez le site dans Safari, touchez Partager, puis « Sur l'écran d'accueil ».</p>
     </main>`);
 
@@ -1025,7 +992,7 @@ function settings() {
     s.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
   }));
   $('#reset').onclick = () => {
-    if (confirm('Remettre toutes les étoiles à zéro (sur tous les appareils) ?')) { state.stars = 0; state.act = {}; state.resetAt = state.resetSeen = Date.now(); save(); settings(); }
+    if (confirm('Remettre à zéro les étoiles et les vignettes (sur tous les appareils) ?')) { state.stars = 0; state.act = {}; state.buys = {}; state.goal = ''; markSettings(); state.resetAt = state.resetSeen = Date.now(); save(); settings(); }
   };
 }
 
