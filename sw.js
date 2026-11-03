@@ -1,6 +1,6 @@
 // Service worker : permet à l'application de fonctionner hors ligne.
 // ⚠️ Après chaque modification de l'app, augmentez le numéro de version ci-dessous.
-const CACHE = 'malolab-v37';
+const CACHE = 'malolab-v38';
 const ASSETS = [
   './', './index.html', './style.css', './art.js', './cursive.js', './lecture.js', './maths.js', './sync.js', './shop.js', './app.js', './manifest.webmanifest',
   './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png',
@@ -11,6 +11,7 @@ const ASSETS = [
   './assets/decor-foot-paysage.webp', './assets/decor-heros-paysage.webp', './assets/decor-briques-paysage.webp',
   './assets/decor-monstres-paysage.webp', './assets/decor-dinos-paysage.webp',
   './assets/victoire.webp', './assets/dos-de-carte.webp',
+  './assets/domaine-maths.webp', './assets/domaine-lecture.webp', './assets/domaine-ecriture.webp',
   './assets/legende-foot.webp', './assets/legende-heros.webp', './assets/legende-briques.webp',
   './assets/legende-monstres.webp', './assets/legende-dinos.webp',
   // cartes de la boutique

@@ -889,3 +889,4 @@ button.stars.to-shop:active, .newsticker.to-shop:active { transform: translateY(
   .dcard { padding-top: 10px; padding-bottom: 10px; }
   .dc-ic { width: 70px; height: 70px; }
 }
+.dc-ic { background: #FBF3E3; }

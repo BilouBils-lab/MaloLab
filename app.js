@@ -702,7 +702,7 @@ function applyTheme() {
 }
 
 // Icône de chaque domaine : illustration si présente (assets/domaine-<id>.webp), sinon dessin provisoire
-const DOMAIN_IMG = new Set([]);
+const DOMAIN_IMG = new Set(['maths', 'lecture', 'ecriture']);
 const DOMAIN_ART = { maths: 'dé', lecture: 'livre', ecriture: 'fil' };
 const domainIcon = k => DOMAIN_IMG.has(k) ? `<img src="assets/domaine-${k}.webp" alt="" draggable="false">` : artHTML(DOMAIN_ART[k], ACTS[k].icon);
 
