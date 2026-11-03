@@ -248,3 +248,35 @@ function fluenceScreen(dk, part = 0) {
     $('#next').onclick = () => last ? domain(dk) : fluenceScreen(dk, part + 1);
   };
 }
+
+/* ---------- La bonne phrase : quelle phrase va avec l'image ? ---------- */
+// Noms féminins (pour « une » / « la ») ; les autres sont masculins. « amis » (pluriel) est écarté.
+const FEMININ = new Set(['île', 'olive', 'lune', 'moto', 'fusée', 'pomme', 'tomate', 'banane', 'robe', 'poule', 'tortue', 'souris',
+  'vache', 'étoile', 'salade', 'mouche', 'roue', 'porte', 'loupe', 'tulipe', 'pile', 'rue', 'niche', 'fourmi', 'louche', 'ruche',
+  'farine', 'momie', 'rame', 'cheminée', 'mamie', 'coupe', 'épée', 'fée', 'magie', 'brique', 'tour']);
+const NOT_COUNTABLE = new Set(['amis', 'magie', 'farine', 'riz', 'judo']);
+function bonnePhraseQ() {
+  const MO = new Set(state.outils), K = knownSet();
+  const art = w => FEMININ.has(w.text) ? 'une' : 'un';
+  const W = LEXICON.filter(w => hasArt(w.text) && !NOT_COUNTABLE.has(w.text) && decodable(w, K) && MO.has(art(w)));
+  const tpl = [];
+  if (['il', 'y', 'a'].every(m => MO.has(m))) tpl.push((w, a) => `Il y a ${a} ${w.text}.`);
+  if (MO.has("c'est")) tpl.push((w, a) => `C'est ${a} ${w.text}.`);
+  if (W.length < 3 || !tpl.length) return null;
+  const w = pickWord(W), make = pick(tpl);
+  // Phrases pièges : même début, un seul mot change ; de préférence un mot qui commence pareil ou de même longueur
+  const near = W.filter(x => x !== w && (x.text[0] === w.text[0] || Math.abs(x.text.length - w.text.length) <= 1));
+  const others = sample(near.length >= 2 ? near : W.filter(x => x !== w), 2);
+  const good = make(w, art(w)), all = shuffle([good, ...others.map(x => make(x, art(x)))]);
+  return {
+    key: w.text,
+    text: "Quelle phrase va avec l'image ?",
+    say: "Regarde l'image. Lis les phrases, et touche la phrase qui va avec l'image.",
+    after: good,
+    build: choiceBuild({
+      top: `<div class="pic">${artHTML(w.text, w.e)}</div>`,
+      choices: all, isRight: s => s === good,
+      label: s => `<span class="sentence-choice">${sentenceHTML(parseSentence(s))}</span>`, cls: 'words phrases',
+    }),
+  };
+}

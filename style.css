@@ -787,3 +787,5 @@ svg.hand .hit { fill: transparent; stroke: none; cursor: pointer; }
 .vc-face { -webkit-transform-style: flat; transform-style: flat; }
 .vc-face.r-l .vc-art { border-color: #E9B10E; }
 .shop-bank { margin: 0 16px 6px; text-align: center; font-size: 18px; }
+.choices.phrases .choice { font-size: clamp(22px, 6vw, 32px); min-height: 64px; padding: 10px 18px; }
+.sentence-choice .w { pointer-events: none; }

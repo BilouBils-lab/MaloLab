@@ -604,21 +604,7 @@ const ACTS = {
           };
         },
       },
-      {
-        id: 'vraifaux', title: 'Vrai ou faux ?', icon: '🤔',
-        make() {
-          const S = readableSentences(); if (S.length < 2) return null;
-          const [s, truth] = pick(S), p = parseSentence(s);
-          return {
-            key: s, text: 'Lis la phrase : vrai ou faux ?', say: 'Lis la phrase. Est-ce vrai, ou faux ?',
-            build: choiceBuild({
-              top: `<div class="sentence">${sentenceHTML(p)}</div>`,
-              choices: [true, false], isRight: x => x === truth,
-              label: x => x ? '👍<small>Vrai</small>' : '👎<small>Faux</small>', cls: 'vf',
-            }),
-          };
-        },
-      },
+      { id: 'bonnephrase', title: 'La bonne phrase', icon: '📝', make: bonnePhraseQ },
       { id: 'fluence', title: 'Fluence', icon: '⏱️', screen: k => fluenceScreen(k) },
     ],
   },
