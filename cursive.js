@@ -132,11 +132,11 @@ function cursiveQ(text, kind, opts = {}) {
           </svg>
         </div>
         <div class="row">
-          <button class="btn sec" id="clr">🧽 Effacer</button>
-          <button class="btn sec" id="demo">👀 Revoir</button>
-          <button class="btn" id="fin">✅ J'ai fini</button>
+          <button class="btn sec" id="clr">${ico('eraser')} Effacer</button>
+          <button class="btn sec" id="demo">${ico('eye')} Revoir</button>
+          <button class="btn" id="fin">${ico('check')} J'ai fini</button>
         </div>
-        <p class="pen-hint" ${penSeen ? '' : 'hidden'}>✏️ Crayon détecté : tu peux poser ta main sur l'écran.</p>`;
+        <p class="pen-hint" ${penSeen ? '' : 'hidden'}>Crayon détecté : tu peux poser ta main sur l'écran.</p>`;
 
       const svg = z.querySelector('svg.cursive');
       // Cadrage vertical sur la hauteur utile du mot (lettres courtes = cahier moins haut, modèle plus grand)

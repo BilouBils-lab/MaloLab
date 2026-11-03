@@ -894,3 +894,40 @@ button.stars.to-shop:active, .newsticker.to-shop:active { transform: translateY(
 .gate #gate-in { width: 120px; text-align: center; font: 800 28px var(--font); padding: 8px; border-radius: 14px; border: 3px solid var(--line); color: var(--ink); background: #fff; }
 .gate #gate-in:focus { outline: none; border-color: var(--good); }
 .gate #gate-in.shake { animation: shake .4s; border-color: var(--bad); }
+
+/* =========================================================
+   Icônes dessinées (remplacent les emojis)
+   ========================================================= */
+svg.ico { width: 1.1em; height: 1.1em; display: inline-block; vertical-align: -0.18em; flex: none; }
+.icon svg.ico { width: 28px; height: 28px; vertical-align: middle; color: #4A3B33; }
+.btn svg.ico { width: 1.15em; height: 1.15em; vertical-align: -0.22em; margin-right: 2px; }
+svg.ico.star { width: 1.05em; height: 1.05em; vertical-align: -0.15em; }
+.stars svg.ico.star { width: 22px; height: 22px; vertical-align: -4px; }
+.earned svg.ico.star { width: 52px; height: 52px; margin: 0 2px; filter: drop-shadow(0 3px 2px rgba(0,0,0,.15)); }
+.earned svg.ico.star:not(.off) { animation: bounce .6s both; }
+.ear svg.ico { width: 60px; height: 60px; color: var(--c, #3A86FF); }
+.choices.vf .choice svg.ico { width: 1em; height: 1em; color: var(--c, #3A86FF); }
+.hb-ic svg.ico { width: 26px; height: 26px; color: #C0703A; }
+.vc-pin svg.ico { width: 30px; height: 30px; filter: drop-shadow(0 2px 2px rgba(0,0,0,.3)); }
+.reward svg.ico { width: 1.1em; height: 1.1em; vertical-align: -0.2em; }
+.fl-result svg.ico { width: 1.2em; height: 1.2em; color: #E9A800; }
+.instr svg.ico { color: var(--c); }
+/* Pastilles des exercices */
+.act .ai { width: 72px; height: 72px; border-radius: 22px; display: grid; place-items: center; font-size: 34px; line-height: 1;
+  background: color-mix(in srgb, var(--c) 14%, #fff); color: color-mix(in srgb, var(--c) 75%, #2b2b2b);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--c) 30%, #fff); }
+.act .ai svg.aico { width: 62px; height: 62px; }
+.act .ai .aico-ico svg.ico { width: 40px; height: 40px; }
+.act .ai .aico-art svg.art { width: 56px; height: 56px; }
+.act .ai .aico-cur svg.cw-aico { height: 34px; width: auto; max-width: 62px; overflow: visible; }
+.act .ai .aico-cur svg.cw-aico path { fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+/* Titre des menus avec l'icône illustrée */
+.dtitle { display: flex; align-items: center; gap: 10px; }
+.dt-ic { width: 44px; height: 44px; border-radius: 12px; overflow: hidden; flex: none; background: #FBF3E3; box-shadow: 0 2px 6px rgba(0,0,0,.12); }
+.dt-ic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Confettis en papier */
+.confetti.paper { top: -4vh; border-radius: 2px; font-size: 0; }
+/* Le décor reste en place sur toute la hauteur des longs menus (iOS ignore parfois position: fixed sur ::before) */
+html { background: var(--bg); min-height: 100%; }
+body.has-decor { min-height: 100vh; min-height: 100dvh; }
+body.has-decor::before { position: fixed; inset: 0; height: 100lvh; }

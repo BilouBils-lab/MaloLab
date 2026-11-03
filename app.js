@@ -356,20 +356,24 @@ function reward(text) {
   const src = last('.choice.good') || last('.slot.ok') || last('svg.cursive.ok') || last('.lf-tile.good') || document.querySelector('#zone');
   const r = src ? src.getBoundingClientRect() : { left: innerWidth / 2, top: innerHeight / 2, width: 0, height: 0 };
   const d = document.createElement('div');
-  d.className = 'reward'; d.textContent = text;
+  d.className = 'reward'; d.innerHTML = text;
   d.style.left = (r.left + r.width / 2) + 'px'; d.style.top = Math.max(70, r.top - 22) + 'px';
   document.body.appendChild(d); setTimeout(() => d.remove(), 1200);
   const dot = document.querySelector('.prog .cur');
   if (dot) { dot.classList.remove('cur'); dot.classList.add('done', 'just'); }
 }
 function confetti() {
-  const set = T().confetti;
-  for (let i = 0; i < 28; i++) {
+  // Confettis en papier coloré (sans emoji), aux couleurs de l'univers
+  const cols = ['#FFC83D', '#FF6B8B', '#4CC9F0', '#7BD389', '#B388FF', '#FF9F43'];
+  for (let i = 0; i < 34; i++) {
     const d = document.createElement('div');
-    d.className = 'confetti'; d.textContent = pick(set);
+    d.className = 'confetti paper';
     d.style.left = Math.random() * 100 + 'vw';
-    d.style.animationDuration = (2 + Math.random() * 2) + 's';
-    d.style.animationDelay = Math.random() * 0.8 + 's';
+    d.style.background = pick(cols);
+    d.style.width = (6 + Math.random() * 6) + 'px'; d.style.height = (10 + Math.random() * 8) + 'px';
+    if (Math.random() < .3) d.style.borderRadius = '50%';
+    d.style.animationDuration = (2.2 + Math.random() * 2) + 's';
+    d.style.animationDelay = Math.random() * 0.6 + 's';
     document.body.appendChild(d); setTimeout(() => d.remove(), 5000);
   }
 }
@@ -411,7 +415,7 @@ function spellQ({ units, word, emoji, kind }) {
       const fs = sp => sp.length > 2 ? .4 : sp.length > 1 ? .5 : .7;
 
       z.innerHTML = `
-        <button class="${isWord ? 'pic' : 'ear'}" data-say="${esc(word)}" aria-label="Écouter">${isWord ? emoji : '👂'}</button>
+        <button class="${isWord ? 'pic' : 'ear'}" data-say="${esc(word)}" aria-label="Écouter">${isWord ? emoji : ico('ear')}</button>
         <div class="slots" style="--n:${n}">${units.map((u, k) => `<div class="slot" data-k="${k}" style="font-size:calc(var(--s)*${fs(u.sp)})"></div>`).join('')}</div>
         <div class="tiles" style="--n:${n}">${order.map(k => `<div class="tile" data-l="${esc(units[k].sp)}" style="font-size:calc(var(--s)*${fs(units[k].sp)})">${esc(L(units[k].sp))}</div>`).join('')}</div>`;
 
@@ -498,7 +502,7 @@ function traceQ(ch, kind) {
     say: `Repasse sur ${kind} ${ch} avec ton doigt.`,
     build(z, answer) {
       z.innerHTML = `<div class="tracebox"><canvas class="guide"></canvas><canvas class="ink"></canvas></div>
-        <div class="row"><button class="btn sec" id="clr">🧽 Effacer</button><button class="btn" id="fin">✅ J'ai fini</button></div>`;
+        <div class="row"><button class="btn sec" id="clr">${ico('eraser')} Effacer</button><button class="btn" id="fin">${ico('check')} J'ai fini</button></div>`;
       const box = z.querySelector('.tracebox');
       const [g, ink] = box.querySelectorAll('canvas');
       // Taille de la zone de tracé : en paysage compact, les boutons sont à droite ; sinon en dessous
@@ -712,8 +716,8 @@ function home() {
   render(`
     <header class="top home-top">
       <div class="hello"><span class="brand">MaloLab</span>${state.name ? `Coucou ${esc(state.name)} !` : 'Coucou !'}</div>
-      <button class="stars to-shop" aria-label="Ouvrir la boutique">⭐ ${balance()}</button>
-      <button class="icon" id="gear" aria-label="Espace parents">⚙️</button>
+      <button class="stars to-shop" aria-label="Ouvrir la boutique">${STAR} ${balance()}</button>
+      <button class="icon" id="gear" aria-label="Espace parents">${ico('gear')}</button>
     </header>
     <div class="home2">
       <section class="hero" data-say="${esc(msg)}">
@@ -726,15 +730,15 @@ function home() {
           const st = d.list.reduce((x, a) => x + actStars(a.id), 0);
           return `<button class="dcard" style="--c:${d.color}" data-d="${k}">
             <span class="dc-ic">${domainIcon(k)}</span>
-            <span class="dc-txt"><b>${d.title}</b><small>${n} jeux · ⭐ ${st}</small></span>
+            <span class="dc-txt"><b>${d.title}</b><small>${n} jeux · ${STAR} ${st}</small></span>
             <span class="dc-go">›</span>
           </button>`;
         }).join('')}
       </main>
       <nav class="homebar2">
         <button class="hb" id="album">
-          ${goalOn ? `<span class="hb-card">${cardFace(g)}</span>` : '<span class="hb-ic">🛍️</span>'}
-          <span class="hb-txt"><b>Boutique</b><small>${goalOn ? (miss > 0 ? `Encore ${miss} ⭐` : 'Tu peux l\'acheter !') : `${Object.keys(buysAll()).length}/${CARDS.length} cartes`}</small></span>
+          ${goalOn ? `<span class="hb-card">${cardFace(g)}</span>` : `<span class="hb-ic">${ico('bag')}</span>`}
+          <span class="hb-txt"><b>Boutique</b><small>${goalOn ? (miss > 0 ? `Encore ${miss} ${STAR}` : 'Tu peux l\'acheter !') : `${Object.keys(buysAll()).length}/${CARDS.length} cartes`}</small></span>
         </button>
         <button class="hb" id="themes">
           <span class="hb-ic img" style="--bb:${t.bg}"><img src="${t.img}" alt=""></span>
@@ -755,7 +759,7 @@ function onSyncChange() { if (document.querySelector('.modal')) return; const sc
 function themes() {
   render(`
     <header class="top">
-      <button class="icon" id="back" aria-label="Retour">⬅️</button>
+      <button class="icon" id="back" aria-label="Retour">${ico('back')}</button>
       <div class="title">Choisis ton univers</div>
     </header>
     <main class="themes">
@@ -776,15 +780,15 @@ function domain(k) {
   const d = ACTS[k];
   render(`
     <header class="top">
-      <button class="icon" id="back" aria-label="Retour">⬅️</button>
-      <div class="title">${d.icon} ${d.title}</div>
-      <button class="stars to-shop" aria-label="Ouvrir la boutique">⭐ ${balance()}</button>
+      <button class="icon" id="back" aria-label="Retour">${ico('back')}</button>
+      <div class="title dtitle"><span class="dt-ic">${domainIcon(k)}</span>${d.title}</div>
+      <button class="stars to-shop" aria-label="Ouvrir la boutique">${STAR} ${balance()}</button>
     </header>
     <main class="acts">
       ${d.list.map((a, i) => `
         <button class="act" style="--c:${d.color}" data-i="${i}">
-          <span class="ai">${a.icon}</span><span class="at">${a.title}</span>
-          <span class="as">${a.id === 'messons' ? `${state.known.length} sons` : `⭐ ${actStars(a.id)}`}</span>
+          <span class="ai">${actIcon(a.id) || a.icon}</span><span class="at">${a.title}</span>
+          <span class="as">${a.id === 'messons' ? `${state.known.length} sons` : `${STAR} ${actStars(a.id)}`}</span>
         </button>`).join('')}
     </main>`);
   $('#back').onclick = home;
@@ -802,8 +806,8 @@ function soundsScreen(dk) {
   const newest = known[known.length - 1];
   render(`
     <header class="top">
-      <button class="icon" id="back" aria-label="Retour">⬅️</button>
-      <div class="title">🐘 Mes sons</div>
+      <button class="icon" id="back" aria-label="Retour">${ico('back')}</button>
+      <div class="title">Mes sons</div>
     </header>
     <main class="sounds">
       ${known.length ? known.map(g => {
@@ -820,8 +824,8 @@ function soundsScreen(dk) {
 function runSession(act, dk) {
   if (!act.make()) {
     render(`
-      <header class="top"><button class="icon" id="back" aria-label="Retour">⬅️</button><div class="title">${act.icon} ${act.title}</div></header>
-      <main class="end"><div class="big">🐘</div>
+      <header class="top"><button class="icon" id="back" aria-label="Retour">${ico('back')}</button><div class="title">${act.title}</div></header>
+      <main class="end"><div class="end-buddy" style="--bb:${T().bg}"><img src="${T().img}" alt="" draggable="false"></div>
         <h2>Bientôt !</h2>
         <p class="empty">Il faut encore apprendre quelques sons en classe pour cet exercice.<br>Essaie « Mes sons » ou « Les syllabes » !</p>
       </main>`);
@@ -841,9 +845,9 @@ function runSession(act, dk) {
 
     render(`
       <header class="top">
-        <button class="icon" id="back" aria-label="Quitter">✖️</button>
+        <button class="icon" id="back" aria-label="Quitter">${ico('close')}</button>
         <div class="prog">${Array.from({ length: total }, (_, j) => `<span class="${j < i ? 'done' : j === i ? 'cur' : ''}"></span>`).join('')}</div>
-        <button class="icon" id="spk" aria-label="Réécouter la consigne">🔊</button>
+        <button class="icon" id="spk" aria-label="Réécouter la consigne">${ico('speaker')}</button>
       </header>
       <main class="play" style="--c:${ACTS[dk].color}">
         <h2 class="instr">${q.text}</h2>
@@ -859,7 +863,7 @@ function runSession(act, dk) {
       if (ok) {
         locked = true;
         if (firstTry) got++;
-        sfxOK(); reward(firstTry ? '+1 ⭐' : '👍');
+        sfxOK(); reward(firstTry ? '+1 ' + STAR : ico('thumb'));
         say(`${pick(T().praise)}${state.name ? ' ' + state.name : ''} ! ${q.after || ''}`);
         setTimeout(() => { i++; next(); }, q.after ? 2600 : 1500);
       } else {
@@ -879,15 +883,15 @@ function runSession(act, dk) {
       <main class="end">
         <div class="end-buddy" style="--bb:${T().bg}"><img src="${T().img}" alt="${esc(buddyName(T()))}" draggable="false"></div>
         <h2>${msg}${state.name ? ' ' + esc(state.name) : ''} !</h2>
-        <div class="earned">${'⭐'.repeat(got)}${'<span class="off">⭐</span>'.repeat(total - got)}</div>
+        <div class="earned">${STAR.repeat(got)}${STAR_OFF.repeat(total - got)}</div>
         <div class="row">
-          <button class="btn" id="again" style="--c:${ACTS[dk].color}">🔁 Rejouer</button>
-          <button class="btn sec" id="menu">🏠 Menu</button>
+          <button class="btn" id="again" style="--c:${ACTS[dk].color}">${ico('replay')} Rejouer</button>
+          <button class="btn sec" id="menu">${ico('home')} Menu</button>
         </div>
       </main>`, 'victory');
     const bal = balance(), g = cardById(state.goal), gOk = g && !owned(g.id);
     const tip = gOk ? (bal >= g.price ? `Tu peux acheter ton objectif : ${g.name} !` : `Encore ${etoiles(g.price - bal)} pour ${g.name}.`) : '';
-    $('.earned').insertAdjacentHTML('afterend', `<button class="newsticker to-shop" aria-label="Ouvrir la boutique">Ma tirelire : <b>${bal} ⭐</b>${tip ? `<small>${esc(tip)}</small>` : ''}</button>`);
+    $('.earned').insertAdjacentHTML('afterend', `<button class="newsticker to-shop" aria-label="Ouvrir la boutique">Ma tirelire : <b>${bal} ${STAR}</b>${tip ? `<small>${esc(tip)}</small>` : ''}</button>`);
     confetti();
     setTimeout(() => say(`${msg}${state.name ? ' ' + state.name : ''} ! Tu as gagné ${etoiles(got)}. Dans ta tirelire, tu as ${etoiles(bal)}. ${tip}`), 200);
     $('#again').onclick = () => runSession(act, dk);
@@ -937,12 +941,12 @@ function holdToOpen(el, ms, fn) {
 function settings() {
   const seg = (k, opts) => `<div class="seg" data-k="${k}">${opts.map(([v, lab]) =>
     `<button data-v='${JSON.stringify(v)}' class="${state[k] === v ? 'on' : ''}">${lab}</button>`).join('')}</div>`;
-  const allActs = Object.values(ACTS).flatMap(d => d.list.filter(a => !a.screen).map(a => `${a.icon} ${a.title} : ⭐ ${actStars(a.id)}`));
+  const allActs = Object.values(ACTS).flatMap(d => d.list.filter(a => !a.screen).map(a => `${a.title} : ${actStars(a.id)} étoile${actStars(a.id) > 1 ? 's' : ''}`));
   const K = knownSet();
 
   render(`
     <header class="top">
-      <button class="icon" id="back" aria-label="Retour">⬅️</button>
+      <button class="icon" id="back" aria-label="Retour">${ico('back')}</button>
       <div class="title">Espace parents</div>
     </header>
     <main class="settings">
@@ -975,7 +979,7 @@ function settings() {
         60 de janvier à mars, 90 ensuite. Aujourd'hui : nombres jusqu'à <b>${numMax()}</b>, calculs jusqu'à <b>${calcMax()}</b>.</small>
       </div>
       <div class="field">Voix
-        ${seg('voice', [[true, '🔊 Activée'], [false, '🔇 Coupée']])}
+        ${seg('voice', [[true, 'Activée'], [false, 'Coupée']])}
         <small>Si vous n'entendez rien, vérifiez que l'appareil n'est pas en mode silencieux.</small>
         <div class="voices" id="voices"></div>
         <small><b>Pour une voix bien plus naturelle sur iPhone / iPad :</b> Réglages → Accessibilité → Contenu énoncé → Voix → Français (France)
@@ -985,7 +989,7 @@ function settings() {
         <div class="sync" id="sync"></div>
       </div>
       <div class="field">Progrès
-        <div class="statsbox">Étoiles gagnées : ⭐ ${totalStars()} · dépensées : ${spent()} · dans la tirelire : <b>${balance()}</b><br>Vignettes : ${Object.keys(buysAll()).length} / ${CARDS.length}<br>${allActs.join('<br>')}</div>
+        <div class="statsbox">Étoiles gagnées : ${totalStars()} · dépensées : ${spent()} · dans la tirelire : <b>${balance()}</b><br>Vignettes : ${Object.keys(buysAll()).length} / ${CARDS.length}<br>${allActs.join('<br>')}</div>
       </div>
       <button class="btn danger" id="reset">Remettre étoiles et vignettes à zéro</button>
       <p class="tip">Pour installer l'application : ouvrez le site dans Safari, touchez Partager, puis « Sur l'écran d'accueil ».</p>
@@ -1009,7 +1013,7 @@ function settings() {
   const listVoices = () => {
     pickVoice();
     const vs = frVoices().filter(v => !ROBOT.test(v.name)).sort((a, b) => voiceScore(b) - voiceScore(a));
-    $('#voices').innerHTML = vs.length ? vs.map(v => `<button class="${frVoice && v.voiceURI === frVoice.voiceURI ? 'on' : ''}" data-uri="${esc(v.voiceURI)}">▶️ ${esc(v.name.replace(/\s*\(.*?\)\s*/g, ' ').trim())}${/premium|enhanced|amélior/i.test(v.name + v.voiceURI) ? ' ✨' : ''}</button>`).join('')
+    $('#voices').innerHTML = vs.length ? vs.map(v => `<button class="${frVoice && v.voiceURI === frVoice.voiceURI ? 'on' : ''}" data-uri="${esc(v.voiceURI)}">${ico('play')} ${esc(v.name.replace(/\s*\(.*?\)\s*/g, ' ').trim())}${/premium|enhanced|amélior/i.test(v.name + v.voiceURI) ? ' ' + ico('sparkle') : ''}</button>`).join('')
       : '<small>Aucune voix française trouvée sur cet appareil.</small>';
     $('#voices').querySelectorAll('button').forEach(b => b.onclick = () => {
       state.voiceURI = b.dataset.uri; save(); pickVoice(); listVoices();
@@ -1022,7 +1026,7 @@ function settings() {
     if (!SYNC_DB) { box.innerHTML = `<small>Pas encore activée : la base de données en ligne n'est pas configurée.</small>`; return; }
     if (!state.syncCode) {
       box.innerHTML = `<small>Pour retrouver les étoiles et les progrès sur tous les appareils.</small>
-        <div class="row left"><button class="btn" id="sy-new">✨ Créer un code famille</button></div>
+        <div class="row left"><button class="btn" id="sy-new">${ico('sparkle')} Créer un code famille</button></div>
         <small>Sur le 2ᵉ appareil, tapez le code déjà créé :</small>
         <div class="code-in"><span class="code-pre">MALO-</span><input id="sy-code" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="19"
           autocapitalize="characters" autocomplete="off" autocorrect="off" spellcheck="false" inputmode="text" enterkeyhint="go"></div>
@@ -1051,8 +1055,8 @@ function settings() {
     const devs = others().map(d => d.device || 'appareil').join(', ');
     box.innerHTML = `<div class="sync-code">${esc(state.syncCode)}</div>
       <small>Tapez ce code sur l'autre appareil (Espace parents → Rejoindre).<br>
-      Dernière synchronisation : <b>${when}</b>${devs ? ` · reliés : ${esc(devs)}` : ''}${state.syncError ? `<br>⚠️ ${esc(state.syncError)}` : ''}</small>
-      <div class="row left"><button class="btn sec" id="sy-now">🔄 Synchroniser</button><button class="btn sec" id="sy-off">Déconnecter</button></div>`;
+      Dernière synchronisation : <b>${when}</b>${devs ? ` · reliés : ${esc(devs)}` : ''}${state.syncError ? `<br>${ico('warn')} ${esc(state.syncError)}` : ''}</small>
+      <div class="row left"><button class="btn sec" id="sy-now">${ico('sync')} Synchroniser</button><button class="btn sec" id="sy-off">Déconnecter</button></div>`;
     $('#sy-now').onclick = async () => { $('#sy-now').textContent = '…'; await syncNow(); settings(); };
     $('#sy-off').onclick = () => { if (confirm('Arrêter la synchronisation sur cet appareil ?')) { state.syncCode = ''; state.remote = {}; save(); settings(); } };
   };

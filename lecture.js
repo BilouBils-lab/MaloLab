@@ -98,7 +98,7 @@ function entendsQ() {
       build: choiceBuild({
         top: `<div class="hear"><span class="hear-snd">${esc(L(target))}</span><button class="pic" data-say="${esc(w.text)}">${artHTML(w.text, w.e)}</button></div>`,
         choices: [true, false], isRight: x => x === yes, cls: 'vf',
-        label: x => x ? '👂<small>Oui, j\'entends</small>' : '🙉<small>Non</small>',
+        label: x => x ? ico('ear') + '<small>Oui, j\'entends</small>' : ico('no') + '<small>Non</small>',
       }),
     };
   }
@@ -141,7 +141,7 @@ function syllabesQ() {
     key: s,
     text: 'Écoute et touche la syllabe',
     say: `Touche la syllabe : ${s}`,
-    build: choiceBuild({ top: `<button class="ear" data-say="${s}" aria-label="Écouter">👂</button>`, choices: shuffle([s, ...ds]), isRight: x => x === s, label: x => esc(L(x)) }),
+    build: choiceBuild({ top: `<button class="ear" data-say="${s}" aria-label="Écouter">${ico('ear')}</button>`, choices: shuffle([s, ...ds]), isRight: x => x === s, label: x => esc(L(x)) }),
   };
 }
 
@@ -166,7 +166,7 @@ function meliQ() {
     key: pair.join('/'),
     text: 'Écoute bien : lequel entends-tu ?',
     say: `Écoute bien : ${target}`,
-    build: choiceBuild({ top: `<button class="ear" data-say="${esc(target)}" aria-label="Écouter">👂</button>`, choices: shuffle(pair), isRight: x => x === target, label: meliHTML, cls: 'words' }),
+    build: choiceBuild({ top: `<button class="ear" data-say="${esc(target)}" aria-label="Écouter">${ico('ear')}</button>`, choices: shuffle(pair), isRight: x => x === target, label: meliHTML, cls: 'words' }),
   };
 }
 
@@ -193,7 +193,7 @@ const fmtTime = s => (Math.round(s * 10) / 10).toFixed(1).replace('.', ',') + ' 
 function fluenceScreen(dk, part = 0) {
   const F = fluenceContent();
   if (!F.parts.length) {
-    render(`<header class="top"><button class="icon" id="back">⬅️</button><div class="title">⏱️ Fluence</div></header>
+    render(`<header class="top"><button class="icon" id="back">${ico('back')}</button><div class="title">Fluence</div></header>
       <main class="end"><h2>Bientôt !</h2><p class="empty">Il faut encore apprendre quelques sons pour cette fiche.</p></main>`);
     $('#back').onclick = () => domain(dk);
     return;
@@ -205,16 +205,16 @@ function fluenceScreen(dk, part = 0) {
   const best = allHist.length ? Math.min(...allHist) : null;
   render(`
     <header class="top">
-      <button class="icon" id="back" aria-label="Retour">⬅️</button>
+      <button class="icon" id="back" aria-label="Retour">${ico('back')}</button>
       <div class="prog">${F.parts.map((_, j) => `<span class="${j < part ? 'done' : j === part ? 'cur' : ''}"></span>`).join('')}</div>
-      <button class="icon" id="spk" aria-label="Consigne">🔊</button>
+      <button class="icon" id="spk" aria-label="Consigne">${ico('speaker')}</button>
     </header>
     <main class="play fluence" style="--c:${color}">
-      <h2 class="instr">⏱️ ${P.title}</h2>
+      <h2 class="instr">${ico('timer')} ${P.title}</h2>
       <p class="fl-tip">Lis à voix haute à papa ou maman, le plus vite possible sans te tromper.</p>
       <div class="fl-box ${P.cls} blur">${P.items.map(t => `<div class="fl-item">${P.html(t)}</div>`).join('')}</div>
       <div class="fl-timer" id="tm">0,0 s</div>
-      <div class="row"><button class="btn" id="go" style="--c:${color}">▶️ C'est parti !</button></div>
+      <div class="row"><button class="btn" id="go" style="--c:${color}">${ico('play')} C'est parti !</button></div>
       <div class="fl-hist">${allHist.slice(-3).map((t, i) => `<span>Temps ${i + 1} : <b>${fmtTime(t)}</b></span>`).join('') || '<span>Premier essai !</span>'}</div>
     </main>`, 'play');
   const speak = () => say(`${P.title}. Lis à voix haute, le plus vite possible sans te tromper. Appuie sur C'est parti pour lancer le chrono.`);
@@ -227,7 +227,7 @@ function fluenceScreen(dk, part = 0) {
       running = true; window.speechSynthesis?.cancel();
       document.querySelector('.fl-box').classList.remove('blur');
       t0 = performance.now(); tick(); sfxPop();
-      $('#go').textContent = "⏹️ J'ai fini";
+      $('#go').innerHTML = ico('stop') + " J'ai fini";
       return;
     }
     cancelAnimationFrame(raf);
@@ -240,9 +240,9 @@ function fluenceScreen(dk, part = 0) {
     say(msg.replace(' s', ' secondes'));
     const last = part === F.parts.length - 1;
     document.querySelector('.fluence').insertAdjacentHTML('beforeend', `
-      <div class="fl-result">${record ? '🏆' : '⭐'} ${msg}${record ? ' <small>+2 ⭐</small>' : ' <small>+1 ⭐</small>'}</div>
-      <div class="row"><button class="btn sec" id="again">🔁 Recommencer</button>
-      <button class="btn" id="next" style="--c:${color}">${last ? '🏠 Terminer' : 'Suivant ➜'}</button></div>`);
+      <div class="fl-result">${record ? ico('trophy') : STAR} ${msg} <small>+${record ? 2 : 1} ${STAR}</small></div>
+      <div class="row"><button class="btn sec" id="again">${ico('replay')} Recommencer</button>
+      <button class="btn" id="next" style="--c:${color}">${last ? ico('home') + ' Terminer' : 'Suivant ' + ico('next')}</button></div>`);
     $('#go').remove();
     $('#again').onclick = () => fluenceScreen(dk, part);
     $('#next').onclick = () => last ? domain(dk) : fluenceScreen(dk, part + 1);

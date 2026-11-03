@@ -77,7 +77,7 @@ function goalHTML() {
   const bal = balance(), miss = Math.max(0, g.price - bal), pct = Math.min(100, Math.round(bal / g.price * 100));
   return `<div class="goal">${cardFace(g)}<div class="goal-txt"><b>Mon objectif : ${esc(g.name)}</b>
     <span class="goal-bar"><i style="width:${pct}%"></i></span>
-    <small>${miss ? `Encore ${miss} ⭐ (${bal} / ${g.price})` : 'Tu peux l\'acheter ! 🎉'}</small></div></div>`;
+    <small>${miss ? `Encore ${miss} ${STAR} (${bal} / ${g.price})` : 'Tu peux l\'acheter !'}</small></div></div>`;
 }
 
 /* ---------- La boutique ---------- */
@@ -86,11 +86,11 @@ function shop(th = state.theme) {
   const list = CARDS.filter(c => c.th === th);
   render(`
     <header class="top">
-      <button class="icon" id="back" aria-label="Retour">⬅️</button>
-      <div class="title">🛍️ Boutique</div>
-      <div class="stars">⭐ ${bal}</div>
+      <button class="icon" id="back" aria-label="Retour">${ico('back')}</button>
+      <div class="title">Boutique</div>
+      <div class="stars">${STAR} ${bal}</div>
     </header>
-    <p class="shop-bank">Ma tirelire : <b>${bal} ⭐</b> à dépenser</p>
+    <p class="shop-bank">Ma tirelire : <b>${bal} ${STAR}</b> à dépenser</p>
     ${goalHTML()}
     <nav class="shop-tabs">${Object.entries(THEMES).map(([k, t]) => {
       const n = CARDS.filter(c => c.th === k), o = n.filter(c => B[c.id]).length;
@@ -99,9 +99,9 @@ function shop(th = state.theme) {
     <main class="shop-grid">${list.map(c => {
       const own = !!B[c.id], can = bal >= c.price;
       return `<button class="vcard${own ? ' owned' : can ? '' : ' cant'}" data-id="${c.id}">
-        ${cardFace(c)}${state.goal === c.id && !own ? '<span class="vc-pin">📌</span>' : ''}
+        ${cardFace(c)}${state.goal === c.id && !own ? `<span class="vc-pin">${ico('pin')}</span>` : ''}
         <span class="vc-name">${esc(c.name)}</span>
-        ${own ? '<span class="vc-own">✓ À moi</span>' : `<span class="vc-price r-${c.r}">${c.price} ⭐</span>`}
+        ${own ? '<span class="vc-own">✓ À moi</span>' : `<span class="vc-price r-${c.r}">${c.price} ${STAR}</span>`}
       </button>`;
     }).join('')}</main>`);
   $('#back').onclick = home;
@@ -116,16 +116,16 @@ function cardModal(c) {
   closeModal();
   const bal = balance(), own = owned(c.id), can = bal >= c.price, miss = c.price - bal;
   let body;
-  if (own) body = `<p class="m-big">Elle est à toi ! 🎉</p><div class="row"><button class="btn" id="m-ok">👍 Super</button></div>`;
+  if (own) body = `<p class="m-big">Elle est à toi !</p><div class="row"><button class="btn" id="m-ok">${ico('check')} Super</button></div>`;
   else if (can) body = `
-    <p class="m-calc"><span>${bal} ⭐</span><b>−</b><span class="r-${c.r}">${c.price} ⭐</span><b>=</b><span class="q">?</span></p>
+    <p class="m-calc"><span>${bal} ${STAR}</span><b>−</b><span class="r-${c.r}">${c.price} ${STAR}</span><b>=</b><span class="q">?</span></p>
     <p class="m-txt">Tu as <b>${bal}</b> étoiles. Cette vignette coûte <b>${c.price}</b> étoiles.</p>
-    <div class="row"><button class="btn" id="m-buy">🛒 Acheter</button><button class="btn sec" id="m-no">Pas maintenant</button></div>
-    ${state.goal === c.id ? '' : '<button class="m-link" id="m-goal">📌 En faire mon objectif</button>'}`;
+    <div class="row"><button class="btn" id="m-buy">${ico('cart')} Acheter</button><button class="btn sec" id="m-no">Pas maintenant</button></div>
+    ${state.goal === c.id ? '' : `<button class="m-link" id="m-goal">${ico('pin')} En faire mon objectif</button>`}`;
   else body = `
     <p class="m-txt">Cette vignette coûte <b>${c.price}</b> étoiles. Tu as <b>${bal}</b> étoile${bal > 1 ? 's' : ''}.</p>
-    <p class="m-big">Il te manque ${miss} ⭐</p>
-    <div class="row">${state.goal === c.id ? '<button class="btn sec" id="m-ungoal">Retirer mon objectif</button>' : '<button class="btn" id="m-goal">📌 C\'est mon objectif !</button>'}<button class="btn sec" id="m-no">Fermer</button></div>`;
+    <p class="m-big">Il te manque ${miss} ${STAR}</p>
+    <div class="row">${state.goal === c.id ? '<button class="btn sec" id="m-ungoal">Retirer mon objectif</button>' : `<button class="btn" id="m-goal">${ico('pin')} C'est mon objectif !</button>`}<button class="btn sec" id="m-no">Fermer</button></div>`;
   document.body.insertAdjacentHTML('beforeend', `
     <div class="modal"><div class="m-box">
       ${cardFace(c, true)}
@@ -151,14 +151,14 @@ function buy(c) {
   if (state.goal === c.id) { state.goal = ''; markSettings(); }
   save();
   const after = before - c.price, m = document.querySelector('.modal');
-  m.querySelector('.m-calc .q').textContent = `${after} ⭐`;
+  m.querySelector('.m-calc .q').innerHTML = `${after} ${STAR}`;
   m.querySelector('.m-calc .q').classList.add('done');
-  m.querySelector('.m-body').insertAdjacentHTML('beforeend', '<p class="m-big">Elle est à toi ! 🎉</p>');
+  m.querySelector('.m-body').insertAdjacentHTML('beforeend', '<p class="m-big">Elle est à toi !</p>');
   m.querySelectorAll('.m-body .row, .m-body .m-link, .m-txt').forEach(e => e.remove());
   m.querySelector('.vc-face').classList.add('bought');
   sfxOK(); confetti();
   say(`Tu avais ${etoiles(before)}. Moins ${c.price}, il te reste ${etoiles(after)}. ${c.name} est à toi !`);
-  m.querySelector('.m-body').insertAdjacentHTML('beforeend', '<div class="row"><button class="btn" id="m-ok2">👍 Super</button></div>');
+  m.querySelector('.m-body').insertAdjacentHTML('beforeend', `<div class="row"><button class="btn" id="m-ok2">${ico('check')} Super</button></div>`);
   m.querySelector('#m-ok2').onclick = () => { closeModal(); shop(c.th); };
   m.onclick = e => { if (e.target === m) { closeModal(); shop(c.th); } };
 }
