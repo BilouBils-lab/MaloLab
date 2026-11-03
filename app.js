@@ -155,7 +155,7 @@ const QUESTIONS_PAR_PARTIE = 5;
 
 /* ---------- Sauvegarde locale ---------- */
 const KEY = 'malolab';
-const DEFAULTS = { dailyOn: true, theme: 'foot', name: 'Malo', level: 'auto', caps: false, voice: true, syl: 'arcs', stars: 0, act: {}, known: DEFAULT_KNOWN, outils: DEFAULT_OUTILS, fluence: {}, v2: true };
+const DEFAULTS = { pauseMin: 20, pauseMode: 'doux', dailyOn: true, theme: 'foot', name: 'Malo', level: 'auto', caps: false, voice: true, syl: 'arcs', stars: 0, act: {}, known: DEFAULT_KNOWN, outils: DEFAULT_OUTILS, fluence: {}, v2: true };
 const sameSet = (a, b) => Array.isArray(a) && a.length === b.length && b.every(x => a.includes(x));
 const state = (() => {
   let saved = {};
@@ -725,7 +725,7 @@ function home() {
         <span class="hero-bubble"><b>${esc(buddyName(t))}</b>${esc(msg)}</span>
       </section>
       <main class="dcards">
-        ${dailyCardHTML()}
+        ${pauseLocked() ? `<button class="pause-banner" id="pause-b">${ico('timer')} Pause en cours · les exercices reviennent bientôt</button>` : dailyCardHTML()}
         ${Object.entries(ACTS).map(([k, d]) => {
           const n = d.list.filter(a => !a.screen || a.id === 'fluence').length;
           const st = d.list.reduce((x, a) => x + actStars(a.id), 0);
@@ -747,11 +747,12 @@ function home() {
         </button>
       </nav>
     </div>`);
+  { const pb = $('#pause-b'); if (pb) pb.onclick = pauseScreen; }
   { const dl = $('#daily'); if (dl) dl.onclick = () => { sfxPop(); say('Mon entraînement du jour'); startDaily(); }; }
   app.querySelectorAll('.dcard').forEach(b => b.onclick = () => { say(ACTS[b.dataset.d].title); domain(b.dataset.d); });
   $('#album').onclick = () => shop(goalOn ? g.th : undefined);
   $('#themes').onclick = themes;
-  holdToOpen($('#gear'), 1500, parentGate);
+  holdToOpen($('#gear'), 1500, () => parentGate());
   window.__screen = 'home';
 }
 // Après une synchronisation qui apporte du nouveau : rafraîchir l'accueil s'il est affiché
@@ -779,6 +780,7 @@ function themes() {
 }
 
 function domain(k) {
+  if (pauseLocked()) return pauseScreen();
   const d = ACTS[k];
   render(`
     <header class="top">
@@ -901,7 +903,8 @@ function runSession(act, dk) {
     $('.daily-bonus, .earned') && ($('.daily-bonus') || $('.earned')).insertAdjacentHTML('afterend', `<button class="newsticker to-shop" aria-label="Ouvrir la boutique">Ma tirelire : <b>${bal} ${STAR}</b>${tip ? `<small>${esc(tip)}</small>` : ''}</button>`);
     confetti();
     setTimeout(() => say(extra && extra.say ? extra.say + ` Dans ta tirelire, tu as ${etoiles(bal)}.` : `${msg}${state.name ? ' ' + state.name : ''} ! Tu as gagné ${etoiles(got)}. Dans ta tirelire, tu as ${etoiles(bal)}. ${tip}`), 200);
-    if ($('#again')) $('#again').onclick = () => runSession(act, dk);
+    if ($('#again')) $('#again').onclick = () => (pauseLocked() ? pauseScreen() : runSession(act, dk));
+    pauseCheck();
     $('#menu').onclick = back;
   };
 
@@ -909,7 +912,7 @@ function runSession(act, dk) {
 }
 
 // Question pour adulte avant l'espace parents (une multiplication à taper)
-function parentGate() {
+function parentGate(onOk) {
   document.querySelectorAll('.modal').forEach(m => m.remove());
   const x = rnd(6, 9), y = rnd(6, 9);
   let tries = 0;
@@ -923,7 +926,7 @@ function parentGate() {
   const m = document.querySelector('.modal.gate'), inp = m.querySelector('#gate-in');
   const close = () => m.remove();
   const check = () => {
-    if (+inp.value === x * y) { close(); settings(); return; }
+    if (+inp.value === x * y) { close(); (typeof onOk === 'function' ? onOk : settings)(); return; }
     if (++tries >= 2) { close(); return; }
     inp.value = ''; inp.classList.remove('shake'); void inp.offsetWidth; inp.classList.add('shake'); inp.focus();
   };
@@ -981,6 +984,13 @@ function settings() {
       <div class="field">Entraînement du jour <span class="beta">bêta</span>
         ${seg('dailyOn', [[true, 'Affiché'], [false, 'Masqué']])}
         <small>10 questions par jour choisies automatiquement : le dernier son étudié, puis les exercices les moins réussis. 2 étoiles bonus une fois par jour.</small>
+      </div>
+      <div class="field">Rappel de pause
+        ${seg('pauseMin', [[0, 'Non'], [15, '15 min'], [20, '20 min'], [30, '30 min']])}
+        ${seg('pauseMode', [['doux', 'Message'], ['strict', 'Pause de 10 min']])}
+        <small>Après ce temps de jeu dans la journée (iPhone et iPad additionnés), à la fin d'une partie.
+        « Pause de 10 min » bloque les exercices ; un parent peut débloquer. Réglage propre à cet appareil.
+        Aujourd'hui : <b>${Math.round(todaySeconds() / 60)} min</b> de jeu.</small>
       </div>
       <div class="field">Lettres
         ${seg('caps', [[false, 'minuscules'], [true, 'MAJUSCULES']])}

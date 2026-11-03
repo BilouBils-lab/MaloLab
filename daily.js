@@ -84,6 +84,7 @@ function dailyCardHTML() {
 }
 
 function startDaily() {
+  if (pauseLocked()) return pauseScreen();
   const plan = dailyPlan();
   if (!plan.length) return;
   const wasDone = dailyDoneToday();

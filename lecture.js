@@ -191,6 +191,7 @@ function fluenceContent() {
 const fmtTime = s => (Math.round(s * 10) / 10).toFixed(1).replace('.', ',') + ' s';
 
 function fluenceScreen(dk, part = 0) {
+  if (pauseLocked()) return pauseScreen();
   const F = fluenceContent();
   if (!F.parts.length) {
     render(`<header class="top"><button class="icon" id="back">${ico('back')}</button><div class="title">Fluence</div></header>
@@ -247,6 +248,7 @@ function fluenceScreen(dk, part = 0) {
     $('#go').remove();
     $('#again').onclick = () => fluenceScreen(dk, part);
     $('#next').onclick = () => last ? domain(dk) : fluenceScreen(dk, part + 1);
+    if (last) pauseCheck();
   };
 }
 
