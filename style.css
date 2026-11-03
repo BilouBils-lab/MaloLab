@@ -773,3 +773,8 @@ svg.hand .hit { fill: transparent; stroke: none; cursor: pointer; }
 .goal .vc-foot, .goal .vc-holo, .goal .vc-spark { display: none; }
 .goal .vc-art { inset: 3px; bottom: 3px; }
 @media (prefers-reduced-motion: reduce) { .vc-holo, .vc-spark { animation: none !important; } }
+/* Reflets plus doux : ils brillent sans teinter l'illustration */
+.vc-face.r-s .vc-holo { opacity: .28; mix-blend-mode: overlay; }
+.vc-face.r-l .vc-holo { opacity: .38; mix-blend-mode: overlay; }
+.vc-face.r-r .vc-holo { opacity: .25; mix-blend-mode: soft-light; }
+.vcard.cant .vc-face { filter: saturate(.8); }
