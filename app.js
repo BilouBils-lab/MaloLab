@@ -867,7 +867,7 @@ function runSession(act, dk) {
       </main>`, 'victory');
     const bal = balance(), g = cardById(state.goal), gOk = g && !owned(g.id);
     const tip = gOk ? (bal >= g.price ? `Tu peux acheter ton objectif : ${g.name} !` : `Encore ${etoiles(g.price - bal)} pour ${g.name}.`) : '';
-    $('.earned').insertAdjacentHTML('afterend', `<button class="newsticker to-shop" aria-label="Ouvrir la boutique"><span>Ma tirelire : <b>${bal} ⭐</b></span>${tip ? `<small>${esc(tip)}</small>` : ''}<span class="go">🛍️ Voir la boutique</span></button>`);
+    $('.earned').insertAdjacentHTML('afterend', `<button class="newsticker to-shop" aria-label="Ouvrir la boutique">Ma tirelire : <b>${bal} ⭐</b>${tip ? `<small>${esc(tip)}</small>` : ''}</button>`);
     confetti();
     setTimeout(() => say(`${msg}${state.name ? ' ' + state.name : ''} ! Tu as gagné ${etoiles(got)}. Dans ta tirelire, tu as ${etoiles(bal)}. ${tip}`), 200);
     $('#again').onclick = () => runSession(act, dk);

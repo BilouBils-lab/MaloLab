@@ -810,5 +810,4 @@ svg.shape * { stroke: #4A3B33; stroke-width: 2.5; stroke-linejoin: round; }
 /* Liens vers la boutique */
 button.stars.to-shop { font: inherit; font-weight: 800; font-size: 20px; color: var(--ink); border: 0; cursor: pointer; }
 button.stars.to-shop:active, .newsticker.to-shop:active { transform: translateY(2px); }
-.newsticker.to-shop { border: 0; font: inherit; font-weight: 800; font-size: 22px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px; }
-.newsticker .go { margin-top: 6px; font-size: 16px; font-weight: 800; color: #fff; background: var(--rl, #E9B10E); padding: 4px 14px; border-radius: 999px; }
+.newsticker.to-shop { border: 0; font-family: inherit; cursor: pointer; display: inline-block; }
