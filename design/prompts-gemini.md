@@ -191,9 +191,9 @@ Vertical 3:4 illustration for a collectible card, the subject centered and large
 
 ### Univers Super-héros
 
-#### `heros-bouclier` — Le bouclier étoilé (Commune)
+#### `heros-bouclier` — Le bouclier de Super Malo (Commune)
 ```
-Vertical 3:4 illustration for a collectible card, the subject centered and large. A round red, white and blue shield with a big white star in the middle, leaning against a brick wall on a rooftop, golden-hour city light, small sparkles. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
+Vertical 3:4 illustration for a collectible card, the subject centered and large. A round superhero shield with an original design: deep blue metal with a thick golden rim and a big yellow lightning bolt in the center (the same emblem as on Super Malo's suit), small rivets around the rim. It leans against a brick wall on a sunny rooftop, golden-hour city skyline behind, small sparkles. Do NOT use stars, red and white rings or any existing superhero shield design. Style: soft painterly anime illustration in the look of a Japanese animated film and a children's picture book, delicate thin linework, watercolor and gouache textures, soft natural lighting with a gentle glow, warm luminous colors, wholesome and child-friendly for a 6-year-old, no text, no letters, no numbers, no logo, no frame, no border, no watermark, original design not based on any existing franchise. Generate the image directly, only one image.
 ```
 
 #### `heros-masque` — Le masque (Commune)

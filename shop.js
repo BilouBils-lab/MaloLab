@@ -15,7 +15,7 @@ const CARD_LIST = [
   ['foot-ballon', 'c', 'Le ballon de cuir', 'ballon'], ['foot-crampons', 'c', 'Les crampons', 'crampon'], ['foot-gants', 'c', 'Les gants du gardien', 'gant'],
   ['foot-coupe', 'r', "La coupe d'or", 'coupe'], ['foot-capitaine', 'r', 'Le capitaine', 'assets/compagnon-foot.webp'],
   ['foot-tir', 's', 'Le tir de feu', 'but'], ['foot-legende', 'l', 'Le retourné de Tom', 'assets/legende-foot.webp'],
-  ['heros-bouclier', 'c', 'Le bouclier étoilé', 'bouclier'], ['heros-masque', 'c', 'Le masque', 'masque'], ['heros-cape', 'c', 'La cape', 'héros'],
+  ['heros-bouclier', 'c', 'Le bouclier', 'bouclier'], ['heros-masque', 'c', 'Le masque', 'masque'], ['heros-cape', 'c', 'La cape', 'héros'],
   ['heros-repaire', 'r', 'Le repaire secret', 'porte'], ['heros-chien', 'r', 'Super Toutou', 'étoile'],
   ['heros-eclair', 's', "L'éclair de Super Malo", 'éclair'], ['heros-legende', 'l', "L'envol de Super Malo", 'assets/legende-heros.webp'],
   ['briques-brique', 'c', 'La brique rouge', 'brique'], ['briques-cle', 'c', 'La clé à molette', 'clé'], ['briques-voiture', 'c', 'La voiture en briques', 'roue'],
@@ -29,7 +29,7 @@ const CARD_LIST = [
   ['dinos-volcan', 's', 'Rex et le volcan', 'tortue'], ['dinos-legende', 'l', 'Rex et les bébés', 'assets/legende-dinos.webp'],
 ];
 // Illustrations déjà reçues (assets/carte-<id>.webp) : ajouter l'identifiant ici
-const CARD_IMAGES = new Set(['foot-ballon', 'foot-crampons', 'foot-tir', 'foot-capitaine', 'foot-coupe', 'foot-gants']);
+const CARD_IMAGES = new Set(['foot-ballon', 'foot-crampons', 'foot-tir', 'foot-capitaine', 'foot-coupe', 'foot-gants', 'heros-eclair', 'heros-chien', 'heros-repaire', 'heros-cape']);
 const CARDS = CARD_LIST.map(([id, r, name, art], i) => ({
   id, th: id.split('-')[0], r, name, price: RARITY[r].price, num: i + 1,
   art: CARD_IMAGES.has(id) ? `assets/carte-${id}.webp` : art,
