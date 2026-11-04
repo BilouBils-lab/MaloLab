@@ -115,7 +115,18 @@ function dashboardView() {
           <span class="db-col"><i style="height:${Math.round(x.v[1] / maxSec * 100)}%"></i></span>
           <small>${dayName(x.d)}</small><em>${x.v[1] ? Math.round(x.v[1] / 60) + "'" : ''}</em></div>`).join('')}</div>
         ${typeof dailyStreak === 'function' ? `<small class="db-note">Entraînement du jour : ${dailyDays().size} jour${dailyDays().size > 1 ? 's' : ''} réussi${dailyDays().size > 1 ? 's' : ''}${dailyStreak() > 1 ? ` · série actuelle : ${dailyStreak()} jours` : ''}${dailyDoneToday() ? ' · fait aujourd\'hui' : ''}</small>` : ''}
-        <small class="db-note">Depuis le début : ${fmtMin(totalSec)} · ${etoiles(totalStars())} gagnée${totalStars() > 1 ? 's' : ''} · ${Object.keys(buysAll()).length}/${CARDS.length} cartes</small>
+        <small class="db-note">Depuis le début : ${fmtMin(totalSec)}</small>
+      </section>
+
+      <section class="db-card">
+        <h3>Étoiles et cartes</h3>
+        <div class="db-kpis">
+          <div><b>${totalStars()}</b><small>gagnées</small></div>
+          <div><b>${spent()}</b><small>dépensées</small></div>
+          <div class="hl"><b>${balance()}</b><small>dans la tirelire</small></div>
+        </div>
+        ${(() => { const n = Object.keys(buysAll()).length; return `<div class="db-coll"><span>Collection</span><span class="db-bar"><i style="width:${Math.round(n / CARDS.length * 100)}%;background:linear-gradient(90deg,#F6C445,#F49D1A)"></i></span><b>${n} / ${CARDS.length}</b></div>`; })()}
+        ${(() => { const g = cardById(state.goal); return g && !owned(g.id) ? `<small class="db-note">Objectif épinglé : ${esc(g.name)} (${g.price} étoiles)</small>` : ''; })()}
       </section>
 
       <section class="db-card">

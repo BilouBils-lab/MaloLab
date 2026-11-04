@@ -1026,3 +1026,7 @@ body.has-decor::before { position: fixed; inset: 0; height: 100lvh; }
 .vc-l2 { font-size: 13px; font-weight: 600; opacity: .8; padding-left: 22px; }
 .vq { padding: 1px 7px; border-radius: 999px; font-weight: 800; }
 .vq.p { background: #FFF0C2; color: #8A5A00; } .vq.e { background: #DFF3FF; color: #1E5BC6; } .vq.s { background: #EEE8DD; color: #6B6255; }
+.db-kpis div.hl { background: #FFF0C2; }
+.db-coll { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; }
+.db-coll .db-bar { height: 12px; }
+.danger-zone { margin-top: 10px; padding-top: 14px; border-top: 2px dashed rgba(0,0,0,.12); }

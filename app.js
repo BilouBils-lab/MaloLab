@@ -961,7 +961,6 @@ function holdToOpen(el, ms, fn) {
 function settings() {
   const seg = (k, opts) => `<div class="seg" data-k="${k}">${opts.map(([v, lab]) =>
     `<button data-v='${JSON.stringify(v)}' class="${state[k] === v ? 'on' : ''}">${lab}</button>`).join('')}</div>`;
-  const allActs = Object.values(ACTS).flatMap(d => d.list.filter(a => !a.screen).map(a => `${a.title} : ${actStars(a.id)} étoile${actStars(a.id) > 1 ? 's' : ''}`));
   const K = knownSet();
 
   render(`
@@ -1021,11 +1020,13 @@ function settings() {
       <div class="field">Synchronisation iPhone ↔ iPad
         <div class="sync" id="sync"></div>
       </div>
-      <div class="field">Progrès
-        <div class="statsbox">Étoiles gagnées : ${totalStars()} · dépensées : ${spent()} · dans la tirelire : <b>${balance()}</b><br>Vignettes : ${Object.keys(buysAll()).length} / ${CARDS.length}<br>${allActs.join('<br>')}</div>
-      </div>
-      <button class="btn danger" id="reset">Remettre étoiles et vignettes à zéro</button>
+
+
       <p class="tip">Pour installer l'application : ouvrez le site dans Safari, touchez Partager, puis « Sur l'écran d'accueil ».</p>
+      <div class="field danger-zone">Zone sensible
+        <small>Efface les étoiles, les cartes achetées et l'objectif, sur tous les appareils reliés. Les progrès (réussites, erreurs, temps) sont conservés.</small>
+        <button class="btn danger" id="reset">Remettre étoiles et cartes à zéro</button>
+      </div>
       <p class="tip">Version installée : <b id="appver">${window.__swVersion || '…'}</b></p>
     </main>`);
 
