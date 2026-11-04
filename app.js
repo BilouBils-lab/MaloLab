@@ -309,7 +309,9 @@ function voiceQuality(v) {
   return { label: 'Standard', cls: 's', top: false };
 }
 const voiceRegion = lang => ({ 'fr-FR': 'France', 'fr-CA': 'Canada', 'fr-BE': 'Belgique', 'fr-CH': 'Suisse' })[lang] || lang;
+const isIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Mac/.test(navigator.platform));
 function pickVoice() {
+  if (state.voiceURI === 'system' || (!state.voiceURI && isIOS())) { frVoice = null; return; }
   const vs = frVoices();
   frVoice = vs.find(v => v.voiceURI === state.voiceURI) || vs.slice().sort((a, b) => voiceScore(b) - voiceScore(a))[0] || null;
 }
@@ -970,64 +972,64 @@ function settings() {
     </header>
     <main class="settings">
       <button class="btn db-open" id="db-open">${ico('trophy')} Tableau de bord</button>
-      <label>Prénom de l'enfant
-        <input id="name" value="${esc(state.name)}" maxlength="20" autocomplete="off" autocapitalize="words">
-      </label>
 
-      <div class="field">Sons déjà étudiés en classe
-        <small>Touchez chaque son que ${esc(state.name || "l'enfant")} a déjà vu (voir le cahier ou le manuel Alfi).
-        Les exercices de lecture et d'écriture n'utilisent <b>que</b> des mots écrits avec ces sons.</small>
-        <div class="chips" id="gr">${GRAPHEMES.map(([id, gs]) => `<button data-id="${esc(id)}" class="${K.has(id) ? 'on' : ''}">${esc(gs)}</button>`).join('')}</div>
-        <small id="count"></small>
-      </div>
+      <details class="sec" data-sec="enfant"><summary><b>Enfant</b><small data-sum="enfant"></small></summary><div class="sec-body">
+        <label>Prénom de l'enfant
+          <input id="name" value="${esc(state.name)}" maxlength="20" autocomplete="off" autocapitalize="words">
+        </label>
+      </div></details>
 
-      <div class="field">Mots outils connus
-        <small>Petits mots appris par cœur, utilisés dans les phrases.</small>
-        <div class="chips" id="mo">${MOTS_OUTILS.map(m => `<button data-id="${m}" class="${state.outils.includes(m) ? 'on' : ''}">${m}</button>`).join('')}</div>
-      </div>
+      <details class="sec" data-sec="lecture"><summary><b>Lecture</b><small data-sum="lecture"></small></summary><div class="sec-body">
+        <div class="field">Sons déjà étudiés en classe
+          <small>Touchez chaque son déjà vu (voir le cahier ou le manuel Alfi). Les exercices n'utilisent <b>que</b> des mots écrits avec ces sons.</small>
+          <div class="chips" id="gr">${GRAPHEMES.map(([id, gs]) => `<button data-id="${esc(id)}" class="${K.has(id) ? 'on' : ''}">${esc(gs)}</button>`).join('')}</div>
+          <small id="count"></small>
+        </div>
+        <div class="field">Mots outils connus
+          <div class="chips" id="mo">${MOTS_OUTILS.map(m => `<button data-id="${m}" class="${state.outils.includes(m) ? 'on' : ''}">${m}</button>`).join('')}</div>
+        </div>
+        <div class="field">Aide à la lecture
+          ${seg('syl', [['arcs', 'Arcs'], ['couleurs', 'Couleurs'], ['aucune', 'Sans aide']])}
+        </div>
+        <div class="field">Lettres
+          ${seg('caps', [[false, 'minuscules'], [true, 'MAJUSCULES']])}
+        </div>
+      </div></details>
 
-      <div class="field">Aide à la lecture
-        ${seg('syl', [['arcs', 'Arcs (comme en classe)'], ['couleurs', 'Couleurs'], ['aucune', 'Sans aide']])}
-        <small>Arcs sous les syllabes ou syllabes <span class="s0">bleu</span> / <span class="s1">rouge</span>, lettres muettes en <span class="mute">gris</span>, mots outils <span class="mo">en gras</span>.</small>
-      </div>
-      <div class="field">Entraînement du jour <span class="beta">bêta</span>
-        ${seg('dailyOn', [[true, 'Affiché'], [false, 'Masqué']])}
-        <small>10 questions par jour choisies automatiquement : le dernier son étudié, puis les exercices les moins réussis. 2 étoiles bonus une fois par jour.</small>
-      </div>
-      <div class="field">Rappel de pause
-        ${seg('pauseMin', [[0, 'Non'], [15, '15 min'], [20, '20 min'], [30, '30 min']])}
-        ${seg('pauseMode', [['doux', 'Message'], ['strict', 'Pause de 10 min']])}
-        <small>Après ce temps de jeu dans la journée (iPhone et iPad additionnés), à la fin d'une partie.
-        « Pause de 10 min » bloque les exercices ; un parent peut débloquer. Réglage propre à cet appareil.
-        Aujourd'hui : <b>${Math.round(todaySeconds() / 60)} min</b> de jeu.</small>
-      </div>
-      <div class="field">Lettres
-        ${seg('caps', [[false, 'minuscules'], [true, 'MAJUSCULES']])}
-      </div>
-      <div class="field">Niveau en maths
-        ${seg('level', [['auto', 'Auto (selon le mois)'], [10, '10'], [30, '30'], [60, '60'], [90, '90']])}
-        <small>En automatique, comme les fiches d'aide aux devoirs : jusqu'à 10 en septembre, 30 d'octobre à décembre,
-        60 de janvier à mars, 90 ensuite. Aujourd'hui : nombres jusqu'à <b>${numMax()}</b>, calculs jusqu'à <b>${calcMax()}</b>.</small>
-      </div>
-      <div class="field">Voix
+      <details class="sec" data-sec="maths"><summary><b>Maths</b><small data-sum="maths"></small></summary><div class="sec-body">
+        <div class="field">Taille des nombres
+          ${seg('level', [['auto', 'Auto'], [10, '10'], [30, '30'], [60, '60'], [90, '90']])}
+          <small>Auto : comme les fiches d'aide aux devoirs (10 en septembre, 30 jusqu'en décembre, 60 jusqu'en mars, 90 ensuite).</small>
+        </div>
+      </div></details>
+
+      <details class="sec" data-sec="temps"><summary><b>Temps de jeu</b><small data-sum="temps"></small></summary><div class="sec-body">
+        <div class="field">Entraînement du jour <span class="beta">bêta</span>
+          ${seg('dailyOn', [[true, 'Affiché'], [false, 'Masqué']])}
+        </div>
+        <div class="field">Rappel de pause
+          ${seg('pauseMin', [[0, 'Non'], [15, '15 min'], [20, '20 min'], [30, '30 min']])}
+          ${seg('pauseMode', [['doux', 'Message'], ['strict', 'Pause 10 min']])}
+          <small>Temps de la journée, iPhone et iPad additionnés. Réglage propre à cet appareil.</small>
+        </div>
+      </div></details>
+
+      <details class="sec" data-sec="voix"><summary><b>Voix</b><small data-sum="voix"></small></summary><div class="sec-body">
         ${seg('voice', [[true, 'Activée'], [false, 'Coupée']])}
-        <small>Si vous n'entendez rien, vérifiez que l'appareil n'est pas en mode silencieux.</small>
         <div class="voices" id="voices"></div>
-        <small><b>Pour une voix bien plus naturelle sur iPhone / iPad :</b> Réglages → Accessibilité → Contenu énoncé → Voix → Français (France)
-        → téléchargez <b>Audrey (premium)</b> ou <b>Thomas (améliorée)</b>, puis fermez et rouvrez MaloLab et choisissez-la ci-dessus.
-        Attention : <b>Amélie</b> est une voix du Canada (accent québécois).</small>
-      </div>
-      <div class="field">Synchronisation iPhone ↔ iPad
+        <small>« Voix de l'iPhone » utilise la voix choisie dans Réglages → Accessibilité → Contenu énoncé → Voix → Français (par exemple Aurélie ou Audrey Premium). iOS ne montre pas toujours ces voix dans la liste ci-dessus. Mode silencieux : pas de son.</small>
+      </div></details>
+
+      <details class="sec" data-sec="sync"><summary><b>Synchronisation</b><small data-sum="sync"></small></summary><div class="sec-body">
         <div class="sync" id="sync"></div>
-      </div>
+      </div></details>
 
-
-      <p class="tip">Pour installer l'application : ouvrez le site dans Safari, touchez Partager, puis « Sur l'écran d'accueil ».</p>
-      <div class="field danger-zone">Zone sensible
+      <details class="sec danger" data-sec="zone"><summary><b>Zone sensible</b><small>remise à zéro</small></summary><div class="sec-body">
         <small>Efface les étoiles, les cartes achetées et l'objectif, sur tous les appareils reliés. Les progrès (réussites, erreurs, temps) sont conservés.</small>
         <button class="btn danger" id="reset">Remettre étoiles et cartes à zéro</button>
-      </div>
-      <p class="tip">Version installée : <b id="appver">${window.__swVersion || '…'}</b></p>
+      </div></details>
+
+      <p class="tip">Installer : Safari → Partager → « Sur l'écran d'accueil ». Version installée : <b id="appver">${window.__swVersion || '…'}</b></p>
     </main>`);
 
   const updateCount = () => {
@@ -1037,7 +1039,7 @@ function settings() {
   const chips = (sel, key) => app.querySelectorAll(`${sel} button`).forEach(b => b.onclick = () => {
     const id = b.dataset.id, set = new Set(state[key]);
     set.has(id) ? set.delete(id) : set.add(id);
-    state[key] = [...set]; markSettings(); save();
+    state[key] = [...set]; markSettings(); save(); refreshSums();
     b.classList.toggle('on', set.has(id));
     updateCount();
   });
@@ -1045,21 +1047,34 @@ function settings() {
   chips('#mo', 'outils');
 
   $('#db-open').onclick = () => dashboard();
+  const sumText = {
+    enfant: () => state.name || '—',
+    lecture: () => `${state.known.length} sons · ${state.outils.length} mots outils · ${{ arcs: 'arcs', couleurs: 'couleurs', aucune: 'sans aide' }[state.syl] || ''}`,
+    maths: () => state.level === 'auto' ? `auto · nombres jusqu'à ${numMax()}` : `nombres jusqu'à ${state.level}`,
+    temps: () => `${dailyOn() ? 'entraînement affiché' : 'entraînement masqué'} · ${pauseMin() ? `pause à ${pauseMin()} min` : 'pas de rappel'} · ${Math.round(todaySeconds() / 60)} min aujourd'hui`,
+    voix: () => !state.voice ? 'coupée' : (state.voiceURI === 'system' || !frVoice) ? "voix de l'iPhone" : frVoice.name.replace(/\s*\(.*?\)\s*/g, ' ').trim(),
+    sync: () => state.syncCode ? (state.syncError ? 'erreur' : 'activée') : 'non reliée',
+  };
+  window.refreshSums = () => document.querySelectorAll('[data-sum]').forEach(el => { try { el.textContent = sumText[el.dataset.sum](); } catch {} });
+  refreshSums();
+  app.querySelectorAll('details.sec').forEach(d => d.addEventListener('toggle', () => {
+    if (d.open) { app.querySelectorAll('details.sec').forEach(o => { if (o !== d) o.open = false; }); setTimeout(() => d.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50); }
+  }));
   $('#back').onclick = home;
   const listVoices = () => {
     pickVoice();
     const vs = frVoices().filter(v => !ROBOT.test(v.name)).sort((a, b) => voiceScore(b) - voiceScore(a));
-    const seenN = {};
-    $('#voices').innerHTML = vs.length ? vs.map(v => {
+    const seenN = {}, sys = !frVoice;
+    const sysBtn = `<button class="vc ${sys ? 'on' : ''}" data-uri="system"><span class="vc-l1">${ico('play')} Voix de l'iPhone ${ico('sparkle')}</span><span class="vc-l2">celle des réglages · <b class="vq p">conseillée</b></span></button>`;
+    $('#voices').innerHTML = sysBtn + vs.map(v => {
       const q = voiceQuality(v), base = v.name.replace(/\s*\(.*?\)\s*/g, ' ').trim();
       const key = base + q.label + v.lang; seenN[key] = (seenN[key] || 0) + 1;
       return `<button class="vc ${frVoice && v.voiceURI === frVoice.voiceURI ? 'on' : ''}" data-uri="${esc(v.voiceURI)}">
         <span class="vc-l1">${ico('play')} ${esc(base)}${seenN[key] > 1 ? ' ' + seenN[key] : ''}${q.top ? ' ' + ico('sparkle') : ''}</span>
         <span class="vc-l2">${esc(voiceRegion(v.lang))} · <b class="vq ${q.cls}">${q.label}</b></span></button>`;
-    }).join('')
-      : '<small>Aucune voix française trouvée sur cet appareil.</small>';
+    }).join('');
     $('#voices').querySelectorAll('button').forEach(b => b.onclick = () => {
-      state.voiceURI = b.dataset.uri; save(); pickVoice(); listVoices();
+      state.voiceURI = b.dataset.uri; save(); pickVoice(); listVoices(); refreshSums();
       say(`Bonjour ${state.name || ''} ! Je vais lire les consignes avec cette voix.`);
     });
   };
@@ -1107,9 +1122,9 @@ function settings() {
   try { navigator.serviceWorker?.controller?.postMessage('version'); } catch {}
   if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => { pickVoice(); if ($('#voices')) listVoices(); };
   $('#back').onclick = home;
-  $('#name').oninput = e => { state.name = e.target.value.trim(); markSettings(); save(); };
+  $('#name').oninput = e => { state.name = e.target.value.trim(); markSettings(); save(); refreshSums(); };
   app.querySelectorAll('.seg').forEach(s => s.querySelectorAll('button').forEach(b => b.onclick = () => {
-    state[s.dataset.k] = JSON.parse(b.dataset.v); markSettings(); save();
+    state[s.dataset.k] = JSON.parse(b.dataset.v); markSettings(); save(); refreshSums();
     s.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
   }));
   $('#reset').onclick = () => {

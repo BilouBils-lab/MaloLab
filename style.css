@@ -1030,3 +1030,17 @@ body.has-decor::before { position: fixed; inset: 0; height: 100lvh; }
 .db-coll { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; }
 .db-coll .db-bar { height: 12px; }
 .danger-zone { margin-top: 10px; padding-top: 14px; border-top: 2px dashed rgba(0,0,0,.12); }
+
+/* Espace parents : rubriques repliables */
+.settings details.sec { background: rgba(255,253,248,.95); color: var(--ink); border-radius: 18px; box-shadow: 0 3px 10px rgba(40,30,20,.1); overflow: hidden; }
+.settings details.sec > summary { list-style: none; display: flex; align-items: center; gap: 10px; padding: 14px 16px; cursor: pointer; }
+.settings details.sec > summary::-webkit-details-marker { display: none; }
+.settings details.sec > summary b { font-size: 18px; flex: none; }
+.settings details.sec > summary small { flex: 1; min-width: 0; font-size: 14px; font-weight: 600; opacity: .65; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.settings details.sec > summary::after { content: ''; flex: none; width: 9px; height: 9px; border-right: 3px solid #A39A8C; border-bottom: 3px solid #A39A8C; transform: rotate(45deg); margin: -4px 4px 0 2px; transition: transform .2s; }
+.settings details.sec[open] > summary::after { transform: rotate(-135deg); margin-top: 4px; }
+.settings details.sec[open] > summary { border-bottom: 1px solid #EFE6D6; }
+.settings .sec-body { padding: 12px 16px 16px; display: flex; flex-direction: column; gap: 14px; }
+.settings details.sec.danger > summary b { color: var(--bad); }
+.settings { gap: 10px; }
+.seg button { padding: 10px 8px; font-size: 16px; }
