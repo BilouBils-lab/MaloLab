@@ -92,7 +92,7 @@ function dashboardView() {
   let flu = '';
   try {
     const F = fluenceContent();
-    flu = F.parts.map(P => { const h = fluenceAll(F.key, P.id); return h.length ? `<div class="db-flu"><span>${P.title}</span><b>${h.slice(-3).map(fmtTime).join(' → ')}</b></div>` : ''; }).join('');
+    flu = F.parts.map(P => { const h = fluenceAll(F.key, P.id); return h.length ? `<div class="db-flu"><span>${P.title}</span><b>${h.slice(-3).map(t => `${perMinute(P, t)}`).join(' → ')} ${P.id === 'syl' ? 'syll.' : 'mots'}/min</b></div>` : ''; }).join('');
   } catch {}
 
   const bar = (rate, color) => rate === null ? '' : `<span class="db-bar"><i style="width:${rate}%;background:${rate >= 80 ? '#2EB67D' : rate >= 60 ? '#F2A23A' : '#E5566D'}"></i></span>`;
@@ -152,7 +152,7 @@ function dashboardView() {
         ${solid.length ? `<div class="db-chips">${solid.slice(0, 30).map(x => `<span>${esc(questionLabel(x.id, x.q))}</span>`).join('')}</div>` : ''}
       </section>
 
-      ${flu ? `<section class="db-card"><h3>Fluence (fiche actuelle)</h3>${flu}<small class="db-note">Les 3 derniers temps, du plus ancien au plus récent.</small></section>` : ''}
+      ${flu ? `<section class="db-card"><h3>Fluence (fiche actuelle)</h3>${flu}<small class="db-note">Les 3 derniers essais, du plus ancien au plus récent. Repère de fin de CP : ${FLUENCE_CP} mots par minute.</small></section>` : ''}
       ${state.logBlocked ? `<section class="db-card warn">${ico('warn')} Le temps de jeu n'est pas encore partagé entre les appareils : mettez à jour les règles Firebase (fichier <code>design/firebase-rules.json</code>).</section>` : ''}
     </main>`);
   $('#back').onclick = settings;

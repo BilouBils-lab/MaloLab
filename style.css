@@ -1090,3 +1090,48 @@ svg.cursive.model-only .ink-model path { fill: none; stroke: #2B2D42; stroke-wid
 .choice.bad { opacity: .75; }
 .choice .wrong-lab svg.art { width: 44px; height: 44px; }
 .choices.words .choice .wrong-lab { display: inline-flex; vertical-align: middle; margin: 0 0 0 10px; }
+
+/* =========================================================
+   Progrès (écran enfant), puce de fin de partie, fluence en mots/min
+   ========================================================= */
+.progress { display: flex; flex-direction: column; gap: 14px; padding: 4px 16px 24px; max-width: 640px; width: 100%; margin: 0 auto; }
+.pg-card { background: rgba(255,253,248,.95); color: var(--ink); border-radius: 22px; padding: 14px 16px; box-shadow: 0 4px 14px rgba(40,30,20,.12); display: flex; flex-direction: column; gap: 10px; border-left: 8px solid var(--lecture); }
+.pg-card.mat { border-left-color: var(--maths); } .pg-card.eff { border-left-color: #E9B10E; }
+.pg-card h3 { margin: 0; font-size: 21px; display: flex; align-items: center; gap: 10px; }
+.pg-card h3 .dt-ic { width: 38px; height: 38px; border-radius: 10px; }
+.pg-card h3 svg.ico { width: 28px; height: 28px; color: #E9B10E; }
+.pg-big { font-size: 18px; font-weight: 700; } .pg-big b { font-size: 30px; font-weight: 900; margin-right: 4px; } .pg-big small { opacity: .6; }
+.pg-sounds { display: flex; flex-wrap: wrap; gap: 6px; }
+.pg-sounds span { background: #E3EEFF; color: #1E5BC6; font-weight: 900; font-size: 18px; padding: 4px 10px; border-radius: 10px; }
+.pg-stage { display: flex; align-items: center; gap: 10px; font-weight: 800; flex-wrap: wrap; }
+.pg-stage > span:first-child { width: 120px; }
+.pg-steps { display: flex; gap: 4px; }
+.pg-steps i { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-weight: 900; background: #EFE6D6; color: #A39A8C; }
+.pg-steps i.on { background: var(--maths); color: #fff; }
+.pg-stage small { font-weight: 700; opacity: .65; flex: 1 1 110px; line-height: 1.2; }
+.pg-stage > span:first-child { width: 112px; }
+.pg-note { opacity: .65; font-weight: 600; }
+.pg-chip { background: var(--card); color: var(--ink); font-weight: 800; font-size: 17px; padding: 6px 14px; border-radius: 999px; box-shadow: 0 3px 8px rgba(0,0,0,.1); animation: bounce .6s .4s both; }
+.pg-chip em { font-style: normal; color: #1F8A70; margin-left: 4px; }
+.pg-chip svg.ico { color: #F4B400; }
+/* Accueil : trois boutons en bas */
+.homebar2 { gap: 8px; }
+.homebar2 .hb { gap: 8px; padding: 8px 10px; }
+@media (max-width: 499px) {
+  .homebar2 .hb { flex-direction: column; text-align: center; gap: 4px; padding: 8px 4px; }
+  .homebar2 .hb-txt b { font-size: 15px; } .homebar2 .hb-txt small { font-size: 11px; }
+  .homebar2 .hb-ic, .homebar2 .hb-card { width: 36px; height: 36px; } .homebar2 .hb-card { width: 30px; height: auto; }
+}
+/* Boutique : économiser pour l'objectif */
+.m-choice { display: flex; gap: 10px; align-items: center; background: #FFF6D8; border-radius: 14px; padding: 8px 10px; text-align: left; font-size: 14px; }
+.m-choice .vc-face { width: 42px; flex: none; padding: 3px; border-radius: 6px; }
+.m-choice .vc-foot, .m-choice .vc-holo, .m-choice .vc-spark, .m-choice .vc-band { display: none; }
+.m-choice .vc-art { inset: 3px; bottom: 3px; border-width: 2px; }
+.m-choice p { margin: 0; }
+/* Fluence */
+.fl-wpm { display: flex; flex-direction: column; align-items: center; gap: 6px; font-weight: 700; background: var(--card); color: var(--ink); padding: 10px 16px; border-radius: 16px; }
+.fl-wpm b { font-size: 34px; font-weight: 900; }
+.fl-gauge { position: relative; width: min(260px, 70vw); height: 14px; border-radius: 999px; background: #EFE6D6; overflow: visible; }
+.fl-gauge i { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #7BC6F0, #2EB67D); }
+.fl-gauge em { position: absolute; top: -5px; width: 4px; height: 24px; background: #E07A1F; border-radius: 2px; }
+.fl-wpm small { font-size: 14px; opacity: .8; text-align: center; }

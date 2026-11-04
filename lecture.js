@@ -221,7 +221,7 @@ function fluenceScreen(dk, part = 0) {
       <div class="fl-box ${P.cls} blur">${P.items.map(t => `<div class="fl-item">${P.html(t)}</div>`).join('')}</div>
       <div class="fl-timer" id="tm">0,0 s</div>
       <div class="row"><button class="btn" id="go" style="--c:${color}">${ico('play')} C'est parti !</button></div>
-      <div class="fl-hist">${allHist.slice(-3).map((t, i) => `<span>Temps ${i + 1} : <b>${fmtTime(t)}</b></span>`).join('') || '<span>Premier essai !</span>'}</div>
+      <div class="fl-hist">${allHist.slice(-3).map((t, i) => `<span>Temps ${i + 1} : <b>${fmtTime(t)}</b> · ${perMinute(P, t)} ${P.id === 'syl' ? 'syll.' : 'mots'}/min</span>`).join('') || '<span>Premier essai !</span>'}</div>
     </main>`, 'play');
   const speak = () => say(`${P.title}. Lis à voix haute, le plus vite possible sans te tromper. Appuie sur C'est parti pour lancer le chrono.`);
   $('#spk').onclick = speak; setTimeout(speak, 300);
@@ -244,10 +244,11 @@ function fluenceScreen(dk, part = 0) {
     state.stars += record ? 2 : 1; state.act.fluence = (state.act.fluence || 0) + (record ? 2 : 1); save();
     sfxOK(); confetti();
     const msg = record ? `Record battu ! ${fmtTime(t)}` : best === null ? `Bravo ! ${fmtTime(t)}` : `Bien lu ! ${fmtTime(t)}`;
-    say(msg.replace(' s', ' secondes'));
+    say(msg.replace(' s', ' secondes') + (P.id === 'syl' ? '' : `. Tu lis ${perMinute(P, t)} mots par minute.`));
     const last = part === F.parts.length - 1;
     document.querySelector('.fluence').insertAdjacentHTML('beforeend', `
       <div class="fl-result">${record ? ico('trophy') : STAR} ${msg} <small>+${record ? 2 : 1} ${STAR}</small></div>
+      ${fluenceGauge(P, t)}
       <div class="row"><button class="btn sec" id="again">${ico('replay')} Recommencer</button>
       <button class="btn" id="next" style="--c:${color}">${last ? ico('home') + ' Terminer' : 'Suivant ' + ico('next')}</button></div>`);
     $('#go').remove();

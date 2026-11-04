@@ -46,6 +46,12 @@ const owned = id => !!buysAll()[id];
 const spent = () => Object.keys(buysAll()).reduce((s, id) => s + ((cardById(id) || {}).price || 0), 0);
 const balance = () => Math.max(0, totalStars() - spent());
 const etoiles = n => `${n} étoile${n > 1 ? 's' : ''}`;
+// Patience : nombre approximatif de parties pour gagner n étoiles (moyenne réelle, 4 par défaut)
+function partiesFor(n) {
+  const L = typeof logAll === 'function' ? logAll() : {}, parts = Object.values(L).reduce((x, v) => x + (v[0] || 0), 0);
+  const avg = parts >= 5 ? Math.max(2, Math.min(5, totalStars() / parts)) : 4;
+  return Math.max(1, Math.ceil(n / avg));
+}
 
 /* ---------- Affichage d'une carte (cadre façon cartes à collectionner) ---------- */
 const cardArt = c => c.art.startsWith('assets/')
@@ -77,7 +83,7 @@ function goalHTML() {
   const bal = balance(), miss = Math.max(0, g.price - bal), pct = Math.min(100, Math.round(bal / g.price * 100));
   return `<div class="goal">${cardFace(g)}<div class="goal-txt"><b>Mon objectif : ${esc(g.name)}</b>
     <span class="goal-bar"><i style="width:${pct}%"></i></span>
-    <small>${miss ? `Encore ${miss} ${STAR} (${bal} / ${g.price})` : 'Tu peux l\'acheter !'}</small></div></div>`;
+    <small>${miss ? `Encore ${miss} ${STAR} (${bal} / ${g.price}) · environ ${partiesFor(miss)} partie${partiesFor(miss) > 1 ? 's' : ''}` : 'Tu peux l\'acheter !'}</small></div></div>`;
 }
 
 /* ---------- La boutique ---------- */
@@ -120,11 +126,17 @@ function cardModal(c) {
   else if (can) body = `
     <p class="m-calc"><span>${bal} ${STAR}</span><b>−</b><span class="r-${c.r}">${c.price} ${STAR}</span><b>=</b><span class="q">?</span></p>
     <p class="m-txt">Tu as <b>${bal}</b> étoiles. Cette vignette coûte <b>${c.price}</b> étoiles.</p>
+    ${(() => { const g = cardById(state.goal); if (!g || g.id === c.id || owned(g.id)) return '';
+      const after = bal - c.price, missNow = Math.max(0, g.price - bal), missAfter = Math.max(0, g.price - after);
+      return `<div class="m-choice">${cardFace(g)}<p>Tu économises pour <b>${esc(g.name)}</b>.<br>
+        ${missNow ? `Il te manque ${missNow} ${STAR}.` : 'Tu peux déjà l\'acheter !'} Si tu achètes celle-ci, il t'en manquera <b>${missAfter}</b>,
+        soit environ ${partiesFor(missAfter)} partie${partiesFor(missAfter) > 1 ? 's' : ''}.</p></div>`; })()}
     <div class="row"><button class="btn" id="m-buy">${ico('cart')} Acheter</button><button class="btn sec" id="m-no">Pas maintenant</button></div>
     ${state.goal === c.id ? '' : `<button class="m-link" id="m-goal">${ico('pin')} En faire mon objectif</button>`}`;
   else body = `
     <p class="m-txt">Cette vignette coûte <b>${c.price}</b> étoiles. Tu as <b>${bal}</b> étoile${bal > 1 ? 's' : ''}.</p>
     <p class="m-big">Il te manque ${miss} ${STAR}</p>
+    <p class="m-txt">C'est environ <b>${partiesFor(miss)} partie${partiesFor(miss) > 1 ? 's' : ''}</b>. En économisant, tu l'auras !</p>
     <div class="row">${state.goal === c.id ? '<button class="btn sec" id="m-ungoal">Retirer mon objectif</button>' : `<button class="btn" id="m-goal">${ico('pin')} C'est mon objectif !</button>`}<button class="btn sec" id="m-no">Fermer</button></div>`;
   document.body.insertAdjacentHTML('beforeend', `
     <div class="modal"><div class="m-box">
@@ -140,8 +152,9 @@ function cardModal(c) {
   on('m-buy', () => buy(c));
   on('m-goal', () => { state.goal = c.id; markSettings(); save(); sfxPop(); say(`C'est ton objectif : ${c.name}. ${can ? '' : `Il te manque ${etoiles(miss)}.`}`); closeModal(); shop(c.th); });
   on('m-ungoal', () => { state.goal = ''; markSettings(); save(); closeModal(); shop(c.th); });
-  say(own ? `${c.name}. Elle est à toi !` : can ? `${c.name}. Elle coûte ${etoiles(c.price)}. Tu as ${etoiles(bal)}. Combien t'en restera-t-il si tu l'achètes ?`
-    : `${c.name}. Elle coûte ${etoiles(c.price)}. Il te manque ${etoiles(miss)}.`);
+  const gl = cardById(state.goal), goalTalk = can && gl && gl.id !== c.id && !owned(gl.id) ? ` Attention, tu économises pour ${gl.name}. Si tu achètes celle-ci, il te faudra attendre plus longtemps.` : '';
+  say(own ? `${c.name}. Elle est à toi !` : can ? `${c.name}. Elle coûte ${etoiles(c.price)}. Tu as ${etoiles(bal)}. Combien t'en restera-t-il si tu l'achètes ?${goalTalk}`
+    : `${c.name}. Elle coûte ${etoiles(c.price)}. Il te manque ${etoiles(miss)}, environ ${partiesFor(miss)} partie${partiesFor(miss) > 1 ? 's' : ''}. Il faut être patient !`);
 }
 
 function buy(c) {

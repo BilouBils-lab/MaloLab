@@ -777,6 +777,10 @@ function home() {
           ${goalOn ? `<span class="hb-card">${cardFace(g)}</span>` : `<span class="hb-ic">${ico('bag')}</span>`}
           <span class="hb-txt"><b>Boutique</b><small>${goalOn ? (miss > 0 ? `Encore ${miss} ${STAR}` : 'Tu peux l\'acheter !') : `${Object.keys(buysAll()).length}/${CARDS.length} cartes`}</small></span>
         </button>
+        <button class="hb" id="progress">
+          <span class="hb-ic">${ico('trophy')}</span>
+          <span class="hb-txt"><b>Mes progrès</b><small>${state.known.length} sons</small></span>
+        </button>
         <button class="hb" id="themes">
           <span class="hb-ic img" style="--bb:${t.bg}"><img src="${t.img}" alt=""></span>
           <span class="hb-txt"><b>Mon univers</b><small>${esc(t.name)}</small></span>
@@ -788,6 +792,7 @@ function home() {
   app.querySelectorAll('.dcard').forEach(b => b.onclick = () => { say(ACTS[b.dataset.d].title); domain(b.dataset.d); });
   $('#album').onclick = () => shop(goalOn ? g.th : undefined);
   $('#themes').onclick = themes;
+  $('#progress').onclick = progressScreen;
   holdToOpen($('#gear'), 1500, () => parentGate());
   window.__screen = 'home';
 }
@@ -881,7 +886,7 @@ function runSession(act, dk) {
     return;
   }
 
-  const total = act.total || QUESTIONS_PAR_PARTIE, seen = new Set(), t0 = Date.now();
+  const total = act.total || QUESTIONS_PAR_PARTIE, seen = new Set(), t0 = Date.now(), m0 = mastered();
   let i = 0, got = 0;
 
   const next = () => {
@@ -912,7 +917,8 @@ function runSession(act, dk) {
         locked = true;
         if (firstTry) got++;
         sfxOK(); reward(firstTry ? '+1 ' + STAR : ico('thumb'));
-        say(`${pick(T().praise)}${state.name ? ' ' + state.name : ''} ! ${q.after || ''}`);
+        const pdk = (q.actId && actById(q.actId) || {}).dk || dk;
+        say(`${praiseFor(pdk, firstTry)}${state.name ? ' ' + state.name : ''} ! ${q.after || ''}`);
         setTimeout(() => { i++; next(); }, q.after ? 2600 : 1500);
       } else {
         firstTry = false; sfxNo();
@@ -935,6 +941,7 @@ function runSession(act, dk) {
         <h2>${extra && extra.title ? esc(extra.title) : `${msg}${state.name ? ' ' + esc(state.name) : ''} !`}</h2>
         <div class="earned${total > 6 ? ' many' : ''}">${STAR.repeat(got)}${STAR_OFF.repeat(total - got)}</div>
         ${extra && extra.html ? extra.html : ''}
+        ${(() => { const m1 = mastered(), dm = m1 - m0; return dm > 0 ? `<div class="pg-chip">${ico('sparkle')} Tu maîtrises <b>${m1}</b> questions <em>+${dm}</em></div>` : ''; })()}
         <div class="row">
           ${act.noReplay ? '' : `<button class="btn" id="again" style="--c:${color}">${ico('replay')} Rejouer</button>`}
           <button class="btn sec" id="menu">${ico('home')} Menu</button>
