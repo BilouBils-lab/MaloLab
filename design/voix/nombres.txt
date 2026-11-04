@@ -1,0 +1,3504 @@
+0 est plus petit que 1.
+0 est plus petit que 10.
+0 est plus petit que 11.
+0 est plus petit que 12.
+0 est plus petit que 13.
+0 est plus petit que 14.
+0 est plus petit que 15.
+0 est plus petit que 16.
+0 est plus petit que 17.
+0 est plus petit que 18.
+0 est plus petit que 19.
+0 est plus petit que 2.
+0 est plus petit que 20.
+0 est plus petit que 21.
+0 est plus petit que 22.
+0 est plus petit que 23.
+0 est plus petit que 24.
+0 est plus petit que 25.
+0 est plus petit que 26.
+0 est plus petit que 27.
+0 est plus petit que 28.
+0 est plus petit que 29.
+0 est plus petit que 3.
+0 est plus petit que 30.
+0 est plus petit que 4.
+0 est plus petit que 5.
+0 est plus petit que 6.
+0 est plus petit que 7.
+0 est plus petit que 8.
+0 est plus petit que 9.
+0 est égal à 0.
+0 moins 0 est égal à 0.
+0 moins 0.
+0 plus 0 est égal à 0.
+0 plus 0.
+0 plus 1 est égal à 1.
+0 plus 1,
+0 plus 1.
+0 plus 10 est égal à 10.
+0 plus 10.
+0 plus 11 est égal à 11.
+0 plus 11.
+0 plus 12 est égal à 12.
+0 plus 12.
+0 plus 13 est égal à 13.
+0 plus 13.
+0 plus 14 est égal à 14.
+0 plus 14.
+0 plus 15 est égal à 15.
+0 plus 15.
+0 plus 16 est égal à 16.
+0 plus 16.
+0 plus 17 est égal à 17.
+0 plus 17.
+0 plus 18 est égal à 18.
+0 plus 18.
+0 plus 19 est égal à 19.
+0 plus 19.
+0 plus 2 est égal à 2.
+0 plus 2.
+0 plus 20 est égal à 20.
+0 plus 3 est égal à 3.
+0 plus 3.
+0 plus 4 est égal à 4.
+0 plus 4.
+0 plus 5 est égal à 5.
+0 plus 5.
+0 plus 6 est égal à 6.
+0 plus 6.
+0 plus 7 est égal à 7.
+0 plus 7.
+0 plus 8 est égal à 8.
+0 plus 8.
+0 plus 9 est égal à 9.
+0 plus 9.
+1 est plus grand que 0.
+1 est plus petit que 10.
+1 est plus petit que 11.
+1 est plus petit que 12.
+1 est plus petit que 13.
+1 est plus petit que 14.
+1 est plus petit que 15.
+1 est plus petit que 16.
+1 est plus petit que 17.
+1 est plus petit que 18.
+1 est plus petit que 19.
+1 est plus petit que 2.
+1 est plus petit que 20.
+1 est plus petit que 21.
+1 est plus petit que 22.
+1 est plus petit que 23.
+1 est plus petit que 24.
+1 est plus petit que 25.
+1 est plus petit que 26.
+1 est plus petit que 27.
+1 est plus petit que 28.
+1 est plus petit que 29.
+1 est plus petit que 3.
+1 est plus petit que 30.
+1 est plus petit que 4.
+1 est plus petit que 5.
+1 est plus petit que 6.
+1 est plus petit que 7.
+1 est plus petit que 8.
+1 est plus petit que 9.
+1 est égal à 1.
+1 moins 0 est égal à 1.
+1 moins 0.
+1 moins 1 est égal à 0.
+1 moins 1.
+1 plus 0 est égal à 1.
+1 plus 0.
+1 plus 1 est égal à 2.
+1 plus 1,
+1 plus 1.
+1 plus 10 est égal à 11.
+1 plus 10.
+1 plus 11 est égal à 12.
+1 plus 11.
+1 plus 12 est égal à 13.
+1 plus 12.
+1 plus 13 est égal à 14.
+1 plus 13.
+1 plus 14 est égal à 15.
+1 plus 14.
+1 plus 15 est égal à 16.
+1 plus 15.
+1 plus 16 est égal à 17.
+1 plus 16.
+1 plus 17 est égal à 18.
+1 plus 17.
+1 plus 18 est égal à 19.
+1 plus 18.
+1 plus 19 est égal à 20.
+1 plus 19.
+1 plus 2 est égal à 3.
+1 plus 2.
+1 plus 3 est égal à 4.
+1 plus 3.
+1 plus 4 est égal à 5.
+1 plus 4.
+1 plus 5 est égal à 6.
+1 plus 5.
+1 plus 6 est égal à 7.
+1 plus 6.
+1 plus 7 est égal à 8.
+1 plus 7.
+1 plus 8 est égal à 9.
+1 plus 8.
+1 plus 9 est égal à 10.
+1 plus 9.
+10 est plus grand que 0.
+10 est plus grand que 1.
+10 est plus grand que 2.
+10 est plus grand que 3.
+10 est plus grand que 4.
+10 est plus grand que 5.
+10 est plus grand que 6.
+10 est plus grand que 7.
+10 est plus grand que 8.
+10 est plus grand que 9.
+10 est plus petit que 11.
+10 est plus petit que 12.
+10 est plus petit que 13.
+10 est plus petit que 14.
+10 est plus petit que 15.
+10 est plus petit que 16.
+10 est plus petit que 17.
+10 est plus petit que 18.
+10 est plus petit que 19.
+10 est plus petit que 20.
+10 est plus petit que 21.
+10 est plus petit que 22.
+10 est plus petit que 23.
+10 est plus petit que 24.
+10 est plus petit que 25.
+10 est plus petit que 26.
+10 est plus petit que 27.
+10 est plus petit que 28.
+10 est plus petit que 29.
+10 est plus petit que 30.
+10 est égal à 10.
+10 moins 0 est égal à 10.
+10 moins 0.
+10 moins 1 est égal à 9.
+10 moins 1.
+10 moins 10 est égal à 0.
+10 moins 2 est égal à 8.
+10 moins 2.
+10 moins 3 est égal à 7.
+10 moins 3.
+10 moins 4 est égal à 6.
+10 moins 4.
+10 moins 5 est égal à 5.
+10 moins 5.
+10 moins 6 est égal à 4.
+10 moins 6.
+10 moins 7 est égal à 3.
+10 moins 7.
+10 moins 8 est égal à 2.
+10 moins 8.
+10 moins 9 est égal à 1.
+10 moins 9.
+10 plus 0 est égal à 10.
+10 plus 0.
+10 plus 1 est égal à 11.
+10 plus 1,
+10 plus 1.
+10 plus 10 est égal à 20.
+10 plus 10.
+10 plus 2 est égal à 12.
+10 plus 2.
+10 plus 3 est égal à 13.
+10 plus 3.
+10 plus 4 est égal à 14.
+10 plus 4.
+10 plus 5 est égal à 15.
+10 plus 5.
+10 plus 6 est égal à 16.
+10 plus 6.
+10 plus 7 est égal à 17.
+10 plus 7.
+10 plus 8 est égal à 18.
+10 plus 8.
+10 plus 9 est égal à 19.
+10 plus 9.
+11 est plus grand que 0.
+11 est plus grand que 1.
+11 est plus grand que 10.
+11 est plus grand que 2.
+11 est plus grand que 3.
+11 est plus grand que 4.
+11 est plus grand que 5.
+11 est plus grand que 6.
+11 est plus grand que 7.
+11 est plus grand que 8.
+11 est plus grand que 9.
+11 est plus petit que 12.
+11 est plus petit que 13.
+11 est plus petit que 14.
+11 est plus petit que 15.
+11 est plus petit que 16.
+11 est plus petit que 17.
+11 est plus petit que 18.
+11 est plus petit que 19.
+11 est plus petit que 20.
+11 est plus petit que 21.
+11 est plus petit que 22.
+11 est plus petit que 23.
+11 est plus petit que 24.
+11 est plus petit que 25.
+11 est plus petit que 26.
+11 est plus petit que 27.
+11 est plus petit que 28.
+11 est plus petit que 29.
+11 est plus petit que 30.
+11 est égal à 11.
+11 moins 0 est égal à 11.
+11 moins 1 est égal à 10.
+11 moins 10 est égal à 1.
+11 moins 11 est égal à 0.
+11 moins 2 est égal à 9.
+11 moins 3 est égal à 8.
+11 moins 4 est égal à 7.
+11 moins 5 est égal à 6.
+11 moins 6 est égal à 5.
+11 moins 7 est égal à 4.
+11 moins 8 est égal à 3.
+11 moins 9 est égal à 2.
+11 plus 0 est égal à 11.
+11 plus 0.
+11 plus 1 est égal à 12.
+11 plus 1,
+11 plus 1.
+11 plus 2 est égal à 13.
+11 plus 2.
+11 plus 3 est égal à 14.
+11 plus 3.
+11 plus 4 est égal à 15.
+11 plus 4.
+11 plus 5 est égal à 16.
+11 plus 5.
+11 plus 6 est égal à 17.
+11 plus 6.
+11 plus 7 est égal à 18.
+11 plus 7.
+11 plus 8 est égal à 19.
+11 plus 8.
+11 plus 9 est égal à 20.
+11 plus 9.
+12 est plus grand que 0.
+12 est plus grand que 1.
+12 est plus grand que 10.
+12 est plus grand que 11.
+12 est plus grand que 2.
+12 est plus grand que 3.
+12 est plus grand que 4.
+12 est plus grand que 5.
+12 est plus grand que 6.
+12 est plus grand que 7.
+12 est plus grand que 8.
+12 est plus grand que 9.
+12 est plus petit que 13.
+12 est plus petit que 14.
+12 est plus petit que 15.
+12 est plus petit que 16.
+12 est plus petit que 17.
+12 est plus petit que 18.
+12 est plus petit que 19.
+12 est plus petit que 20.
+12 est plus petit que 21.
+12 est plus petit que 22.
+12 est plus petit que 23.
+12 est plus petit que 24.
+12 est plus petit que 25.
+12 est plus petit que 26.
+12 est plus petit que 27.
+12 est plus petit que 28.
+12 est plus petit que 29.
+12 est plus petit que 30.
+12 est égal à 12.
+12 moins 0 est égal à 12.
+12 moins 1 est égal à 11.
+12 moins 10 est égal à 2.
+12 moins 11 est égal à 1.
+12 moins 12 est égal à 0.
+12 moins 2 est égal à 10.
+12 moins 3 est égal à 9.
+12 moins 4 est égal à 8.
+12 moins 5 est égal à 7.
+12 moins 6 est égal à 6.
+12 moins 7 est égal à 5.
+12 moins 8 est égal à 4.
+12 moins 9 est égal à 3.
+12 plus 0 est égal à 12.
+12 plus 0.
+12 plus 1 est égal à 13.
+12 plus 1,
+12 plus 1.
+12 plus 2 est égal à 14.
+12 plus 2.
+12 plus 3 est égal à 15.
+12 plus 3.
+12 plus 4 est égal à 16.
+12 plus 4.
+12 plus 5 est égal à 17.
+12 plus 5.
+12 plus 6 est égal à 18.
+12 plus 6.
+12 plus 7 est égal à 19.
+12 plus 7.
+12 plus 8 est égal à 20.
+12 plus 8.
+13 est plus grand que 0.
+13 est plus grand que 1.
+13 est plus grand que 10.
+13 est plus grand que 11.
+13 est plus grand que 12.
+13 est plus grand que 2.
+13 est plus grand que 3.
+13 est plus grand que 4.
+13 est plus grand que 5.
+13 est plus grand que 6.
+13 est plus grand que 7.
+13 est plus grand que 8.
+13 est plus grand que 9.
+13 est plus petit que 14.
+13 est plus petit que 15.
+13 est plus petit que 16.
+13 est plus petit que 17.
+13 est plus petit que 18.
+13 est plus petit que 19.
+13 est plus petit que 20.
+13 est plus petit que 21.
+13 est plus petit que 22.
+13 est plus petit que 23.
+13 est plus petit que 24.
+13 est plus petit que 25.
+13 est plus petit que 26.
+13 est plus petit que 27.
+13 est plus petit que 28.
+13 est plus petit que 29.
+13 est plus petit que 30.
+13 est égal à 13.
+13 moins 0 est égal à 13.
+13 moins 1 est égal à 12.
+13 moins 10 est égal à 3.
+13 moins 11 est égal à 2.
+13 moins 12 est égal à 1.
+13 moins 13 est égal à 0.
+13 moins 2 est égal à 11.
+13 moins 3 est égal à 10.
+13 moins 4 est égal à 9.
+13 moins 5 est égal à 8.
+13 moins 6 est égal à 7.
+13 moins 7 est égal à 6.
+13 moins 8 est égal à 5.
+13 moins 9 est égal à 4.
+13 plus 0 est égal à 13.
+13 plus 0.
+13 plus 1 est égal à 14.
+13 plus 1,
+13 plus 1.
+13 plus 2 est égal à 15.
+13 plus 2.
+13 plus 3 est égal à 16.
+13 plus 3.
+13 plus 4 est égal à 17.
+13 plus 4.
+13 plus 5 est égal à 18.
+13 plus 5.
+13 plus 6 est égal à 19.
+13 plus 6.
+13 plus 7 est égal à 20.
+13 plus 7.
+14 est plus grand que 0.
+14 est plus grand que 1.
+14 est plus grand que 10.
+14 est plus grand que 11.
+14 est plus grand que 12.
+14 est plus grand que 13.
+14 est plus grand que 2.
+14 est plus grand que 3.
+14 est plus grand que 4.
+14 est plus grand que 5.
+14 est plus grand que 6.
+14 est plus grand que 7.
+14 est plus grand que 8.
+14 est plus grand que 9.
+14 est plus petit que 15.
+14 est plus petit que 16.
+14 est plus petit que 17.
+14 est plus petit que 18.
+14 est plus petit que 19.
+14 est plus petit que 20.
+14 est plus petit que 21.
+14 est plus petit que 22.
+14 est plus petit que 23.
+14 est plus petit que 24.
+14 est plus petit que 25.
+14 est plus petit que 26.
+14 est plus petit que 27.
+14 est plus petit que 28.
+14 est plus petit que 29.
+14 est plus petit que 30.
+14 est égal à 14.
+14 moins 0 est égal à 14.
+14 moins 1 est égal à 13.
+14 moins 10 est égal à 4.
+14 moins 11 est égal à 3.
+14 moins 12 est égal à 2.
+14 moins 13 est égal à 1.
+14 moins 14 est égal à 0.
+14 moins 2 est égal à 12.
+14 moins 3 est égal à 11.
+14 moins 4 est égal à 10.
+14 moins 5 est égal à 9.
+14 moins 6 est égal à 8.
+14 moins 7 est égal à 7.
+14 moins 8 est égal à 6.
+14 moins 9 est égal à 5.
+14 plus 0 est égal à 14.
+14 plus 0.
+14 plus 1 est égal à 15.
+14 plus 1,
+14 plus 1.
+14 plus 2 est égal à 16.
+14 plus 2.
+14 plus 3 est égal à 17.
+14 plus 3.
+14 plus 4 est égal à 18.
+14 plus 4.
+14 plus 5 est égal à 19.
+14 plus 5.
+14 plus 6 est égal à 20.
+14 plus 6.
+15 est plus grand que 0.
+15 est plus grand que 1.
+15 est plus grand que 10.
+15 est plus grand que 11.
+15 est plus grand que 12.
+15 est plus grand que 13.
+15 est plus grand que 14.
+15 est plus grand que 2.
+15 est plus grand que 3.
+15 est plus grand que 4.
+15 est plus grand que 5.
+15 est plus grand que 6.
+15 est plus grand que 7.
+15 est plus grand que 8.
+15 est plus grand que 9.
+15 est plus petit que 16.
+15 est plus petit que 17.
+15 est plus petit que 18.
+15 est plus petit que 19.
+15 est plus petit que 20.
+15 est plus petit que 21.
+15 est plus petit que 22.
+15 est plus petit que 23.
+15 est plus petit que 24.
+15 est plus petit que 25.
+15 est plus petit que 26.
+15 est plus petit que 27.
+15 est plus petit que 28.
+15 est plus petit que 29.
+15 est plus petit que 30.
+15 est égal à 15.
+15 moins 0 est égal à 15.
+15 moins 1 est égal à 14.
+15 moins 10 est égal à 5.
+15 moins 11 est égal à 4.
+15 moins 12 est égal à 3.
+15 moins 13 est égal à 2.
+15 moins 14 est égal à 1.
+15 moins 15 est égal à 0.
+15 moins 2 est égal à 13.
+15 moins 3 est égal à 12.
+15 moins 4 est égal à 11.
+15 moins 5 est égal à 10.
+15 moins 6 est égal à 9.
+15 moins 7 est égal à 8.
+15 moins 8 est égal à 7.
+15 moins 9 est égal à 6.
+15 plus 0 est égal à 15.
+15 plus 0.
+15 plus 1 est égal à 16.
+15 plus 1,
+15 plus 1.
+15 plus 2 est égal à 17.
+15 plus 2.
+15 plus 3 est égal à 18.
+15 plus 3.
+15 plus 4 est égal à 19.
+15 plus 4.
+15 plus 5 est égal à 20.
+15 plus 5.
+16 est plus grand que 0.
+16 est plus grand que 1.
+16 est plus grand que 10.
+16 est plus grand que 11.
+16 est plus grand que 12.
+16 est plus grand que 13.
+16 est plus grand que 14.
+16 est plus grand que 15.
+16 est plus grand que 2.
+16 est plus grand que 3.
+16 est plus grand que 4.
+16 est plus grand que 5.
+16 est plus grand que 6.
+16 est plus grand que 7.
+16 est plus grand que 8.
+16 est plus grand que 9.
+16 est plus petit que 17.
+16 est plus petit que 18.
+16 est plus petit que 19.
+16 est plus petit que 20.
+16 est plus petit que 21.
+16 est plus petit que 22.
+16 est plus petit que 23.
+16 est plus petit que 24.
+16 est plus petit que 25.
+16 est plus petit que 26.
+16 est plus petit que 27.
+16 est plus petit que 28.
+16 est plus petit que 29.
+16 est plus petit que 30.
+16 est égal à 16.
+16 moins 0 est égal à 16.
+16 moins 1 est égal à 15.
+16 moins 10 est égal à 6.
+16 moins 11 est égal à 5.
+16 moins 12 est égal à 4.
+16 moins 13 est égal à 3.
+16 moins 14 est égal à 2.
+16 moins 15 est égal à 1.
+16 moins 16 est égal à 0.
+16 moins 2 est égal à 14.
+16 moins 3 est égal à 13.
+16 moins 4 est égal à 12.
+16 moins 5 est égal à 11.
+16 moins 6 est égal à 10.
+16 moins 7 est égal à 9.
+16 moins 8 est égal à 8.
+16 moins 9 est égal à 7.
+16 plus 0 est égal à 16.
+16 plus 0.
+16 plus 1 est égal à 17.
+16 plus 1,
+16 plus 1.
+16 plus 2 est égal à 18.
+16 plus 2.
+16 plus 3 est égal à 19.
+16 plus 3.
+16 plus 4 est égal à 20.
+16 plus 4.
+17 est plus grand que 0.
+17 est plus grand que 1.
+17 est plus grand que 10.
+17 est plus grand que 11.
+17 est plus grand que 12.
+17 est plus grand que 13.
+17 est plus grand que 14.
+17 est plus grand que 15.
+17 est plus grand que 16.
+17 est plus grand que 2.
+17 est plus grand que 3.
+17 est plus grand que 4.
+17 est plus grand que 5.
+17 est plus grand que 6.
+17 est plus grand que 7.
+17 est plus grand que 8.
+17 est plus grand que 9.
+17 est plus petit que 18.
+17 est plus petit que 19.
+17 est plus petit que 20.
+17 est plus petit que 21.
+17 est plus petit que 22.
+17 est plus petit que 23.
+17 est plus petit que 24.
+17 est plus petit que 25.
+17 est plus petit que 26.
+17 est plus petit que 27.
+17 est plus petit que 28.
+17 est plus petit que 29.
+17 est plus petit que 30.
+17 est égal à 17.
+17 moins 0 est égal à 17.
+17 moins 1 est égal à 16.
+17 moins 10 est égal à 7.
+17 moins 11 est égal à 6.
+17 moins 12 est égal à 5.
+17 moins 13 est égal à 4.
+17 moins 14 est égal à 3.
+17 moins 15 est égal à 2.
+17 moins 16 est égal à 1.
+17 moins 17 est égal à 0.
+17 moins 2 est égal à 15.
+17 moins 3 est égal à 14.
+17 moins 4 est égal à 13.
+17 moins 5 est égal à 12.
+17 moins 6 est égal à 11.
+17 moins 7 est égal à 10.
+17 moins 8 est égal à 9.
+17 moins 9 est égal à 8.
+17 plus 0 est égal à 17.
+17 plus 0.
+17 plus 1 est égal à 18.
+17 plus 1,
+17 plus 1.
+17 plus 2 est égal à 19.
+17 plus 2.
+17 plus 3 est égal à 20.
+17 plus 3.
+18 est plus grand que 0.
+18 est plus grand que 1.
+18 est plus grand que 10.
+18 est plus grand que 11.
+18 est plus grand que 12.
+18 est plus grand que 13.
+18 est plus grand que 14.
+18 est plus grand que 15.
+18 est plus grand que 16.
+18 est plus grand que 17.
+18 est plus grand que 2.
+18 est plus grand que 3.
+18 est plus grand que 4.
+18 est plus grand que 5.
+18 est plus grand que 6.
+18 est plus grand que 7.
+18 est plus grand que 8.
+18 est plus grand que 9.
+18 est plus petit que 19.
+18 est plus petit que 20.
+18 est plus petit que 21.
+18 est plus petit que 22.
+18 est plus petit que 23.
+18 est plus petit que 24.
+18 est plus petit que 25.
+18 est plus petit que 26.
+18 est plus petit que 27.
+18 est plus petit que 28.
+18 est plus petit que 29.
+18 est plus petit que 30.
+18 est égal à 18.
+18 moins 0 est égal à 18.
+18 moins 1 est égal à 17.
+18 moins 10 est égal à 8.
+18 moins 11 est égal à 7.
+18 moins 12 est égal à 6.
+18 moins 13 est égal à 5.
+18 moins 14 est égal à 4.
+18 moins 15 est égal à 3.
+18 moins 16 est égal à 2.
+18 moins 17 est égal à 1.
+18 moins 18 est égal à 0.
+18 moins 2 est égal à 16.
+18 moins 3 est égal à 15.
+18 moins 4 est égal à 14.
+18 moins 5 est égal à 13.
+18 moins 6 est égal à 12.
+18 moins 7 est égal à 11.
+18 moins 8 est égal à 10.
+18 moins 9 est égal à 9.
+18 plus 0 est égal à 18.
+18 plus 0.
+18 plus 1 est égal à 19.
+18 plus 1,
+18 plus 1.
+18 plus 2 est égal à 20.
+18 plus 2.
+19 est plus grand que 0.
+19 est plus grand que 1.
+19 est plus grand que 10.
+19 est plus grand que 11.
+19 est plus grand que 12.
+19 est plus grand que 13.
+19 est plus grand que 14.
+19 est plus grand que 15.
+19 est plus grand que 16.
+19 est plus grand que 17.
+19 est plus grand que 18.
+19 est plus grand que 2.
+19 est plus grand que 3.
+19 est plus grand que 4.
+19 est plus grand que 5.
+19 est plus grand que 6.
+19 est plus grand que 7.
+19 est plus grand que 8.
+19 est plus grand que 9.
+19 est plus petit que 20.
+19 est plus petit que 21.
+19 est plus petit que 22.
+19 est plus petit que 23.
+19 est plus petit que 24.
+19 est plus petit que 25.
+19 est plus petit que 26.
+19 est plus petit que 27.
+19 est plus petit que 28.
+19 est plus petit que 29.
+19 est plus petit que 30.
+19 est égal à 19.
+19 moins 0 est égal à 19.
+19 moins 1 est égal à 18.
+19 moins 10 est égal à 9.
+19 moins 11 est égal à 8.
+19 moins 12 est égal à 7.
+19 moins 13 est égal à 6.
+19 moins 14 est égal à 5.
+19 moins 15 est égal à 4.
+19 moins 16 est égal à 3.
+19 moins 17 est égal à 2.
+19 moins 18 est égal à 1.
+19 moins 19 est égal à 0.
+19 moins 2 est égal à 17.
+19 moins 3 est égal à 16.
+19 moins 4 est égal à 15.
+19 moins 5 est égal à 14.
+19 moins 6 est égal à 13.
+19 moins 7 est égal à 12.
+19 moins 8 est égal à 11.
+19 moins 9 est égal à 10.
+19 plus 0 est égal à 19.
+19 plus 0.
+19 plus 1 est égal à 20.
+19 plus 1,
+19 plus 1.
+2 est plus grand que 0.
+2 est plus grand que 1.
+2 est plus petit que 10.
+2 est plus petit que 11.
+2 est plus petit que 12.
+2 est plus petit que 13.
+2 est plus petit que 14.
+2 est plus petit que 15.
+2 est plus petit que 16.
+2 est plus petit que 17.
+2 est plus petit que 18.
+2 est plus petit que 19.
+2 est plus petit que 20.
+2 est plus petit que 21.
+2 est plus petit que 22.
+2 est plus petit que 23.
+2 est plus petit que 24.
+2 est plus petit que 25.
+2 est plus petit que 26.
+2 est plus petit que 27.
+2 est plus petit que 28.
+2 est plus petit que 29.
+2 est plus petit que 3.
+2 est plus petit que 30.
+2 est plus petit que 4.
+2 est plus petit que 5.
+2 est plus petit que 6.
+2 est plus petit que 7.
+2 est plus petit que 8.
+2 est plus petit que 9.
+2 est égal à 2.
+2 moins 0 est égal à 2.
+2 moins 0.
+2 moins 1 est égal à 1.
+2 moins 1.
+2 moins 2 est égal à 0.
+2 moins 2.
+2 plus 0 est égal à 2.
+2 plus 0.
+2 plus 1 est égal à 3.
+2 plus 1,
+2 plus 1.
+2 plus 10 est égal à 12.
+2 plus 10.
+2 plus 11 est égal à 13.
+2 plus 11.
+2 plus 12 est égal à 14.
+2 plus 12.
+2 plus 13 est égal à 15.
+2 plus 13.
+2 plus 14 est égal à 16.
+2 plus 14.
+2 plus 15 est égal à 17.
+2 plus 15.
+2 plus 16 est égal à 18.
+2 plus 16.
+2 plus 17 est égal à 19.
+2 plus 17.
+2 plus 18 est égal à 20.
+2 plus 18.
+2 plus 2 est égal à 4.
+2 plus 2.
+2 plus 3 est égal à 5.
+2 plus 3.
+2 plus 4 est égal à 6.
+2 plus 4.
+2 plus 5 est égal à 7.
+2 plus 5.
+2 plus 6 est égal à 8.
+2 plus 6.
+2 plus 7 est égal à 9.
+2 plus 7.
+2 plus 8 est égal à 10.
+2 plus 8.
+2 plus 9 est égal à 11.
+2 plus 9.
+20 est plus grand que 0.
+20 est plus grand que 1.
+20 est plus grand que 10.
+20 est plus grand que 11.
+20 est plus grand que 12.
+20 est plus grand que 13.
+20 est plus grand que 14.
+20 est plus grand que 15.
+20 est plus grand que 16.
+20 est plus grand que 17.
+20 est plus grand que 18.
+20 est plus grand que 19.
+20 est plus grand que 2.
+20 est plus grand que 3.
+20 est plus grand que 4.
+20 est plus grand que 5.
+20 est plus grand que 6.
+20 est plus grand que 7.
+20 est plus grand que 8.
+20 est plus grand que 9.
+20 est plus petit que 21.
+20 est plus petit que 22.
+20 est plus petit que 23.
+20 est plus petit que 24.
+20 est plus petit que 25.
+20 est plus petit que 26.
+20 est plus petit que 27.
+20 est plus petit que 28.
+20 est plus petit que 29.
+20 est plus petit que 30.
+20 est égal à 20.
+20 moins 0 est égal à 20.
+20 moins 1 est égal à 19.
+20 moins 10 est égal à 10.
+20 moins 11 est égal à 9.
+20 moins 12 est égal à 8.
+20 moins 13 est égal à 7.
+20 moins 14 est égal à 6.
+20 moins 15 est égal à 5.
+20 moins 16 est égal à 4.
+20 moins 17 est égal à 3.
+20 moins 18 est égal à 2.
+20 moins 19 est égal à 1.
+20 moins 2 est égal à 18.
+20 moins 20 est égal à 0.
+20 moins 3 est égal à 17.
+20 moins 4 est égal à 16.
+20 moins 5 est égal à 15.
+20 moins 6 est égal à 14.
+20 moins 7 est égal à 13.
+20 moins 8 est égal à 12.
+20 moins 9 est égal à 11.
+20 plus 0 est égal à 20.
+21 est plus grand que 0.
+21 est plus grand que 1.
+21 est plus grand que 10.
+21 est plus grand que 11.
+21 est plus grand que 12.
+21 est plus grand que 13.
+21 est plus grand que 14.
+21 est plus grand que 15.
+21 est plus grand que 16.
+21 est plus grand que 17.
+21 est plus grand que 18.
+21 est plus grand que 19.
+21 est plus grand que 2.
+21 est plus grand que 20.
+21 est plus grand que 3.
+21 est plus grand que 4.
+21 est plus grand que 5.
+21 est plus grand que 6.
+21 est plus grand que 7.
+21 est plus grand que 8.
+21 est plus grand que 9.
+21 est plus petit que 22.
+21 est plus petit que 23.
+21 est plus petit que 24.
+21 est plus petit que 25.
+21 est plus petit que 26.
+21 est plus petit que 27.
+21 est plus petit que 28.
+21 est plus petit que 29.
+21 est plus petit que 30.
+21 est égal à 21.
+22 est plus grand que 0.
+22 est plus grand que 1.
+22 est plus grand que 10.
+22 est plus grand que 11.
+22 est plus grand que 12.
+22 est plus grand que 13.
+22 est plus grand que 14.
+22 est plus grand que 15.
+22 est plus grand que 16.
+22 est plus grand que 17.
+22 est plus grand que 18.
+22 est plus grand que 19.
+22 est plus grand que 2.
+22 est plus grand que 20.
+22 est plus grand que 21.
+22 est plus grand que 3.
+22 est plus grand que 4.
+22 est plus grand que 5.
+22 est plus grand que 6.
+22 est plus grand que 7.
+22 est plus grand que 8.
+22 est plus grand que 9.
+22 est plus petit que 23.
+22 est plus petit que 24.
+22 est plus petit que 25.
+22 est plus petit que 26.
+22 est plus petit que 27.
+22 est plus petit que 28.
+22 est plus petit que 29.
+22 est plus petit que 30.
+22 est égal à 22.
+23 est plus grand que 0.
+23 est plus grand que 1.
+23 est plus grand que 10.
+23 est plus grand que 11.
+23 est plus grand que 12.
+23 est plus grand que 13.
+23 est plus grand que 14.
+23 est plus grand que 15.
+23 est plus grand que 16.
+23 est plus grand que 17.
+23 est plus grand que 18.
+23 est plus grand que 19.
+23 est plus grand que 2.
+23 est plus grand que 20.
+23 est plus grand que 21.
+23 est plus grand que 22.
+23 est plus grand que 3.
+23 est plus grand que 4.
+23 est plus grand que 5.
+23 est plus grand que 6.
+23 est plus grand que 7.
+23 est plus grand que 8.
+23 est plus grand que 9.
+23 est plus petit que 24.
+23 est plus petit que 25.
+23 est plus petit que 26.
+23 est plus petit que 27.
+23 est plus petit que 28.
+23 est plus petit que 29.
+23 est plus petit que 30.
+23 est égal à 23.
+24 est plus grand que 0.
+24 est plus grand que 1.
+24 est plus grand que 10.
+24 est plus grand que 11.
+24 est plus grand que 12.
+24 est plus grand que 13.
+24 est plus grand que 14.
+24 est plus grand que 15.
+24 est plus grand que 16.
+24 est plus grand que 17.
+24 est plus grand que 18.
+24 est plus grand que 19.
+24 est plus grand que 2.
+24 est plus grand que 20.
+24 est plus grand que 21.
+24 est plus grand que 22.
+24 est plus grand que 23.
+24 est plus grand que 3.
+24 est plus grand que 4.
+24 est plus grand que 5.
+24 est plus grand que 6.
+24 est plus grand que 7.
+24 est plus grand que 8.
+24 est plus grand que 9.
+24 est plus petit que 25.
+24 est plus petit que 26.
+24 est plus petit que 27.
+24 est plus petit que 28.
+24 est plus petit que 29.
+24 est plus petit que 30.
+24 est égal à 24.
+25 est plus grand que 0.
+25 est plus grand que 1.
+25 est plus grand que 10.
+25 est plus grand que 11.
+25 est plus grand que 12.
+25 est plus grand que 13.
+25 est plus grand que 14.
+25 est plus grand que 15.
+25 est plus grand que 16.
+25 est plus grand que 17.
+25 est plus grand que 18.
+25 est plus grand que 19.
+25 est plus grand que 2.
+25 est plus grand que 20.
+25 est plus grand que 21.
+25 est plus grand que 22.
+25 est plus grand que 23.
+25 est plus grand que 24.
+25 est plus grand que 3.
+25 est plus grand que 4.
+25 est plus grand que 5.
+25 est plus grand que 6.
+25 est plus grand que 7.
+25 est plus grand que 8.
+25 est plus grand que 9.
+25 est plus petit que 26.
+25 est plus petit que 27.
+25 est plus petit que 28.
+25 est plus petit que 29.
+25 est plus petit que 30.
+25 est égal à 25.
+26 est plus grand que 0.
+26 est plus grand que 1.
+26 est plus grand que 10.
+26 est plus grand que 11.
+26 est plus grand que 12.
+26 est plus grand que 13.
+26 est plus grand que 14.
+26 est plus grand que 15.
+26 est plus grand que 16.
+26 est plus grand que 17.
+26 est plus grand que 18.
+26 est plus grand que 19.
+26 est plus grand que 2.
+26 est plus grand que 20.
+26 est plus grand que 21.
+26 est plus grand que 22.
+26 est plus grand que 23.
+26 est plus grand que 24.
+26 est plus grand que 25.
+26 est plus grand que 3.
+26 est plus grand que 4.
+26 est plus grand que 5.
+26 est plus grand que 6.
+26 est plus grand que 7.
+26 est plus grand que 8.
+26 est plus grand que 9.
+26 est plus petit que 27.
+26 est plus petit que 28.
+26 est plus petit que 29.
+26 est plus petit que 30.
+26 est égal à 26.
+27 est plus grand que 0.
+27 est plus grand que 1.
+27 est plus grand que 10.
+27 est plus grand que 11.
+27 est plus grand que 12.
+27 est plus grand que 13.
+27 est plus grand que 14.
+27 est plus grand que 15.
+27 est plus grand que 16.
+27 est plus grand que 17.
+27 est plus grand que 18.
+27 est plus grand que 19.
+27 est plus grand que 2.
+27 est plus grand que 20.
+27 est plus grand que 21.
+27 est plus grand que 22.
+27 est plus grand que 23.
+27 est plus grand que 24.
+27 est plus grand que 25.
+27 est plus grand que 26.
+27 est plus grand que 3.
+27 est plus grand que 4.
+27 est plus grand que 5.
+27 est plus grand que 6.
+27 est plus grand que 7.
+27 est plus grand que 8.
+27 est plus grand que 9.
+27 est plus petit que 28.
+27 est plus petit que 29.
+27 est plus petit que 30.
+27 est égal à 27.
+28 est plus grand que 0.
+28 est plus grand que 1.
+28 est plus grand que 10.
+28 est plus grand que 11.
+28 est plus grand que 12.
+28 est plus grand que 13.
+28 est plus grand que 14.
+28 est plus grand que 15.
+28 est plus grand que 16.
+28 est plus grand que 17.
+28 est plus grand que 18.
+28 est plus grand que 19.
+28 est plus grand que 2.
+28 est plus grand que 20.
+28 est plus grand que 21.
+28 est plus grand que 22.
+28 est plus grand que 23.
+28 est plus grand que 24.
+28 est plus grand que 25.
+28 est plus grand que 26.
+28 est plus grand que 27.
+28 est plus grand que 3.
+28 est plus grand que 4.
+28 est plus grand que 5.
+28 est plus grand que 6.
+28 est plus grand que 7.
+28 est plus grand que 8.
+28 est plus grand que 9.
+28 est plus petit que 29.
+28 est plus petit que 30.
+28 est égal à 28.
+29 est plus grand que 0.
+29 est plus grand que 1.
+29 est plus grand que 10.
+29 est plus grand que 11.
+29 est plus grand que 12.
+29 est plus grand que 13.
+29 est plus grand que 14.
+29 est plus grand que 15.
+29 est plus grand que 16.
+29 est plus grand que 17.
+29 est plus grand que 18.
+29 est plus grand que 19.
+29 est plus grand que 2.
+29 est plus grand que 20.
+29 est plus grand que 21.
+29 est plus grand que 22.
+29 est plus grand que 23.
+29 est plus grand que 24.
+29 est plus grand que 25.
+29 est plus grand que 26.
+29 est plus grand que 27.
+29 est plus grand que 28.
+29 est plus grand que 3.
+29 est plus grand que 4.
+29 est plus grand que 5.
+29 est plus grand que 6.
+29 est plus grand que 7.
+29 est plus grand que 8.
+29 est plus grand que 9.
+29 est plus petit que 30.
+29 est égal à 29.
+3 est plus grand que 0.
+3 est plus grand que 1.
+3 est plus grand que 2.
+3 est plus petit que 10.
+3 est plus petit que 11.
+3 est plus petit que 12.
+3 est plus petit que 13.
+3 est plus petit que 14.
+3 est plus petit que 15.
+3 est plus petit que 16.
+3 est plus petit que 17.
+3 est plus petit que 18.
+3 est plus petit que 19.
+3 est plus petit que 20.
+3 est plus petit que 21.
+3 est plus petit que 22.
+3 est plus petit que 23.
+3 est plus petit que 24.
+3 est plus petit que 25.
+3 est plus petit que 26.
+3 est plus petit que 27.
+3 est plus petit que 28.
+3 est plus petit que 29.
+3 est plus petit que 30.
+3 est plus petit que 4.
+3 est plus petit que 5.
+3 est plus petit que 6.
+3 est plus petit que 7.
+3 est plus petit que 8.
+3 est plus petit que 9.
+3 est égal à 3.
+3 moins 0 est égal à 3.
+3 moins 0.
+3 moins 1 est égal à 2.
+3 moins 1.
+3 moins 2 est égal à 1.
+3 moins 2.
+3 moins 3 est égal à 0.
+3 moins 3.
+3 plus 0 est égal à 3.
+3 plus 0.
+3 plus 1 est égal à 4.
+3 plus 1,
+3 plus 1.
+3 plus 10 est égal à 13.
+3 plus 10.
+3 plus 11 est égal à 14.
+3 plus 11.
+3 plus 12 est égal à 15.
+3 plus 12.
+3 plus 13 est égal à 16.
+3 plus 13.
+3 plus 14 est égal à 17.
+3 plus 14.
+3 plus 15 est égal à 18.
+3 plus 15.
+3 plus 16 est égal à 19.
+3 plus 16.
+3 plus 17 est égal à 20.
+3 plus 17.
+3 plus 2 est égal à 5.
+3 plus 2.
+3 plus 3 est égal à 6.
+3 plus 3.
+3 plus 4 est égal à 7.
+3 plus 4.
+3 plus 5 est égal à 8.
+3 plus 5.
+3 plus 6 est égal à 9.
+3 plus 6.
+3 plus 7 est égal à 10.
+3 plus 7.
+3 plus 8 est égal à 11.
+3 plus 8.
+3 plus 9 est égal à 12.
+3 plus 9.
+30 est plus grand que 0.
+30 est plus grand que 1.
+30 est plus grand que 10.
+30 est plus grand que 11.
+30 est plus grand que 12.
+30 est plus grand que 13.
+30 est plus grand que 14.
+30 est plus grand que 15.
+30 est plus grand que 16.
+30 est plus grand que 17.
+30 est plus grand que 18.
+30 est plus grand que 19.
+30 est plus grand que 2.
+30 est plus grand que 20.
+30 est plus grand que 21.
+30 est plus grand que 22.
+30 est plus grand que 23.
+30 est plus grand que 24.
+30 est plus grand que 25.
+30 est plus grand que 26.
+30 est plus grand que 27.
+30 est plus grand que 28.
+30 est plus grand que 29.
+30 est plus grand que 3.
+30 est plus grand que 4.
+30 est plus grand que 5.
+30 est plus grand que 6.
+30 est plus grand que 7.
+30 est plus grand que 8.
+30 est plus grand que 9.
+30 est égal à 30.
+4 est plus grand que 0.
+4 est plus grand que 1.
+4 est plus grand que 2.
+4 est plus grand que 3.
+4 est plus petit que 10.
+4 est plus petit que 11.
+4 est plus petit que 12.
+4 est plus petit que 13.
+4 est plus petit que 14.
+4 est plus petit que 15.
+4 est plus petit que 16.
+4 est plus petit que 17.
+4 est plus petit que 18.
+4 est plus petit que 19.
+4 est plus petit que 20.
+4 est plus petit que 21.
+4 est plus petit que 22.
+4 est plus petit que 23.
+4 est plus petit que 24.
+4 est plus petit que 25.
+4 est plus petit que 26.
+4 est plus petit que 27.
+4 est plus petit que 28.
+4 est plus petit que 29.
+4 est plus petit que 30.
+4 est plus petit que 5.
+4 est plus petit que 6.
+4 est plus petit que 7.
+4 est plus petit que 8.
+4 est plus petit que 9.
+4 est égal à 4.
+4 moins 0 est égal à 4.
+4 moins 0.
+4 moins 1 est égal à 3.
+4 moins 1.
+4 moins 2 est égal à 2.
+4 moins 2.
+4 moins 3 est égal à 1.
+4 moins 3.
+4 moins 4 est égal à 0.
+4 moins 4.
+4 plus 0 est égal à 4.
+4 plus 0.
+4 plus 1 est égal à 5.
+4 plus 1,
+4 plus 1.
+4 plus 10 est égal à 14.
+4 plus 10.
+4 plus 11 est égal à 15.
+4 plus 11.
+4 plus 12 est égal à 16.
+4 plus 12.
+4 plus 13 est égal à 17.
+4 plus 13.
+4 plus 14 est égal à 18.
+4 plus 14.
+4 plus 15 est égal à 19.
+4 plus 15.
+4 plus 16 est égal à 20.
+4 plus 16.
+4 plus 2 est égal à 6.
+4 plus 2.
+4 plus 3 est égal à 7.
+4 plus 3.
+4 plus 4 est égal à 8.
+4 plus 4.
+4 plus 5 est égal à 9.
+4 plus 5.
+4 plus 6 est égal à 10.
+4 plus 6.
+4 plus 7 est égal à 11.
+4 plus 7.
+4 plus 8 est égal à 12.
+4 plus 8.
+4 plus 9 est égal à 13.
+4 plus 9.
+5 est plus grand que 0.
+5 est plus grand que 1.
+5 est plus grand que 2.
+5 est plus grand que 3.
+5 est plus grand que 4.
+5 est plus petit que 10.
+5 est plus petit que 11.
+5 est plus petit que 12.
+5 est plus petit que 13.
+5 est plus petit que 14.
+5 est plus petit que 15.
+5 est plus petit que 16.
+5 est plus petit que 17.
+5 est plus petit que 18.
+5 est plus petit que 19.
+5 est plus petit que 20.
+5 est plus petit que 21.
+5 est plus petit que 22.
+5 est plus petit que 23.
+5 est plus petit que 24.
+5 est plus petit que 25.
+5 est plus petit que 26.
+5 est plus petit que 27.
+5 est plus petit que 28.
+5 est plus petit que 29.
+5 est plus petit que 30.
+5 est plus petit que 6.
+5 est plus petit que 7.
+5 est plus petit que 8.
+5 est plus petit que 9.
+5 est égal à 5.
+5 moins 0 est égal à 5.
+5 moins 0.
+5 moins 1 est égal à 4.
+5 moins 1.
+5 moins 2 est égal à 3.
+5 moins 2.
+5 moins 3 est égal à 2.
+5 moins 3.
+5 moins 4 est égal à 1.
+5 moins 4.
+5 moins 5 est égal à 0.
+5 moins 5.
+5 plus 0 est égal à 5.
+5 plus 0.
+5 plus 1 est égal à 6.
+5 plus 1,
+5 plus 1.
+5 plus 10 est égal à 15.
+5 plus 10.
+5 plus 11 est égal à 16.
+5 plus 11.
+5 plus 12 est égal à 17.
+5 plus 12.
+5 plus 13 est égal à 18.
+5 plus 13.
+5 plus 14 est égal à 19.
+5 plus 14.
+5 plus 15 est égal à 20.
+5 plus 15.
+5 plus 2 est égal à 7.
+5 plus 2.
+5 plus 3 est égal à 8.
+5 plus 3.
+5 plus 4 est égal à 9.
+5 plus 4.
+5 plus 5 est égal à 10.
+5 plus 5.
+5 plus 6 est égal à 11.
+5 plus 6.
+5 plus 7 est égal à 12.
+5 plus 7.
+5 plus 8 est égal à 13.
+5 plus 8.
+5 plus 9 est égal à 14.
+5 plus 9.
+6 est plus grand que 0.
+6 est plus grand que 1.
+6 est plus grand que 2.
+6 est plus grand que 3.
+6 est plus grand que 4.
+6 est plus grand que 5.
+6 est plus petit que 10.
+6 est plus petit que 11.
+6 est plus petit que 12.
+6 est plus petit que 13.
+6 est plus petit que 14.
+6 est plus petit que 15.
+6 est plus petit que 16.
+6 est plus petit que 17.
+6 est plus petit que 18.
+6 est plus petit que 19.
+6 est plus petit que 20.
+6 est plus petit que 21.
+6 est plus petit que 22.
+6 est plus petit que 23.
+6 est plus petit que 24.
+6 est plus petit que 25.
+6 est plus petit que 26.
+6 est plus petit que 27.
+6 est plus petit que 28.
+6 est plus petit que 29.
+6 est plus petit que 30.
+6 est plus petit que 7.
+6 est plus petit que 8.
+6 est plus petit que 9.
+6 est égal à 6.
+6 moins 0 est égal à 6.
+6 moins 0.
+6 moins 1 est égal à 5.
+6 moins 1.
+6 moins 2 est égal à 4.
+6 moins 2.
+6 moins 3 est égal à 3.
+6 moins 3.
+6 moins 4 est égal à 2.
+6 moins 4.
+6 moins 5 est égal à 1.
+6 moins 5.
+6 moins 6 est égal à 0.
+6 moins 6.
+6 plus 0 est égal à 6.
+6 plus 0.
+6 plus 1 est égal à 7.
+6 plus 1,
+6 plus 1.
+6 plus 10 est égal à 16.
+6 plus 10.
+6 plus 11 est égal à 17.
+6 plus 11.
+6 plus 12 est égal à 18.
+6 plus 12.
+6 plus 13 est égal à 19.
+6 plus 13.
+6 plus 14 est égal à 20.
+6 plus 14.
+6 plus 2 est égal à 8.
+6 plus 2.
+6 plus 3 est égal à 9.
+6 plus 3.
+6 plus 4 est égal à 10.
+6 plus 4.
+6 plus 5 est égal à 11.
+6 plus 5.
+6 plus 6 est égal à 12.
+6 plus 6.
+6 plus 7 est égal à 13.
+6 plus 7.
+6 plus 8 est égal à 14.
+6 plus 8.
+6 plus 9 est égal à 15.
+6 plus 9.
+7 est plus grand que 0.
+7 est plus grand que 1.
+7 est plus grand que 2.
+7 est plus grand que 3.
+7 est plus grand que 4.
+7 est plus grand que 5.
+7 est plus grand que 6.
+7 est plus petit que 10.
+7 est plus petit que 11.
+7 est plus petit que 12.
+7 est plus petit que 13.
+7 est plus petit que 14.
+7 est plus petit que 15.
+7 est plus petit que 16.
+7 est plus petit que 17.
+7 est plus petit que 18.
+7 est plus petit que 19.
+7 est plus petit que 20.
+7 est plus petit que 21.
+7 est plus petit que 22.
+7 est plus petit que 23.
+7 est plus petit que 24.
+7 est plus petit que 25.
+7 est plus petit que 26.
+7 est plus petit que 27.
+7 est plus petit que 28.
+7 est plus petit que 29.
+7 est plus petit que 30.
+7 est plus petit que 8.
+7 est plus petit que 9.
+7 est égal à 7.
+7 moins 0 est égal à 7.
+7 moins 0.
+7 moins 1 est égal à 6.
+7 moins 1.
+7 moins 2 est égal à 5.
+7 moins 2.
+7 moins 3 est égal à 4.
+7 moins 3.
+7 moins 4 est égal à 3.
+7 moins 4.
+7 moins 5 est égal à 2.
+7 moins 5.
+7 moins 6 est égal à 1.
+7 moins 6.
+7 moins 7 est égal à 0.
+7 moins 7.
+7 plus 0 est égal à 7.
+7 plus 0.
+7 plus 1 est égal à 8.
+7 plus 1,
+7 plus 1.
+7 plus 10 est égal à 17.
+7 plus 10.
+7 plus 11 est égal à 18.
+7 plus 11.
+7 plus 12 est égal à 19.
+7 plus 12.
+7 plus 13 est égal à 20.
+7 plus 13.
+7 plus 2 est égal à 9.
+7 plus 2.
+7 plus 3 est égal à 10.
+7 plus 3.
+7 plus 4 est égal à 11.
+7 plus 4.
+7 plus 5 est égal à 12.
+7 plus 5.
+7 plus 6 est égal à 13.
+7 plus 6.
+7 plus 7 est égal à 14.
+7 plus 7.
+7 plus 8 est égal à 15.
+7 plus 8.
+7 plus 9 est égal à 16.
+7 plus 9.
+8 est plus grand que 0.
+8 est plus grand que 1.
+8 est plus grand que 2.
+8 est plus grand que 3.
+8 est plus grand que 4.
+8 est plus grand que 5.
+8 est plus grand que 6.
+8 est plus grand que 7.
+8 est plus petit que 10.
+8 est plus petit que 11.
+8 est plus petit que 12.
+8 est plus petit que 13.
+8 est plus petit que 14.
+8 est plus petit que 15.
+8 est plus petit que 16.
+8 est plus petit que 17.
+8 est plus petit que 18.
+8 est plus petit que 19.
+8 est plus petit que 20.
+8 est plus petit que 21.
+8 est plus petit que 22.
+8 est plus petit que 23.
+8 est plus petit que 24.
+8 est plus petit que 25.
+8 est plus petit que 26.
+8 est plus petit que 27.
+8 est plus petit que 28.
+8 est plus petit que 29.
+8 est plus petit que 30.
+8 est plus petit que 9.
+8 est égal à 8.
+8 moins 0 est égal à 8.
+8 moins 0.
+8 moins 1 est égal à 7.
+8 moins 1.
+8 moins 2 est égal à 6.
+8 moins 2.
+8 moins 3 est égal à 5.
+8 moins 3.
+8 moins 4 est égal à 4.
+8 moins 4.
+8 moins 5 est égal à 3.
+8 moins 5.
+8 moins 6 est égal à 2.
+8 moins 6.
+8 moins 7 est égal à 1.
+8 moins 7.
+8 moins 8 est égal à 0.
+8 moins 8.
+8 plus 0 est égal à 8.
+8 plus 0.
+8 plus 1 est égal à 9.
+8 plus 1,
+8 plus 1.
+8 plus 10 est égal à 18.
+8 plus 10.
+8 plus 11 est égal à 19.
+8 plus 11.
+8 plus 12 est égal à 20.
+8 plus 12.
+8 plus 2 est égal à 10.
+8 plus 2.
+8 plus 3 est égal à 11.
+8 plus 3.
+8 plus 4 est égal à 12.
+8 plus 4.
+8 plus 5 est égal à 13.
+8 plus 5.
+8 plus 6 est égal à 14.
+8 plus 6.
+8 plus 7 est égal à 15.
+8 plus 7.
+8 plus 8 est égal à 16.
+8 plus 8.
+8 plus 9 est égal à 17.
+8 plus 9.
+9 est plus grand que 0.
+9 est plus grand que 1.
+9 est plus grand que 2.
+9 est plus grand que 3.
+9 est plus grand que 4.
+9 est plus grand que 5.
+9 est plus grand que 6.
+9 est plus grand que 7.
+9 est plus grand que 8.
+9 est plus petit que 10.
+9 est plus petit que 11.
+9 est plus petit que 12.
+9 est plus petit que 13.
+9 est plus petit que 14.
+9 est plus petit que 15.
+9 est plus petit que 16.
+9 est plus petit que 17.
+9 est plus petit que 18.
+9 est plus petit que 19.
+9 est plus petit que 20.
+9 est plus petit que 21.
+9 est plus petit que 22.
+9 est plus petit que 23.
+9 est plus petit que 24.
+9 est plus petit que 25.
+9 est plus petit que 26.
+9 est plus petit que 27.
+9 est plus petit que 28.
+9 est plus petit que 29.
+9 est plus petit que 30.
+9 est égal à 9.
+9 moins 0 est égal à 9.
+9 moins 0.
+9 moins 1 est égal à 8.
+9 moins 1.
+9 moins 2 est égal à 7.
+9 moins 2.
+9 moins 3 est égal à 6.
+9 moins 3.
+9 moins 4 est égal à 5.
+9 moins 4.
+9 moins 5 est égal à 4.
+9 moins 5.
+9 moins 6 est égal à 3.
+9 moins 6.
+9 moins 7 est égal à 2.
+9 moins 7.
+9 moins 8 est égal à 1.
+9 moins 8.
+9 moins 9 est égal à 0.
+9 moins 9.
+9 plus 0 est égal à 9.
+9 plus 0.
+9 plus 1 est égal à 10.
+9 plus 1,
+9 plus 1.
+9 plus 10 est égal à 19.
+9 plus 10.
+9 plus 11 est égal à 20.
+9 plus 11.
+9 plus 2 est égal à 11.
+9 plus 2.
+9 plus 3 est égal à 12.
+9 plus 3.
+9 plus 4 est égal à 13.
+9 plus 4.
+9 plus 5 est égal à 14.
+9 plus 5.
+9 plus 6 est égal à 15.
+9 plus 6.
+9 plus 7 est égal à 16.
+9 plus 7.
+9 plus 8 est égal à 17.
+9 plus 8.
+9 plus 9 est égal à 18.
+9 plus 9.
+Ajoute 0 billes dans la boîte,
+Ajoute 1 au nombre 0.
+Ajoute 1 au nombre 1.
+Ajoute 1 au nombre 10.
+Ajoute 1 au nombre 11.
+Ajoute 1 au nombre 12.
+Ajoute 1 au nombre 13.
+Ajoute 1 au nombre 14.
+Ajoute 1 au nombre 15.
+Ajoute 1 au nombre 16.
+Ajoute 1 au nombre 17.
+Ajoute 1 au nombre 18.
+Ajoute 1 au nombre 19.
+Ajoute 1 au nombre 2.
+Ajoute 1 au nombre 20.
+Ajoute 1 au nombre 21.
+Ajoute 1 au nombre 22.
+Ajoute 1 au nombre 23.
+Ajoute 1 au nombre 24.
+Ajoute 1 au nombre 25.
+Ajoute 1 au nombre 26.
+Ajoute 1 au nombre 27.
+Ajoute 1 au nombre 28.
+Ajoute 1 au nombre 29.
+Ajoute 1 au nombre 3.
+Ajoute 1 au nombre 30.
+Ajoute 1 au nombre 4.
+Ajoute 1 au nombre 5.
+Ajoute 1 au nombre 6.
+Ajoute 1 au nombre 7.
+Ajoute 1 au nombre 8.
+Ajoute 1 au nombre 9.
+Ajoute 1 billes dans la boîte,
+Ajoute 2 billes dans la boîte,
+Ajoute 3 billes dans la boîte,
+Ajoute 4 billes dans la boîte,
+Ajoute 5 billes dans la boîte,
+Ajoute 6 billes dans la boîte,
+Ajoute 7 billes dans la boîte,
+Ajoute 8 billes dans la boîte,
+Ajoute 9 billes dans la boîte,
+Ajouter 1
+Barre 0 billes,
+Barre 0 ronds,
+Barre 1 billes,
+Barre 1 ronds,
+Barre 2 billes,
+Barre 2 ronds,
+Barre 3 billes,
+Barre 3 ronds,
+Barre 4 billes,
+Barre 4 ronds,
+Barre 5 billes,
+Barre 5 ronds,
+Barre 6 billes,
+Barre 6 ronds,
+Barre 7 billes,
+Barre 7 ronds,
+Barre 8 billes,
+Barre 8 ronds,
+Barre 9 billes,
+Barre 9 ronds,
+Combien font 0 moins 0 ?
+Combien font 0 plus 0 ?
+Combien font 0 plus 1 ?
+Combien font 0 plus 10 ?
+Combien font 0 plus 11 ?
+Combien font 0 plus 12 ?
+Combien font 0 plus 13 ?
+Combien font 0 plus 14 ?
+Combien font 0 plus 15 ?
+Combien font 0 plus 16 ?
+Combien font 0 plus 17 ?
+Combien font 0 plus 18 ?
+Combien font 0 plus 19 ?
+Combien font 0 plus 2 ?
+Combien font 0 plus 3 ?
+Combien font 0 plus 4 ?
+Combien font 0 plus 5 ?
+Combien font 0 plus 6 ?
+Combien font 0 plus 7 ?
+Combien font 0 plus 8 ?
+Combien font 0 plus 9 ?
+Combien font 1 moins 0 ?
+Combien font 1 moins 1 ?
+Combien font 1 plus 0 ?
+Combien font 1 plus 1 ?
+Combien font 1 plus 10 ?
+Combien font 1 plus 11 ?
+Combien font 1 plus 12 ?
+Combien font 1 plus 13 ?
+Combien font 1 plus 14 ?
+Combien font 1 plus 15 ?
+Combien font 1 plus 16 ?
+Combien font 1 plus 17 ?
+Combien font 1 plus 18 ?
+Combien font 1 plus 19 ?
+Combien font 1 plus 2 ?
+Combien font 1 plus 3 ?
+Combien font 1 plus 4 ?
+Combien font 1 plus 5 ?
+Combien font 1 plus 6 ?
+Combien font 1 plus 7 ?
+Combien font 1 plus 8 ?
+Combien font 1 plus 9 ?
+Combien font 10 moins 0 ?
+Combien font 10 moins 1 ?
+Combien font 10 moins 2 ?
+Combien font 10 moins 3 ?
+Combien font 10 moins 4 ?
+Combien font 10 moins 5 ?
+Combien font 10 moins 6 ?
+Combien font 10 moins 7 ?
+Combien font 10 moins 8 ?
+Combien font 10 moins 9 ?
+Combien font 10 plus 0 ?
+Combien font 10 plus 1 ?
+Combien font 10 plus 10 ?
+Combien font 10 plus 2 ?
+Combien font 10 plus 3 ?
+Combien font 10 plus 4 ?
+Combien font 10 plus 5 ?
+Combien font 10 plus 6 ?
+Combien font 10 plus 7 ?
+Combien font 10 plus 8 ?
+Combien font 10 plus 9 ?
+Combien font 11 plus 0 ?
+Combien font 11 plus 1 ?
+Combien font 11 plus 2 ?
+Combien font 11 plus 3 ?
+Combien font 11 plus 4 ?
+Combien font 11 plus 5 ?
+Combien font 11 plus 6 ?
+Combien font 11 plus 7 ?
+Combien font 11 plus 8 ?
+Combien font 11 plus 9 ?
+Combien font 12 plus 0 ?
+Combien font 12 plus 1 ?
+Combien font 12 plus 2 ?
+Combien font 12 plus 3 ?
+Combien font 12 plus 4 ?
+Combien font 12 plus 5 ?
+Combien font 12 plus 6 ?
+Combien font 12 plus 7 ?
+Combien font 12 plus 8 ?
+Combien font 13 plus 0 ?
+Combien font 13 plus 1 ?
+Combien font 13 plus 2 ?
+Combien font 13 plus 3 ?
+Combien font 13 plus 4 ?
+Combien font 13 plus 5 ?
+Combien font 13 plus 6 ?
+Combien font 13 plus 7 ?
+Combien font 14 plus 0 ?
+Combien font 14 plus 1 ?
+Combien font 14 plus 2 ?
+Combien font 14 plus 3 ?
+Combien font 14 plus 4 ?
+Combien font 14 plus 5 ?
+Combien font 14 plus 6 ?
+Combien font 15 plus 0 ?
+Combien font 15 plus 1 ?
+Combien font 15 plus 2 ?
+Combien font 15 plus 3 ?
+Combien font 15 plus 4 ?
+Combien font 15 plus 5 ?
+Combien font 16 plus 0 ?
+Combien font 16 plus 1 ?
+Combien font 16 plus 2 ?
+Combien font 16 plus 3 ?
+Combien font 16 plus 4 ?
+Combien font 17 plus 0 ?
+Combien font 17 plus 1 ?
+Combien font 17 plus 2 ?
+Combien font 17 plus 3 ?
+Combien font 18 plus 0 ?
+Combien font 18 plus 1 ?
+Combien font 18 plus 2 ?
+Combien font 19 plus 0 ?
+Combien font 19 plus 1 ?
+Combien font 2 moins 0 ?
+Combien font 2 moins 1 ?
+Combien font 2 moins 2 ?
+Combien font 2 plus 0 ?
+Combien font 2 plus 1 ?
+Combien font 2 plus 10 ?
+Combien font 2 plus 11 ?
+Combien font 2 plus 12 ?
+Combien font 2 plus 13 ?
+Combien font 2 plus 14 ?
+Combien font 2 plus 15 ?
+Combien font 2 plus 16 ?
+Combien font 2 plus 17 ?
+Combien font 2 plus 18 ?
+Combien font 2 plus 2 ?
+Combien font 2 plus 3 ?
+Combien font 2 plus 4 ?
+Combien font 2 plus 5 ?
+Combien font 2 plus 6 ?
+Combien font 2 plus 7 ?
+Combien font 2 plus 8 ?
+Combien font 2 plus 9 ?
+Combien font 3 moins 0 ?
+Combien font 3 moins 1 ?
+Combien font 3 moins 2 ?
+Combien font 3 moins 3 ?
+Combien font 3 plus 0 ?
+Combien font 3 plus 1 ?
+Combien font 3 plus 10 ?
+Combien font 3 plus 11 ?
+Combien font 3 plus 12 ?
+Combien font 3 plus 13 ?
+Combien font 3 plus 14 ?
+Combien font 3 plus 15 ?
+Combien font 3 plus 16 ?
+Combien font 3 plus 17 ?
+Combien font 3 plus 2 ?
+Combien font 3 plus 3 ?
+Combien font 3 plus 4 ?
+Combien font 3 plus 5 ?
+Combien font 3 plus 6 ?
+Combien font 3 plus 7 ?
+Combien font 3 plus 8 ?
+Combien font 3 plus 9 ?
+Combien font 4 moins 0 ?
+Combien font 4 moins 1 ?
+Combien font 4 moins 2 ?
+Combien font 4 moins 3 ?
+Combien font 4 moins 4 ?
+Combien font 4 plus 0 ?
+Combien font 4 plus 1 ?
+Combien font 4 plus 10 ?
+Combien font 4 plus 11 ?
+Combien font 4 plus 12 ?
+Combien font 4 plus 13 ?
+Combien font 4 plus 14 ?
+Combien font 4 plus 15 ?
+Combien font 4 plus 16 ?
+Combien font 4 plus 2 ?
+Combien font 4 plus 3 ?
+Combien font 4 plus 4 ?
+Combien font 4 plus 5 ?
+Combien font 4 plus 6 ?
+Combien font 4 plus 7 ?
+Combien font 4 plus 8 ?
+Combien font 4 plus 9 ?
+Combien font 5 moins 0 ?
+Combien font 5 moins 1 ?
+Combien font 5 moins 2 ?
+Combien font 5 moins 3 ?
+Combien font 5 moins 4 ?
+Combien font 5 moins 5 ?
+Combien font 5 plus 0 ?
+Combien font 5 plus 1 ?
+Combien font 5 plus 10 ?
+Combien font 5 plus 11 ?
+Combien font 5 plus 12 ?
+Combien font 5 plus 13 ?
+Combien font 5 plus 14 ?
+Combien font 5 plus 15 ?
+Combien font 5 plus 2 ?
+Combien font 5 plus 3 ?
+Combien font 5 plus 4 ?
+Combien font 5 plus 5 ?
+Combien font 5 plus 6 ?
+Combien font 5 plus 7 ?
+Combien font 5 plus 8 ?
+Combien font 5 plus 9 ?
+Combien font 6 moins 0 ?
+Combien font 6 moins 1 ?
+Combien font 6 moins 2 ?
+Combien font 6 moins 3 ?
+Combien font 6 moins 4 ?
+Combien font 6 moins 5 ?
+Combien font 6 moins 6 ?
+Combien font 6 plus 0 ?
+Combien font 6 plus 1 ?
+Combien font 6 plus 10 ?
+Combien font 6 plus 11 ?
+Combien font 6 plus 12 ?
+Combien font 6 plus 13 ?
+Combien font 6 plus 14 ?
+Combien font 6 plus 2 ?
+Combien font 6 plus 3 ?
+Combien font 6 plus 4 ?
+Combien font 6 plus 5 ?
+Combien font 6 plus 6 ?
+Combien font 6 plus 7 ?
+Combien font 6 plus 8 ?
+Combien font 6 plus 9 ?
+Combien font 7 moins 0 ?
+Combien font 7 moins 1 ?
+Combien font 7 moins 2 ?
+Combien font 7 moins 3 ?
+Combien font 7 moins 4 ?
+Combien font 7 moins 5 ?
+Combien font 7 moins 6 ?
+Combien font 7 moins 7 ?
+Combien font 7 plus 0 ?
+Combien font 7 plus 1 ?
+Combien font 7 plus 10 ?
+Combien font 7 plus 11 ?
+Combien font 7 plus 12 ?
+Combien font 7 plus 13 ?
+Combien font 7 plus 2 ?
+Combien font 7 plus 3 ?
+Combien font 7 plus 4 ?
+Combien font 7 plus 5 ?
+Combien font 7 plus 6 ?
+Combien font 7 plus 7 ?
+Combien font 7 plus 8 ?
+Combien font 7 plus 9 ?
+Combien font 8 moins 0 ?
+Combien font 8 moins 1 ?
+Combien font 8 moins 2 ?
+Combien font 8 moins 3 ?
+Combien font 8 moins 4 ?
+Combien font 8 moins 5 ?
+Combien font 8 moins 6 ?
+Combien font 8 moins 7 ?
+Combien font 8 moins 8 ?
+Combien font 8 plus 0 ?
+Combien font 8 plus 1 ?
+Combien font 8 plus 10 ?
+Combien font 8 plus 11 ?
+Combien font 8 plus 12 ?
+Combien font 8 plus 2 ?
+Combien font 8 plus 3 ?
+Combien font 8 plus 4 ?
+Combien font 8 plus 5 ?
+Combien font 8 plus 6 ?
+Combien font 8 plus 7 ?
+Combien font 8 plus 8 ?
+Combien font 8 plus 9 ?
+Combien font 9 moins 0 ?
+Combien font 9 moins 1 ?
+Combien font 9 moins 2 ?
+Combien font 9 moins 3 ?
+Combien font 9 moins 4 ?
+Combien font 9 moins 5 ?
+Combien font 9 moins 6 ?
+Combien font 9 moins 7 ?
+Combien font 9 moins 8 ?
+Combien font 9 moins 9 ?
+Combien font 9 plus 0 ?
+Combien font 9 plus 1 ?
+Combien font 9 plus 10 ?
+Combien font 9 plus 11 ?
+Combien font 9 plus 2 ?
+Combien font 9 plus 3 ?
+Combien font 9 plus 4 ?
+Combien font 9 plus 5 ?
+Combien font 9 plus 6 ?
+Combien font 9 plus 7 ?
+Combien font 9 plus 8 ?
+Combien font 9 plus 9 ?
+Compare 0 et 0.
+Compare 0 et 1.
+Compare 0 et 10.
+Compare 0 et 11.
+Compare 0 et 12.
+Compare 0 et 13.
+Compare 0 et 14.
+Compare 0 et 15.
+Compare 0 et 16.
+Compare 0 et 17.
+Compare 0 et 18.
+Compare 0 et 19.
+Compare 0 et 2.
+Compare 0 et 20.
+Compare 0 et 21.
+Compare 0 et 22.
+Compare 0 et 23.
+Compare 0 et 24.
+Compare 0 et 25.
+Compare 0 et 26.
+Compare 0 et 27.
+Compare 0 et 28.
+Compare 0 et 29.
+Compare 0 et 3.
+Compare 0 et 30.
+Compare 0 et 4.
+Compare 0 et 5.
+Compare 0 et 6.
+Compare 0 et 7.
+Compare 0 et 8.
+Compare 0 et 9.
+Compare 1 et 0.
+Compare 1 et 1.
+Compare 1 et 10.
+Compare 1 et 11.
+Compare 1 et 12.
+Compare 1 et 13.
+Compare 1 et 14.
+Compare 1 et 15.
+Compare 1 et 16.
+Compare 1 et 17.
+Compare 1 et 18.
+Compare 1 et 19.
+Compare 1 et 2.
+Compare 1 et 20.
+Compare 1 et 21.
+Compare 1 et 22.
+Compare 1 et 23.
+Compare 1 et 24.
+Compare 1 et 25.
+Compare 1 et 26.
+Compare 1 et 27.
+Compare 1 et 28.
+Compare 1 et 29.
+Compare 1 et 3.
+Compare 1 et 30.
+Compare 1 et 4.
+Compare 1 et 5.
+Compare 1 et 6.
+Compare 1 et 7.
+Compare 1 et 8.
+Compare 1 et 9.
+Compare 10 et 0.
+Compare 10 et 1.
+Compare 10 et 10.
+Compare 10 et 11.
+Compare 10 et 12.
+Compare 10 et 13.
+Compare 10 et 14.
+Compare 10 et 15.
+Compare 10 et 16.
+Compare 10 et 17.
+Compare 10 et 18.
+Compare 10 et 19.
+Compare 10 et 2.
+Compare 10 et 20.
+Compare 10 et 21.
+Compare 10 et 22.
+Compare 10 et 23.
+Compare 10 et 24.
+Compare 10 et 25.
+Compare 10 et 26.
+Compare 10 et 27.
+Compare 10 et 28.
+Compare 10 et 29.
+Compare 10 et 3.
+Compare 10 et 30.
+Compare 10 et 4.
+Compare 10 et 5.
+Compare 10 et 6.
+Compare 10 et 7.
+Compare 10 et 8.
+Compare 10 et 9.
+Compare 11 et 0.
+Compare 11 et 1.
+Compare 11 et 10.
+Compare 11 et 11.
+Compare 11 et 12.
+Compare 11 et 13.
+Compare 11 et 14.
+Compare 11 et 15.
+Compare 11 et 16.
+Compare 11 et 17.
+Compare 11 et 18.
+Compare 11 et 19.
+Compare 11 et 2.
+Compare 11 et 20.
+Compare 11 et 21.
+Compare 11 et 22.
+Compare 11 et 23.
+Compare 11 et 24.
+Compare 11 et 25.
+Compare 11 et 26.
+Compare 11 et 27.
+Compare 11 et 28.
+Compare 11 et 29.
+Compare 11 et 3.
+Compare 11 et 30.
+Compare 11 et 4.
+Compare 11 et 5.
+Compare 11 et 6.
+Compare 11 et 7.
+Compare 11 et 8.
+Compare 11 et 9.
+Compare 12 et 0.
+Compare 12 et 1.
+Compare 12 et 10.
+Compare 12 et 11.
+Compare 12 et 12.
+Compare 12 et 13.
+Compare 12 et 14.
+Compare 12 et 15.
+Compare 12 et 16.
+Compare 12 et 17.
+Compare 12 et 18.
+Compare 12 et 19.
+Compare 12 et 2.
+Compare 12 et 20.
+Compare 12 et 21.
+Compare 12 et 22.
+Compare 12 et 23.
+Compare 12 et 24.
+Compare 12 et 25.
+Compare 12 et 26.
+Compare 12 et 27.
+Compare 12 et 28.
+Compare 12 et 29.
+Compare 12 et 3.
+Compare 12 et 30.
+Compare 12 et 4.
+Compare 12 et 5.
+Compare 12 et 6.
+Compare 12 et 7.
+Compare 12 et 8.
+Compare 12 et 9.
+Compare 13 et 0.
+Compare 13 et 1.
+Compare 13 et 10.
+Compare 13 et 11.
+Compare 13 et 12.
+Compare 13 et 13.
+Compare 13 et 14.
+Compare 13 et 15.
+Compare 13 et 16.
+Compare 13 et 17.
+Compare 13 et 18.
+Compare 13 et 19.
+Compare 13 et 2.
+Compare 13 et 20.
+Compare 13 et 21.
+Compare 13 et 22.
+Compare 13 et 23.
+Compare 13 et 24.
+Compare 13 et 25.
+Compare 13 et 26.
+Compare 13 et 27.
+Compare 13 et 28.
+Compare 13 et 29.
+Compare 13 et 3.
+Compare 13 et 30.
+Compare 13 et 4.
+Compare 13 et 5.
+Compare 13 et 6.
+Compare 13 et 7.
+Compare 13 et 8.
+Compare 13 et 9.
+Compare 14 et 0.
+Compare 14 et 1.
+Compare 14 et 10.
+Compare 14 et 11.
+Compare 14 et 12.
+Compare 14 et 13.
+Compare 14 et 14.
+Compare 14 et 15.
+Compare 14 et 16.
+Compare 14 et 17.
+Compare 14 et 18.
+Compare 14 et 19.
+Compare 14 et 2.
+Compare 14 et 20.
+Compare 14 et 21.
+Compare 14 et 22.
+Compare 14 et 23.
+Compare 14 et 24.
+Compare 14 et 25.
+Compare 14 et 26.
+Compare 14 et 27.
+Compare 14 et 28.
+Compare 14 et 29.
+Compare 14 et 3.
+Compare 14 et 30.
+Compare 14 et 4.
+Compare 14 et 5.
+Compare 14 et 6.
+Compare 14 et 7.
+Compare 14 et 8.
+Compare 14 et 9.
+Compare 15 et 0.
+Compare 15 et 1.
+Compare 15 et 10.
+Compare 15 et 11.
+Compare 15 et 12.
+Compare 15 et 13.
+Compare 15 et 14.
+Compare 15 et 15.
+Compare 15 et 16.
+Compare 15 et 17.
+Compare 15 et 18.
+Compare 15 et 19.
+Compare 15 et 2.
+Compare 15 et 20.
+Compare 15 et 21.
+Compare 15 et 22.
+Compare 15 et 23.
+Compare 15 et 24.
+Compare 15 et 25.
+Compare 15 et 26.
+Compare 15 et 27.
+Compare 15 et 28.
+Compare 15 et 29.
+Compare 15 et 3.
+Compare 15 et 30.
+Compare 15 et 4.
+Compare 15 et 5.
+Compare 15 et 6.
+Compare 15 et 7.
+Compare 15 et 8.
+Compare 15 et 9.
+Compare 16 et 0.
+Compare 16 et 1.
+Compare 16 et 10.
+Compare 16 et 11.
+Compare 16 et 12.
+Compare 16 et 13.
+Compare 16 et 14.
+Compare 16 et 15.
+Compare 16 et 16.
+Compare 16 et 17.
+Compare 16 et 18.
+Compare 16 et 19.
+Compare 16 et 2.
+Compare 16 et 20.
+Compare 16 et 21.
+Compare 16 et 22.
+Compare 16 et 23.
+Compare 16 et 24.
+Compare 16 et 25.
+Compare 16 et 26.
+Compare 16 et 27.
+Compare 16 et 28.
+Compare 16 et 29.
+Compare 16 et 3.
+Compare 16 et 30.
+Compare 16 et 4.
+Compare 16 et 5.
+Compare 16 et 6.
+Compare 16 et 7.
+Compare 16 et 8.
+Compare 16 et 9.
+Compare 17 et 0.
+Compare 17 et 1.
+Compare 17 et 10.
+Compare 17 et 11.
+Compare 17 et 12.
+Compare 17 et 13.
+Compare 17 et 14.
+Compare 17 et 15.
+Compare 17 et 16.
+Compare 17 et 17.
+Compare 17 et 18.
+Compare 17 et 19.
+Compare 17 et 2.
+Compare 17 et 20.
+Compare 17 et 21.
+Compare 17 et 22.
+Compare 17 et 23.
+Compare 17 et 24.
+Compare 17 et 25.
+Compare 17 et 26.
+Compare 17 et 27.
+Compare 17 et 28.
+Compare 17 et 29.
+Compare 17 et 3.
+Compare 17 et 30.
+Compare 17 et 4.
+Compare 17 et 5.
+Compare 17 et 6.
+Compare 17 et 7.
+Compare 17 et 8.
+Compare 17 et 9.
+Compare 18 et 0.
+Compare 18 et 1.
+Compare 18 et 10.
+Compare 18 et 11.
+Compare 18 et 12.
+Compare 18 et 13.
+Compare 18 et 14.
+Compare 18 et 15.
+Compare 18 et 16.
+Compare 18 et 17.
+Compare 18 et 18.
+Compare 18 et 19.
+Compare 18 et 2.
+Compare 18 et 20.
+Compare 18 et 21.
+Compare 18 et 22.
+Compare 18 et 23.
+Compare 18 et 24.
+Compare 18 et 25.
+Compare 18 et 26.
+Compare 18 et 27.
+Compare 18 et 28.
+Compare 18 et 29.
+Compare 18 et 3.
+Compare 18 et 30.
+Compare 18 et 4.
+Compare 18 et 5.
+Compare 18 et 6.
+Compare 18 et 7.
+Compare 18 et 8.
+Compare 18 et 9.
+Compare 19 et 0.
+Compare 19 et 1.
+Compare 19 et 10.
+Compare 19 et 11.
+Compare 19 et 12.
+Compare 19 et 13.
+Compare 19 et 14.
+Compare 19 et 15.
+Compare 19 et 16.
+Compare 19 et 17.
+Compare 19 et 18.
+Compare 19 et 19.
+Compare 19 et 2.
+Compare 19 et 20.
+Compare 19 et 21.
+Compare 19 et 22.
+Compare 19 et 23.
+Compare 19 et 24.
+Compare 19 et 25.
+Compare 19 et 26.
+Compare 19 et 27.
+Compare 19 et 28.
+Compare 19 et 29.
+Compare 19 et 3.
+Compare 19 et 30.
+Compare 19 et 4.
+Compare 19 et 5.
+Compare 19 et 6.
+Compare 19 et 7.
+Compare 19 et 8.
+Compare 19 et 9.
+Compare 2 et 0.
+Compare 2 et 1.
+Compare 2 et 10.
+Compare 2 et 11.
+Compare 2 et 12.
+Compare 2 et 13.
+Compare 2 et 14.
+Compare 2 et 15.
+Compare 2 et 16.
+Compare 2 et 17.
+Compare 2 et 18.
+Compare 2 et 19.
+Compare 2 et 2.
+Compare 2 et 20.
+Compare 2 et 21.
+Compare 2 et 22.
+Compare 2 et 23.
+Compare 2 et 24.
+Compare 2 et 25.
+Compare 2 et 26.
+Compare 2 et 27.
+Compare 2 et 28.
+Compare 2 et 29.
+Compare 2 et 3.
+Compare 2 et 30.
+Compare 2 et 4.
+Compare 2 et 5.
+Compare 2 et 6.
+Compare 2 et 7.
+Compare 2 et 8.
+Compare 2 et 9.
+Compare 20 et 0.
+Compare 20 et 1.
+Compare 20 et 10.
+Compare 20 et 11.
+Compare 20 et 12.
+Compare 20 et 13.
+Compare 20 et 14.
+Compare 20 et 15.
+Compare 20 et 16.
+Compare 20 et 17.
+Compare 20 et 18.
+Compare 20 et 19.
+Compare 20 et 2.
+Compare 20 et 20.
+Compare 20 et 21.
+Compare 20 et 22.
+Compare 20 et 23.
+Compare 20 et 24.
+Compare 20 et 25.
+Compare 20 et 26.
+Compare 20 et 27.
+Compare 20 et 28.
+Compare 20 et 29.
+Compare 20 et 3.
+Compare 20 et 30.
+Compare 20 et 4.
+Compare 20 et 5.
+Compare 20 et 6.
+Compare 20 et 7.
+Compare 20 et 8.
+Compare 20 et 9.
+Compare 21 et 0.
+Compare 21 et 1.
+Compare 21 et 10.
+Compare 21 et 11.
+Compare 21 et 12.
+Compare 21 et 13.
+Compare 21 et 14.
+Compare 21 et 15.
+Compare 21 et 16.
+Compare 21 et 17.
+Compare 21 et 18.
+Compare 21 et 19.
+Compare 21 et 2.
+Compare 21 et 20.
+Compare 21 et 21.
+Compare 21 et 22.
+Compare 21 et 23.
+Compare 21 et 24.
+Compare 21 et 25.
+Compare 21 et 26.
+Compare 21 et 27.
+Compare 21 et 28.
+Compare 21 et 29.
+Compare 21 et 3.
+Compare 21 et 30.
+Compare 21 et 4.
+Compare 21 et 5.
+Compare 21 et 6.
+Compare 21 et 7.
+Compare 21 et 8.
+Compare 21 et 9.
+Compare 22 et 0.
+Compare 22 et 1.
+Compare 22 et 10.
+Compare 22 et 11.
+Compare 22 et 12.
+Compare 22 et 13.
+Compare 22 et 14.
+Compare 22 et 15.
+Compare 22 et 16.
+Compare 22 et 17.
+Compare 22 et 18.
+Compare 22 et 19.
+Compare 22 et 2.
+Compare 22 et 20.
+Compare 22 et 21.
+Compare 22 et 22.
+Compare 22 et 23.
+Compare 22 et 24.
+Compare 22 et 25.
+Compare 22 et 26.
+Compare 22 et 27.
+Compare 22 et 28.
+Compare 22 et 29.
+Compare 22 et 3.
+Compare 22 et 30.
+Compare 22 et 4.
+Compare 22 et 5.
+Compare 22 et 6.
+Compare 22 et 7.
+Compare 22 et 8.
+Compare 22 et 9.
+Compare 23 et 0.
+Compare 23 et 1.
+Compare 23 et 10.
+Compare 23 et 11.
+Compare 23 et 12.
+Compare 23 et 13.
+Compare 23 et 14.
+Compare 23 et 15.
+Compare 23 et 16.
+Compare 23 et 17.
+Compare 23 et 18.
+Compare 23 et 19.
+Compare 23 et 2.
+Compare 23 et 20.
+Compare 23 et 21.
+Compare 23 et 22.
+Compare 23 et 23.
+Compare 23 et 24.
+Compare 23 et 25.
+Compare 23 et 26.
+Compare 23 et 27.
+Compare 23 et 28.
+Compare 23 et 29.
+Compare 23 et 3.
+Compare 23 et 30.
+Compare 23 et 4.
+Compare 23 et 5.
+Compare 23 et 6.
+Compare 23 et 7.
+Compare 23 et 8.
+Compare 23 et 9.
+Compare 24 et 0.
+Compare 24 et 1.
+Compare 24 et 10.
+Compare 24 et 11.
+Compare 24 et 12.
+Compare 24 et 13.
+Compare 24 et 14.
+Compare 24 et 15.
+Compare 24 et 16.
+Compare 24 et 17.
+Compare 24 et 18.
+Compare 24 et 19.
+Compare 24 et 2.
+Compare 24 et 20.
+Compare 24 et 21.
+Compare 24 et 22.
+Compare 24 et 23.
+Compare 24 et 24.
+Compare 24 et 25.
+Compare 24 et 26.
+Compare 24 et 27.
+Compare 24 et 28.
+Compare 24 et 29.
+Compare 24 et 3.
+Compare 24 et 30.
+Compare 24 et 4.
+Compare 24 et 5.
+Compare 24 et 6.
+Compare 24 et 7.
+Compare 24 et 8.
+Compare 24 et 9.
+Compare 25 et 0.
+Compare 25 et 1.
+Compare 25 et 10.
+Compare 25 et 11.
+Compare 25 et 12.
+Compare 25 et 13.
+Compare 25 et 14.
+Compare 25 et 15.
+Compare 25 et 16.
+Compare 25 et 17.
+Compare 25 et 18.
+Compare 25 et 19.
+Compare 25 et 2.
+Compare 25 et 20.
+Compare 25 et 21.
+Compare 25 et 22.
+Compare 25 et 23.
+Compare 25 et 24.
+Compare 25 et 25.
+Compare 25 et 26.
+Compare 25 et 27.
+Compare 25 et 28.
+Compare 25 et 29.
+Compare 25 et 3.
+Compare 25 et 30.
+Compare 25 et 4.
+Compare 25 et 5.
+Compare 25 et 6.
+Compare 25 et 7.
+Compare 25 et 8.
+Compare 25 et 9.
+Compare 26 et 0.
+Compare 26 et 1.
+Compare 26 et 10.
+Compare 26 et 11.
+Compare 26 et 12.
+Compare 26 et 13.
+Compare 26 et 14.
+Compare 26 et 15.
+Compare 26 et 16.
+Compare 26 et 17.
+Compare 26 et 18.
+Compare 26 et 19.
+Compare 26 et 2.
+Compare 26 et 20.
+Compare 26 et 21.
+Compare 26 et 22.
+Compare 26 et 23.
+Compare 26 et 24.
+Compare 26 et 25.
+Compare 26 et 26.
+Compare 26 et 27.
+Compare 26 et 28.
+Compare 26 et 29.
+Compare 26 et 3.
+Compare 26 et 30.
+Compare 26 et 4.
+Compare 26 et 5.
+Compare 26 et 6.
+Compare 26 et 7.
+Compare 26 et 8.
+Compare 26 et 9.
+Compare 27 et 0.
+Compare 27 et 1.
+Compare 27 et 10.
+Compare 27 et 11.
+Compare 27 et 12.
+Compare 27 et 13.
+Compare 27 et 14.
+Compare 27 et 15.
+Compare 27 et 16.
+Compare 27 et 17.
+Compare 27 et 18.
+Compare 27 et 19.
+Compare 27 et 2.
+Compare 27 et 20.
+Compare 27 et 21.
+Compare 27 et 22.
+Compare 27 et 23.
+Compare 27 et 24.
+Compare 27 et 25.
+Compare 27 et 26.
+Compare 27 et 27.
+Compare 27 et 28.
+Compare 27 et 29.
+Compare 27 et 3.
+Compare 27 et 30.
+Compare 27 et 4.
+Compare 27 et 5.
+Compare 27 et 6.
+Compare 27 et 7.
+Compare 27 et 8.
+Compare 27 et 9.
+Compare 28 et 0.
+Compare 28 et 1.
+Compare 28 et 10.
+Compare 28 et 11.
+Compare 28 et 12.
+Compare 28 et 13.
+Compare 28 et 14.
+Compare 28 et 15.
+Compare 28 et 16.
+Compare 28 et 17.
+Compare 28 et 18.
+Compare 28 et 19.
+Compare 28 et 2.
+Compare 28 et 20.
+Compare 28 et 21.
+Compare 28 et 22.
+Compare 28 et 23.
+Compare 28 et 24.
+Compare 28 et 25.
+Compare 28 et 26.
+Compare 28 et 27.
+Compare 28 et 28.
+Compare 28 et 29.
+Compare 28 et 3.
+Compare 28 et 30.
+Compare 28 et 4.
+Compare 28 et 5.
+Compare 28 et 6.
+Compare 28 et 7.
+Compare 28 et 8.
+Compare 28 et 9.
+Compare 29 et 0.
+Compare 29 et 1.
+Compare 29 et 10.
+Compare 29 et 11.
+Compare 29 et 12.
+Compare 29 et 13.
+Compare 29 et 14.
+Compare 29 et 15.
+Compare 29 et 16.
+Compare 29 et 17.
+Compare 29 et 18.
+Compare 29 et 19.
+Compare 29 et 2.
+Compare 29 et 20.
+Compare 29 et 21.
+Compare 29 et 22.
+Compare 29 et 23.
+Compare 29 et 24.
+Compare 29 et 25.
+Compare 29 et 26.
+Compare 29 et 27.
+Compare 29 et 28.
+Compare 29 et 29.
+Compare 29 et 3.
+Compare 29 et 30.
+Compare 29 et 4.
+Compare 29 et 5.
+Compare 29 et 6.
+Compare 29 et 7.
+Compare 29 et 8.
+Compare 29 et 9.
+Compare 3 et 0.
+Compare 3 et 1.
+Compare 3 et 10.
+Compare 3 et 11.
+Compare 3 et 12.
+Compare 3 et 13.
+Compare 3 et 14.
+Compare 3 et 15.
+Compare 3 et 16.
+Compare 3 et 17.
+Compare 3 et 18.
+Compare 3 et 19.
+Compare 3 et 2.
+Compare 3 et 20.
+Compare 3 et 21.
+Compare 3 et 22.
+Compare 3 et 23.
+Compare 3 et 24.
+Compare 3 et 25.
+Compare 3 et 26.
+Compare 3 et 27.
+Compare 3 et 28.
+Compare 3 et 29.
+Compare 3 et 3.
+Compare 3 et 30.
+Compare 3 et 4.
+Compare 3 et 5.
+Compare 3 et 6.
+Compare 3 et 7.
+Compare 3 et 8.
+Compare 3 et 9.
+Compare 30 et 0.
+Compare 30 et 1.
+Compare 30 et 10.
+Compare 30 et 11.
+Compare 30 et 12.
+Compare 30 et 13.
+Compare 30 et 14.
+Compare 30 et 15.
+Compare 30 et 16.
+Compare 30 et 17.
+Compare 30 et 18.
+Compare 30 et 19.
+Compare 30 et 2.
+Compare 30 et 20.
+Compare 30 et 21.
+Compare 30 et 22.
+Compare 30 et 23.
+Compare 30 et 24.
+Compare 30 et 25.
+Compare 30 et 26.
+Compare 30 et 27.
+Compare 30 et 28.
+Compare 30 et 29.
+Compare 30 et 3.
+Compare 30 et 30.
+Compare 30 et 4.
+Compare 30 et 5.
+Compare 30 et 6.
+Compare 30 et 7.
+Compare 30 et 8.
+Compare 30 et 9.
+Compare 4 et 0.
+Compare 4 et 1.
+Compare 4 et 10.
+Compare 4 et 11.
+Compare 4 et 12.
+Compare 4 et 13.
+Compare 4 et 14.
+Compare 4 et 15.
+Compare 4 et 16.
+Compare 4 et 17.
+Compare 4 et 18.
+Compare 4 et 19.
+Compare 4 et 2.
+Compare 4 et 20.
+Compare 4 et 21.
+Compare 4 et 22.
+Compare 4 et 23.
+Compare 4 et 24.
+Compare 4 et 25.
+Compare 4 et 26.
+Compare 4 et 27.
+Compare 4 et 28.
+Compare 4 et 29.
+Compare 4 et 3.
+Compare 4 et 30.
+Compare 4 et 4.
+Compare 4 et 5.
+Compare 4 et 6.
+Compare 4 et 7.
+Compare 4 et 8.
+Compare 4 et 9.
+Compare 5 et 0.
+Compare 5 et 1.
+Compare 5 et 10.
+Compare 5 et 11.
+Compare 5 et 12.
+Compare 5 et 13.
+Compare 5 et 14.
+Compare 5 et 15.
+Compare 5 et 16.
+Compare 5 et 17.
+Compare 5 et 18.
+Compare 5 et 19.
+Compare 5 et 2.
+Compare 5 et 20.
+Compare 5 et 21.
+Compare 5 et 22.
+Compare 5 et 23.
+Compare 5 et 24.
+Compare 5 et 25.
+Compare 5 et 26.
+Compare 5 et 27.
+Compare 5 et 28.
+Compare 5 et 29.
+Compare 5 et 3.
+Compare 5 et 30.
+Compare 5 et 4.
+Compare 5 et 5.
+Compare 5 et 6.
+Compare 5 et 7.
+Compare 5 et 8.
+Compare 5 et 9.
+Compare 6 et 0.
+Compare 6 et 1.
+Compare 6 et 10.
+Compare 6 et 11.
+Compare 6 et 12.
+Compare 6 et 13.
+Compare 6 et 14.
+Compare 6 et 15.
+Compare 6 et 16.
+Compare 6 et 17.
+Compare 6 et 18.
+Compare 6 et 19.
+Compare 6 et 2.
+Compare 6 et 20.
+Compare 6 et 21.
+Compare 6 et 22.
+Compare 6 et 23.
+Compare 6 et 24.
+Compare 6 et 25.
+Compare 6 et 26.
+Compare 6 et 27.
+Compare 6 et 28.
+Compare 6 et 29.
+Compare 6 et 3.
+Compare 6 et 30.
+Compare 6 et 4.
+Compare 6 et 5.
+Compare 6 et 6.
+Compare 6 et 7.
+Compare 6 et 8.
+Compare 6 et 9.
+Compare 7 et 0.
+Compare 7 et 1.
+Compare 7 et 10.
+Compare 7 et 11.
+Compare 7 et 12.
+Compare 7 et 13.
+Compare 7 et 14.
+Compare 7 et 15.
+Compare 7 et 16.
+Compare 7 et 17.
+Compare 7 et 18.
+Compare 7 et 19.
+Compare 7 et 2.
+Compare 7 et 20.
+Compare 7 et 21.
+Compare 7 et 22.
+Compare 7 et 23.
+Compare 7 et 24.
+Compare 7 et 25.
+Compare 7 et 26.
+Compare 7 et 27.
+Compare 7 et 28.
+Compare 7 et 29.
+Compare 7 et 3.
+Compare 7 et 30.
+Compare 7 et 4.
+Compare 7 et 5.
+Compare 7 et 6.
+Compare 7 et 7.
+Compare 7 et 8.
+Compare 7 et 9.
+Compare 8 et 0.
+Compare 8 et 1.
+Compare 8 et 10.
+Compare 8 et 11.
+Compare 8 et 12.
+Compare 8 et 13.
+Compare 8 et 14.
+Compare 8 et 15.
+Compare 8 et 16.
+Compare 8 et 17.
+Compare 8 et 18.
+Compare 8 et 19.
+Compare 8 et 2.
+Compare 8 et 20.
+Compare 8 et 21.
+Compare 8 et 22.
+Compare 8 et 23.
+Compare 8 et 24.
+Compare 8 et 25.
+Compare 8 et 26.
+Compare 8 et 27.
+Compare 8 et 28.
+Compare 8 et 29.
+Compare 8 et 3.
+Compare 8 et 30.
+Compare 8 et 4.
+Compare 8 et 5.
+Compare 8 et 6.
+Compare 8 et 7.
+Compare 8 et 8.
+Compare 8 et 9.
+Compare 9 et 0.
+Compare 9 et 1.
+Compare 9 et 10.
+Compare 9 et 11.
+Compare 9 et 12.
+Compare 9 et 13.
+Compare 9 et 14.
+Compare 9 et 15.
+Compare 9 et 16.
+Compare 9 et 17.
+Compare 9 et 18.
+Compare 9 et 19.
+Compare 9 et 2.
+Compare 9 et 20.
+Compare 9 et 21.
+Compare 9 et 22.
+Compare 9 et 23.
+Compare 9 et 24.
+Compare 9 et 25.
+Compare 9 et 26.
+Compare 9 et 27.
+Compare 9 et 28.
+Compare 9 et 29.
+Compare 9 et 3.
+Compare 9 et 30.
+Compare 9 et 4.
+Compare 9 et 5.
+Compare 9 et 6.
+Compare 9 et 7.
+Compare 9 et 8.
+Compare 9 et 9.
+Elle coûte 0 étoiles.
+Elle coûte 1 étoiles.
+Elle coûte 10 étoiles.
+Elle coûte 11 étoiles.
+Elle coûte 12 étoiles.
+Elle coûte 13 étoiles.
+Elle coûte 14 étoiles.
+Elle coûte 15 étoiles.
+Elle coûte 16 étoiles.
+Elle coûte 17 étoiles.
+Elle coûte 18 étoiles.
+Elle coûte 19 étoiles.
+Elle coûte 2 étoiles.
+Elle coûte 20 étoiles.
+Elle coûte 21 étoiles.
+Elle coûte 22 étoiles.
+Elle coûte 23 étoiles.
+Elle coûte 24 étoiles.
+Elle coûte 25 étoiles.
+Elle coûte 26 étoiles.
+Elle coûte 27 étoiles.
+Elle coûte 28 étoiles.
+Elle coûte 29 étoiles.
+Elle coûte 3 étoiles.
+Elle coûte 30 étoiles.
+Elle coûte 4 étoiles.
+Elle coûte 5 étoiles.
+Elle coûte 6 étoiles.
+Elle coûte 7 étoiles.
+Elle coûte 8 étoiles.
+Elle coûte 9 étoiles.
+Encore 5 étoiles pour Aquabulle.
+Encore 5 étoiles pour Brik turbo.
+Encore 5 étoiles pour Feuillo.
+Encore 5 étoiles pour Flammèche.
+Encore 5 étoiles pour L'empreinte.
+Encore 5 étoiles pour L'envol de Super Malo.
+Encore 5 étoiles pour L'os fossile.
+Encore 5 étoiles pour L'éclair de Super Malo.
+Encore 5 étoiles pour L'évolution de Zapi.
+Encore 5 étoiles pour L'œuf de dino.
+Encore 5 étoiles pour L'œuf mystère.
+Encore 5 étoiles pour La brique rouge.
+Encore 5 étoiles pour La cape.
+Encore 5 étoiles pour La clé à molette.
+Encore 5 étoiles pour La coupe d'or.
+Encore 5 étoiles pour La fusée en briques.
+Encore 5 étoiles pour La voiture en briques.
+Encore 5 étoiles pour Le ballon de cuir.
+Encore 5 étoiles pour Le bouclier.
+Encore 5 étoiles pour Le capitaine.
+Encore 5 étoiles pour Le château de Brik.
+Encore 5 étoiles pour Le cristal.
+Encore 5 étoiles pour Le masque.
+Encore 5 étoiles pour Le ptérodactyle.
+Encore 5 étoiles pour Le repaire secret.
+Encore 5 étoiles pour Le retourné de Tom.
+Encore 5 étoiles pour Le robot géant.
+Encore 5 étoiles pour Le tir de feu.
+Encore 5 étoiles pour Le tricératops.
+Encore 5 étoiles pour Les crampons.
+Encore 5 étoiles pour Les gants du gardien.
+Encore 5 étoiles pour Rex et le volcan.
+Encore 5 étoiles pour Rex et les bébés.
+Encore 5 étoiles pour Super Toutou.
+Encore 5 étoiles pour Zapi électrique.
+J'ai 0 billes.
+J'ai 1 billes.
+J'ai 10 billes.
+J'ai 2 billes.
+J'ai 3 billes.
+J'ai 4 billes.
+J'ai 5 billes.
+J'ai 6 billes.
+J'ai 7 billes.
+J'ai 8 billes.
+J'ai 9 billes.
+J'en donne 0.
+J'en donne 1.
+J'en donne 2.
+J'en donne 3.
+J'en donne 4.
+J'en donne 5.
+J'en donne 6.
+J'en donne 7.
+J'en donne 8.
+J'en donne 9.
+Moins 0,
+Moins 1,
+Moins 10,
+Moins 11,
+Moins 12,
+Moins 13,
+Moins 14,
+Moins 15,
+Moins 16,
+Moins 17,
+Moins 18,
+Moins 19,
+Moins 2,
+Moins 20,
+Moins 21,
+Moins 22,
+Moins 23,
+Moins 24,
+Moins 25,
+Moins 26,
+Moins 27,
+Moins 28,
+Moins 29,
+Moins 3,
+Moins 30,
+Moins 4,
+Moins 5,
+Moins 6,
+Moins 7,
+Moins 8,
+Moins 9,
+Pars de 0,
+Pars de 1,
+Pars de 10,
+Pars de 11,
+Pars de 12,
+Pars de 13,
+Pars de 14,
+Pars de 15,
+Pars de 16,
+Pars de 17,
+Pars de 18,
+Pars de 19,
+Pars de 2,
+Pars de 3,
+Pars de 4,
+Pars de 5,
+Pars de 6,
+Pars de 7,
+Pars de 8,
+Pars de 9,
+Quel nombre vient juste après 0 ?
+Quel nombre vient juste après 1 ?
+Quel nombre vient juste après 10 ?
+Quel nombre vient juste après 11 ?
+Quel nombre vient juste après 12 ?
+Quel nombre vient juste après 13 ?
+Quel nombre vient juste après 14 ?
+Quel nombre vient juste après 15 ?
+Quel nombre vient juste après 16 ?
+Quel nombre vient juste après 17 ?
+Quel nombre vient juste après 18 ?
+Quel nombre vient juste après 19 ?
+Quel nombre vient juste après 2 ?
+Quel nombre vient juste après 20 ?
+Quel nombre vient juste après 21 ?
+Quel nombre vient juste après 22 ?
+Quel nombre vient juste après 23 ?
+Quel nombre vient juste après 24 ?
+Quel nombre vient juste après 25 ?
+Quel nombre vient juste après 26 ?
+Quel nombre vient juste après 27 ?
+Quel nombre vient juste après 28 ?
+Quel nombre vient juste après 29 ?
+Quel nombre vient juste après 3 ?
+Quel nombre vient juste après 30 ?
+Quel nombre vient juste après 31 ?
+Quel nombre vient juste après 32 ?
+Quel nombre vient juste après 33 ?
+Quel nombre vient juste après 34 ?
+Quel nombre vient juste après 35 ?
+Quel nombre vient juste après 36 ?
+Quel nombre vient juste après 37 ?
+Quel nombre vient juste après 38 ?
+Quel nombre vient juste après 39 ?
+Quel nombre vient juste après 4 ?
+Quel nombre vient juste après 40 ?
+Quel nombre vient juste après 41 ?
+Quel nombre vient juste après 42 ?
+Quel nombre vient juste après 43 ?
+Quel nombre vient juste après 44 ?
+Quel nombre vient juste après 45 ?
+Quel nombre vient juste après 46 ?
+Quel nombre vient juste après 47 ?
+Quel nombre vient juste après 48 ?
+Quel nombre vient juste après 49 ?
+Quel nombre vient juste après 5 ?
+Quel nombre vient juste après 50 ?
+Quel nombre vient juste après 51 ?
+Quel nombre vient juste après 52 ?
+Quel nombre vient juste après 53 ?
+Quel nombre vient juste après 54 ?
+Quel nombre vient juste après 55 ?
+Quel nombre vient juste après 56 ?
+Quel nombre vient juste après 57 ?
+Quel nombre vient juste après 58 ?
+Quel nombre vient juste après 59 ?
+Quel nombre vient juste après 6 ?
+Quel nombre vient juste après 60 ?
+Quel nombre vient juste après 61 ?
+Quel nombre vient juste après 62 ?
+Quel nombre vient juste après 63 ?
+Quel nombre vient juste après 64 ?
+Quel nombre vient juste après 65 ?
+Quel nombre vient juste après 66 ?
+Quel nombre vient juste après 67 ?
+Quel nombre vient juste après 68 ?
+Quel nombre vient juste après 69 ?
+Quel nombre vient juste après 7 ?
+Quel nombre vient juste après 70 ?
+Quel nombre vient juste après 71 ?
+Quel nombre vient juste après 72 ?
+Quel nombre vient juste après 73 ?
+Quel nombre vient juste après 74 ?
+Quel nombre vient juste après 75 ?
+Quel nombre vient juste après 76 ?
+Quel nombre vient juste après 77 ?
+Quel nombre vient juste après 78 ?
+Quel nombre vient juste après 79 ?
+Quel nombre vient juste après 8 ?
+Quel nombre vient juste après 80 ?
+Quel nombre vient juste après 81 ?
+Quel nombre vient juste après 82 ?
+Quel nombre vient juste après 83 ?
+Quel nombre vient juste après 84 ?
+Quel nombre vient juste après 85 ?
+Quel nombre vient juste après 86 ?
+Quel nombre vient juste après 87 ?
+Quel nombre vient juste après 9 ?
+Quel nombre vient juste avant 0 ?
+Quel nombre vient juste avant 1 ?
+Quel nombre vient juste avant 10 ?
+Quel nombre vient juste avant 11 ?
+Quel nombre vient juste avant 12 ?
+Quel nombre vient juste avant 13 ?
+Quel nombre vient juste avant 14 ?
+Quel nombre vient juste avant 15 ?
+Quel nombre vient juste avant 16 ?
+Quel nombre vient juste avant 17 ?
+Quel nombre vient juste avant 18 ?
+Quel nombre vient juste avant 19 ?
+Quel nombre vient juste avant 2 ?
+Quel nombre vient juste avant 20 ?
+Quel nombre vient juste avant 21 ?
+Quel nombre vient juste avant 22 ?
+Quel nombre vient juste avant 23 ?
+Quel nombre vient juste avant 24 ?
+Quel nombre vient juste avant 25 ?
+Quel nombre vient juste avant 26 ?
+Quel nombre vient juste avant 27 ?
+Quel nombre vient juste avant 28 ?
+Quel nombre vient juste avant 29 ?
+Quel nombre vient juste avant 3 ?
+Quel nombre vient juste avant 30 ?
+Quel nombre vient juste avant 31 ?
+Quel nombre vient juste avant 32 ?
+Quel nombre vient juste avant 33 ?
+Quel nombre vient juste avant 34 ?
+Quel nombre vient juste avant 35 ?
+Quel nombre vient juste avant 36 ?
+Quel nombre vient juste avant 37 ?
+Quel nombre vient juste avant 38 ?
+Quel nombre vient juste avant 39 ?
+Quel nombre vient juste avant 4 ?
+Quel nombre vient juste avant 40 ?
+Quel nombre vient juste avant 41 ?
+Quel nombre vient juste avant 42 ?
+Quel nombre vient juste avant 43 ?
+Quel nombre vient juste avant 44 ?
+Quel nombre vient juste avant 45 ?
+Quel nombre vient juste avant 46 ?
+Quel nombre vient juste avant 47 ?
+Quel nombre vient juste avant 48 ?
+Quel nombre vient juste avant 49 ?
+Quel nombre vient juste avant 5 ?
+Quel nombre vient juste avant 50 ?
+Quel nombre vient juste avant 51 ?
+Quel nombre vient juste avant 52 ?
+Quel nombre vient juste avant 53 ?
+Quel nombre vient juste avant 54 ?
+Quel nombre vient juste avant 55 ?
+Quel nombre vient juste avant 56 ?
+Quel nombre vient juste avant 57 ?
+Quel nombre vient juste avant 58 ?
+Quel nombre vient juste avant 59 ?
+Quel nombre vient juste avant 6 ?
+Quel nombre vient juste avant 60 ?
+Quel nombre vient juste avant 61 ?
+Quel nombre vient juste avant 62 ?
+Quel nombre vient juste avant 63 ?
+Quel nombre vient juste avant 64 ?
+Quel nombre vient juste avant 65 ?
+Quel nombre vient juste avant 66 ?
+Quel nombre vient juste avant 67 ?
+Quel nombre vient juste avant 68 ?
+Quel nombre vient juste avant 69 ?
+Quel nombre vient juste avant 7 ?
+Quel nombre vient juste avant 70 ?
+Quel nombre vient juste avant 71 ?
+Quel nombre vient juste avant 72 ?
+Quel nombre vient juste avant 73 ?
+Quel nombre vient juste avant 74 ?
+Quel nombre vient juste avant 75 ?
+Quel nombre vient juste avant 76 ?
+Quel nombre vient juste avant 77 ?
+Quel nombre vient juste avant 78 ?
+Quel nombre vient juste avant 79 ?
+Quel nombre vient juste avant 8 ?
+Quel nombre vient juste avant 80 ?
+Quel nombre vient juste avant 81 ?
+Quel nombre vient juste avant 82 ?
+Quel nombre vient juste avant 83 ?
+Quel nombre vient juste avant 84 ?
+Quel nombre vient juste avant 85 ?
+Quel nombre vient juste avant 86 ?
+Quel nombre vient juste avant 87 ?
+Quel nombre vient juste avant 88 ?
+Quel nombre vient juste avant 89 ?
+Quel nombre vient juste avant 9 ?
+Quel nombre vient juste avant 90 ?
+Repasse sur le chiffre 0,
+Repasse sur le chiffre 1,
+Repasse sur le chiffre 2,
+Repasse sur le chiffre 3,
+Repasse sur le chiffre 4,
+Repasse sur le chiffre 5,
+Repasse sur le chiffre 6,
+Repasse sur le chiffre 7,
+Repasse sur le chiffre 8,
+Repasse sur le chiffre 9,
+Touche le nombre 0,
+Touche le nombre 1,
+Touche le nombre 10,
+Touche le nombre 2,
+Touche le nombre 3,
+Touche le nombre 4,
+Touche le nombre 5,
+Touche le nombre 6,
+Touche le nombre 7,
+Touche le nombre 8,
+Touche le nombre 9,
+c'est 0.
+c'est 1.
+c'est 10.
+c'est 11.
+c'est 12.
+c'est 13.
+c'est 14.
+c'est 15.
+c'est 16.
+c'est 17.
+c'est 18.
+c'est 19.
+c'est 2.
+c'est 20.
+c'est 21.
+c'est 22.
+c'est 23.
+c'est 24.
+c'est 25.
+c'est 26.
+c'est 27.
+c'est 28.
+c'est 29.
+c'est 3.
+c'est 30.
+c'est 31.
+c'est 32.
+c'est 33.
+c'est 34.
+c'est 35.
+c'est 36.
+c'est 37.
+c'est 38.
+c'est 39.
+c'est 4.
+c'est 40.
+c'est 41.
+c'est 42.
+c'est 43.
+c'est 44.
+c'est 45.
+c'est 46.
+c'est 47.
+c'est 48.
+c'est 49.
+c'est 5.
+c'est 50.
+c'est 51.
+c'est 52.
+c'est 53.
+c'est 54.
+c'est 55.
+c'est 56.
+c'est 57.
+c'est 58.
+c'est 59.
+c'est 6.
+c'est 60.
+c'est 61.
+c'est 62.
+c'est 63.
+c'est 64.
+c'est 65.
+c'est 66.
+c'est 67.
+c'est 68.
+c'est 69.
+c'est 7.
+c'est 70.
+c'est 71.
+c'est 72.
+c'est 73.
+c'est 74.
+c'est 75.
+c'est 76.
+c'est 77.
+c'est 78.
+c'est 79.
+c'est 8.
+c'est 80.
+c'est 81.
+c'est 82.
+c'est 83.
+c'est 84.
+c'est 85.
+c'est 86.
+c'est 87.
+c'est 88.
+c'est 89.
+c'est 9.
+c'est 90.
+et compte 0 de plus.
+et compte 1 de plus.
+et compte 10 de plus.
+et compte 11 de plus.
+et compte 12 de plus.
+et compte 13 de plus.
+et compte 14 de plus.
+et compte 15 de plus.
+et compte 16 de plus.
+et compte 17 de plus.
+et compte 18 de plus.
+et compte 19 de plus.
+et compte 2 de plus.
+et compte 3 de plus.
+et compte 4 de plus.
+et compte 5 de plus.
+et compte 6 de plus.
+et compte 7 de plus.
+et compte 8 de plus.
+et compte 9 de plus.
+il te reste 3 étoiles.

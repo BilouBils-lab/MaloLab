@@ -1,8 +1,9 @@
 // Service worker : permet à l'application de fonctionner hors ligne.
 // ⚠️ Après chaque modification de l'app, augmentez le numéro de version ci-dessous.
-const CACHE = 'malolab-v55';
+const CACHE = 'malolab-v56';
+const VOIX = 'malolab-voix-1';   // clips de la voix : conservés d'une version à l'autre
 const ASSETS = [
-  './', './index.html', './style.css', './art.js', './icons.js', './cursive.js', './lecture.js', './maths.js', './sync.js', './shop.js', './dashboard.js', './daily.js', './pause.js', './progress.js', './app.js', './manifest.webmanifest',
+  './', './index.html', './style.css', './art.js', './icons.js', './cursive.js', './lecture.js', './maths.js', './sync.js', './shop.js', './dashboard.js', './daily.js', './pause.js', './progress.js', './voice.js', './app.js', './manifest.webmanifest',
   './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png',
   './assets/compagnon-foot.webp', './assets/compagnon-heros.webp', './assets/compagnon-briques.webp',
   './assets/compagnon-monstres.webp', './assets/compagnon-dinos.webp',
@@ -28,7 +29,7 @@ self.addEventListener('install', e => {
 self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
+      .then(keys => Promise.all(keys.filter(k => k !== CACHE && k !== VOIX).map(k => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
@@ -36,6 +37,11 @@ self.addEventListener('activate', e => {
 // Réseau d'abord (pour recevoir les mises à jour), sinon le cache (hors ligne)
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET' || new URL(e.request.url).origin !== location.origin) return;
+  // Clips de voix : le contenu d'un fichier ne change jamais (nom = empreinte du texte) → cache d'abord
+  if (/\/voix\/[0-9a-f]{8}\.mp3$/.test(new URL(e.request.url).pathname)) {
+    e.respondWith(caches.open(VOIX).then(c => c.match(e.request).then(hit => hit || fetch(e.request).then(res => { if (res.ok) c.put(e.request, res.clone()); return res; }))));
+    return;
+  }
   e.respondWith(
     // « no-cache » : toujours demander au serveur s'il y a une version plus récente (le cache du navigateur gardait parfois l'ancienne)
     fetch(e.request, { cache: 'no-cache' })

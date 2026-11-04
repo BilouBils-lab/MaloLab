@@ -230,7 +230,7 @@ function fluenceScreen(dk, part = 0) {
   $('#back').onclick = () => { cancelAnimationFrame(raf); domain(dk); };
   $('#go').onclick = () => {
     if (!running) {
-      running = true; window.speechSynthesis?.cancel();
+      running = true; hush();
       document.querySelector('.fl-box').classList.remove('blur');
       t0 = performance.now(); tick(); sfxPop();
       $('#go').innerHTML = ico('stop') + " J'ai fini";
@@ -244,7 +244,8 @@ function fluenceScreen(dk, part = 0) {
     state.stars += record ? 2 : 1; state.act.fluence = (state.act.fluence || 0) + (record ? 2 : 1); save();
     sfxOK(); confetti();
     const msg = record ? `Record battu ! ${fmtTime(t)}` : best === null ? `Bravo ! ${fmtTime(t)}` : `Bien lu ! ${fmtTime(t)}`;
-    say(msg.replace(' s', ' secondes') + (P.id === 'syl' ? '' : `. Tu lis ${perMinute(P, t)} mots par minute.`));
+    const sec = Math.max(1, Math.round(t));
+    say(msg.replace(fmtTime(t), `${sec} seconde${sec > 1 ? 's' : ''}`) + (P.id === 'syl' ? '' : `. Tu lis ${perMinute(P, t)} mots par minute.`));
     const last = part === F.parts.length - 1;
     document.querySelector('.fluence').insertAdjacentHTML('beforeend', `
       <div class="fl-result">${record ? ico('trophy') : STAR} ${msg} <small>+${record ? 2 : 1} ${STAR}</small></div>

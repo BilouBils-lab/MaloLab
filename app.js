@@ -170,6 +170,7 @@ const state = (() => {
     s.level = 'auto';
     s.v2 = true;
   }
+  if (s.voiceMig !== 1) { s.voiceURI = 'malolab'; s.voiceMig = 1; }   // voix Jessica par défaut (une seule fois)
   return s;
 })();
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} scheduleSync(); };
@@ -311,14 +312,22 @@ function voiceQuality(v) {
 const voiceRegion = lang => ({ 'fr-FR': 'France', 'fr-CA': 'Canada', 'fr-BE': 'Belgique', 'fr-CH': 'Suisse' })[lang] || lang;
 const isIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Mac/.test(navigator.platform));
 function pickVoice() {
-  if (state.voiceURI === 'system' || (!state.voiceURI && isIOS())) { frVoice = null; return; }
+  // « malolab » (voix Jessica) : en secours, voix du système comme « system »
+  if (state.voiceURI === 'system' || ((!state.voiceURI || state.voiceURI === 'malolab') && isIOS())) { frVoice = null; return; }
   const vs = frVoices();
   frVoice = vs.find(v => v.voiceURI === state.voiceURI) || vs.slice().sort((a, b) => voiceScore(b) - voiceScore(a))[0] || null;
 }
 if ('speechSynthesis' in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
 
 function say(text, rate = 0.92) {
-  if (!state.voice || !('speechSynthesis' in window) || !text) return;
+  if (!state.voice || !text) return;
+  hush();
+  if (state.voiceURI === 'malolab' && voiceSay(text, () => sysSay(text, rate))) return;
+  sysSay(text, rate);
+}
+function hush() { voiceStop(); window.speechSynthesis?.cancel(); }
+function sysSay(text, rate) {
+  if (!('speechSynthesis' in window)) return;
   speechSynthesis.cancel();
   if (!frVoice) pickVoice();
   const u = new SpeechSynthesisUtterance(text);
@@ -456,7 +465,7 @@ function spellQ({ units, word, emoji, kind }) {
       };
       const wrong = tile => {
         errors++; tile.classList.remove('shake'); void tile.offsetWidth; tile.classList.add('shake');
-        const got = tile.dataset.l, pos = slots.findIndex(x => !x.classList.contains('ok'));
+        const got = SOUND_SAY[tile.dataset.l] || tile.dataset.l, pos = slots.findIndex(x => !x.classList.contains('ok'));
         const msg = pos === 0 ? `${got}, ce n'est pas le premier son. Écoute bien le début : ${word}.`
           : `${got}, ce n'est pas le son suivant. Dis le mot doucement : ${word}.`;
         answer(false, msg); hint();
@@ -725,7 +734,7 @@ const ACTS = {
 const app = document.getElementById('app');
 // mode : '' (menus), 'play' (exercice : décor atténué), 'victory' (fin de partie)
 const render = (html, mode = '') => {
-  window.speechSynthesis?.cancel();
+  hush();
   document.body.dataset.mode = mode; window.__screen = '';
   document.querySelectorAll('.confetti,.pop,.reward').forEach(e => e.remove());
   app.innerHTML = html; window.scrollTo(0, 0);
@@ -948,7 +957,7 @@ function runSession(act, dk) {
         </div>
       </main>`, 'victory');
     const bal = balance(), g = cardById(state.goal), gOk = g && !owned(g.id);
-    const tip = gOk ? (bal >= g.price ? `Tu peux acheter ton objectif : ${g.name} !` : `Encore ${etoiles(g.price - bal)} pour ${g.name}.`) : '';
+    const tip = gOk ? (bal >= g.price ? `Tu peux acheter ton objectif : ${g.name} !` : `Encore ${etoiles(g.price - bal)}, pour ${g.name}.`) : '';
     $('.daily-bonus, .earned') && ($('.daily-bonus') || $('.earned')).insertAdjacentHTML('afterend', `<button class="newsticker to-shop" aria-label="Ouvrir la boutique">Ma tirelire : <b>${bal} ${STAR}</b>${tip ? `<small>${esc(tip)}</small>` : ''}</button>`);
     confetti();
     setTimeout(() => say(extra && extra.say ? extra.say + ` Dans ta tirelire, tu as ${etoiles(bal)}.` : `${msg}${state.name ? ' ' + state.name : ''} ! Tu as gagné ${etoiles(got)}. Dans ta tirelire, tu as ${etoiles(bal)}. ${tip}`), 200);
@@ -1060,6 +1069,7 @@ function settings() {
       <details class="sec" data-sec="voix"><summary><b>Voix</b><small data-sum="voix"></small></summary><div class="sec-body">
         ${seg('voice', [[true, 'Activée'], [false, 'Coupée']])}
         <div class="voices" id="voices"></div>
+        <small>Jessica : voix enregistrée pour MaloLab avec Piper (jeu de données UPMC, licence CC BY-SA 4.0). Si une phrase manque, la voix de l'iPhone prend le relais.</small>
         <small>« Voix de l'iPhone » utilise la voix choisie dans Réglages → Accessibilité → Contenu énoncé → Voix → Français (par exemple Aurélie ou Audrey Premium). iOS ne montre pas toujours ces voix dans la liste ci-dessus. Mode silencieux : pas de son.</small>
       </div></details>
 
@@ -1095,7 +1105,7 @@ function settings() {
     lecture: () => `${state.known.length} sons · ${state.outils.length} mots outils · ${{ arcs: 'arcs', couleurs: 'couleurs', aucune: 'sans aide' }[state.syl] || ''}`,
     maths: () => `${state.level === 'auto' ? `auto · jusqu'à ${numMax()}` : `jusqu'à ${state.level}`} · + étape ${calcStage('add')} · − étape ${calcStage('sub')}`,
     temps: () => `${dailyOn() ? 'entraînement affiché' : 'entraînement masqué'} · ${pauseMin() ? `pause à ${pauseMin()} min` : 'pas de rappel'} · ${Math.round(todaySeconds() / 60)} min aujourd'hui`,
-    voix: () => !state.voice ? 'coupée' : (state.voiceURI === 'system' || !frVoice) ? "voix de l'iPhone" : frVoice.name.replace(/\s*\(.*?\)\s*/g, ' ').trim(),
+    voix: () => !state.voice ? 'coupée' : state.voiceURI === 'malolab' ? 'Jessica (MaloLab)' : (state.voiceURI === 'system' || !frVoice) ? "voix de l'iPhone" : frVoice.name.replace(/\s*\(.*?\)\s*/g, ' ').trim(),
     sync: () => state.syncCode ? (state.syncError ? 'erreur' : 'activée') : 'non reliée',
   };
   window.refreshSums = () => document.querySelectorAll('[data-sum]').forEach(el => { try { el.textContent = sumText[el.dataset.sum](); } catch {} });
@@ -1107,12 +1117,13 @@ function settings() {
   const listVoices = () => {
     pickVoice();
     const vs = frVoices().filter(v => !ROBOT.test(v.name)).sort((a, b) => voiceScore(b) - voiceScore(a));
-    const seenN = {}, sys = !frVoice;
-    const sysBtn = `<button class="vc ${sys ? 'on' : ''}" data-uri="system"><span class="vc-l1">${ico('play')} Voix de l'iPhone ${ico('sparkle')}</span><span class="vc-l2">celle des réglages · <b class="vq p">conseillée</b></span></button>`;
-    $('#voices').innerHTML = sysBtn + vs.map(v => {
+    const seenN = {}, jess = state.voiceURI === 'malolab', sys = !jess && !frVoice;
+    const jessBtn = `<button class="vc ${jess ? 'on' : ''}" data-uri="malolab"><span class="vc-l1">${ico('play')} Jessica ${ico('sparkle')}</span><span class="vc-l2">voix de MaloLab · <b class="vq p">conseillée</b></span></button>`;
+    const sysBtn = `<button class="vc ${sys ? 'on' : ''}" data-uri="system"><span class="vc-l1">${ico('play')} Voix de l'iPhone</span><span class="vc-l2">celle des réglages</span></button>`;
+    $('#voices').innerHTML = jessBtn + sysBtn + vs.map(v => {
       const q = voiceQuality(v), base = v.name.replace(/\s*\(.*?\)\s*/g, ' ').trim();
       const key = base + q.label + v.lang; seenN[key] = (seenN[key] || 0) + 1;
-      return `<button class="vc ${frVoice && v.voiceURI === frVoice.voiceURI ? 'on' : ''}" data-uri="${esc(v.voiceURI)}">
+      return `<button class="vc ${!jess && frVoice && v.voiceURI === frVoice.voiceURI ? 'on' : ''}" data-uri="${esc(v.voiceURI)}">
         <span class="vc-l1">${ico('play')} ${esc(base)}${seenN[key] > 1 ? ' ' + seenN[key] : ''}${q.top ? ' ' + ico('sparkle') : ''}</span>
         <span class="vc-l2">${esc(voiceRegion(v.lang))} · <b class="vq ${q.cls}">${q.label}</b></span></button>`;
     }).join('');

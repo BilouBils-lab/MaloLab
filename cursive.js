@@ -261,13 +261,16 @@ function fitModel(svg, maxW, maxH) {
   const sc = Math.max(3, Math.min(maxW / W, maxH / H, 14));
   svg.style.width = (W * sc) + 'px'; svg.style.height = (H * sc) + 'px';
 }
+// Épeler avec le nom des lettres (écrit pour être bien lu par toutes les voix)
+const LETTER_NAMES = { b: 'bé', c: 'sé', d: 'dé', f: 'èffe', g: 'jé', h: 'ache', j: 'ji', k: 'ka', l: 'elle', m: 'èmme', n: 'enne', p: 'pé', q: 'ku', r: 'erre', s: 'èsse', t: 'té', v: 'vé', w: 'double vé', x: 'ixe', y: 'i grec', z: 'zède' };
+const spellOut = text => [...text.toLowerCase()].filter(c => /[a-zéèêëàâîïôûüç]/.test(c)).map(c => LETTER_NAMES[c] || c).join(', ');
 function paperQ(text, kind, opts = {}) {
   const copie = !!opts.copie, emoji = opts.emoji || '';
   const what = kind === 'mot' ? 'le mot' : 'la syllabe';
   return {
     key: text,
     text: copie ? `Regarde bien ${what}, puis écris-${kind === 'mot' ? 'le' : 'la'} de mémoire` : `Écris ${what} sur ton cahier`,
-    say: copie ? `Regarde bien ${what} : ${[...text].filter(c => /[a-zéèêëàâîïôûüç]/i.test(c)).join(', ')} : ${text}. Garde-${kind === 'mot' ? 'le' : 'la'} dans ta tête.` : `Sur ton cahier, écris ${what} : ${text}.`,
+    say: copie ? `Regarde bien ${what} : ${spellOut(text)} : ${text}. Garde-${kind === 'mot' ? 'le' : 'la'} dans ta tête.` : `Sur ton cahier, écris ${what} : ${text}.`,
     build(z, answer) {
       const avail = () => ({ w: Math.min(z.clientWidth - 8, 640), h: Math.max(140, window.innerHeight * 0.32) });
       const reveal = (title) => {
@@ -297,7 +300,7 @@ function paperQ(text, kind, opts = {}) {
       };
       if (!copie) return writeStep();
       // Regarde, cache, écris, vérifie : l'enfant cache le modèle quand il l'a en tête
-      const spell = [...text].filter(c => /[a-zéèêëàâîïôûüç]/i.test(c)).join(', ');
+      const spell = spellOut(text);
       let seen = 0;
       const look = (again) => {
         z.innerHTML = `<p class="pp-title">${again ? 'Regarde encore bien' : 'Regarde bien'}, et garde-${kind === 'mot' ? 'le' : 'la'} dans ta tête</p>
