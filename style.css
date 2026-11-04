@@ -1085,3 +1085,8 @@ svg.cursive.model-only .ink-model path { fill: none; stroke: #2B2D42; stroke-wid
 .pp-bar { width: min(280px, 70vw); height: 10px; border-radius: 999px; background: #EFE6D6; overflow: hidden; }
 .pp-bar i { display: block; height: 100%; background: var(--c); animation: ppbar 6s linear forwards; }
 @keyframes ppbar { from { width: 100%; } to { width: 0; } }
+/* Étiquette sous une mauvaise réponse */
+.choice .wrong-lab { display: block; font-size: 15px; font-weight: 800; color: #B23A4E; margin-top: 4px; opacity: 1; }
+.choice.bad { opacity: .75; }
+.choice .wrong-lab svg.art { width: 44px; height: 44px; }
+.choices.words .choice .wrong-lab { display: inline-flex; vertical-align: middle; margin: 0 0 0 10px; }

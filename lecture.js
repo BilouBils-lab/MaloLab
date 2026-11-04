@@ -50,22 +50,23 @@ function lettresQ(force) {
   const target = force && K.includes(force) ? force : pick(K);
   const forms = shuffle(letterForms(target));
   const targets = Array.from({ length: 5 }, (_, i) => forms[i % forms.length]);
+  const disIds = [];
   // Distracteurs : autres sons connus, sans ceux qui contiennent la lettre cherchée (o / ou…)
   const others = K.filter(d => d !== target && !d.includes(target) && !target.includes(d));
-  const pool = (others.length ? others : 'aiolrsfmn'.split('').filter(d => d !== target)).flatMap(letterForms);
-  const dis = Array.from({ length: 7 }, () => pick(pool));
+  const poolIds = others.length ? others : 'aiolrsfmn'.split('').filter(d => d !== target);
+  const dis = Array.from({ length: 7 }, () => { const id = pick(poolIds); disIds.push(id); return pick(letterForms(id)); });
   return {
     key: target,
     text: `Touche toutes les lettres « ${esc(L(target))} »`,
     say: `Touche toutes les lettres ${soundSay(target)}.`,
     build(z, answer) {
-      const tiles = shuffle([...targets.map(h => [h, true]), ...dis.map(h => [h, false])]);
+      const tiles = shuffle([...targets.map(h => [h, true, target]), ...dis.map((h, k) => [h, false, disIds[k]])]);
       z.innerHTML = bandHTML(target) + `<div class="lf-grid">${tiles.map(([h], i) => `<button class="lf-tile" data-i="${i}">${h}</button>`).join('')}</div>`;
       let left = targets.length;
       z.querySelectorAll('.lf-tile').forEach(b => b.addEventListener('click', () => {
         if (b.classList.contains('good') || b.classList.contains('bad')) return;
         if (tiles[b.dataset.i][1]) { b.classList.add('good'); sfxPop(); if (--left === 0) answer(true); }
-        else { b.classList.add('bad', 'shake'); answer(false); }
+        else { const id = tiles[b.dataset.i][2]; b.classList.add('bad', 'shake'); answer(false, `Ça, c'est ${SOUND_SAY[id] || id}, comme dans ${repere(id)}. On cherche ${SOUND_SAY[target] || target}, comme dans ${repere(target)}.`); }
       }));
     },
   };
@@ -98,6 +99,7 @@ function entendsQ(force) {
       build: choiceBuild({
         top: `<div class="hear"><span class="hear-snd">${esc(L(target))}</span><button class="pic" data-say="${esc(w.text)}">${artHTML(w.text, w.e)}</button></div>`,
         choices: [true, false], isRight: x => x === yes, cls: 'vf',
+        explain: () => yes ? `Écoute bien : ${w.text}. On entend ${SOUND_SAY[target] || target} dedans.` : `Écoute bien : ${w.text}. On n'entend pas ${SOUND_SAY[target] || target}.`,
         label: x => x ? ico('ear') + '<small>Oui, j\'entends</small>' : ico('no') + '<small>Non</small>',
       }),
     };
@@ -126,6 +128,7 @@ function fusionQ() {
     build: choiceBuild({
       top: `<div class="fusion"><span class="chev">${esc(L(a))}</span><span class="chev">${esc(L(b))}</span><span class="farrow">→</span><span class="fbox q">?</span></div>`,
       choices: shuffle([s, ...ds]), isRight: x => x === s, label: x => esc(L(x)),
+      explain: x => x === b + a ? `Attention à l'ordre : on lit d'abord ${a}, puis ${b}.` : `Tu as choisi ${x}. Lis les lettres dans l'ordre : ${a}, puis ${b}.`,
     }),
   };
 }
@@ -141,7 +144,8 @@ function syllabesQ() {
     key: s,
     text: 'Écoute et touche la syllabe',
     say: `Touche la syllabe : ${s}`,
-    build: choiceBuild({ top: `<button class="ear" data-say="${s}" aria-label="Écouter">${ico('ear')}</button>`, choices: shuffle([s, ...ds]), isRight: x => x === s, label: x => esc(L(x)) }),
+    build: choiceBuild({ top: `<button class="ear" data-say="${s}" aria-label="Écouter">${ico('ear')}</button>`, choices: shuffle([s, ...ds]), isRight: x => x === s, label: x => esc(L(x)),
+      explain: x => `Tu as touché ${x}. Écoute encore : ${s}.` }),
   };
 }
 
@@ -166,7 +170,8 @@ function meliQ() {
     key: pair.join('/'),
     text: 'Écoute bien : lequel entends-tu ?',
     say: `Écoute bien : ${target}`,
-    build: choiceBuild({ top: `<button class="ear" data-say="${esc(target)}" aria-label="Écouter">${ico('ear')}</button>`, choices: shuffle(pair), isRight: x => x === target, label: meliHTML, cls: 'words' }),
+    build: choiceBuild({ top: `<button class="ear" data-say="${esc(target)}" aria-label="Écouter">${ico('ear')}</button>`, choices: shuffle(pair), isRight: x => x === target, label: meliHTML, cls: 'words',
+      explain: x => `Tu as touché ${x}. Écoute bien la différence : ${target}.` }),
   };
 }
 
@@ -279,6 +284,7 @@ function bonnePhraseQ() {
     build: choiceBuild({
       top: `<div class="pic">${artHTML(w.text, w.e)}</div>`,
       choices: all, isRight: s => s === good,
+      explain: x => { const lw = x.replace(/[.!?]/g, '').split(' ').pop(); return `Tu as lu : ${x} Regarde bien l'image : est-ce ${FEMININ.has(lw) ? 'une' : 'un'} ${lw} ?`; },
       label: s => `<span class="sentence-choice">${sentenceHTML(parseSentence(s))}</span>`, cls: 'words phrases',
     }),
   };

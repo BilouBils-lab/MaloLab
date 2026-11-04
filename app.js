@@ -394,7 +394,8 @@ function confetti() {
    3. TYPES DE QUESTIONS
    { key, text, say, build(zone, answer) } ; answer(true | false, message?)
    ========================================================= */
-function choiceBuild({ top = '', choices, isRight, label = c => c, cls = '' }) {
+// explain(choix) : phrase lue après une erreur ; wrongLabel(choix) : texte affiché sous la mauvaise réponse
+function choiceBuild({ top = '', choices, isRight, label = c => c, cls = '', explain = null, wrongLabel = null }) {
   return (z, answer) => {
     z.innerHTML = `<div class="visual">${top}</div>
       <div class="choices ${cls}">${choices.map((c, i) => `<button class="choice" data-i="${i}">${label(c)}</button>`).join('')}</div>`;
@@ -404,8 +405,10 @@ function choiceBuild({ top = '', choices, isRight, label = c => c, cls = '' }) {
         z.querySelectorAll('.choice').forEach(x => x.disabled = true);
         answer(true);
       } else {
+        const c = choices[b.dataset.i];
         b.classList.add('bad'); b.disabled = true;
-        answer(false);
+        if (wrongLabel) b.insertAdjacentHTML('beforeend', `<small class="wrong-lab">${wrongLabel(c)}</small>`);
+        answer(false, explain ? explain(c) : undefined);
       }
     }));
   };
@@ -453,7 +456,10 @@ function spellQ({ units, word, emoji, kind }) {
       };
       const wrong = tile => {
         errors++; tile.classList.remove('shake'); void tile.offsetWidth; tile.classList.add('shake');
-        answer(false); hint();
+        const got = tile.dataset.l, pos = slots.findIndex(x => !x.classList.contains('ok'));
+        const msg = pos === 0 ? `${got}, ce n'est pas le premier son. Écoute bien le début : ${word}.`
+          : `${got}, ce n'est pas le son suivant. Dis le mot doucement : ${word}.`;
+        answer(false, msg); hint();
       };
       const slotAt = (x, y) => {
         let best = null, bd = Infinity;
@@ -620,7 +626,9 @@ const ACTS = {
           const ds = sample(K.filter(x => x !== f), 2);
           return {
             key: w.text, text: "Quel son entends-tu au début du mot ?", say: `Quel son entends-tu au début du mot : ${w.text} ?`,
-            build: choiceBuild({ top: `<button class="pic" data-say="${esc(w.text)}">${artHTML(w.text, w.e)}</button>`, choices: shuffle([f, ...ds]), isRight: x => x === f, label: x => esc(L(x)) }),
+            build: choiceBuild({ top: `<button class="pic" data-say="${esc(w.text)}">${artHTML(w.text, w.e)}</button>`, choices: shuffle([f, ...ds]), isRight: x => x === f, label: x => esc(L(x)),
+              explain: x => `${SOUND_SAY[x] || x}, c'est le son de ${repere(x)}. Écoute bien le début du mot : ${w.text}.`,
+              wrongLabel: x => esc(repere(x)) }),
           };
         },
       },
@@ -631,7 +639,9 @@ const ACTS = {
           const w = pickWord(W), ds = sample(W.filter(x => x !== w), 2);
           return {
             key: w.text, text: 'Quel est le bon mot ?', say: "Regarde l'image, et touche le bon mot.",
-            build: choiceBuild({ top: `<div class="pic">${artHTML(w.text, w.e)}</div>`, choices: shuffle([w, ...ds]), isRight: x => x === w, label: x => wordHTML(x), cls: 'words' }),
+            build: choiceBuild({ top: `<div class="pic">${artHTML(w.text, w.e)}</div>`, choices: shuffle([w, ...ds]), isRight: x => x === w, label: x => wordHTML(x), cls: 'words',
+              explain: x => `Tu as lu : ${x.text}. Mais l'image, c'est autre chose. Lis bien chaque syllabe.`,
+              wrongLabel: x => artHTML(x.text, x.e) }),
           };
         },
       },
@@ -642,7 +652,9 @@ const ACTS = {
           const w = pickWord(W), ds = sample(W.filter(x => x !== w), 2);
           return {
             key: w.text, text: 'Lis le mot et touche la bonne image', say: 'Lis le mot, et touche la bonne image.',
-            build: choiceBuild({ top: `<div class="word">${wordHTML(w)}</div>`, choices: shuffle([w, ...ds]), isRight: x => x === w, label: x => artHTML(x.text, x.e), cls: 'pics' }),
+            build: choiceBuild({ top: `<div class="word">${wordHTML(w)}</div>`, choices: shuffle([w, ...ds]), isRight: x => x === w, label: x => artHTML(x.text, x.e), cls: 'pics',
+              explain: x => `Ça, c'est : ${x.text}. Relis le mot, syllabe par syllabe.`,
+              wrongLabel: x => esc(L(x.text)) }),
           };
         },
       },
