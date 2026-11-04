@@ -267,7 +267,7 @@ function paperQ(text, kind, opts = {}) {
   return {
     key: text,
     text: copie ? `Regarde bien ${what}, puis écris-${kind === 'mot' ? 'le' : 'la'} de mémoire` : `Écris ${what} sur ton cahier`,
-    say: copie ? `Regarde bien ${what}. Ensuite, écris-${kind === 'mot' ? 'le' : 'la'} sur ton cahier, de mémoire.` : `Sur ton cahier, écris ${what} : ${text}.`,
+    say: copie ? `Regarde bien ${what} : ${[...text].filter(c => /[a-zéèêëàâîïôûüç]/i.test(c)).join(', ')} : ${text}. Garde-${kind === 'mot' ? 'le' : 'la'} dans ta tête.` : `Sur ton cahier, écris ${what} : ${text}.`,
     build(z, answer) {
       const avail = () => ({ w: Math.min(z.clientWidth - 8, 640), h: Math.max(140, window.innerHeight * 0.32) });
       const reveal = (title) => {
@@ -296,16 +296,29 @@ function paperQ(text, kind, opts = {}) {
         z.querySelector('#pp-written').onclick = () => reveal('Compare avec ton cahier :');
       };
       if (!copie) return writeStep();
-      // Copie différée : le modèle s'affiche 6 secondes, puis disparaît
-      z.innerHTML = `<div class="cursive-wrap">${cursiveModelHTML(text)}</div><p class="pp-script">${esc(text)}</p><div class="pp-bar"><i></i></div>`;
-      const a = avail(); fitModel(z.querySelector('svg'), a.w, a.h);
-      setTimeout(() => { if (!z.isConnected) return;
-        z.innerHTML = `<p class="pp-title">À toi ! Écris-${kind === 'mot' ? 'le' : 'la'} de mémoire sur ton cahier.</p>
+      // Regarde, cache, écris, vérifie : l'enfant cache le modèle quand il l'a en tête
+      const spell = [...text].filter(c => /[a-zéèêëàâîïôûüç]/i.test(c)).join(', ');
+      let seen = 0;
+      const look = (again) => {
+        z.innerHTML = `<p class="pp-title">${again ? 'Regarde encore bien' : 'Regarde bien'}, et garde-${kind === 'mot' ? 'le' : 'la'} dans ta tête</p>
+          <div class="cursive-wrap">${cursiveModelHTML(text)}</div><p class="pp-script">${esc(text)}</p>
+          <div class="row"><button class="btn" id="pp-hide" disabled>${ico('eye')} Je l'ai dans ma tête</button></div><div class="pp-bar"><i></i></div>`;
+        const a = avail(); fitModel(z.querySelector('svg'), a.w, a.h);
+        if (again) say(`${spell} : ${text}.`);
+        const bt = z.querySelector('#pp-hide');
+        const t1 = setTimeout(() => { bt.disabled = false; }, 3000);
+        const t2 = setTimeout(() => { if (z.isConnected && z.contains(bt)) hide(); }, 12000);
+        bt.onclick = () => { clearTimeout(t1); clearTimeout(t2); hide(); };
+      };
+      const hide = () => {
+        if (!z.isConnected) return;
+        z.innerHTML = `<p class="pp-title">Le mot est caché. À toi ! Écris-${kind === 'mot' ? 'le' : 'la'} de mémoire sur ton cahier.</p>
           <div class="row"><button class="btn" id="pp-written">${ico('check')} J'ai écrit</button><button class="btn sec" id="pp-again">${ico('eye')} Revoir</button></div>`;
         say(`À toi ! Écris ${what} de mémoire.`);
-        z.querySelector('#pp-written').onclick = () => reveal('Compare avec ton cahier :');
-        z.querySelector('#pp-again').onclick = () => { answer(false, 'Regarde encore, puis écris.'); reveal('Regarde bien, puis écris :'); };
-      }, 6000);
+        z.querySelector('#pp-written').onclick = () => reveal('Vérifie avec ton cahier :');
+        z.querySelector('#pp-again').onclick = () => { if (!seen++) answer(false, 'Regarde encore, puis cache et écris.'); look(true); };
+      };
+      look(false);
     },
   };
 }

@@ -1083,7 +1083,7 @@ body.has-decor::before { position: fixed; inset: 0; height: 100lvh; }
 .pp-script { margin: 0; font-size: 22px; font-weight: 800; opacity: .55; letter-spacing: 1px; }
 svg.cursive.model-only .ink-model path { fill: none; stroke: #2B2D42; stroke-width: 1.15; stroke-linecap: round; stroke-linejoin: round; }
 .pp-bar { width: min(280px, 70vw); height: 10px; border-radius: 999px; background: #EFE6D6; overflow: hidden; }
-.pp-bar i { display: block; height: 100%; background: var(--c); animation: ppbar 6s linear forwards; }
+.pp-bar i { display: block; height: 100%; background: var(--c); animation: ppbar 12s linear forwards; }
 @keyframes ppbar { from { width: 100%; } to { width: 0; } }
 /* Étiquette sous une mauvaise réponse */
 .choice .wrong-lab { display: block; font-size: 15px; font-weight: 800; color: #B23A4E; margin-top: 4px; opacity: 1; }
