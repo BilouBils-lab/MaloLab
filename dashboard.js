@@ -18,8 +18,9 @@ function logTime(seconds, parties = 0) {
 }
 function logAll() {
   const all = {};
-  [...others().map(d => d.log || {}), state.log || {}].forEach(L => Object.entries(L).forEach(([k, [p, s]]) => {
-    const e = all[k] || [0, 0]; e[0] += p || 0; e[1] += s || 0; all[k] = e;
+  [...others().map(d => d.log || {}), state.log || {}].forEach(L => Object.entries(L || {}).forEach(([k, v]) => {
+    const a = Array.isArray(v) ? v : v && typeof v === 'object' ? [v[0], v[1]] : [0, 0];
+    const e = all[k] || [0, 0]; e[0] += +a[0] || 0; e[1] += +a[1] || 0; all[k] = e;
   }));
   return all;
 }
@@ -52,6 +53,14 @@ const fmtMin = s => s >= 3600 ? `${Math.floor(s / 3600)} h ${String(Math.round(s
 
 /* ---------- Écran ---------- */
 function dashboard() {
+  try { dashboardView(); }
+  catch (e) {
+    render(`<header class="top"><button class="icon" id="back" aria-label="Retour">${ico('back')}</button><div class="title">Tableau de bord</div></header>
+      <main class="settings dashboard"><section class="db-card warn">${ico('warn')} Le tableau de bord n'a pas pu s'afficher. Détail à transmettre : ${esc(e && e.message || e)}</section></main>`);
+    $('#back').onclick = settings;
+  }
+}
+function dashboardView() {
   const N = ACT_NAMES(), L = logAll(), now = new Date();
   // 7 derniers jours
   const days = Array.from({ length: 7 }, (_, i) => { const d = new Date(now); d.setDate(d.getDate() - (6 - i)); return d; });
@@ -64,7 +73,8 @@ function dashboard() {
   const rows = [], weak = [], solid = [];
   Object.keys(N).forEach(id => {
     const M = memGet(id); let ok = 0, ko = 0;
-    Object.entries(M).forEach(([q, [at, s, e, last]]) => {
+    Object.entries(M).forEach(([q, v]) => {
+      const [at, s, e, last] = Array.isArray(v) ? v : [v[0], v[1], v[2], v[3]].map(x => +x || 0);
       ok += s; ko += e;
       if (e > 0 && (last === 0 || e > s)) weak.push({ id, q, at, s, e });
       else if (s >= 2 && e === 0) solid.push({ id, q });

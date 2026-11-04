@@ -52,8 +52,9 @@ const fluenceAll = (key, part) => [...others().flatMap(d => (((d.fluence || {})[
 function memGet(actId) {
   const out = {};
   [...others().map(d => (d.mem || {})[actId] || {}), (state.mem || {})[actId] || {}].forEach(m => {
-    Object.entries(m).forEach(([k0, e]) => {
+    Object.entries(m || {}).forEach(([k0, e]) => {
       const k = fixKey(k0), o = out[k];
+      e = Array.isArray(e) ? e : e && typeof e === 'object' ? [0, 1, 2, 3].map(i => +e[i] || 0) : [0, 0, 0, 1];
       if (!o) out[k] = [...e];
       else { o[1] += e[1]; o[2] += e[2]; if (e[0] > o[0]) { o[0] = e[0]; o[3] = e[3]; } }
     });

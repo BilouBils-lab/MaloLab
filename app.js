@@ -294,11 +294,21 @@ function voiceScore(v) {
   if (/enhanced|amélior/i.test(id)) sc += 5;
   if (/neural|natural|online/i.test(id)) sc += 4;          // voix naturelles (Edge, Chrome, Android)
   if (/Amélie|Audrey|Aurélie|Thomas|Marie|Denise|Henri|Vivienne|Google/i.test(id)) sc += 2;
-  if (v.lang === 'fr-FR') sc += 1;
+  if (v.lang === 'fr-FR') sc += 3;   // accent de France en priorité
   if (/compact/i.test(id)) sc -= 2;
   if (ROBOT.test(v.name)) sc -= 20;
   return sc;
 }
+// Qualité d'une voix : iOS l'indique dans le nom ou l'identifiant (premium, enhanced/améliorée, compact)
+function voiceQuality(v) {
+  const id = `${v.name} ${v.voiceURI}`.toLowerCase();
+  if (/premium/.test(id)) return { label: 'Premium', cls: 'p', top: true };
+  if (/enhanced|améliorée|amélioré|neural|natural/.test(id)) return { label: 'Améliorée', cls: 'e', top: true };
+  if (/compact/.test(id)) return { label: 'Standard', cls: 's', top: false };
+  if (v.localService === false) return { label: 'En ligne', cls: 'e', top: true };
+  return { label: 'Standard', cls: 's', top: false };
+}
+const voiceRegion = lang => ({ 'fr-FR': 'France', 'fr-CA': 'Canada', 'fr-BE': 'Belgique', 'fr-CH': 'Suisse' })[lang] || lang;
 function pickVoice() {
   const vs = frVoices();
   frVoice = vs.find(v => v.voiceURI === state.voiceURI) || vs.slice().sort((a, b) => voiceScore(b) - voiceScore(a))[0] || null;
@@ -1005,7 +1015,8 @@ function settings() {
         <small>Si vous n'entendez rien, vérifiez que l'appareil n'est pas en mode silencieux.</small>
         <div class="voices" id="voices"></div>
         <small><b>Pour une voix bien plus naturelle sur iPhone / iPad :</b> Réglages → Accessibilité → Contenu énoncé → Voix → Français (France)
-        → téléchargez <b>Amélie (premium)</b> ou <b>Thomas (améliorée)</b>, puis fermez et rouvrez MaloLab et choisissez-la ci-dessus.</small>
+        → téléchargez <b>Audrey (premium)</b> ou <b>Thomas (améliorée)</b>, puis fermez et rouvrez MaloLab et choisissez-la ci-dessus.
+        Attention : <b>Amélie</b> est une voix du Canada (accent québécois).</small>
       </div>
       <div class="field">Synchronisation iPhone ↔ iPad
         <div class="sync" id="sync"></div>
@@ -1032,17 +1043,26 @@ function settings() {
   chips('#gr', 'known');
   chips('#mo', 'outils');
 
+  $('#db-open').onclick = () => dashboard();
+  $('#back').onclick = home;
   const listVoices = () => {
     pickVoice();
     const vs = frVoices().filter(v => !ROBOT.test(v.name)).sort((a, b) => voiceScore(b) - voiceScore(a));
-    $('#voices').innerHTML = vs.length ? vs.map(v => `<button class="${frVoice && v.voiceURI === frVoice.voiceURI ? 'on' : ''}" data-uri="${esc(v.voiceURI)}">${ico('play')} ${esc(v.name.replace(/\s*\(.*?\)\s*/g, ' ').trim())}${/premium|enhanced|amélior/i.test(v.name + v.voiceURI) ? ' ' + ico('sparkle') : ''}</button>`).join('')
+    const seenN = {};
+    $('#voices').innerHTML = vs.length ? vs.map(v => {
+      const q = voiceQuality(v), base = v.name.replace(/\s*\(.*?\)\s*/g, ' ').trim();
+      const key = base + q.label + v.lang; seenN[key] = (seenN[key] || 0) + 1;
+      return `<button class="vc ${frVoice && v.voiceURI === frVoice.voiceURI ? 'on' : ''}" data-uri="${esc(v.voiceURI)}">
+        <span class="vc-l1">${ico('play')} ${esc(base)}${seenN[key] > 1 ? ' ' + seenN[key] : ''}${q.top ? ' ' + ico('sparkle') : ''}</span>
+        <span class="vc-l2">${esc(voiceRegion(v.lang))} · <b class="vq ${q.cls}">${q.label}</b></span></button>`;
+    }).join('')
       : '<small>Aucune voix française trouvée sur cet appareil.</small>';
     $('#voices').querySelectorAll('button').forEach(b => b.onclick = () => {
       state.voiceURI = b.dataset.uri; save(); pickVoice(); listVoices();
       say(`Bonjour ${state.name || ''} ! Je vais lire les consignes avec cette voix.`);
     });
   };
-  listVoices();
+  try { listVoices(); } catch (e) { $('#voices').innerHTML = '<small>Liste des voix indisponible.</small>'; }
   const drawSync = () => {
     const box = $('#sync'); if (!box) return;
     if (!SYNC_DB) { box.innerHTML = `<small>Pas encore activée : la base de données en ligne n'est pas configurée.</small>`; return; }
@@ -1082,10 +1102,9 @@ function settings() {
     $('#sy-now').onclick = async () => { $('#sy-now').textContent = '…'; await syncNow(); settings(); };
     $('#sy-off').onclick = () => { if (confirm('Arrêter la synchronisation sur cet appareil ?')) { state.syncCode = ''; state.remote = {}; save(); settings(); } };
   };
-  drawSync();
-  navigator.serviceWorker?.controller?.postMessage('version');
+  try { drawSync(); } catch (e) { $('#sync').innerHTML = `<small>Erreur d'affichage : ${esc(e.message)}</small>`; }
+  try { navigator.serviceWorker?.controller?.postMessage('version'); } catch {}
   if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => { pickVoice(); if ($('#voices')) listVoices(); };
-  $('#db-open').onclick = dashboard;
   $('#back').onclick = home;
   $('#name').oninput = e => { state.name = e.target.value.trim(); markSettings(); save(); };
   app.querySelectorAll('.seg').forEach(s => s.querySelectorAll('button').forEach(b => b.onclick = () => {
