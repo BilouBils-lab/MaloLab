@@ -691,6 +691,18 @@ const ACTS = {
           return cursiveQ(pickWord(W).text, 'le mot');
         },
       },
+      {
+        id: 'papier-syllabes', paper: true, title: 'Dictée de syllabes', icon: '',
+        make() { const P = fusionPool().map(p => p[2]).filter(cursiveSupports); return P.length ? paperQ(pick(P), 'syllabe') : null; },
+      },
+      {
+        id: 'papier-mots', paper: true, title: 'Dictée de mots', icon: '',
+        make() { const W = readableWords().filter(w => w.text.length <= 7 && cursiveSupports(w.text)); if (!W.length) return null; const w = pickWord(W); return paperQ(w.text, 'mot', { emoji: artHTML(w.text, w.e) }); },
+      },
+      {
+        id: 'papier-copie', paper: true, title: 'Copie de mémoire', icon: '',
+        make() { const W = readableWords().filter(w => w.text.length <= 6 && cursiveSupports(w.text)); if (!W.length) return null; return paperQ(pickWord(W).text, 'mot', { copie: true }); },
+      },
     ],
   },
 };
@@ -739,7 +751,7 @@ function home() {
       <main class="dcards">
         ${pauseLocked() ? `<button class="pause-banner" id="pause-b">${ico('timer')} Pause en cours · les exercices reviennent bientôt</button>` : dailyCardHTML()}
         ${Object.entries(ACTS).map(([k, d]) => {
-          const n = d.list.filter(a => !a.screen || a.id === 'fluence').length;
+          const n = d.list.filter(a => (!a.screen || a.id === 'fluence') && !!a.paper === (k === 'ecriture' && paperMode())).length;
           const st = d.list.reduce((x, a) => x + actStars(a.id), 0);
           return `<button class="dcard" style="--c:${d.color}" data-d="${k}">
             <span class="dc-ic">${domainIcon(k)}</span>
@@ -791,6 +803,7 @@ function themes() {
   });
 }
 
+const paperMode = () => state.writeMode === 'papier';
 function domain(k) {
   if (pauseLocked()) return pauseScreen();
   const d = ACTS[k];
@@ -800,14 +813,19 @@ function domain(k) {
       <div class="title dtitle"><span class="dt-ic">${domainIcon(k)}</span>${d.title}</div>
       <button class="stars to-shop" aria-label="Ouvrir la boutique">${STAR} ${balance()}</button>
     </header>
+    ${k === 'ecriture' ? `<div class="wmode"><div class="seg" id="wmode">
+      <button data-v="ecran" class="${paperMode() ? '' : 'on'}">Sur l'écran</button>
+      <button data-v="papier" class="${paperMode() ? 'on' : ''}">Sur papier</button></div>
+      <small>${paperMode() ? `L'application dicte, ${esc(state.name || "l'enfant")} écrit sur son cahier, puis compare avec le modèle.` : 'Écrire avec le doigt ou le crayon de la tablette.'}</small></div>` : ''}
     <main class="acts">
-      ${d.list.map((a, i) => `
+      ${d.list.map((a, i) => (k === 'ecriture' && !!a.paper !== paperMode()) ? '' : `
         <button class="act" style="--c:${d.color}" data-i="${i}">
           <span class="ai">${actIcon(a.id) || a.icon}</span><span class="at">${a.title}</span>
           <span class="as">${a.id === 'messons' ? `${state.known.length} sons` : `${STAR} ${actStars(a.id)}`}</span>
         </button>`).join('')}
     </main>`);
   $('#back').onclick = home;
+  app.querySelectorAll('#wmode button').forEach(b => b.onclick = () => { state.writeMode = b.dataset.v; save(); sfxPop(); domain(k); });
   app.querySelectorAll('.act').forEach(b => b.onclick = () => {
     const a = d.list[b.dataset.i];
     say(a.title);

@@ -62,11 +62,12 @@ function dailyPlan() {
   if (maths[0]) add(maths[0], 2);
   if (maths[1]) add(maths[1], 1);
   // 4. Écriture (2 questions)
-  const write = ['ecrismot', 'dictee'].filter(usable).sort((a, b) => needScore(b) - needScore(a));
+  const write = (paperMode() ? ['papier-mots', 'papier-syllabes'] : ['ecrismot', 'dictee']).filter(usable).sort((a, b) => needScore(b) - needScore(a));
   if (write[0]) add(write[0], 1);
-  add(pick(['ecrismot', 'dictee', 'cursive-syllabes'].filter(usable)) || 'ecrismot', 1);
+  if (paperMode()) add(pick(['papier-mots', 'papier-copie', 'papier-syllabes'].filter(usable)) || 'papier-mots', 1);
+  else add(pick(['ecrismot', 'dictee', 'cursive-syllabes'].filter(usable)) || 'ecrismot', 1);
   // Compléter si besoin, puis limiter à 10
-  const fill = Object.values(ACTS).flatMap(d => d.list).filter(a => a.make && !/^cursive|trace/.test(a.id)).map(a => a.id);
+  const fill = Object.values(ACTS).flatMap(d => d.list).filter(a => a.make && !a.paper && !/^cursive|trace/.test(a.id)).map(a => a.id);
   while (plan.length < DAILY_TOTAL && fill.length) add(pick(fill), 1);
   return plan.slice(0, DAILY_TOTAL);
 }

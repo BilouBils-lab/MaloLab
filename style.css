@@ -1071,3 +1071,17 @@ body.has-decor::before { position: fixed; inset: 0; height: 100lvh; }
 .add2 .more { display: flex; flex-wrap: wrap; gap: 6px; max-width: 5.5em; }
 .dotg { width: 30px; height: 30px; border-radius: 50%; background: #2E9E5B; display: inline-block; box-shadow: inset -3px -3px 0 rgba(0,0,0,.15); }
 .m-link.help { margin-top: 2px; font-size: 17px; }
+
+/* Mode papier */
+.wmode { padding: 0 16px 6px; display: flex; flex-direction: column; gap: 4px; }
+.wmode .seg button { background: var(--card); }
+.wmode small { font-size: 14px; font-weight: 600; text-align: center; color: var(--text, var(--ink)); }
+.pp-dict { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.pp-pic { font-size: 0; } .pp-pic svg.art { width: 120px; height: 120px; }
+.pp-note { display: flex; align-items: center; gap: 8px; background: var(--card); color: var(--ink); padding: 10px 16px; border-radius: 16px; font-weight: 700; font-size: 17px; text-align: center; }
+.pp-title { margin: 0; font-weight: 800; font-size: 20px; text-align: center; }
+.pp-script { margin: 0; font-size: 22px; font-weight: 800; opacity: .55; letter-spacing: 1px; }
+svg.cursive.model-only .ink-model path { fill: none; stroke: #2B2D42; stroke-width: 1.15; stroke-linecap: round; stroke-linejoin: round; }
+.pp-bar { width: min(280px, 70vw); height: 10px; border-radius: 999px; background: #EFE6D6; overflow: hidden; }
+.pp-bar i { display: block; height: 100%; background: var(--c); animation: ppbar 6s linear forwards; }
+@keyframes ppbar { from { width: 100%; } to { width: 0; } }

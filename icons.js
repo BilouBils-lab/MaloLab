@@ -75,6 +75,9 @@
     'cursive-lettres': () => `<span class="aico-cur">${cur('a')}</span>`,
     'cursive-syllabes': () => `<span class="aico-cur">${cur('la')}</span>`,
     'cursive-mots': () => `<span class="aico-cur">${cur('ami')}</span>`,
+    'papier-syllabes': () => badge(`<rect x="8" y="9" width="24" height="23" rx="2" fill="#fff" stroke="currentColor" stroke-width="1.8"/><path d="M11 16h18M11 21h18M11 26h18" stroke="currentColor" stroke-width="1" opacity=".45"/>` + T('ra', 11, 'currentColor', 0)),
+    'papier-mots': () => badge(`<rect x="8" y="9" width="24" height="23" rx="2" fill="#fff" stroke="currentColor" stroke-width="1.8"/><path d="M11 16h18M11 21h18M11 26h18" stroke="currentColor" stroke-width="1" opacity=".45"/><path d="M26 6l6 6-11 11-6 1 1-6Z" fill="#F6C445" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>`),
+    'papier-copie': () => `<span class="aico-ico">${window.ico('eye')}</span>`,
   };
   window.actIcon = id => ACT[id] ? ACT[id]() : '';
 })();

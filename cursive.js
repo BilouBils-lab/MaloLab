@@ -239,3 +239,73 @@ function cursiveQ(text, kind, opts = {}) {
     },
   };
 }
+
+/* =========================================================
+   Mode papier : l'application dicte, l'enfant écrit sur son cahier,
+   puis compare avec le modèle en écriture attachée.
+   kind : 'syllabe' | 'mot' ; copie : modèle montré quelques secondes puis caché
+   ========================================================= */
+function cursiveModelHTML(text) {
+  const L = cursiveLayout(text);
+  return `<svg class="cursive model-only" xmlns="${SVGNS}"><g class="paper"></g>
+    <g class="model ink-model"><path d="${L.main}"/>${L.extras.map(e => `<path d="${e}"/>`).join('')}</g></svg>`;
+}
+// Cadre l'image sur le mot et ajoute les lignes Seyès (une fois dans la page)
+function fitModel(svg, maxW, maxH) {
+  const g = svg.querySelector('.ink-model'), b = g.getBBox();
+  const x0 = Math.floor(b.x - 6), x1 = Math.ceil(b.x + b.width + 6);
+  const y0 = Math.min(-20, Math.floor((b.y - 3) / 10) * 10), y1 = Math.max(10, Math.ceil((b.y + b.height + 3) / 10) * 10);
+  const W = Math.max(30, x1 - x0), H = y1 - y0;
+  svg.setAttribute('viewBox', `${x0} ${y0} ${W} ${H}`);
+  svg.querySelector('.paper').innerHTML = `<rect x="${x0}" y="${y0}" width="${W}" height="${H}" fill="#fff"/>${seyesSVG(x0, x0 + W, y0, y1)}`;
+  const sc = Math.max(3, Math.min(maxW / W, maxH / H, 14));
+  svg.style.width = (W * sc) + 'px'; svg.style.height = (H * sc) + 'px';
+}
+function paperQ(text, kind, opts = {}) {
+  const copie = !!opts.copie, emoji = opts.emoji || '';
+  const what = kind === 'mot' ? 'le mot' : 'la syllabe';
+  return {
+    key: text,
+    text: copie ? `Regarde bien ${what}, puis écris-${kind === 'mot' ? 'le' : 'la'} de mémoire` : `Écris ${what} sur ton cahier`,
+    say: copie ? `Regarde bien ${what}. Ensuite, écris-${kind === 'mot' ? 'le' : 'la'} sur ton cahier, de mémoire.` : `Sur ton cahier, écris ${what} : ${text}.`,
+    build(z, answer) {
+      const avail = () => ({ w: Math.min(z.clientWidth - 8, 640), h: Math.max(140, window.innerHeight * 0.32) });
+      const reveal = (title) => {
+        z.innerHTML = `<p class="pp-title">${title}</p><div class="cursive-wrap">${cursiveModelHTML(text)}</div>
+          <p class="pp-script">${esc(text)}</p>
+          <div class="row"><button class="btn" id="pp-ok">${ico('check')} Je l'ai bien écrit</button><button class="btn sec" id="pp-fix">${ico('eraser')} Je corrige</button></div>`;
+        const a = avail(); fitModel(z.querySelector('svg'), a.w, a.h);
+        say(`Voici le modèle : ${text}. As-tu bien écrit ?`);
+        z.querySelector('#pp-ok').onclick = () => answer(true);
+        z.querySelector('#pp-fix').onclick = () => {
+          answer(false, 'Corrige sur ton cahier, en regardant bien le modèle.');
+          z.querySelector('.row').innerHTML = `<button class="btn" id="pp-done">${ico('check')} C'est corrigé</button>`;
+          z.querySelector('#pp-done').onclick = () => answer(true);
+        };
+      };
+      const writeStep = () => {
+        z.innerHTML = `
+          <div class="pp-dict">
+            <button class="ear" data-say="${esc(text)}" aria-label="Réécouter">${ico('ear')}</button>
+            ${emoji ? `<button class="m-link" id="pp-img">Aide : voir l'image</button><div class="pic pp-pic" hidden>${emoji}</div>` : ''}
+          </div>
+          <div class="pp-note">${ico('eye')} Écris sur ton cahier, en attaché, puis touche le bouton.</div>
+          <div class="row"><button class="btn" id="pp-written">${ico('check')} J'ai écrit</button></div>`;
+        const im = z.querySelector('#pp-img');
+        if (im) im.onclick = () => { z.querySelector('.pp-pic').hidden = false; im.remove(); };
+        z.querySelector('#pp-written').onclick = () => reveal('Compare avec ton cahier :');
+      };
+      if (!copie) return writeStep();
+      // Copie différée : le modèle s'affiche 6 secondes, puis disparaît
+      z.innerHTML = `<div class="cursive-wrap">${cursiveModelHTML(text)}</div><p class="pp-script">${esc(text)}</p><div class="pp-bar"><i></i></div>`;
+      const a = avail(); fitModel(z.querySelector('svg'), a.w, a.h);
+      setTimeout(() => { if (!z.isConnected) return;
+        z.innerHTML = `<p class="pp-title">À toi ! Écris-${kind === 'mot' ? 'le' : 'la'} de mémoire sur ton cahier.</p>
+          <div class="row"><button class="btn" id="pp-written">${ico('check')} J'ai écrit</button><button class="btn sec" id="pp-again">${ico('eye')} Revoir</button></div>`;
+        say(`À toi ! Écris ${what} de mémoire.`);
+        z.querySelector('#pp-written').onclick = () => reveal('Compare avec ton cahier :');
+        z.querySelector('#pp-again').onclick = () => { answer(false, 'Regarde encore, puis écris.'); reveal('Regarde bien, puis écris :'); };
+      }, 6000);
+    },
+  };
+}
