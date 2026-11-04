@@ -137,39 +137,164 @@ function comparerQ() {
   };
 }
 
-/* ---------- L'addition : boîte de 10 et « maison » du nombre ---------- */
+/* =========================================================
+   Addition et soustraction en 3 étapes
+   1. Je manipule (je complète la boîte / je barre les ronds)
+   2. J'imagine (aide visuelle sans la réponse, bouton « Aide »)
+   3. Je calcule (les nombres seulement)
+   Mode « progressif » : 4 réussites du premier coup → étape suivante ;
+   une erreur → étape précédente. Réglage parent : state.calcMode.
+   ========================================================= */
+const STAGE_NAMES = { add: ['', 'Je complète', 'Je compte à partir de', 'Je calcule'], sub: ['', 'Je barre', "J'imagine", 'Je calcule'] };
+const STAGE_WINS = 4;
+function calcStage(op) {
+  const m = state.calcMode;
+  if (m === 1 || m === 2 || m === 3) return m;
+  return ((state.calc || {})[op] || {}).stage || 1;
+}
+// Retourne un message si l'enfant change d'étape
+function calcResult(op, stage, firstTry, helped) {
+  if (state.calcMode && state.calcMode !== 'auto') return '';
+  state.calc = state.calc || {};
+  const c = state.calc[op] = state.calc[op] || { stage: 1, wins: 0 };
+  if (c.stage !== stage) return '';
+  let msg = '';
+  if (firstTry && !helped) {
+    if (++c.wins >= STAGE_WINS && c.stage < 3) { c.stage++; c.wins = 0; msg = ' Tu passes à l\'étape suivante !'; }
+  } else if (!firstTry) {
+    c.wins = 0; if (c.stage > 1) c.stage--;
+  }
+  return msg;
+}
 const bondSVG = (a, b, t) => `<svg class="bond" viewBox="0 0 130 100"><line x1="30" y1="26" x2="98" y2="50"/><line x1="30" y1="74" x2="98" y2="50"/>
   <circle cx="30" cy="26" r="20" class="b"/><circle cx="30" cy="74" r="20" class="g"/><circle cx="98" cy="50" r="23" class="t"/>
   <text x="30" y="34" class="b">${a}</text><text x="30" y="82" class="g">${b}</text><text x="98" y="59" class="t">${t}</text></svg>`;
+
+// Boutons de réponse (verrouillables) + gestion du premier essai et de la correction
+function calcChoices(z, choices, right, onWrong, done) {
+  const box = document.createElement('div');
+  box.className = 'choices'; box.innerHTML = choices.map((c, k) => `<button class="choice" data-k="${k}">${c}</button>`).join('');
+  z.appendChild(box);
+  box.querySelectorAll('.choice').forEach(btn => btn.addEventListener('click', () => {
+    const v = choices[+btn.dataset.k];
+    if (v === right) { btn.classList.add('good'); box.querySelectorAll('.choice').forEach(x => x.disabled = true); done(true); }
+    else { btn.classList.add('bad'); btn.disabled = true; onWrong(); done(false); }
+  }));
+  return box;
+}
+
+/* ---------- L'addition ---------- */
 function additionQ() {
   const M = calcMax(), s = rnd(2, M), a = rnd(1, s - 1), b = s - a;
-  const vis = s <= 10 ? tenFrame(s, [...Array(a).fill('b'), ...Array(b).fill('g')]) : '';
+  const stage = s > 10 && calcStage('add') === 1 ? 2 : calcStage('add');   // boîte de 10 jusqu'à 10
+  const N = STAGE_NAMES.add;
   return {
-    key: `${a}+${b}`, text: `${a} + ${b} = ?`, say: `Combien font ${a} plus ${b} ?`, after: `${a} plus ${b} est égal à ${s}.`,
-    build: choiceBuild({
-      top: `<div class="add-row">${vis}${bondSVG(a, b, '?')}</div><div class="eq">${a} + ${b} = <span class="q">?</span></div>`,
-      choices: numChoices(s, 0, M + 3), isRight: c => c === s,
-    }),
+    key: `${a}+${b}`, tag: `Étape ${stage} · ${N[stage]}${stage === 2 ? ' ' + a : ''}`,
+    text: `${a} + ${b} = ?`,
+    say: stage === 1 ? `Combien font ${a} plus ${b} ? Ajoute ${b} billes dans la boîte, puis touche le résultat.`
+      : stage === 2 ? `Combien font ${a} plus ${b} ? Pars de ${a}, et compte ${b} de plus.` : `Combien font ${a} plus ${b} ?`,
+    after: `${a} plus ${b} est égal à ${s}.`,
+    build(z, answer) {
+      const q = this; let firstTry = true, helped = false;
+      const cells = Math.max(10, Math.ceil(s / 10) * 10);
+      const frameHTML = (filled, interactive) => `<div class="tfs">${Array.from({ length: cells / 10 }, (_, f) => `<div class="tf${interactive ? ' tap' : ''}">${Array.from({ length: 10 }, (_, k) => {
+        const n = f * 10 + k; return `<span data-n="${n}">${n < a ? '<i class="b"></i>' : filled.has(n) ? '<i class="g pop-in"></i>' : ''}</span>`; }).join('')}</div>`).join('')}</div>`;
+      const eq = `<div class="eq">${a} + ${b} = <span class="q">?</span></div>`;
+      const showCorrection = () => {
+        const old = z.querySelector('.calc-vis'); if (old) old.remove();
+        z.insertAdjacentHTML('afterbegin', `<div class="calc-vis corr">${tenFrame(s, [...Array(a).fill('b'), ...Array(b).fill('g')])}<small>${a} et encore ${b}, ça fait ${s}</small></div>`);
+      };
+      const finish = ok => {
+        if (!ok) { firstTry = false; return answer(false, `Regarde bien : ${a} plus ${b}.`); }
+        q.after += calcResult('add', stage, firstTry, helped);
+        answer(true);
+      };
+      const choices = () => calcChoices(z, numChoices(s, 0, M + 3), s, showCorrection, finish);
+      const manipulate = () => {
+        const added = new Set();
+        z.innerHTML = `<div class="calc-vis">${frameHTML(added, true)}</div><div class="calc-cnt">Billes ajoutées : <b>0</b> / ${b}</div>${eq}`;
+        const box = choices(); box.classList.add('locked');
+        z.querySelector('.calc-vis').addEventListener('click', e => {
+          const cell = e.target.closest('span[data-n]'); if (!cell) return;
+          const n = +cell.dataset.n; if (n < a) return;
+          if (added.has(n)) added.delete(n);
+          else if (added.size < b) added.add(n);
+          else { const c = z.querySelector('.calc-cnt'); c.classList.remove('shake'); void c.offsetWidth; c.classList.add('shake'); say(`Ajoute seulement ${b} billes.`); return; }
+          sfxPop();
+          z.querySelector('.calc-vis').innerHTML = frameHTML(added, true);
+          z.querySelector('.calc-cnt b').textContent = added.size;
+          if (added.size === b && box.classList.contains('locked')) { box.classList.remove('locked'); say('Combien de billes en tout ?'); }
+          else if (added.size < b) box.classList.add('locked');
+        });
+      };
+      if (stage === 1) return manipulate();
+      if (stage === 2) {
+        z.innerHTML = `<div class="calc-vis add2"><span class="from">${a}</span><span class="plus">+</span><span class="more">${'<i class="dotg"></i>'.repeat(b)}</span></div>${eq}`;
+        choices();
+        z.insertAdjacentHTML('beforeend', `<button class="m-link help" id="c-help">Aide : je complète la boîte</button>`);
+        z.querySelector('#c-help').onclick = () => { helped = true; if (s <= 10) manipulate(); else showCorrection(); };
+        return;
+      }
+      z.innerHTML = `<div class="calc-vis">${bondSVG(a, b, '?')}</div>${eq}`;
+      choices();
+    },
   };
 }
 
-/* ---------- La soustraction : on barre ce qu'on enlève ---------- */
+/* ---------- La soustraction ---------- */
 function soustractionQ() {
   const M = Math.min(calcMax(), 10), a = rnd(2, M), b = rnd(1, a - 1), d = a - b;
-  const story = Math.random() < .3;
-  const items = Array.from({ length: a }, (_, i) => {
-    const x = i >= d;
-    return `<i class="sub${x ? ' x' : ''}${story ? ' marble' : ''}" style="--d:${x ? (i - d) * .3 + .4 : 0}s"></i>`;
-  }).join('');
+  const story = Math.random() < .3, stage = calcStage('sub'), N = STAGE_NAMES.sub;
+  const thing = story ? 'billes' : 'ronds';
   return {
-    key: `${a}-${b}`,
+    key: `${a}-${b}`, tag: `Étape ${stage} · ${N[stage]}`,
     text: story ? `J'ai ${a} billes, j'en donne ${b}. Combien en reste-t-il ?` : `${a} − ${b} = ?`,
-    say: story ? `J'ai ${a} billes. J'en donne ${b}. Combien de billes me reste-t-il ?` : `Combien font ${a} moins ${b} ?`,
+    say: (story ? `J'ai ${a} billes. J'en donne ${b}. Combien de billes me reste-t-il ?` : `Combien font ${a} moins ${b} ?`)
+      + (stage === 1 ? ` Barre ${b} ${thing}, puis touche le résultat.` : ''),
     after: `${a} moins ${b} est égal à ${d}.`,
-    build: choiceBuild({
-      top: `<div class="subs">${items}</div><div class="eq">${a} − ${b} = <span class="q">?</span></div>`,
-      choices: numChoices(d, 0, M), isRight: c => c === d,
-    }),
+    build(z, answer) {
+      const q = this; let firstTry = true, helped = false;
+      const circles = (crossed, interactive) => `<div class="subs${interactive ? ' tap' : ''}">${Array.from({ length: a }, (_, i) =>
+        `<${interactive ? 'button' : 'i'} class="sub${crossed.has(i) ? ' x now' : ''}${story ? ' marble' : ''}" data-i="${i}" aria-label="rond ${i + 1}"></${interactive ? 'button' : 'i'}>`).join('')}</div>`;
+      const eq = `<div class="eq">${a} − ${b} = <span class="q">?</span></div>`;
+      const showCorrection = () => {
+        const old = z.querySelector('.calc-vis'); if (old) old.remove();
+        z.insertAdjacentHTML('afterbegin', `<div class="calc-vis corr"><div class="subs">${Array.from({ length: a }, (_, i) => { const x = i >= d;
+          return `<i class="sub${x ? ' x' : ''}${story ? ' marble' : ''}" style="--d:${x ? (i - d) * .3 + .2 : 0}s"></i>`; }).join('')}</div><small>On en enlève ${b}, il en reste ${d}</small></div>`);
+      };
+      const finish = ok => {
+        if (!ok) { firstTry = false; return answer(false, `Regarde bien : ${a} moins ${b}.`); }
+        q.after += calcResult('sub', stage, firstTry, helped);
+        answer(true);
+      };
+      const choices = () => calcChoices(z, numChoices(d, 0, M), d, showCorrection, finish);
+      const manipulate = () => {
+        const crossed = new Set();
+        z.innerHTML = `<div class="calc-vis">${circles(crossed, true)}</div><div class="calc-cnt">${story ? 'Billes données' : 'Ronds barrés'} : <b>0</b> / ${b}</div>${eq}`;
+        const box = choices(); box.classList.add('locked');
+        z.querySelector('.calc-vis').addEventListener('click', e => {
+          const c = e.target.closest('.sub'); if (!c) return;
+          const i = +c.dataset.i;
+          if (crossed.has(i)) crossed.delete(i);
+          else if (crossed.size < b) crossed.add(i);
+          else { const k = z.querySelector('.calc-cnt'); k.classList.remove('shake'); void k.offsetWidth; k.classList.add('shake'); say(`Barre seulement ${b} ${thing}.`); return; }
+          sfxPop();
+          z.querySelector('.calc-vis').innerHTML = circles(crossed, true);
+          z.querySelector('.calc-cnt b').textContent = crossed.size;
+          if (crossed.size === b && box.classList.contains('locked')) { box.classList.remove('locked'); say(`Combien en reste-t-il ?`); }
+          else if (crossed.size < b) box.classList.add('locked');
+        });
+      };
+      if (stage === 1) return manipulate();
+      if (stage === 2) {
+        z.innerHTML = `<div class="calc-vis">${circles(new Set(), false)}</div>${eq}`;
+        choices();
+        z.insertAdjacentHTML('beforeend', `<button class="m-link help" id="c-help">Aide : je barre les ${thing}</button>`);
+        z.querySelector('#c-help').onclick = () => { helped = true; manipulate(); };
+        return;
+      }
+      z.innerHTML = eq; choices();
+    },
   };
 }
 

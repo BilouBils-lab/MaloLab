@@ -1044,3 +1044,30 @@ body.has-decor::before { position: fixed; inset: 0; height: 100lvh; }
 .settings details.sec.danger > summary b { color: var(--bad); }
 .settings { gap: 10px; }
 .seg button { padding: 10px 8px; font-size: 16px; }
+
+/* =========================================================
+   Calcul en 3 étapes
+   ========================================================= */
+.calc-vis { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.calc-vis.corr { background: #FFF4D6; border-radius: 18px; padding: 10px 14px; animation: bounce .5s; }
+.calc-vis.corr small { font-weight: 800; font-size: 16px; color: #7A5200; }
+.calc-cnt { font-weight: 800; font-size: 18px; background: var(--card); color: var(--ink); padding: 4px 14px; border-radius: 999px; }
+.calc-cnt b { color: var(--c); }
+.choices.locked { opacity: .35; pointer-events: none; filter: grayscale(.4); }
+.choices { transition: opacity .3s; }
+/* Ronds à barrer */
+.subs.tap .sub { cursor: pointer; padding: 0; }
+.subs.tap .sub:active { transform: scale(.92); }
+.sub.x.now::after { transform: rotate(-45deg) scaleX(1); animation: none; }
+.subs.tap .sub.x { opacity: .55; }
+/* Boîte de 10 à compléter */
+.tf.tap span { cursor: pointer; }
+.tf.tap span:empty:active { background: #EAF6EE; }
+.tf i.pop-in { animation: bounce .3s; }
+/* Étape 2 de l'addition : partir du premier nombre */
+.add2 { flex-direction: row; gap: 12px; font-size: clamp(40px, 11vw, 64px); font-weight: 900; }
+.add2 .from { background: #3A86FF; color: #fff; border-radius: 50%; width: 1.7em; height: 1.7em; display: grid; place-items: center; box-shadow: 0 4px 0 rgba(0,0,0,.15); }
+.add2 .plus { color: var(--text, var(--ink)); }
+.add2 .more { display: flex; flex-wrap: wrap; gap: 6px; max-width: 5.5em; }
+.dotg { width: 30px; height: 30px; border-radius: 50%; background: #2E9E5B; display: inline-block; box-shadow: inset -3px -3px 0 rgba(0,0,0,.15); }
+.m-link.help { margin-top: 2px; font-size: 17px; }

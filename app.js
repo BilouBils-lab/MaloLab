@@ -155,7 +155,7 @@ const QUESTIONS_PAR_PARTIE = 5;
 
 /* ---------- Sauvegarde locale ---------- */
 const KEY = 'malolab';
-const DEFAULTS = { pauseMin: 20, pauseMode: 'doux', dailyOn: true, theme: 'foot', name: 'Malo', level: 'auto', caps: false, voice: true, syl: 'arcs', stars: 0, act: {}, known: DEFAULT_KNOWN, outils: DEFAULT_OUTILS, fluence: {}, v2: true };
+const DEFAULTS = { calcMode: 'auto', pauseMin: 20, pauseMode: 'doux', dailyOn: true, theme: 'foot', name: 'Malo', level: 'auto', caps: false, voice: true, syl: 'arcs', stars: 0, act: {}, known: DEFAULT_KNOWN, outils: DEFAULT_OUTILS, fluence: {}, v2: true };
 const sameSet = (a, b) => Array.isArray(a) && a.length === b.length && b.every(x => a.includes(x));
 const state = (() => {
   let saved = {};
@@ -1001,6 +1001,12 @@ function settings() {
           ${seg('level', [['auto', 'Auto'], [10, '10'], [30, '30'], [60, '60'], [90, '90']])}
           <small>Auto : comme les fiches d'aide aux devoirs (10 en septembre, 30 jusqu'en décembre, 60 jusqu'en mars, 90 ensuite).</small>
         </div>
+        <div class="field">Additions et soustractions
+          ${seg('calcMode', [['auto', 'Progressif'], [1, 'Étape 1'], [2, 'Étape 2'], [3, 'Étape 3']])}
+          <small>1 : je manipule (je complète la boîte, je barre les ronds) · 2 : j'imagine, avec une aide si besoin · 3 : je calcule.
+          En progressif, 4 réussites d'affilée font passer à l'étape suivante, une erreur fait revenir en arrière.
+          Aujourd'hui : additions étape <b>${calcStage('add')}</b>, soustractions étape <b>${calcStage('sub')}</b>.</small>
+        </div>
       </div></details>
 
       <details class="sec" data-sec="temps"><summary><b>Temps de jeu</b><small data-sum="temps"></small></summary><div class="sec-body">
@@ -1050,7 +1056,7 @@ function settings() {
   const sumText = {
     enfant: () => state.name || '—',
     lecture: () => `${state.known.length} sons · ${state.outils.length} mots outils · ${{ arcs: 'arcs', couleurs: 'couleurs', aucune: 'sans aide' }[state.syl] || ''}`,
-    maths: () => state.level === 'auto' ? `auto · nombres jusqu'à ${numMax()}` : `nombres jusqu'à ${state.level}`,
+    maths: () => `${state.level === 'auto' ? `auto · jusqu'à ${numMax()}` : `jusqu'à ${state.level}`} · + étape ${calcStage('add')} · − étape ${calcStage('sub')}`,
     temps: () => `${dailyOn() ? 'entraînement affiché' : 'entraînement masqué'} · ${pauseMin() ? `pause à ${pauseMin()} min` : 'pas de rappel'} · ${Math.round(todaySeconds() / 60)} min aujourd'hui`,
     voix: () => !state.voice ? 'coupée' : (state.voiceURI === 'system' || !frVoice) ? "voix de l'iPhone" : frVoice.name.replace(/\s*\(.*?\)\s*/g, ' ').trim(),
     sync: () => state.syncCode ? (state.syncError ? 'erreur' : 'activée') : 'non reliée',
