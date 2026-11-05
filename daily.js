@@ -64,7 +64,7 @@ function dailyPlan() {
   // 4. Écriture (2 questions)
   const write = (paperMode() ? ['papier-mots', 'papier-syllabes'] : ['ecrismot', 'dictee']).filter(usable).sort((a, b) => needScore(b) - needScore(a));
   if (write[0]) add(write[0], 1);
-  if (paperMode()) add(pick(['papier-mots', 'papier-copie', 'papier-syllabes'].filter(usable)) || 'papier-mots', 1);
+  if (paperMode()) add(pick(['papier-mots', 'papier-copie', 'papier-syllabes', 'papier-phrases'].filter(usable)) || 'papier-mots', 1);
   else add(pick(['ecrismot', 'dictee', 'cursive-syllabes'].filter(usable)) || 'ecrismot', 1);
   // Compléter si besoin, puis limiter à 10
   const fill = Object.values(ACTS).flatMap(d => d.list).filter(a => a.make && !a.paper && !/^cursive|trace/.test(a.id)).map(a => a.id);

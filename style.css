@@ -1142,3 +1142,19 @@ svg.cursive.model-only .ink-model path { fill: none; stroke: #2B2D42; stroke-wid
 .vmore { width: 100%; }
 .vmore > summary { cursor: pointer; font-weight: 700; padding: 6px 2px; opacity: .8; list-style-position: inside; }
 .vmore > small { display: block; margin: 2px 0 8px; }
+
+/* Dictée de phrases (papier) */
+.pw-slots { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.pw-slot { min-width: 48px; height: 48px; border-radius: 12px; background: var(--card); border: 3px solid var(--line); font-weight: 900; font-size: 20px; color: var(--ink); }
+.pw-slot:active { transform: scale(.94); }
+.pw-model { display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: flex-start; row-gap: 4px; width: 100%; background: #fff; border-radius: 14px; padding: 6px 8px; box-shadow: 0 3px 10px rgba(0,0,0,.08); }
+.pw-word { display: inline-flex; align-items: flex-start; }
+.pw-model svg.pw-svg { display: block; border-radius: 0; box-shadow: none; background: none; border: 0; padding: 0; max-width: none; }
+.pw-word + .pw-word { margin-left: 0; }
+.pw-word:not(:last-child)::after { content: ''; width: 14px; }
+.pw-apo, .pw-txt { font-family: Georgia, serif; font-size: calc(var(--pwsc, 2) * 12px); color: #1d2340; margin: calc(var(--pwsc, 2) * 14px) -1px 0; }
+.pw-print { margin: 0; font-size: 24px; font-weight: 800; text-align: center; }
+.pw-check { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.pw-check span { display: inline-flex; align-items: center; gap: 4px; background: #E3F6EE; color: #1F7A5A; font-weight: 700; font-size: 14px; padding: 4px 10px; border-radius: 999px; }
+.pw-check svg.ico { width: 16px; height: 16px; }
+.pw-cap { font-family: Georgia, serif; font-weight: 700; font-size: calc(var(--pwsc, 2) * 25px); line-height: 1; color: #E5566D; margin: calc(var(--pwsc, 2) * 8.5px) 1px 0 0; }

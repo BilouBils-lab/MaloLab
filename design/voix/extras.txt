@@ -4368,6 +4368,7 @@ Syllabes attachées
 Mots attachés
 Dictée de syllabes
 Dictée de mots
+Dictée de phrases
 Copie de mémoire
 Mon entraînement du jour
 Bientôt ! Il faut encore apprendre quelques sons en classe pour cet exercice.
@@ -5458,3 +5459,470 @@ Bravo ! 297 secondes
 Bravo ! 298 secondes
 Bravo ! 299 secondes
 Bravo ! 300 secondes
+Écris la phrase : Le rat rit.
+Le rat rit.
+Le
+rat
+rit
+Écris la phrase : Le chat file.
+Le chat file.
+Le
+chat
+file
+Écris la phrase : Malo lit.
+Malo lit.
+Malo
+lit
+Écris la phrase : La souris rit.
+La souris rit.
+La
+souris
+rit
+Écris la phrase : Le chat est fâché.
+Le chat est fâché.
+Le
+chat
+est
+fâché
+Écris la phrase : Le loup est énorme.
+Le loup est énorme.
+Le
+loup
+est
+énorme
+Écris la phrase : Le rat est sur le sofa.
+Le rat est sur le sofa.
+Le
+rat
+est
+sur
+le
+sofa
+Écris la phrase : La mouche est sur le mur.
+La mouche est sur le mur.
+La
+mouche
+est
+sur
+le
+mur
+Écris la phrase : Mamie lit sur le sofa.
+Mamie lit sur le sofa.
+Mamie
+lit
+sur
+le
+sofa
+Écris la phrase : Malo a un ami.
+Malo a un ami.
+Malo
+a
+un
+ami
+Écris la phrase : Il y a un nid.
+Il y a un nid.
+Il
+y
+a
+un
+nid
+Écris la phrase : Le riz est salé.
+Le riz est salé.
+Le
+riz
+est
+salé
+Écris la phrase : La fourmi file.
+La fourmi file.
+La
+fourmi
+file
+Écris la phrase : La roue roule.
+La roue roule.
+La
+roue
+roule
+Écris la phrase : Le renard chasse le rat.
+Le renard chasse le rat.
+Le
+renard
+chasse
+le
+rat
+Écris la phrase : Malo lit un mot.
+Malo lit un mot.
+Malo
+lit
+un
+mot
+Écris la phrase : Le chat mord le fil.
+Le chat mord le fil.
+Le
+chat
+mord
+le
+fil
+Écris la phrase : La fée a un lasso.
+La fée a un lasso.
+La
+fée
+a
+un
+lasso
+Écris la phrase : Il y a un ours.
+Il y a un ours.
+Il
+y
+a
+un
+ours
+Écris la phrase : La momie rit.
+La momie rit.
+La
+momie
+rit
+Écris la phrase : Le héros a un lasso.
+Le héros a un lasso.
+Le
+héros
+a
+un
+lasso
+Écris la phrase : L'ours est énorme.
+L'ours est énorme.
+L'ours
+est
+énorme
+Écris la phrase : La souris est sur la niche.
+La souris est sur la niche.
+La
+souris
+est
+sur
+la
+niche
+Écris la phrase : Mamie a un foulard.
+Mamie a un foulard.
+Mamie
+a
+un
+foulard
+Écris la phrase : Malo sort.
+Malo sort.
+Malo
+sort
+Écris la phrase : Le lama marche.
+Le lama marche.
+Le
+lama
+marche
+Écris la phrase : La fusée file.
+La fusée file.
+La
+fusée
+file
+Écris la phrase : Malo lira un mot.
+Malo lira un mot.
+Malo
+lira
+un
+mot
+Écris la phrase : Le chat est roux.
+Le chat est roux.
+Le
+chat
+est
+roux
+Écris la phrase : L'ara est sur le mur.
+L'ara est sur le mur.
+L'ara
+est
+sur
+le
+mur
+Écris la phrase : Il y a la lune.
+Il y a la lune.
+Il
+y
+a
+la
+lune
+Écris la phrase : Mamie rit.
+Mamie rit.
+Mamie
+rit
+Écris la phrase : Le chat est sur le lit.
+Le chat est sur le lit.
+Le
+chat
+est
+sur
+le
+lit
+Écris la phrase : C'est un nid.
+C'est un nid.
+C'est
+un
+nid
+Écris la phrase : C'est un héros.
+C'est un héros.
+C'est
+un
+héros
+Écris la phrase : Le loup a un os.
+Le loup a un os.
+Le
+loup
+a
+un
+os
+Écris la phrase : Malo a un ami et un chat.
+Malo a un ami et un chat.
+Malo
+a
+un
+ami
+et
+un
+chat
+Écris la phrase : Le renard est dans la rue.
+Le renard est dans la rue.
+Le
+renard
+est
+dans
+la
+rue
+Écris la phrase : Il a un sirop.
+Il a un sirop.
+Il
+a
+un
+sirop
+Écris la phrase : La fourmi est sur la roue.
+La fourmi est sur la roue.
+La
+fourmi
+est
+sur
+la
+roue
+Écris la phrase : Malo marche dans la rue.
+Malo marche dans la rue.
+Malo
+marche
+dans
+la
+rue
+Écris la phrase : Le chat dort sur le lit.
+Le chat dort sur le lit.
+Le
+chat
+dort
+sur
+le
+lit
+Écris la phrase : Le poisson nage.
+Le poisson nage.
+Le
+poisson
+nage
+Écris la phrase : La tomate est rouge.
+La tomate est rouge.
+La
+tomate
+est
+rouge
+Écris la phrase : La souris est petite.
+La souris est petite.
+La
+souris
+est
+petite
+Écris la phrase : Le canard nage.
+Le canard nage.
+Le
+canard
+nage
+Écris la phrase : La banane est jaune.
+La banane est jaune.
+La
+banane
+est
+jaune
+Écris la phrase : La tortue marche.
+La tortue marche.
+La
+tortue
+marche
+Écris la phrase : Le chat miaule.
+Le chat miaule.
+Le
+chat
+miaule
+Écris la phrase : La fusée vole.
+La fusée vole.
+La
+fusée
+vole
+Écris la phrase : Le lapin mange la salade.
+Le lapin mange la salade.
+Le
+lapin
+mange
+la
+salade
+Écris la phrase : Il dort dans le lit.
+Il dort dans le lit.
+Il
+dort
+dans
+le
+lit
+Écris la phrase : La salade est verte.
+La salade est verte.
+La
+salade
+est
+verte
+Écris la phrase : Le cheval saute.
+Le cheval saute.
+Le
+cheval
+saute
+Écris la phrase : Le gorille mange une banane.
+Le gorille mange une banane.
+Le
+gorille
+mange
+une
+banane
+Écris la phrase : La rose est rouge.
+La rose est rouge.
+La
+rose
+est
+rouge
+Écris la phrase : Le phoque nage.
+Le phoque nage.
+Le
+phoque
+nage
+Écris la phrase : Le lion dort.
+Le lion dort.
+Le
+lion
+dort
+Écris la phrase : Il a un ami.
+Il a un ami.
+Il
+a
+un
+ami
+Écris la phrase : Le chat est sur le mur.
+Le chat est sur le mur.
+Le
+chat
+est
+sur
+le
+mur
+Écris la phrase : Le héros vole.
+Le héros vole.
+Le
+héros
+vole
+Écris la phrase : Le dragon vole.
+Le dragon vole.
+Le
+dragon
+vole
+Écris la phrase : La sirène nage.
+La sirène nage.
+La
+sirène
+nage
+Écris la phrase : La fée vole.
+La fée vole.
+La
+fée
+vole
+Écris la phrase : Le héros a un masque.
+Le héros a un masque.
+Le
+héros
+a
+un
+masque
+Écris la phrase : Le chat chasse la souris.
+Le chat chasse la souris.
+Le
+chat
+chasse
+la
+souris
+Écris la phrase : La mouche marche sur le mur.
+La mouche marche sur le mur.
+La
+mouche
+marche
+sur
+le
+mur
+Écris la phrase : Le renard est roux.
+Le renard est roux.
+Le
+renard
+est
+roux
+Écris la phrase : L'ours a un nez.
+L'ours a un nez.
+L'ours
+a
+un
+nez
+Écris la phrase : Le loup chasse le rat.
+Le loup chasse le rat.
+Le
+loup
+chasse
+le
+rat
+Écris la phrase : Il y a un ara sur le mur.
+Il y a un ara sur le mur.
+Il
+y
+a
+un
+ara
+sur
+le
+mur
+Écris la phrase : Malo lit sur le sofa.
+Malo lit sur le sofa.
+Malo
+lit
+sur
+le
+sofa
+Écris la phrase : La fourmi marche.
+La fourmi marche.
+La
+fourmi
+marche
+Écris la phrase : C'est un lama.
+C'est un lama.
+C'est
+un
+lama
+Écris la phrase : Le lama marche dans la rue.
+Le lama marche dans la rue.
+Le
+lama
+marche
+dans
+la
+rue
+Écoute la phrase, et écris-la sur ton cahier
+Voici le modèle. As-tu mis la majuscule et le point ?
+Corrige sur ton cahier, mot par mot, en regardant bien le modèle.

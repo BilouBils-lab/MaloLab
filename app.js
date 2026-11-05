@@ -79,6 +79,17 @@ const EXTRA = [
   'r.i/r.(e)', 'l.i/r.(e)', 'm.o.r.(d)', 's.o.r.(t)', 's.o.l', 'm.o.(t)', 'f.ou', 'm.ou', 'l.i/r.a', 'r.i/r.a', 'a/f.o/l.é.(e)',
 ];
 // Mots outils (appris « par cœur », sans décodage)
+// Phrases de dictée : courtes, sensées, écrites uniquement avec des mots déchiffrables
+const DICTEES = [
+  'Le rat rit.', 'Le chat file.', 'Malo lit.', 'La souris rit.', 'Le chat est fâché.', 'Le loup est énorme.',
+  'Le rat est sur le sofa.', 'La mouche est sur le mur.', 'Mamie lit sur le sofa.', 'Malo a un ami.', 'Il y a un nid.',
+  'Le riz est salé.', 'La fourmi file.', 'La roue roule.', 'Le renard chasse le rat.', 'Malo lit un mot.',
+  'Le chat mord le fil.', 'La fée a un lasso.', 'Il y a un ours.', 'La momie rit.', 'Le héros a un lasso.',
+  "L'ours est énorme.", 'La souris est sur la niche.', 'Mamie a un foulard.', 'Malo sort.', 'Le lama marche.',
+  'La fusée file.', 'Malo lira un mot.', 'Le chat est roux.', "L'ara est sur le mur.", 'Il y a la lune.', 'Mamie rit.',
+  'Le chat est sur le lit.', "C'est un nid.", "C'est un héros.", 'Le loup a un os.', 'Malo a un ami et un chat.',
+  'Le renard est dans la rue.', 'La fourmi est sur la roue.', 'Malo marche dans la rue.',
+];
 const MOTS_OUTILS = ['un', 'le', 'la', "l'", 'a', 'à', 'il', 'y', 'et', 'est', 'dans', "c'est", 'sur', 'les', 'une', 'elle', 'de', 'des', 'au', 'avec'];
 const DEFAULT_OUTILS = MOTS_OUTILS.slice(0, 13);
 const OLD_DEFAULT_OUTILS = ['le', 'la', 'les', 'un', 'une', 'il', 'elle', 'est', 'et', 'a', 'sur', 'dans', 'de', 'des'];
@@ -719,6 +730,14 @@ const ACTS = {
       {
         id: 'papier-mots', paper: true, title: 'Dictée de mots', icon: '',
         make() { const W = readableWords().filter(w => w.text.length <= 7 && cursiveSupports(w.text)); if (!W.length) return null; const w = pickWord(W); return paperQ(w.text, 'mot', { emoji: artHTML(w.text, w.e) }); },
+      },
+      {
+        id: 'papier-phrases', paper: true, title: 'Dictée de phrases', icon: '', total: 3,
+        make() {
+          const K = knownSet(), MO = new Set(state.outils);
+          const P = [...new Set([...DICTEES, ...PHRASES.filter(x => x[1]).map(x => x[0])])].filter(t => t.split(' ').length <= 7 && sentenceReadable(parseSentence(t), K, MO));
+          return P.length >= 3 ? phraseQ(pick(P)) : null;
+        },
       },
       {
         id: 'papier-copie', paper: true, title: 'Copie de mémoire', icon: '',

@@ -325,3 +325,70 @@ function paperQ(text, kind, opts = {}) {
     },
   };
 }
+
+/* =========================================================
+   Dictée de phrases (mode papier) : l'application dicte, l'enfant écrit
+   la phrase sur son cahier, puis compare avec le modèle (mots en attaché).
+   ========================================================= */
+// Un mot en attaché, à une échelle commune pour tous les mots de la phrase
+// (pas de majuscules attachées : la majuscule est montrée à part, en couleur)
+function cursiveWordHTML(word) {
+  const svg = t => { const L = cursiveLayout(t); return `<svg class="cursive model-only pw-svg" xmlns="${SVGNS}"><g class="paper"></g><g class="model ink-model"><path d="${L.main}"/>${L.extras.map(e => `<path d="${e}"/>`).join('')}</g></svg>`; };
+  return word.split("'").map(part => {
+    let cap = '';
+    if (part && part[0] !== part[0].toLowerCase()) { cap = `<span class="pw-cap">${esc(part[0])}</span>`; part = part.slice(1); }
+    const low = part.toLowerCase();
+    return cap + (!low ? '' : cursiveSupports(low) ? svg(low) : `<span class="pw-txt">${esc(part)}</span>`);
+  }).join('<span class="pw-apo">\'</span>');
+}
+// Même hauteur de ligne pour tous les mots : les lignes du cahier se suivent d'un mot à l'autre
+function fitWords(root, sc, deep) {
+  const Y0 = -30, Y1 = deep ? 20 : 8;
+  root.style.setProperty('--pwsc', sc);
+  root.querySelectorAll('.pw-svg').forEach(svg => {
+    const b = svg.querySelector('.ink-model').getBBox();
+    const x0 = Math.floor(b.x - 3), W = Math.max(12, Math.ceil(b.width + 6));
+    svg.setAttribute('viewBox', `${x0} ${Y0} ${W} ${Y1 - Y0}`);
+    svg.querySelector('.paper').innerHTML = seyesSVG(x0, x0 + W, Y0, Y1);
+    svg.style.width = (W * sc) + 'px'; svg.style.height = ((Y1 - Y0) * sc) + 'px';
+  });
+}
+function phraseQ(sentence) {
+  const words = sentence.replace(/[.!?]$/, '').split(' ');
+  return {
+    key: sentence,
+    text: 'Écoute la phrase, et écris-la sur ton cahier',
+    say: `Écris la phrase : ${sentence}`,
+    build(z, answer) {
+      const writeStep = () => {
+        z.innerHTML = `
+          <div class="pp-dict">
+            <button class="ear" data-say="${esc(sentence)}" aria-label="Réécouter la phrase">${ico('ear')}</button>
+            <p class="pp-title">La phrase a ${words.length} mots. Touche un numéro pour réécouter un mot.</p>
+            <div class="pw-slots">${words.map((w, i) => `<button class="pw-slot" data-say="${esc(w)}">${i + 1}</button>`).join('')}</div>
+          </div>
+          <div class="pp-note">${ico('eye')} Écris la phrase en attaché, puis touche le bouton.</div>
+          <div class="row"><button class="btn" id="pp-written">${ico('check')} J'ai écrit</button></div>`;
+        z.querySelector('#pp-written').onclick = reveal;
+      };
+      const reveal = () => {
+        z.innerHTML = `<p class="pp-title">Compare avec ton cahier :</p>
+          <div class="pw-model">${words.map(w => `<span class="pw-word">${cursiveWordHTML(w)}</span>`).join('')}</div>
+          <p class="pw-print">${esc(sentence)}</p>
+          <div class="pw-check"><span>${ico('check')} Une majuscule au début</span><span>${ico('check')} Un espace entre les mots</span><span>${ico('check')} Un point à la fin</span></div>
+          <div class="row"><button class="btn" id="pp-ok">${ico('check')} Je l'ai bien écrite</button><button class="btn sec" id="pp-fix">${ico('eraser')} Je corrige</button></div>`;
+        const box = z.querySelector('.pw-model');
+        fitWords(box, Math.max(1.6, Math.min(2.8, (z.clientWidth || 360) / 190)), /[fgjpqyz]/.test(sentence));
+        say('Voici le modèle. As-tu mis la majuscule et le point ?');
+        z.querySelector('#pp-ok').onclick = () => answer(true);
+        z.querySelector('#pp-fix').onclick = () => {
+          answer(false, 'Corrige sur ton cahier, mot par mot, en regardant bien le modèle.');
+          z.querySelector('.row').innerHTML = `<button class="btn" id="pp-done">${ico('check')} C'est corrigé</button>`;
+          z.querySelector('#pp-done').onclick = () => answer(true);
+        };
+      };
+      writeStep();
+    },
+  };
+}
+

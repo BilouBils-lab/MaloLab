@@ -34,6 +34,10 @@ const { chromium } = require('playwright');
     GRAPHEMES.forEach(g => { const id = g[0], sd = SOUND_SAY[id] || id; o.push(`Ça, c'est ${sd}, comme dans ${repere(id)}. On cherche ${sd}, comme dans ${repere(id)}.`); });
     [...new Set([...'abcdefghijklmnopqrstuvwxyzéèêëàâîïôûüç', ...LEXICON.flatMap(w => w.toks.map(t => t.id))])].forEach(l => { const sd = SOUND_SAY[l] || l; o.push(`${sd}, ce n'est pas le premier son. Écoute bien le début : chat.`, `${sd}, ce n'est pas le son suivant. Dis le mot doucement : chat.`); });
     R(1, 300).forEach(n => o.push(`Bravo ! ${pl(n, 'seconde')}`));
+    // Dictée de phrases : la phrase, chaque mot seul, les consignes
+    const DP = [...new Set([...DICTEES, ...PHRASES.filter(x => x[1]).map(x => x[0])])];
+    DP.forEach(t => { o.push(`Écris la phrase : ${t}`, t); t.replace(/[.!?]$/, '').split(' ').forEach(w => o.push(w)); });
+    o.push('Écoute la phrase, et écris-la sur ton cahier', 'Voici le modèle. As-tu mis la majuscule et le point ?', 'Corrige sur ton cahier, mot par mot, en regardant bien le modèle.');
     return o;
   });
   console.log(out.filter(x => !/\bX\b/.test(x) || true).join('\n').replace(/, pour X\./g, ','));
