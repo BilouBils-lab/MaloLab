@@ -10,7 +10,15 @@
    ========================================================= */
 const VOICE_DIR = 'voix/';
 const vNorm = t => String(t).replace(/’/g, "'").replace(/[  ]/g, ' ').replace(/\s+/g, ' ').trim();
-const vSegments = t => vNorm(t).replace(/([.!?:;,])\s+/g, '$1\u0000').split('\u0000').filter(s => /[0-9a-zà-ÿœæ]/i.test(s));
+// Un mot seul suivi d'une virgule (« Compte, ») reste attaché à la suite, pour une phrase fluide
+const vMerge = s => /^[A-Za-zÀ-ÿ'-]{4,},$/.test(s) && !/(.)\1\1/i.test(s);
+function vSegments(t) {
+  const out = [];
+  vNorm(t).replace(/([.!?:;,])\s+/g, '$1\u0000').split('\u0000').forEach(p => {
+    if (out.length && vMerge(out[out.length - 1]) && p.split(' ').length >= 2) out[out.length - 1] += ' ' + p; else out.push(p);
+  });
+  return out.filter(s => /[0-9a-zà-ÿœæ]/i.test(s));
+}
 const vKey = s => s.toLowerCase().replace(/\s+([!?:;,.])/g, '$1').trim();
 function vHash(s) {
   let h = 0x811c9dc5;

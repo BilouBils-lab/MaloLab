@@ -10,7 +10,13 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from phon import sound, REAL
 
 def norm(t): return re.sub(r'\s+', ' ', t.replace('’', "'").replace(' ', ' ').replace(' ', ' ')).strip()
-def segments(t): return [s for s in re.split(r'(?<=[.!?:;,])\s+', norm(t)) if re.search(r'[0-9a-zà-ÿœæ]', s, re.I)]
+def merge(s): return re.match(r"^[A-Za-zÀ-ÿ'-]{4,},$", s) and not re.search(r'(.)\1\1', s, re.I)
+def segments(t):
+    out = []
+    for p in re.split(r'(?<=[.!?:;,])\s+', norm(t)):
+        if out and merge(out[-1]) and len(p.split(' ')) >= 2: out[-1] += ' ' + p
+        else: out.append(p)
+    return [s for s in out if re.search(r'[0-9a-zà-ÿœæ]', s, re.I)]
 def key(s): return re.sub(r'\s+([!?:;,.])', r'\1', s.lower()).strip()
 def fnv(s):
     h = 0x811c9dc5
