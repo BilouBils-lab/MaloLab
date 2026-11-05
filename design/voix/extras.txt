@@ -5134,6 +5134,30 @@ zzz, ce n'est pas le son suivant. Dis le mot doucement : chat.
 ü, ce n'est pas le son suivant. Dis le mot doucement : chat.
 ç, ce n'est pas le premier son. Écoute bien le début : chat.
 ç, ce n'est pas le son suivant. Dis le mot doucement : chat.
+null, ce n'est pas le premier son. Écoute bien le début : chat.
+null, ce n'est pas le son suivant. Dis le mot doucement : chat.
+ph, ce n'est pas le premier son. Écoute bien le début : chat.
+ph, ce n'est pas le son suivant. Dis le mot doucement : chat.
+an, ce n'est pas le premier son. Écoute bien le début : chat.
+an, ce n'est pas le son suivant. Dis le mot doucement : chat.
+chhh, ce n'est pas le premier son. Écoute bien le début : chat.
+chhh, ce n'est pas le son suivant. Dis le mot doucement : chat.
+on, ce n'est pas le premier son. Écoute bien le début : chat.
+on, ce n'est pas le son suivant. Dis le mot doucement : chat.
+ou, ce n'est pas le premier son. Écoute bien le début : chat.
+ou, ce n'est pas le son suivant. Dis le mot doucement : chat.
+au, ce n'est pas le premier son. Écoute bien le début : chat.
+au, ce n'est pas le son suivant. Dis le mot doucement : chat.
+oi, ce n'est pas le premier son. Écoute bien le début : chat.
+oi, ce n'est pas le son suivant. Dis le mot doucement : chat.
+in, ce n'est pas le premier son. Écoute bien le début : chat.
+in, ce n'est pas le son suivant. Dis le mot doucement : chat.
+eu, ce n'est pas le premier son. Écoute bien le début : chat.
+eu, ce n'est pas le son suivant. Dis le mot doucement : chat.
+gn, ce n'est pas le premier son. Écoute bien le début : chat.
+gn, ce n'est pas le son suivant. Dis le mot doucement : chat.
+ill, ce n'est pas le premier son. Écoute bien le début : chat.
+ill, ce n'est pas le son suivant. Dis le mot doucement : chat.
 Bravo ! 1 seconde
 Bravo ! 2 secondes
 Bravo ! 3 secondes

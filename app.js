@@ -465,7 +465,7 @@ function spellQ({ units, word, emoji, kind }) {
       };
       const wrong = tile => {
         errors++; tile.classList.remove('shake'); void tile.offsetWidth; tile.classList.add('shake');
-        const got = SOUND_SAY[tile.dataset.l] || tile.dataset.l, pos = slots.findIndex(x => !x.classList.contains('ok'));
+        const u = units.find(x => x.sp === tile.dataset.l), sid = (u && u.id) || tile.dataset.l, got = SOUND_SAY[sid] || sid, pos = slots.findIndex(x => !x.classList.contains('ok'));
         const msg = pos === 0 ? `${got}, ce n'est pas le premier son. Écoute bien le début : ${word}.`
           : `${got}, ce n'est pas le son suivant. Dis le mot doucement : ${word}.`;
         answer(false, msg); hint();
@@ -1069,8 +1069,10 @@ function settings() {
       <details class="sec" data-sec="voix"><summary><b>Voix</b><small data-sum="voix"></small></summary><div class="sec-body">
         ${seg('voice', [[true, 'Activée'], [false, 'Coupée']])}
         <div class="voices" id="voices"></div>
+        <div class="row left"><button class="btn sec" id="v-test">${ico('play')} Tester la voix</button></div>
+        <div class="voff" id="voff"></div>
         <small>Jessica : voix enregistrée pour MaloLab avec Piper (jeu de données UPMC, licence CC BY-SA 4.0). Si une phrase manque, la voix de l'iPhone prend le relais.</small>
-        <small>« Voix de l'iPhone » utilise la voix choisie dans Réglages → Accessibilité → Contenu énoncé → Voix → Français (par exemple Aurélie ou Audrey Premium). iOS ne montre pas toujours ces voix dans la liste ci-dessus. Mode silencieux : pas de son.</small>
+        <small>« Voix de l'iPhone » utilise la voix choisie dans Réglages → Accessibilité → Contenu énoncé → Voix → Français (par exemple Aurélie ou Audrey Premium). iOS ne montre pas toujours ces voix dans la liste ci-dessus. Mode silencieux : touchez « Tester la voix » pour vérifier que le son passe.</small>
       </div></details>
 
       <details class="sec" data-sec="sync"><summary><b>Synchronisation</b><small data-sum="sync"></small></summary><div class="sec-body">
@@ -1133,6 +1135,28 @@ function settings() {
     });
   };
   try { listVoices(); } catch (e) { $('#voices').innerHTML = '<small>Liste des voix indisponible.</small>'; }
+  $('#v-test').onclick = () => say('Bonjour ! Compte, et touche le bon nombre. Écoute bien : sss, comme dans os. Bien joué !');
+  const drawOffline = async () => {
+    const box = $('#voff'); if (!box) return;
+    if (state.voiceURI !== 'malolab') { box.innerHTML = ''; return; }
+    const st = await voiceOfflineCount().catch(() => null);
+    if (!st || !$('#voff')) { box.innerHTML = ''; return; }
+    const full = st.have >= st.total;
+    box.innerHTML = full ? `<small>${ico('check')} Voix Jessica disponible hors ligne (${st.total} phrases).</small>`
+      : `<small>Sans internet, seules les phrases déjà entendues sont lues par Jessica (${st.have} sur ${st.total}).</small>
+        <div class="row left"><button class="btn sec" id="v-dl">${ico('sync')} Télécharger toute la voix</button><small>environ 65 Mo, de préférence en wifi</small></div>`;
+    const b = $('#v-dl'); if (!b) return;
+    b.onclick = () => {
+      if (Dl.running) { Dl.stop = true; return; }
+      b.innerHTML = `${ico('sync')} Arrêter`;
+      voiceDownload((d, t, fails) => {
+        const m = $('#voff small'); if (m) m.textContent = `Téléchargement : ${d} sur ${t} (${Math.floor(d / t * 100)} %)`;
+        if (fails !== undefined) drawOffline();
+      });
+    };
+  };
+  drawOffline();
+  $('#voices').addEventListener('click', () => setTimeout(drawOffline, 50));
   const drawSync = () => {
     const box = $('#sync'); if (!box) return;
     if (!SYNC_DB) { box.innerHTML = `<small>Pas encore activée : la base de données en ligne n'est pas configurée.</small>`; return; }

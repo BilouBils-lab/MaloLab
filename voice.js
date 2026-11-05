@@ -75,4 +75,35 @@ function voiceSay(text, onFail) {
   }).catch(() => { if (tok === Voice.token && onFail) onFail(); });
   return true;
 }
+
+/* ---------- Hors ligne : télécharger tous les clips (même cache que le service worker) ---------- */
+const VOICE_CACHE = 'malolab-voix-1';
+const Dl = { running: false, stop: false };
+async function voiceOfflineCount() {
+  if (!('caches' in window)) return null;
+  await voiceLoad();
+  const c = await caches.open(VOICE_CACHE), have = new Set((await c.keys()).map(r => r.url.split('/').pop()));
+  let n = 0; Voice.keys.forEach(k => { if (have.has(vHash(k) + '.mp3')) n++; });
+  return { have: n, total: Voice.keys.size };
+}
+async function voiceDownload(onProgress) {
+  if (Dl.running || !('caches' in window)) return;
+  Dl.running = true; Dl.stop = false;
+  try {
+    await voiceLoad();
+    const c = await caches.open(VOICE_CACHE), have = new Set((await c.keys()).map(r => r.url.split('/').pop()));
+    const todo = [...Voice.keys].map(k => vHash(k) + '.mp3').filter(f => !have.has(f));
+    let done = Voice.keys.size - todo.length, fails = 0;
+    onProgress(done, Voice.keys.size);
+    const worker = async () => {
+      while (todo.length && !Dl.stop) {
+        const f = todo.pop(), url = new URL(VOICE_DIR + f, location.href).href;
+        try { const r = await fetch(url, { cache: 'no-store' }); if (!r.ok) throw 0; await c.put(url, r); done++; } catch { fails++; }
+        if (done % 25 === 0) onProgress(done, Voice.keys.size);
+      }
+    };
+    await Promise.all(Array.from({ length: 6 }, worker));
+    onProgress(done, Voice.keys.size, fails);
+  } finally { Dl.running = false; }
+}
 voiceLoad();

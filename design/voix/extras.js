@@ -32,7 +32,7 @@ const { chromium } = require('playwright');
     R(1, 20).forEach(n => o.push(`Ajoute seulement ${n} billes.`, ...['ronds', 'billes', 'bonbons', 'ballons', 'étoiles'].map(t => `Barre seulement ${n} ${t}.`)));
     try { state.known = GRAPHEMES.map(g => g[0]); for (let lv = 1; lv <= 3; lv++) { const F = fluenceContent(); F.parts.forEach(P => o.push(`${P.title}. Lis à voix haute, le plus vite possible sans te tromper. Appuie sur C'est parti pour lancer le chrono.`)); } } catch {}
     GRAPHEMES.forEach(g => { const id = g[0], sd = SOUND_SAY[id] || id; o.push(`Ça, c'est ${sd}, comme dans ${repere(id)}. On cherche ${sd}, comme dans ${repere(id)}.`); });
-    [...'abcdefghijklmnopqrstuvwxyzéèêëàâîïôûüç'].forEach(l => { const sd = SOUND_SAY[l] || l; o.push(`${sd}, ce n'est pas le premier son. Écoute bien le début : chat.`, `${sd}, ce n'est pas le son suivant. Dis le mot doucement : chat.`); });
+    [...new Set([...'abcdefghijklmnopqrstuvwxyzéèêëàâîïôûüç', ...LEXICON.flatMap(w => w.toks.map(t => t.id))])].forEach(l => { const sd = SOUND_SAY[l] || l; o.push(`${sd}, ce n'est pas le premier son. Écoute bien le début : chat.`, `${sd}, ce n'est pas le son suivant. Dis le mot doucement : chat.`); });
     R(1, 300).forEach(n => o.push(`Bravo ! ${pl(n, 'seconde')}`));
     return o;
   });

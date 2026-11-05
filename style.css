@@ -1135,3 +1135,6 @@ svg.cursive.model-only .ink-model path { fill: none; stroke: #2B2D42; stroke-wid
 .fl-gauge i { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #7BC6F0, #2EB67D); }
 .fl-gauge em { position: absolute; top: -5px; width: 4px; height: 24px; background: #E07A1F; border-radius: 2px; }
 .fl-wpm small { font-size: 14px; opacity: .8; text-align: center; }
+
+.voff { display: flex; flex-direction: column; gap: 6px; }
+.voff .row small { opacity: .7; }
