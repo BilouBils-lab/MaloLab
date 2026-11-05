@@ -1121,14 +1121,18 @@ function settings() {
     const vs = frVoices().filter(v => !ROBOT.test(v.name)).sort((a, b) => voiceScore(b) - voiceScore(a));
     const seenN = {}, jess = state.voiceURI === 'malolab', sys = !jess && !frVoice;
     const jessBtn = `<button class="vc ${jess ? 'on' : ''}" data-uri="malolab"><span class="vc-l1">${ico('play')} Jessica ${ico('sparkle')}</span><span class="vc-l2">voix de MaloLab · <b class="vq p">conseillée</b></span></button>`;
-    const sysBtn = `<button class="vc ${sys ? 'on' : ''}" data-uri="system"><span class="vc-l1">${ico('play')} Voix de l'iPhone</span><span class="vc-l2">celle des réglages</span></button>`;
-    $('#voices').innerHTML = jessBtn + sysBtn + vs.map(v => {
+    const sysBtn = `<button class="vc ${sys ? 'on' : ''}" data-uri="system"><span class="vc-l1">${ico('play')} Voix de l'iPhone</span><span class="vc-l2">celle choisie dans les réglages (ex. Aurélie)</span></button>`;
+    const otherOn = !jess && !sys;
+    const others = vs.map(v => {
       const q = voiceQuality(v), base = v.name.replace(/\s*\(.*?\)\s*/g, ' ').trim();
       const key = base + q.label + v.lang; seenN[key] = (seenN[key] || 0) + 1;
       return `<button class="vc ${!jess && frVoice && v.voiceURI === frVoice.voiceURI ? 'on' : ''}" data-uri="${esc(v.voiceURI)}">
         <span class="vc-l1">${ico('play')} ${esc(base)}${seenN[key] > 1 ? ' ' + seenN[key] : ''}${q.top ? ' ' + ico('sparkle') : ''}</span>
         <span class="vc-l2">${esc(voiceRegion(v.lang))} · <b class="vq ${q.cls}">${q.label}</b></span></button>`;
     }).join('');
+    $('#voices').innerHTML = jessBtn + sysBtn + (vs.length ? `<details class="vmore"${otherOn ? ' open' : ''}><summary>Autres voix (${vs.length})</summary>
+      <small>Voix de base que le navigateur laisse voir. Aurélie et les autres voix Premium n'y apparaissent jamais : iOS les cache aux applications web. Pour utiliser Aurélie, choisissez « Voix de l'iPhone ».</small>
+      <div class="voices">${others}</div></details>` : '');
     $('#voices').querySelectorAll('button').forEach(b => b.onclick = () => {
       state.voiceURI = b.dataset.uri; save(); pickVoice(); listVoices(); refreshSums();
       say(`Bonjour ${state.name || ''} ! Je vais lire les consignes avec cette voix.`);

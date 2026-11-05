@@ -1138,3 +1138,7 @@ svg.cursive.model-only .ink-model path { fill: none; stroke: #2B2D42; stroke-wid
 
 .voff { display: flex; flex-direction: column; gap: 6px; }
 .voff .row small { opacity: .7; }
+
+.vmore { width: 100%; }
+.vmore > summary { cursor: pointer; font-weight: 700; padding: 6px 2px; opacity: .8; list-style-position: inside; }
+.vmore > small { display: block; margin: 2px 0 8px; }
