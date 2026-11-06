@@ -1,5 +1,5 @@
-"""Génère les clips de la voix Jessica (Piper, fr_FR-upmc-medium, CC BY-SA 4.0) pour MaloLab.
-Usage : python gen_voice.py phrases.txt ../../voix   (lancer depuis un venv avec piper-tts, modèle dans le dossier courant)
+"""Génère les clips de la voix de MaloLab (Piper, fr_FR-siwis-medium, jeu de données SIWIS, CC BY 4.0).
+Usage : python gen_voice.py phrases.txt ../../voix-siwis   (lancer depuis un venv avec piper-tts, modèle dans le dossier courant)
 Chaque phrase est découpée en segments (après . ! ? : ; ,) ; un clip mp3 par segment, nommé par empreinte FNV-1a.
 Le découpage et l'empreinte sont identiques à ceux de voice.js."""
 import sys, os, re, json, wave, subprocess, tempfile
@@ -73,8 +73,9 @@ if __name__ == '__main__':
     src, dst = sys.argv[1], sys.argv[2]
     LX = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lexique.json'))); SYL.update(LX['syllables'], LX['graphemes'])
     os.makedirs(dst, exist_ok=True)
-    v = PiperVoice.load('fr_FR-upmc-medium.onnx', config_path='fr_FR-upmc-medium.onnx.json')
-    cfg = SynthesisConfig(speaker_id=0, length_scale=1.08)
+    MODEL = os.environ.get('VOIX_MODELE', 'fr_FR-siwis-medium')
+    v = PiperVoice.load(MODEL + '.onnx', config_path=MODEL + '.onnx.json')
+    cfg = SynthesisConfig(speaker_id=0 if v.config.num_speakers > 1 else None, length_scale=1.08)
     sr = v.config.sample_rate
     segs = {}
     for line in open(src, encoding='utf-8'):

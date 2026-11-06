@@ -1,14 +1,14 @@
 'use strict';
 /* =========================================================
-   Voix « Jessica » de MaloLab
-   Clips pré-enregistrés avec Piper (voix fr_FR-upmc-medium, locuteur jessica,
-   jeu de données UPMC, licence CC BY-SA 4.0). Une phrase est découpée en segments
+   Voix de MaloLab
+   Clips pré-enregistrés avec Piper (voix fr_FR-siwis-medium, jeu de données SIWIS,
+   licence CC BY 4.0). Une phrase est découpée en segments
    (après . ! ? : ; ,) ; chaque segment est un fichier voix/<empreinte>.mp3.
    Si un segment manque, toute la phrase est lue par la voix du système.
    Découpage et empreinte identiques à design/voix/gen_voice.py.
    (Chargé avant app.js : n'utilise ses fonctions qu'au moment de l'appel.)
    ========================================================= */
-const VOICE_DIR = 'voix/';
+const VOICE_DIR = 'voix-siwis/';
 const vNorm = t => String(t).replace(/’/g, "'").replace(/[  ]/g, ' ').replace(/\s+/g, ' ').trim();
 // Un mot seul suivi d'une virgule (« Compte, ») reste attaché à la suite, pour une phrase fluide
 const vMerge = s => /^[A-Za-zÀ-ÿ'-]{4,},$/.test(s) && !/(.)\1\1/i.test(s);
@@ -77,7 +77,7 @@ function voiceSay(text, onFail) {
 }
 
 /* ---------- Hors ligne : télécharger tous les clips (même cache que le service worker) ---------- */
-const VOICE_CACHE = 'malolab-voix-1';
+const VOICE_CACHE = 'malolab-voix-siwis';
 const Dl = { running: false, stop: false };
 async function voiceOfflineCount() {
   if (!('caches' in window)) return null;

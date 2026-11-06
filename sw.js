@@ -1,7 +1,7 @@
 // Service worker : permet à l'application de fonctionner hors ligne.
 // ⚠️ Après chaque modification de l'app, augmentez le numéro de version ci-dessous.
-const CACHE = 'malolab-v60';
-const VOIX = 'malolab-voix-1';   // clips de la voix : conservés d'une version à l'autre
+const CACHE = 'malolab-v61';
+const VOIX = 'malolab-voix-siwis';   // clips de la voix : conservés d'une version à l'autre
 const ASSETS = [
   './', './index.html', './style.css', './art.js', './icons.js', './cursive.js', './lecture.js', './maths.js', './sync.js', './shop.js', './dashboard.js', './daily.js', './pause.js', './progress.js', './voice.js', './app.js', './manifest.webmanifest',
   './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png',
@@ -38,7 +38,7 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET' || new URL(e.request.url).origin !== location.origin) return;
   // Clips de voix : le contenu d'un fichier ne change jamais (nom = empreinte du texte) → cache d'abord
-  if (/\/voix\/[0-9a-f]{8}\.mp3$/.test(new URL(e.request.url).pathname)) {
+  if (/\/voix-siwis\/[0-9a-f]{8}\.mp3$/.test(new URL(e.request.url).pathname)) {
     e.respondWith(caches.open(VOIX).then(c => c.match(e.request).then(hit => hit || fetch(e.request).then(res => { if (res.ok) c.put(e.request, res.clone()); return res; }))));
     return;
   }

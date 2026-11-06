@@ -181,7 +181,7 @@ const state = (() => {
     s.level = 'auto';
     s.v2 = true;
   }
-  if (s.voiceMig !== 1) { s.voiceURI = 'malolab'; s.voiceMig = 1; }   // voix Jessica par défaut (une seule fois)
+  if (s.voiceMig !== 1) { s.voiceURI = 'malolab'; s.voiceMig = 1; }   // voix de MaloLab par défaut (une seule fois)
   return s;
 })();
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} scheduleSync(); };
@@ -323,7 +323,7 @@ function voiceQuality(v) {
 const voiceRegion = lang => ({ 'fr-FR': 'France', 'fr-CA': 'Canada', 'fr-BE': 'Belgique', 'fr-CH': 'Suisse' })[lang] || lang;
 const isIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Mac/.test(navigator.platform));
 function pickVoice() {
-  // « malolab » (voix Jessica) : en secours, voix du système comme « system »
+  // « malolab » (voix de MaloLab) : en secours, voix du système comme « system »
   if (state.voiceURI === 'system' || ((!state.voiceURI || state.voiceURI === 'malolab') && isIOS())) { frVoice = null; return; }
   const vs = frVoices();
   frVoice = vs.find(v => v.voiceURI === state.voiceURI) || vs.slice().sort((a, b) => voiceScore(b) - voiceScore(a))[0] || null;
@@ -1090,7 +1090,7 @@ function settings() {
         <div class="voices" id="voices"></div>
         <div class="row left"><button class="btn sec" id="v-test">${ico('play')} Tester la voix</button></div>
         <div class="voff" id="voff"></div>
-        <small>Jessica : voix enregistrée pour MaloLab avec Piper (jeu de données UPMC, licence CC BY-SA 4.0). Si une phrase manque, la voix de l'iPhone prend le relais.</small>
+        <small>Voix de MaloLab : enregistrée avec Piper, voix « Siwis » (jeu de données SIWIS, Université d'Édimbourg, licence CC BY 4.0). Si une phrase manque, la voix de l'iPhone prend le relais.</small>
         <small>« Voix de l'iPhone » utilise la voix choisie dans Réglages → Accessibilité → Contenu énoncé → Voix → Français (par exemple Aurélie ou Audrey Premium). iOS ne montre pas toujours ces voix dans la liste ci-dessus. Mode silencieux : touchez « Tester la voix » pour vérifier que le son passe.</small>
       </div></details>
 
@@ -1126,7 +1126,7 @@ function settings() {
     lecture: () => `${state.known.length} sons · ${state.outils.length} mots outils · ${{ arcs: 'arcs', couleurs: 'couleurs', aucune: 'sans aide' }[state.syl] || ''}`,
     maths: () => `${state.level === 'auto' ? `auto · jusqu'à ${numMax()}` : `jusqu'à ${state.level}`} · + étape ${calcStage('add')} · − étape ${calcStage('sub')}`,
     temps: () => `${dailyOn() ? 'entraînement affiché' : 'entraînement masqué'} · ${pauseMin() ? `pause à ${pauseMin()} min` : 'pas de rappel'} · ${Math.round(todaySeconds() / 60)} min aujourd'hui`,
-    voix: () => !state.voice ? 'coupée' : state.voiceURI === 'malolab' ? 'Jessica (MaloLab)' : (state.voiceURI === 'system' || !frVoice) ? "voix de l'iPhone" : frVoice.name.replace(/\s*\(.*?\)\s*/g, ' ').trim(),
+    voix: () => !state.voice ? 'coupée' : state.voiceURI === 'malolab' ? 'voix de MaloLab' : (state.voiceURI === 'system' || !frVoice) ? "voix de l'iPhone" : frVoice.name.replace(/\s*\(.*?\)\s*/g, ' ').trim(),
     sync: () => state.syncCode ? (state.syncError ? 'erreur' : 'activée') : 'non reliée',
   };
   window.refreshSums = () => document.querySelectorAll('[data-sum]').forEach(el => { try { el.textContent = sumText[el.dataset.sum](); } catch {} });
@@ -1139,7 +1139,7 @@ function settings() {
     pickVoice();
     const vs = frVoices().filter(v => !ROBOT.test(v.name)).sort((a, b) => voiceScore(b) - voiceScore(a));
     const seenN = {}, jess = state.voiceURI === 'malolab', sys = !jess && !frVoice;
-    const jessBtn = `<button class="vc ${jess ? 'on' : ''}" data-uri="malolab"><span class="vc-l1">${ico('play')} Jessica ${ico('sparkle')}</span><span class="vc-l2">voix de MaloLab · <b class="vq p">conseillée</b></span></button>`;
+    const jessBtn = `<button class="vc ${jess ? 'on' : ''}" data-uri="malolab"><span class="vc-l1">${ico('play')} Voix de MaloLab ${ico('sparkle')}</span><span class="vc-l2">Siwis · <b class="vq p">conseillée</b></span></button>`;
     const sysBtn = `<button class="vc ${sys ? 'on' : ''}" data-uri="system"><span class="vc-l1">${ico('play')} Voix de l'iPhone</span><span class="vc-l2">celle choisie dans les réglages (ex. Aurélie)</span></button>`;
     const otherOn = !jess && !sys;
     const others = vs.map(v => {
@@ -1165,9 +1165,9 @@ function settings() {
     const st = await voiceOfflineCount().catch(() => null);
     if (!st || !$('#voff')) { box.innerHTML = ''; return; }
     const full = st.have >= st.total;
-    box.innerHTML = full ? `<small>${ico('check')} Voix Jessica disponible hors ligne (${st.total} phrases).</small>`
-      : `<small>Sans internet, seules les phrases déjà entendues sont lues par Jessica (${st.have} sur ${st.total}).</small>
-        <div class="row left"><button class="btn sec" id="v-dl">${ico('sync')} Télécharger toute la voix</button><small>environ 65 Mo, de préférence en wifi</small></div>`;
+    box.innerHTML = full ? `<small>${ico('check')} Voix de MaloLab disponible hors ligne (${st.total} phrases).</small>`
+      : `<small>Sans internet, seules les phrases déjà entendues sont lues par la voix de MaloLab (${st.have} sur ${st.total}).</small>
+        <div class="row left"><button class="btn sec" id="v-dl">${ico('sync')} Télécharger toute la voix</button><small>environ 70 Mo, de préférence en wifi</small></div>`;
     const b = $('#v-dl'); if (!b) return;
     b.onclick = () => {
       if (Dl.running) { Dl.stop = true; return; }
