@@ -70,8 +70,9 @@ function cursiveLayout(text) {
       const cx = sx + (ex - sx) * 0.55, cy = sy - (sy - ey) * 0.2;
       attack = `M${sx.toFixed(2)} ${sy.toFixed(2)} Q${cx.toFixed(2)} ${cy.toFixed(2)} ${ex.toFixed(2)} ${ey.toFixed(2)}`;
     }
-    starts.push([sx, sy]);
-    main += (i === 0 ? attack : attack.replace(/^M[^QC]+/, ' ')) + ' ' + body.replace(/^M[^LCQ]+/, ' ');
+    // Nouveau modèle : pas de « petite patte » (attaque) au début du mot, on commence directement par la lettre
+    starts.push(i === 0 ? [ex, ey] : [sx, sy]);
+    main += i === 0 ? body : attack.replace(/^M[^QC]+/, ' ') + ' ' + body.replace(/^M[^LCQ]+/, ' ');
     (g.x || []).forEach(p => extras.push(p.replace(/-?\d+(\.\d+)?/g, (n => { let k = 0; return m => (k++ % 2 === 0 ? (+m + x) : +m).toFixed(2); })())));
     if (accent) extras.push(ACCENT_PATH[accent](x + ACCENT_CENTER[base]));
     x += g.w; y = g.ey || -1.2;
@@ -245,16 +246,21 @@ function cursiveQ(text, kind, opts = {}) {
    puis compare avec le modèle en écriture attachée.
    kind : 'syllabe' | 'mot' ; copie : modèle montré quelques secondes puis caché
    ========================================================= */
+// Police Marelle (Éducation nationale, OFL) : hauteur d'une minuscule = 1 interligne Seyès = 10 unités ici
+const MARELLE_SIZE = 10 / 0.48;
+const marelleFamily = () => state.mcap === 'cursive' ? 'Marelle' : 'Marelle Baton';
+const MARELLE_READY = document.fonts ? Promise.all(['Marelle', 'Marelle Baton'].map(f => document.fonts.load(`20px "${f}"`, 'abc').catch(() => {}))) : Promise.resolve();
+const DEEP = /[fgjpqyzGJYZ]/;   // lettres qui descendent sous la ligne
 function cursiveModelHTML(text) {
-  const L = cursiveLayout(text);
-  return `<svg class="cursive model-only" xmlns="${SVGNS}"><g class="paper"></g>
-    <g class="model ink-model"><path d="${L.main}"/>${L.extras.map(e => `<path d="${e}"/>`).join('')}</g></svg>`;
+  return `<svg class="cursive model-only mrl" xmlns="${SVGNS}" data-deep="${DEEP.test(text) ? 1 : ''}"><g class="paper"></g>
+    <g class="model ink-model"><text x="0" y="0" style="font-family:'${marelleFamily()}';font-size:${MARELLE_SIZE}px">${esc(text)}</text></g></svg>`;
 }
 // Cadre l'image sur le mot et ajoute les lignes Seyès (une fois dans la page)
 function fitModel(svg, maxW, maxH) {
   const g = svg.querySelector('.ink-model'), b = g.getBBox();
   const x0 = Math.floor(b.x - 6), x1 = Math.ceil(b.x + b.width + 6);
-  const y0 = Math.min(-20, Math.floor((b.y - 3) / 10) * 10), y1 = Math.max(10, Math.ceil((b.y + b.height + 3) / 10) * 10);
+  let y0 = Math.min(-20, Math.floor((b.y - 3) / 10) * 10), y1 = Math.max(10, Math.ceil((b.y + b.height + 3) / 10) * 10);
+  if (svg.classList.contains('mrl')) { y0 = -30; y1 = svg.dataset.deep ? 30 : 10; }   // texte Marelle : 3 interlignes au-dessus, 2 en dessous
   const W = Math.max(30, x1 - x0), H = y1 - y0;
   svg.setAttribute('viewBox', `${x0} ${y0} ${W} ${H}`);
   svg.querySelector('.paper').innerHTML = `<rect x="${x0}" y="${y0}" width="${W}" height="${H}" fill="#fff"/>${seyesSVG(x0, x0 + W, y0, y1)}`;
@@ -277,7 +283,7 @@ function paperQ(text, kind, opts = {}) {
         z.innerHTML = `<p class="pp-title">${title}</p><div class="cursive-wrap">${cursiveModelHTML(text)}</div>
           <p class="pp-script">${esc(text)}</p>
           <div class="row"><button class="btn" id="pp-ok">${ico('check')} Je l'ai bien écrit</button><button class="btn sec" id="pp-fix">${ico('eraser')} Je corrige</button></div>`;
-        const a = avail(); fitModel(z.querySelector('svg'), a.w, a.h);
+        const a = avail(), sv = z.querySelector('svg'); fitModel(sv, a.w, a.h); MARELLE_READY.then(() => sv.isConnected && fitModel(sv, a.w, a.h));
         say(`Voici le modèle : ${text}. As-tu bien écrit ?`);
         z.querySelector('#pp-ok').onclick = () => answer(true);
         z.querySelector('#pp-fix').onclick = () => {
@@ -306,7 +312,7 @@ function paperQ(text, kind, opts = {}) {
         z.innerHTML = `<p class="pp-title">${again ? 'Regarde encore bien' : 'Regarde bien'}, et garde-${kind === 'mot' ? 'le' : 'la'} dans ta tête</p>
           <div class="cursive-wrap">${cursiveModelHTML(text)}</div><p class="pp-script">${esc(text)}</p>
           <div class="row"><button class="btn" id="pp-hide" disabled>${ico('eye')} Je l'ai dans ma tête</button></div><div class="pp-bar"><i></i></div>`;
-        const a = avail(); fitModel(z.querySelector('svg'), a.w, a.h);
+        const a = avail(), sv = z.querySelector('svg'); fitModel(sv, a.w, a.h); MARELLE_READY.then(() => sv.isConnected && fitModel(sv, a.w, a.h));
         if (again) say(`${spell} : ${text}.`);
         const bt = z.querySelector('#pp-hide');
         const t1 = setTimeout(() => { bt.disabled = false; }, 3000);
@@ -331,23 +337,16 @@ function paperQ(text, kind, opts = {}) {
    la phrase sur son cahier, puis compare avec le modèle (mots en attaché).
    ========================================================= */
 // Un mot en attaché, à une échelle commune pour tous les mots de la phrase
-// (pas de majuscules attachées : la majuscule est montrée à part, en couleur)
 function cursiveWordHTML(word) {
-  const svg = t => { const L = cursiveLayout(t); return `<svg class="cursive model-only pw-svg" xmlns="${SVGNS}"><g class="paper"></g><g class="model ink-model"><path d="${L.main}"/>${L.extras.map(e => `<path d="${e}"/>`).join('')}</g></svg>`; };
-  return word.split("'").map(part => {
-    let cap = '';
-    if (part && part[0] !== part[0].toLowerCase()) { cap = `<span class="pw-cap">${esc(part[0])}</span>`; part = part.slice(1); }
-    const low = part.toLowerCase();
-    return cap + (!low ? '' : cursiveSupports(low) ? svg(low) : `<span class="pw-txt">${esc(part)}</span>`);
-  }).join('<span class="pw-apo">\'</span>');
+  return `<svg class="cursive model-only pw-svg mrl" xmlns="${SVGNS}"><g class="paper"></g><g class="model ink-model"><text x="0" y="0" style="font-family:'${marelleFamily()}';font-size:${MARELLE_SIZE}px">${esc(word)}</text></g></svg>`;
 }
 // Même hauteur de ligne pour tous les mots : les lignes du cahier se suivent d'un mot à l'autre
 function fitWords(root, sc, deep) {
-  const Y0 = -30, Y1 = deep ? 20 : 8;
+  const Y0 = -30, Y1 = deep ? 30 : 10;
   root.style.setProperty('--pwsc', sc);
   root.querySelectorAll('.pw-svg').forEach(svg => {
     const b = svg.querySelector('.ink-model').getBBox();
-    const x0 = Math.floor(b.x - 3), W = Math.max(12, Math.ceil(b.width + 6));
+    const x0 = Math.floor(b.x - 1), W = Math.max(8, Math.ceil(b.width + 2));
     svg.setAttribute('viewBox', `${x0} ${Y0} ${W} ${Y1 - Y0}`);
     svg.querySelector('.paper').innerHTML = seyesSVG(x0, x0 + W, Y0, Y1);
     svg.style.width = (W * sc) + 'px'; svg.style.height = ((Y1 - Y0) * sc) + 'px';
@@ -373,12 +372,13 @@ function phraseQ(sentence) {
       };
       const reveal = () => {
         z.innerHTML = `<p class="pp-title">Compare avec ton cahier :</p>
-          <div class="pw-model">${words.map(w => `<span class="pw-word">${cursiveWordHTML(w)}</span>`).join('')}</div>
+          <div class="pw-model">${sentence.split(' ').map(w => `<span class="pw-word">${cursiveWordHTML(w)}</span>`).join('')}</div>
           <p class="pw-print">${esc(sentence)}</p>
           <div class="pw-check"><span>${ico('check')} Une majuscule au début</span><span>${ico('check')} Un espace entre les mots</span><span>${ico('check')} Un point à la fin</span></div>
           <div class="row"><button class="btn" id="pp-ok">${ico('check')} Je l'ai bien écrite</button><button class="btn sec" id="pp-fix">${ico('eraser')} Je corrige</button></div>`;
         const box = z.querySelector('.pw-model');
-        fitWords(box, Math.max(1.6, Math.min(2.8, (z.clientWidth || 360) / 190)), /[fgjpqyz]/.test(sentence));
+        const fit = () => fitWords(box, Math.max(1.6, Math.min(2.8, (z.clientWidth || 360) / 190)), DEEP.test(sentence));
+        fit(); MARELLE_READY.then(() => box.isConnected && fit());
         say('Voici le modèle. As-tu mis la majuscule et le point ?');
         z.querySelector('#pp-ok').onclick = () => answer(true);
         z.querySelector('#pp-fix').onclick = () => {

@@ -1,3 +1,5 @@
+@font-face { font-family: 'Marelle'; src: url('assets/fonts/Marelle-Regular.woff2') format('woff2'); font-display: block; }
+@font-face { font-family: 'Marelle Baton'; src: url('assets/fonts/MarelleBaton-Regular.woff2') format('woff2'); font-display: block; }
 :root {
   --bg: #FFF8E7;
   --ink: #2B2D42;
@@ -1157,4 +1159,4 @@ svg.cursive.model-only .ink-model path { fill: none; stroke: #2B2D42; stroke-wid
 .pw-check { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
 .pw-check span { display: inline-flex; align-items: center; gap: 4px; background: #E3F6EE; color: #1F7A5A; font-weight: 700; font-size: 14px; padding: 4px 10px; border-radius: 999px; }
 .pw-check svg.ico { width: 16px; height: 16px; }
-.pw-cap { font-family: Georgia, serif; font-weight: 700; font-size: calc(var(--pwsc, 2) * 25px); line-height: 1; color: #E5566D; margin: calc(var(--pwsc, 2) * 8.5px) 1px 0 0; }
+svg.cursive.mrl .ink-model text { fill: #2B2D42; font-feature-settings: 'calt' 1, 'liga' 1; }

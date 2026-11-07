@@ -93,7 +93,7 @@ function memChoose(act, seen) {
    2. SYNCHRONISATION
    Arborescence : familles/<code>/devices/<appareil>, familles/<code>/settings, familles/<code>/resetAt
    ========================================================= */
-const SETTINGS_KEYS = ['name', 'level', 'caps', 'voice', 'syl', 'known', 'outils', 'theme', 'goal', 'dailyOn'];
+const SETTINGS_KEYS = ['name', 'level', 'caps', 'voice', 'syl', 'known', 'outils', 'theme', 'goal', 'dailyOn', 'mcap'];
 const CODE_CHARS = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
 const newFamilyCode = () => 'MALO-' + Array.from({ length: 4 }, () =>
   Array.from({ length: 4 }, () => CODE_CHARS[crypto.getRandomValues(new Uint32Array(1))[0] % CODE_CHARS.length]).join('')).join('-');

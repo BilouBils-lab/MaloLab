@@ -166,7 +166,7 @@ const QUESTIONS_PAR_PARTIE = 5;
 
 /* ---------- Sauvegarde locale ---------- */
 const KEY = 'malolab';
-const DEFAULTS = { calcMode: 'auto', pauseMin: 20, pauseMode: 'doux', dailyOn: true, theme: 'foot', name: 'Malo', level: 'auto', caps: false, voice: true, syl: 'arcs', stars: 0, act: {}, known: DEFAULT_KNOWN, outils: DEFAULT_OUTILS, fluence: {}, v2: true };
+const DEFAULTS = { mcap: 'baton', calcMode: 'auto', pauseMin: 20, pauseMode: 'doux', dailyOn: true, theme: 'foot', name: 'Malo', level: 'auto', caps: false, voice: true, syl: 'arcs', stars: 0, act: {}, known: DEFAULT_KNOWN, outils: DEFAULT_OUTILS, fluence: {}, v2: true };
 const sameSet = (a, b) => Array.isArray(a) && a.length === b.length && b.every(x => a.includes(x));
 const state = (() => {
   let saved = {};
@@ -1058,6 +1058,10 @@ function settings() {
         </div>
         <div class="field">Lettres
           ${seg('caps', [[false, 'minuscules'], [true, 'MAJUSCULES']])}
+        </div>
+        <div class="field">Majuscules des modèles en attaché
+          ${seg('mcap', [['baton', 'Bâton (CP)'], ['cursive', 'Cursives (CE1)']])}
+          <small>Modèles d'écriture : police Marelle de l'Éducation nationale (licence libre OFL), sans « petite patte » au début des mots.</small>
         </div>
       </div></details>
 
