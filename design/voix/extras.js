@@ -46,6 +46,10 @@ const { chromium } = require('playwright');
     state.known = GRAPHEMES.map(g => g[0]);
     fusionPool().forEach(x => o.push(`Repasse sur la syllabe ${x[2]},`, `${x[2]} ?`));
     LEXICON.forEach(w => o.push(`Repasse sur le mot ${w.text},`, `${w.text} ?`));
+    // Boutique et pause : phrases complètes, pour chaque carte
+    o.push("Combien t'en restera-t-il si tu l'achètes ?", 'Il faut être patient !', 'On fait une pause !', 'Si tu achètes celle-ci, il te faudra attendre plus longtemps.');
+    CARDS.forEach(c => o.push(`${c.name}. Elle coûte ${etoiles(c.price)}. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour ${c.name}. Si tu achètes celle-ci, il te faudra attendre plus longtemps.`,
+      `${c.name}. Elle coûte ${etoiles(c.price)}. Il te manque 1 étoile, environ 1 partie. Il faut être patient !`, `C'est ton objectif : ${c.name}.`));
     return o;
   });
   console.log(out.filter(x => !/\bX\b/.test(x) || true).join('\n').replace(/, pour X\./g, ','));

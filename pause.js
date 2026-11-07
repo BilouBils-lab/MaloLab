@@ -62,7 +62,7 @@ function pauseScreen() {
       <p class="empty">En attendant, tu peux regarder ta boutique.</p>
       <div class="row"><button class="btn sec to-shop">${ico('bag')} Ma boutique</button><button class="btn sec" id="p-parent">Parent : débloquer</button></div>
     </main>`);
-  say(`On fait une pause ! Les exercices reviennent dans ${Math.max(1, Math.ceil(left() / 60))} minutes.`);
+  { const m = Math.max(1, Math.ceil(left() / 60)); say(`On fait une pause ! Les exercices reviennent dans ${m} minute${m > 1 ? 's' : ''}.`); }
   $('#back').onclick = home;
   $('#p-parent').onclick = () => parentGate(() => { state.pauseUntil = 0; try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} home(); });
   clearInterval(pauseTimer);

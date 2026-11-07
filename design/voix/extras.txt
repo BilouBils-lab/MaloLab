@@ -7158,3 +7158,112 @@ Repasse sur le mot os,
 os ?
 Repasse sur le mot rex,
 rex ?
+Combien t'en restera-t-il si tu l'achètes ?
+Il faut être patient !
+On fait une pause !
+Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Le ballon de cuir. Elle coûte 3 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Le ballon de cuir. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Le ballon de cuir. Elle coûte 3 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Le ballon de cuir.
+Les crampons. Elle coûte 3 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Les crampons. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Les crampons. Elle coûte 3 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Les crampons.
+Les gants du gardien. Elle coûte 3 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Les gants du gardien. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Les gants du gardien. Elle coûte 3 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Les gants du gardien.
+La coupe d'or. Elle coûte 8 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour La coupe d'or. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+La coupe d'or. Elle coûte 8 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : La coupe d'or.
+Le capitaine. Elle coûte 8 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Le capitaine. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Le capitaine. Elle coûte 8 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Le capitaine.
+Le tir de feu. Elle coûte 15 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Le tir de feu. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Le tir de feu. Elle coûte 15 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Le tir de feu.
+Le retourné de Tom. Elle coûte 30 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Le retourné de Tom. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Le retourné de Tom. Elle coûte 30 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Le retourné de Tom.
+Le bouclier. Elle coûte 3 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Le bouclier. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Le bouclier. Elle coûte 3 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Le bouclier.
+Le masque. Elle coûte 3 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Le masque. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Le masque. Elle coûte 3 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Le masque.
+La cape. Elle coûte 3 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour La cape. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+La cape. Elle coûte 3 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : La cape.
+Le repaire secret. Elle coûte 8 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Le repaire secret. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Le repaire secret. Elle coûte 8 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Le repaire secret.
+Super Toutou. Elle coûte 8 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Super Toutou. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Super Toutou. Elle coûte 8 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Super Toutou.
+L'éclair de Super Malo. Elle coûte 15 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour L'éclair de Super Malo. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+L'éclair de Super Malo. Elle coûte 15 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : L'éclair de Super Malo.
+L'envol de Super Malo. Elle coûte 30 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour L'envol de Super Malo. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+L'envol de Super Malo. Elle coûte 30 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : L'envol de Super Malo.
+La brique rouge. Elle coûte 3 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour La brique rouge. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+La brique rouge. Elle coûte 3 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : La brique rouge.
+La clé à molette. Elle coûte 3 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour La clé à molette. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+La clé à molette. Elle coûte 3 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : La clé à molette.
+La voiture en briques. Elle coûte 3 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour La voiture en briques. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+La voiture en briques. Elle coûte 3 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : La voiture en briques.
+Le robot géant. Elle coûte 8 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Le robot géant. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Le robot géant. Elle coûte 8 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Le robot géant.
+La fusée en briques. Elle coûte 8 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour La fusée en briques. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+La fusée en briques. Elle coûte 8 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : La fusée en briques.
+Brik turbo. Elle coûte 15 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Brik turbo. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Brik turbo. Elle coûte 15 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Brik turbo.
+Le château de Brik. Elle coûte 30 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Le château de Brik. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Le château de Brik. Elle coûte 30 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Le château de Brik.
+L'œuf mystère. Elle coûte 3 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour L'œuf mystère. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+L'œuf mystère. Elle coûte 3 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : L'œuf mystère.
+Le cristal. Elle coûte 3 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Le cristal. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Le cristal. Elle coûte 3 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Le cristal.
+Flammèche. Elle coûte 3 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Flammèche. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Flammèche. Elle coûte 3 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Flammèche.
+Aquabulle. Elle coûte 8 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Aquabulle. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Aquabulle. Elle coûte 8 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Aquabulle.
+Feuillo. Elle coûte 8 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Feuillo. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Feuillo. Elle coûte 8 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Feuillo.
+Zapi électrique. Elle coûte 15 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Zapi électrique. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Zapi électrique. Elle coûte 15 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Zapi électrique.
+L'évolution de Zapi. Elle coûte 30 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour L'évolution de Zapi. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+L'évolution de Zapi. Elle coûte 30 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : L'évolution de Zapi.
+L'os fossile. Elle coûte 3 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour L'os fossile. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+L'os fossile. Elle coûte 3 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : L'os fossile.
+L'empreinte. Elle coûte 3 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour L'empreinte. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+L'empreinte. Elle coûte 3 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : L'empreinte.
+L'œuf de dino. Elle coûte 3 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour L'œuf de dino. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+L'œuf de dino. Elle coûte 3 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : L'œuf de dino.
+Le tricératops. Elle coûte 8 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Le tricératops. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Le tricératops. Elle coûte 8 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Le tricératops.
+Le ptérodactyle. Elle coûte 8 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Le ptérodactyle. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Le ptérodactyle. Elle coûte 8 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Le ptérodactyle.
+Rex et le volcan. Elle coûte 15 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Rex et le volcan. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Rex et le volcan. Elle coûte 15 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Rex et le volcan.
+Rex et les bébés. Elle coûte 30 étoiles. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour Rex et les bébés. Si tu achètes celle-ci, il te faudra attendre plus longtemps.
+Rex et les bébés. Elle coûte 30 étoiles. Il te manque 1 étoile, environ 1 partie. Il faut être patient !
+C'est ton objectif : Rex et les bébés.
