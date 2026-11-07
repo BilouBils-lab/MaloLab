@@ -915,6 +915,7 @@ function runSession(act, dk) {
   }
 
   const total = act.total || QUESTIONS_PAR_PARTIE, seen = new Set(), t0 = Date.now(), m0 = mastered();
+  praiseReset();
   let i = 0, got = 0;
 
   const next = () => {
@@ -946,7 +947,7 @@ function runSession(act, dk) {
         if (firstTry) got++;
         sfxOK(); reward(firstTry ? '+1 ' + STAR : ico('thumb'));
         const pdk = (q.actId && actById(q.actId) || {}).dk || dk;
-        say(`${praiseFor(pdk, firstTry)}${state.name ? ' ' + state.name : ''} ! ${q.after || ''}`);
+        say(`${praiseFor(pdk, firstTry)} ${q.after || ''}`);
         setTimeout(() => { i++; next(); }, q.after ? 2600 : 1500);
       } else {
         firstTry = false; sfxNo();

@@ -49,9 +49,24 @@ const PROCESS_PRAISE = {
   ecriture: ['Tu as bien écouté les sons', 'Tu as bien regardé le modèle', 'Tu t\'es bien appliqué'],
 };
 const FIX_PRAISE = ['Bravo, tu as corrigé ton erreur', 'Tu as persévéré, bravo', 'Tu as réessayé, et tu as trouvé'];
+// Après une bonne réponse : des mots courts et variés, sans le prénom (lassant à la longue)
+const SHORT_PRAISE = ['Oui !', 'Bravo !', "C'est ça !", 'Très bien !', 'Exact !', 'Super !', 'Bien joué !', 'Parfait !'];
+const Praise = { last: '', theme: false };
+const praiseReset = () => { Praise.theme = false; };   // au début de chaque partie
 function praiseFor(dk, firstTry) {
-  if (!firstTry) return pick(FIX_PRAISE);
-  return Math.random() < .45 ? pick(PROCESS_PRAISE[dk] || PROCESS_PRAISE.lecture) : pick(T().praise);
+  let pool;
+  if (!firstTry) pool = FIX_PRAISE;
+  else {
+    const r = Math.random();
+    if (r < .2) pool = PROCESS_PRAISE[dk] || PROCESS_PRAISE.lecture;              // l'effort, de temps en temps
+    else if (r < .28 && !Praise.theme) { Praise.theme = true; pool = T().praise; } // l'univers : une fois par partie au plus
+    else pool = SHORT_PRAISE;
+  }
+  pool = pool.map(x => /[!.]$/.test(x) ? x : x + ' !');
+  let p, n = 0;
+  do p = pick(pool); while (p === Praise.last && pool.length > 1 && ++n < 10);
+  Praise.last = p;
+  return p;
 }
 
 /* ---------- Écran « Mes progrès » (pour l'enfant) ---------- */
@@ -91,7 +106,7 @@ function progressScreen() {
         <div class="pg-big"><b>${Math.round(Object.values(logAll()).reduce((s, v) => s + v[1], 0) / 60)}</b> minutes de travail en tout</div>
       </section>
     </main>`);
-  say(`Bravo ${state.name || ''} ! Tu connais ${K.length} sons, et tu maîtrises ${mastered()} questions.`);
+  say(`Bravo ! Tu connais ${K.length} sons, et tu maîtrises ${mastered()} questions.`);
   $('#back').onclick = home;
   window.__screen = 'progress';
 }

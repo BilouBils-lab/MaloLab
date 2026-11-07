@@ -38,6 +38,10 @@ const { chromium } = require('playwright');
     const DP = [...new Set([...DICTEES, ...PHRASES.filter(x => x[1]).map(x => x[0])])];
     DP.forEach(t => { o.push(`Écris la phrase : ${t}`, t); t.replace(/[.!?]$/, '').split(' ').forEach(w => o.push(w)); });
     o.push('Écoute la phrase, et écris-la sur ton cahier', 'Voici le modèle. As-tu mis la majuscule et le point ?', 'Corrige sur ton cahier, mot par mot, en regardant bien le modèle.');
+    // Félicitations courtes (sans prénom) et félicitations sur l'effort
+    SHORT_PRAISE.forEach(x => o.push(x));
+    [...Object.values(PROCESS_PRAISE).flat(), ...FIX_PRAISE, ...Object.values(THEMES).flatMap(t => t.praise)].forEach(x => o.push(x + ' !'));
+    o.push('Bravo ! Tu connais 0 sons, et tu maîtrises 0 questions.');
     return o;
   });
   console.log(out.filter(x => !/\bX\b/.test(x) || true).join('\n').replace(/, pour X\./g, ','));

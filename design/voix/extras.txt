@@ -5693,12 +5693,6 @@ est
 dans
 la
 rue
-Écris la phrase : Il a un sirop.
-Il a un sirop.
-Il
-a
-un
-sirop
 Écris la phrase : La fourmi est sur la roue.
 La fourmi est sur la roue.
 La
@@ -5926,3 +5920,54 @@ rue
 Écoute la phrase, et écris-la sur ton cahier
 Voici le modèle. As-tu mis la majuscule et le point ?
 Corrige sur ton cahier, mot par mot, en regardant bien le modèle.
+Oui !
+Bravo !
+C'est ça !
+Très bien !
+Exact !
+Super !
+Bien joué !
+Parfait !
+Tu as bien lu chaque son !
+Tu as bien écouté !
+Tu as pris le temps de lire !
+Tu as bien compté !
+Tu as bien réfléchi !
+Tu as pris ton temps !
+Tu as bien écouté les sons !
+Tu as bien regardé le modèle !
+Tu t'es bien appliqué !
+Bravo, tu as corrigé ton erreur !
+Tu as persévéré, bravo !
+Tu as réessayé, et tu as trouvé !
+But !
+Quel tir !
+Champion !
+Superbe action !
+Bravo le buteur !
+Incroyable !
+Super-pouvoir !
+Mission réussie !
+Héroïque !
+Bravo super-héros !
+Bien joué !
+Incroyable !
+Bien construit !
+Super bâtisseur !
+Brique par brique !
+Bravo !
+Génial !
+Parfait !
+Monstre trouvé !
+Zapi est fier de toi !
+Super explorateur !
+Bravo !
+Génial !
+Incroyable !
+Rugissement de victoire !
+Bravo explorateur !
+Super !
+Génial !
+Excellent !
+Parfait !
+Bravo ! Tu connais 0 sons, et tu maîtrises 0 questions.
