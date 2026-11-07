@@ -17,15 +17,22 @@ const GRAPHEMES = [
   ['l', 'l', 'lit', '🛏️'], ['é', 'é', 'héros', '🦸'], ['u', 'u', 'rue', '🏙️'], ['s', 's', 'os', '🦴'],
   ['f', 'f', 'fée', '🧚'], ['e', 'e', 'ressort', '🌀'], ['m', 'm', 'mur', '🧱'], ['ch', 'ch', 'chat', '🐱'],
   ['ou', 'ou', 'souris', '🐭'], ['n', 'n', 'niche', '🏠'],
-  // suite proposée (à ajuster selon le fichier)
-  ['p', 'p', 'pomme', '🍎'], ['t', 't', 'tomate', '🍅'], ['v', 'v', 'vélo', '🚲'], ['d', 'd', 'dé', '🎲'],
-  ['b', 'b', 'banane', '🍌'], ['j', 'j', 'judo', '🥋'], ['on', 'on om', 'mouton', '🐑'], ['c', 'c k qu', 'canard', '🦆'],
-  ['an', 'an am en em', 'pantalon', '👖'], ['è', 'è ê ai ei', 'fraise', '🍓'], ['g', 'g gu', 'gâteau', '🎂'],
-  ['oi', 'oi', 'roi', '👑'], ['in', 'in im ain', 'lapin', '🐰'], ['eu', 'eu œu', 'feu', '🔥'], ['au', 'au eau', 'bateau', '⛵'],
-  ['z', 'z', 'zèbre', '🦓'], ['gn', 'gn', 'champignon', '🍄'], ['ill', 'ill', 'gorille', '🦍'],
+  // L15 à L24 du fichier de la classe
+  ['è', 'è ê ë', 'sirène', '🧜‍♀️'], ['v', 'v', 'vélo', '🚲'], ['t', 't', 'tour', '🗼'], ['p', 'p', 'poupée', '🪆'],
+  ['d', 'd', 'dé', '🎲'], ['b', 'b', 'banane', '🍌'], ['z', 'z', 'lézard', '🦎'], ['c', 'c', 'carotte', '🥕'],
+  ['br', 'br cr dr fr pr tr vr', 'crabe', '🦀'], ['bl', 'bl cl fl pl', 'clé', '🔑'],
+  // suite (à ajuster quand le fichier avance)
+  ['j', 'j', 'judo', '🥋'], ['on', 'on om', 'mouton', '🐑'], ['an', 'an am en em', 'pantalon', '👖'],
+  ['ai', 'ai ei et', 'fraise', '🍓'], ['eè', 'e (mer, elle)', 'fourchette', '🍴'], ['qu', 'qu k', 'phoque', '🦭'],
+  ['g', 'g gu', 'gâteau', '🎂'], ['oi', 'oi', 'roi', '👑'], ['in', 'in im ain', 'lapin', '🐰'], ['eu', 'eu œu', 'feu', '🔥'],
+  ['au', 'au eau', 'bateau', '⛵'], ['gn', 'gn', 'champignon', '🍄'], ['ill', 'ill', 'gorille', '🦍'],
   ['ph', 'ph', 'phoque', '🦭'], ['x', 'x', 'taxi', '🚕'],
 ];
-const DEFAULT_KNOWN = GRAPHEMES.slice(0, 14).map(g => g[0]);
+const DEFAULT_KNOWN = GRAPHEMES.slice(0, 15).map(g => g[0]);   // L1 à L15
+const L14_KNOWN = GRAPHEMES.slice(0, 14).map(g => g[0]);
+// Règles de lecture (groupes de consonnes) : ce ne sont pas des sons à part
+const RULE_IDS = new Set(['br', 'bl']);
+const isSound = id => !RULE_IDS.has(id);
 const OLD_DEFAULT_KNOWN = ['a', 'i', 'o', 'u', 'é', 'e', 'l', 'r', 'm', 's', 'f', 'ch', 'v', 'j'];
 
 /* =========================================================
@@ -60,6 +67,20 @@ const LEX = [
   ['l.i/l.a.(s)', '🪻'], ['i/r.i.s', '🌸'], ['s.i/r.o.(p)', '🍯'], ['l.a/ss.o', '🪢'], ['s.o/f.a', '🛋️'],
   ['f.ou.r/m.i', '🐜'], ['l.ou/ch.(e)', '🥄'], ['f.ou/l.a.r.(d)', '🧣'], ['r.u/ch.(e)', '🐝'], ['f.a/r.i/n.(e)', '🌾'],
   ['m.o/m.i.(e)', '🧟'], ['r.a/m.(e)', '🚣'], ['ch.e/m.i/n.é.(e)', '🔥'], ['m.a/m.i.(e)', '👵'],
+  // mots du fichier de la classe (L15 à L24)
+  ['s.i/r.è/n.(e)', '🧜‍♀️'], ['ch.ê/n.(e)', '🌳'], ['n.o/ë.l', '🎄'], ['m.è/ch.(e)', '🕯️'], ['f.o/r.ê.(t)', '🌲'],
+  ['l.u/m.i/è/r.(e)', '💡'], ['f.ê/t.(e)', '🎉'], ['r.ê/v.(e)', '💭'], ['v.i.s', '🔩'], ['l.ou/v.(e)', '🐺'],
+  ['r.i/v.i/è/r.(e)', '🏞️'], ['t.ou.r', '🗼'], ['t.a/ss.(e)', '🍵'], ['t.a.r/t.(e)', '🥧'], ['t.a.r/t.i/n.(e)', '🍞'],
+  ['t.ê/t.(e)', '🙂'], ['p.ou/p.é.(e)', '🪆'], ['p.i/r.a/t.(e)', '🏴‍☠️'], ['p.u/r.é.(e)', '🥔'], ['p.o/l.o', '👕'],
+  ['p.i/a/n.o', '🎹'], ['l.é/o/p.a.r.(d)', '🐆'], ['s.ou/p.(e)', '🍲'], ['d.ou/ch.(e)', '🚿'], ['s.a.r/d.i/n.(e)', '🐟'],
+  ['d.o/m.i/n.o', '🁫'], ['b.é/b.é', '👶'], ['(h).i/b.ou', '🦉'], ['b.ou/ch.(e)', '👄'], ['b.a.r/b.(e)', '🧔'],
+  ['l.é/z.a.r.(d)', '🦎'], ['z.é/r.o', '0️⃣'], ['d.ou/z.(e)', '🕛'], ['c.u/b.(e)', '🧊'], ['c.a/p.u/ch.(e)', '🧥'],
+  ['c.a/b.a/n.(e)', '🛖'], ['c.a/ss.e/r.o/l.(e)', '🍳'], ['ch.o/c.o/l.a.(t)', '🍫'], ['c.o/c.o', '🥥'],
+  ['a.r/b.r.(e)', '🌳'], ['c.r.a/b.(e)', '🦀'], ['c.a/d.r.(e)', '🖼️'], ['f.r.i/t.(e).(s)', '🍟'], ['c.r.ê/p.(e)', '🥞'],
+  ['c.r.o/c.o/d.i/l.(e)', '🐊'], ['t.r.ô/n.(e)', '🪑'], ['d.r.a.(p)', '🛏️'], ['b.r.o/s.(e)', '🪥'], ['t.r.ai/n', '🚂'],
+  ['b.l.é', '🌾'], ['c.l.é', '🔑'], ['f.l.û/t.(e)', '🪈'], ['p.l.a.(t)', '🍽️'], ['p.l.u/m.(e)', '🪶'], ['c.l.ou', '📌'],
+  ['c.l.o/ch.(e)', '🔔'], ['f.l.è/ch.(e)', '🏹'], ['p.l.u/i.(e)', '🌧️'], ['c.a.r/t.a/b.l.(e)', '🎒'], ['m.ou/f.l.(e).(s)', '🧤'],
+  ['t.a/b.l.(e)', '🪑'], ['v.i/p.è/r.(e)', '🐍'], ['p.a/p.i', '👴'], ['t.a/p.i.(s)', '🟥'],
   // mots des univers (3e colonne = univers)
   ['b.u.t', '🥅', 'foot'], ['c.ou/p.(e)', '🏆', 'foot'], ['s.t.a/d.(e)', '🏟️', 'foot'], ['f.i/l.et', '🥅', 'foot'],
   ['(h).é/r.o.(s)', '🦸', 'heros'], ['é/c.l.ai.r', '⚡', 'heros'], ['m.a.s/qu.(e)', '🎭', 'heros'], ['t.i/g.r.(e)', '🐯', 'heros'],
@@ -72,6 +93,17 @@ const LEX = [
 ];
 // Verbes et adjectifs utilisés dans les phrases
 const EXTRA = [
+  // mots du fichier (L15 à L24) sans image, pour les phrases
+  'm.è/r.(e)', 'p.è/r.(e)', 'f.r.è/r.(e)', 'f.i/è/r.(e)', 'a/r.è/n.(e)', 'm.ê/m.(e)', 'ch.è/r.(e)', 's.è/ch.(e)', 's.é/v.è/r.(e)',
+  'v.u', 'v.i.(e)', 's.a/l.i/v.(e)', 's.a/v.a/n.(e)', 'a/v.a/l.(e)', 'a/v.a/l.é', 'v.i.f', 'v.o.l', 't.a.r.(d)', 'p.e/t.i/t.(e)',
+  'p.e/t.i.(t)', 'p.o/l.i', 'r.a/p.i/d.(e)', 's.o/l.i/d.(e)', 'm.a/l.a/d.(e)', 'd.a/m.(e)', 'r.a/d.i.(s)', 'd.o.(s)', 'd.a/t.(e)',
+  'p.é/d.a/l.(e)', 'é/t.ou.r/d.i', 'd.o.r/m.i', 'r.a/v.i', 'r.a/v.i.(e)', 'b.u', 'b.a/l.a/d.(e)', 'b.a/v.a.r.(d)', 'o/b.é/i.r',
+  'z.o.(o)', 'b.a/z.a.r', 'f.â/ch.é', 'c.o/p.i/n.(e)', 'c.a.l/m.(e)', 'c.o/l.è/r.(e)', 'c.ou/r.i.r', 'c.o/ll.i/n.(e)',
+  'c.a/n.a/p.é', 't.r.i.s/t.(e)', 'p.r.o/p.r.(e)', 'p.r.u/n.(e)', 't.r.ou/v.(e)', 'c.r.è/m.(e)', 'b.r.e/b.i.(s)',
+  'b.l.ou', 't.r.ou', 'c.l.a/ss.(e)', 'é/b.l.ou/i', 'o/u/b.l.i.(e)', 'p.l.u.(s)', 'v.a', 'p.a.r.(t)', 'r.e/p.a.(s)',
+  'r.é/p.a/r.é', 'p.o.r/t.(e)', 's.o/nn.(e)', 't.ou/t.(e)', 'b.o/nn.(e)', 'f.o/ll.(e)', 'p.a.r', 'p.ou.r',
+  'p.a/p.a', 'é/c.ou/t.(e)', 'r.o/ch.(e)', 'm.a.l', 's.a/l.é.(e)', 'm.a',
+
   'v.o/l.(e)', 'm.a.r/ch.(e)', 'r.ou/l.(e)', 'n.a/g=j.(e)', 'm.i/au/l.(e)', 'd.o.r.(t)', 'm.an/g=j.(e)',
   'r.ou/g=j.(e)', 'v.e=è.r/t.(e)', 'p.e/t.i/t.(e)', 'p.e/t.i.(t)', 'j.au/n.(e)', 'p.a.r/l.(e)', 's.au/t.(e)',
   'ch.an/t.(e)', 'r.i.(t)', 'a/m.i', 'd.an/s.(e)',
@@ -89,6 +121,17 @@ const DICTEES = [
   'La fusée file.', 'Malo lira un mot.', 'Le chat est roux.', "L'ara est sur le mur.", 'Il y a la lune.', 'Mamie rit.',
   'Le chat est sur le lit.', "C'est un nid.", "C'est un héros.", 'Le loup a un os.', 'Malo a un ami et un chat.',
   'Le renard est dans la rue.', 'La fourmi est sur la roue.', 'Malo marche dans la rue.',
+  // L15 à L24
+  'La sirène est sur la roche.', 'Le chêne est énorme.', 'Il y a une forêt.', 'La lumière est sur le mur.', 'La mèche est sur le sofa.',
+  'Malo a un vélo.', 'Il a vu une louve.', 'La louve est dans la forêt.', 'La vache est dans la rivière.',
+  'Malo a une tarte.', 'La tortue est sur le tapis.', 'Il a mal à la tête.', 'Elle a une tartine.',
+  'La poupée est sur le sofa.', 'Papi a une pomme.', 'La purée est salée.', 'Papa a un polo.',
+  'La douche est rapide.', 'Le dé est sur le tapis.', 'Malo a dormi.', 'La sardine est dans la soupe.',
+  'Le bébé a une banane.', 'Le hibou est sur le chêne.', 'Le bébé a bu.', 'Il y a un bol sur le tapis.',
+  'Le lézard est sur le mur.', 'Il y a un lézard dans la cabane.',
+  'Le canard est sur la colline.', 'La capuche est sur la tête.', 'Malo a une cabane.', 'Le chocolat est sur le sofa.',
+  'Le crabe est sur la roche.', 'Il y a un arbre dans la forêt.', 'Le crocodile est dans la rivière.', 'Le livre est sur le lit.',
+  'La clé est dans le cartable.', 'La plume est sur la table.', 'La cloche sonne.', 'Il y a de la pluie.',
 ];
 const MOTS_OUTILS = ['un', 'le', 'la', "l'", 'a', 'à', 'il', 'y', 'et', 'est', 'dans', "c'est", 'sur', 'les', 'une', 'elle', 'de', 'des', 'au', 'avec'];
 const DEFAULT_OUTILS = MOTS_OUTILS.slice(0, 13);
@@ -115,6 +158,12 @@ const PHRASES = [
   ['Malo lit sur le sofa.', true], ['La fourmi marche.', true], ["C'est un lama.", true], ['Le lama marche dans la rue.', true],
   ['La lune est sur le sofa.', false], ['Le riz chasse le chat.', false], ['La fourmi est énorme.', false],
   ['Le mur rit.', false], ['Le lit marche.', false], ["L'olive a un lasso.", false], ['Le rat lit.', false],
+  // L15 à L24
+  ['Le hibou est sur le chêne.', true], ['La louve est dans la forêt.', true], ['Le bébé a une capuche.', true],
+  ['Le chocolat est dans la tasse.', true], ['Le crabe est sur la roche.', true], ['La sirène est dans la rivière.', true],
+  ['Le lézard lit un livre.', false], ['La poupée a une barbe.', false], ['Le crocodile est dans la tasse.', false],
+  ['Le canard a une flûte.', false], ['La sardine est sur le vélo.', false], ['Le chêne a une capuche.', false],
+  ['La tortue a une poupée.', false], ['Le bébé est sur la lune.', false],
   ['La roue rit.', false], ['Le sofa file dans la rue.', false], ['Il y a un ours dans la niche.', false],
 ];
 
@@ -181,6 +230,7 @@ const state = (() => {
     s.level = 'auto';
     s.v2 = true;
   }
+  if (s.l15 !== 1) { if (sameSet(s.known, L14_KNOWN)) s.known = [...s.known, 'è']; s.l15 = 1; }   // la classe est à la L15
   if (s.voiceMig !== 1) { s.voiceURI = 'malolab'; s.voiceMig = 1; }   // voix de MaloLab par défaut (une seule fois)
   return s;
 })();
@@ -210,14 +260,15 @@ function numChoices(ans, lo, hi, k = 3) {
 /* ---------- Décodage des mots ---------- */
 // graphie -> son (identifiant de GRAPHEMES)
 const SPELL = {
-  y: 'i', î: 'i', â: 'a', à: 'a', ô: 'o', k: 'c', qu: 'c', q: 'c', am: 'an', en: 'an', em: 'an',
-  ê: 'è', ai: 'è', ei: 'è', et: 'è', er: 'é', ez: 'é', gu: 'g', im: 'in', ain: 'in', ein: 'in',
+  y: 'i', î: 'i', â: 'a', à: 'a', ô: 'o', û: 'u', k: 'qu', qu: 'qu', q: 'qu', am: 'an', en: 'an', em: 'an',
+  ê: 'è', ë: 'è', ai: 'ai', ei: 'ai', et: 'ai', er: 'é', ez: 'é', gu: 'g', im: 'in', ain: 'in', ein: 'in',
   œu: 'eu', eau: 'au', om: 'on', ss: 's', mm: 'm', ll: 'l', tt: 't', nn: 'n', pp: 'p', rr: 'r', ff: 'f', ç: 's',
 };
 function tok(t) {
   if (t.startsWith('(')) return { sp: t.slice(1, -1), silent: true, id: null };
   const [sp, forced] = t.split('=');
-  return { sp, silent: false, id: forced || SPELL[sp] || sp };
+  // « e » qui se lit è (mer, fourchette) : appris plus tard que è ê ë
+  return { sp, silent: false, id: forced === 'è' && sp === 'e' ? 'eè' : forced === 'c' && sp === 'q' ? 'qu' : forced || SPELL[sp] || sp };
 }
 function parseWord(seg) {
   const syls = seg.split('/').map(s => s.split('.').map(tok));
@@ -231,7 +282,15 @@ const DICT = new Map();
 [...LEXICON, ...EXTRA.map(parseWord)].forEach(w => { if (!DICT.has(w.text)) DICT.set(w.text, w); });
 
 const knownSet = () => new Set(state.known);
-const decodable = (w, K = knownSet()) => w.toks.every(t => t.silent || K.has(t.id));
+// Groupes de consonnes (br, cr… / bl, cl…) : lisibles seulement après les leçons L23 et L24
+const CL1 = new Set(['b', 'c', 'qu', 'd', 'f', 'g', 'p', 't', 'v']);
+function clusters(w) {
+  if (w._cl) return w._cl;
+  const need = new Set();
+  w.syls.forEach(sy => { const t = sy.filter(x => !x.silent); for (let i = 0; i + 1 < t.length; i++) if (CL1.has(t[i].id) && (t[i + 1].id === 'r' || t[i + 1].id === 'l') && i === 0) need.add(t[i + 1].id === 'r' ? 'br' : 'bl'); });
+  return (w._cl = [...need]);
+}
+const decodable = (w, K = knownSet()) => w.toks.every(t => t.silent || K.has(t.id)) && clusters(w).every(r => K.has(r));
 const readableWords = () => { const K = knownSet(); return LEXICON.filter(w => decodable(w, K)); };
 
 function parseSentence(s) {
@@ -283,7 +342,7 @@ function sentenceHTML(p) {
 
 // Syllabes possibles avec les sons connus
 const CONS = ['l', 'r', 'm', 's', 'f', 'ch', 'v', 'j', 'n', 'p', 't', 'd', 'b', 'c', 'g', 'z'];
-const VOW = ['a', 'i', 'o', 'u', 'é', 'e', 'ou', 'on', 'an', 'in', 'oi'];
+const VOW = ['a', 'i', 'o', 'u', 'é', 'è', 'e', 'ou', 'on', 'an', 'in', 'oi'];
 const HARD = ['a', 'o', 'u', 'ou', 'on', 'an', 'oi']; // c et g restent durs devant ces sons
 function syllPool() {
   const K = knownSet(), out = [];
@@ -640,7 +699,7 @@ const ACTS = {
       {
         id: 'premierson', title: 'Le premier son', icon: '🔤',
         make() {
-          const W = readableWords(), K = [...state.known];
+          const W = readableWords(), K = state.known.filter(isSound);
           if (!W.length || K.length < 3) return null;
           const w = pickWord(W), f = w.toks.find(t => !t.silent).id;
           const ds = sample(K.filter(x => x !== f), 2);
@@ -705,7 +764,7 @@ const ACTS = {
       {
         id: 'cursive-lettres', title: 'Lettres attachées', icon: '✒️',
         make() {
-          const letters = [...new Set(state.known.flatMap(id => [...id]))].filter(c => cursiveSupports(c));
+          const letters = [...new Set(state.known.filter(isSound).flatMap(id => [...id]))].filter(c => cursiveSupports(c));
           return cursiveQ(pick(letters.length ? letters : 'aioulrm'.split('')), 'la lettre');
         },
       },
@@ -1048,7 +1107,7 @@ function settings() {
       <details class="sec" data-sec="lecture"><summary><b>Lecture</b><small data-sum="lecture"></small></summary><div class="sec-body">
         <div class="field">Sons déjà étudiés en classe
           <small>Touchez chaque son déjà vu (voir le cahier ou le manuel Alfi). Les exercices n'utilisent <b>que</b> des mots écrits avec ces sons.</small>
-          <div class="chips" id="gr">${GRAPHEMES.map(([id, gs]) => `<button data-id="${esc(id)}" class="${K.has(id) ? 'on' : ''}">${esc(gs)}</button>`).join('')}</div>
+          <div class="chips" id="gr">${GRAPHEMES.map(([id, gs], i) => `<button data-id="${esc(id)}" class="${K.has(id) ? 'on' : ''}">${i < 24 ? `<small class="lnum">L${i + 1}</small>` : ''}${esc(gs)}</button>`).join('')}</div>
           <small id="count"></small>
         </div>
         <div class="field">Mots outils connus

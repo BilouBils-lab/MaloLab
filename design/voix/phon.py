@@ -1,6 +1,6 @@
 """Prononciation des sons et syllabes de MaloLab pour Piper (phonèmes eSpeak)."""
 G2P = {'ill': 'ij', 'ch': 'ʃ', 'ou': 'u', 'on': 'ɔ̃', 'an': 'ɑ̃', 'oi': 'wa', 'in': 'ɛ̃', 'eu': 'ø', 'au': 'o', 'gn': 'ɲ', 'ph': 'f',
-       'a': 'a', 'i': 'i', 'y': 'i', 'r': 'ʁ', 'o': 'o', 'l': 'l', 'é': 'e', 'è': 'ɛ', 'u': 'y', 's': 's', 'f': 'f', 'e': 'ə', 'm': 'm',
+       'a': 'a', 'i': 'i', 'y': 'i', 'ê': 'ɛ', 'ë': 'ɛ', 'û': 'y', 'qu': 'k', 'k': 'k', 'r': 'ʁ', 'o': 'o', 'l': 'l', 'é': 'e', 'è': 'ɛ', 'u': 'y', 's': 's', 'f': 'f', 'e': 'ə', 'm': 'm',
        'n': 'n', 'p': 'p', 't': 't', 'v': 'v', 'd': 'd', 'b': 'b', 'j': 'ʒ', 'c': 'k', 'g': 'ɡ', 'z': 'z', 'x': 'ks'}
 CONT = set('ʁlsfmnvzʃʒ')  # consonnes qu'on peut prolonger
 SOUND_WORDS = {'rrr': 'r', 'lll': 'l', 'sss': 's', 'fff': 'f', 'mmm': 'm', 'nnn': 'n', 'chhh': 'ch', 'vvv': 'v', 'jjj': 'j', 'zzz': 'z'}

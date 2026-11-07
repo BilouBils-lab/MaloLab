@@ -45,7 +45,7 @@ const bandHTML = id => `
   </div>`;
 
 function lettresQ(force) {
-  const K = state.known.filter(id => grapheme(id) && id !== 'ill');
+  const K = state.known.filter(id => grapheme(id) && id !== 'ill' && isSound(id));
   if (K.length < 2) return null;
   const target = force && K.includes(force) ? force : pick(K);
   const forms = shuffle(letterForms(target));
@@ -77,10 +77,11 @@ function lettresQ(force) {
 const CONFUS = {
   a: ['an', 'oi', 'au', 'è'], i: ['in', 'oi', 'ill'], o: ['on', 'au', 'oi', 'ou'], u: ['ou', 'eu'], e: ['eu', 'è', 'é'],
   'é': ['è', 'e'], ou: ['o', 'u'], s: ['z', 'x', 'ch'], ch: ['s', 'j'], f: ['v', 'ph'], r: [], l: ['ill'], m: ['n'], n: ['m', 'gn'],
+  'è': ['é', 'e'], v: ['f'], t: ['d'], p: ['b'], d: ['t', 'b'], b: ['d', 'p'], z: ['s'], c: ['g'],
 };
-const hearIds = t => t.id === 'ph' ? ['f'] : t.id === 'x' ? ['c', 's'] : [t.id];
+const hearIds = t => t.id === 'ph' ? ['f'] : t.id === 'x' ? ['c', 's'] : t.id === 'ai' || t.id === 'eè' ? ['è'] : t.id === 'qu' ? ['c'] : [t.id];
 function entendsQ(force) {
-  const K = state.known.filter(id => grapheme(id) && id !== 'ill');
+  const K = state.known.filter(id => grapheme(id) && id !== 'ill' && isSound(id));
   if (!K.length) return null;
   for (let tries = 0; tries < 20; tries++) {
     const target = force && K.includes(force) && tries < 12 ? force : pick(K), bad = CONFUS[target] || [];
@@ -108,8 +109,8 @@ function entendsQ(force) {
 }
 
 /* ---------- 3. Combine les lettres pour former des syllabes ---------- */
-const VC_FINAL = ['r', 'l', 's', 'f'];
-const VC_VOW = ['a', 'i', 'o', 'u', 'ou'];
+const VC_FINAL = ['r', 'l', 's', 'f', 'v', 'p', 't', 'd', 'b'];
+const VC_VOW = ['a', 'i', 'o', 'u', 'ou', 'è'];
 function fusionPool() {
   const K = knownSet(), out = syllPool().map(([c, v]) => [c, v, c + v]);
   VC_VOW.forEach(v => K.has(v) && VC_FINAL.forEach(c => K.has(c) && out.push([v, c, v + c])));

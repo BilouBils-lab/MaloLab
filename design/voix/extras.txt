@@ -5039,22 +5039,27 @@ Méli-mélo. Lis à voix haute, le plus vite possible sans te tromper. Appuie su
 Ça, c'est chhh, comme dans chat. On cherche chhh, comme dans chat.
 Ça, c'est ou, comme dans souris. On cherche ou, comme dans souris.
 Ça, c'est nnn, comme dans niche. On cherche nnn, comme dans niche.
-Ça, c'est p, comme dans pomme. On cherche p, comme dans pomme.
-Ça, c'est t, comme dans tomate. On cherche t, comme dans tomate.
+Ça, c'est è, comme dans sirène. On cherche è, comme dans sirène.
 Ça, c'est vvv, comme dans vélo. On cherche vvv, comme dans vélo.
+Ça, c'est t, comme dans tour. On cherche t, comme dans tour.
+Ça, c'est p, comme dans poupée. On cherche p, comme dans poupée.
 Ça, c'est d, comme dans dé. On cherche d, comme dans dé.
 Ça, c'est b, comme dans banane. On cherche b, comme dans banane.
+Ça, c'est zzz, comme dans lézard. On cherche zzz, comme dans lézard.
+Ça, c'est c, comme dans carotte. On cherche c, comme dans carotte.
+Ça, c'est br, comme dans crabe. On cherche br, comme dans crabe.
+Ça, c'est bl, comme dans clé. On cherche bl, comme dans clé.
 Ça, c'est jjj, comme dans judo. On cherche jjj, comme dans judo.
 Ça, c'est on, comme dans mouton. On cherche on, comme dans mouton.
-Ça, c'est c, comme dans canard. On cherche c, comme dans canard.
 Ça, c'est an, comme dans pantalon. On cherche an, comme dans pantalon.
-Ça, c'est è, comme dans fraise. On cherche è, comme dans fraise.
+Ça, c'est ai, comme dans fraise. On cherche ai, comme dans fraise.
+Ça, c'est eè, comme dans fourchette. On cherche eè, comme dans fourchette.
+Ça, c'est qu, comme dans phoque. On cherche qu, comme dans phoque.
 Ça, c'est g, comme dans gâteau. On cherche g, comme dans gâteau.
 Ça, c'est oi, comme dans roi. On cherche oi, comme dans roi.
 Ça, c'est in, comme dans lapin. On cherche in, comme dans lapin.
 Ça, c'est eu, comme dans feu. On cherche eu, comme dans feu.
 Ça, c'est au, comme dans bateau. On cherche au, comme dans bateau.
-Ça, c'est zzz, comme dans zèbre. On cherche zzz, comme dans zèbre.
 Ça, c'est gn, comme dans champignon. On cherche gn, comme dans champignon.
 Ça, c'est ill, comme dans gorille. On cherche ill, comme dans gorille.
 Ça, c'est ph, comme dans phoque. On cherche ph, comme dans phoque.
@@ -5145,8 +5150,12 @@ chhh, ce n'est pas le premier son. Écoute bien le début : chat.
 chhh, ce n'est pas le son suivant. Dis le mot doucement : chat.
 on, ce n'est pas le premier son. Écoute bien le début : chat.
 on, ce n'est pas le son suivant. Dis le mot doucement : chat.
+eè, ce n'est pas le premier son. Écoute bien le début : chat.
+eè, ce n'est pas le son suivant. Dis le mot doucement : chat.
 ou, ce n'est pas le premier son. Écoute bien le début : chat.
 ou, ce n'est pas le son suivant. Dis le mot doucement : chat.
+ai, ce n'est pas le premier son. Écoute bien le début : chat.
+ai, ce n'est pas le son suivant. Dis le mot doucement : chat.
 au, ce n'est pas le premier son. Écoute bien le début : chat.
 au, ce n'est pas le son suivant. Dis le mot doucement : chat.
 oi, ce n'est pas le premier son. Écoute bien le début : chat.
@@ -5159,6 +5168,8 @@ gn, ce n'est pas le premier son. Écoute bien le début : chat.
 gn, ce n'est pas le son suivant. Dis le mot doucement : chat.
 ill, ce n'est pas le premier son. Écoute bien le début : chat.
 ill, ce n'est pas le son suivant. Dis le mot doucement : chat.
+qu, ce n'est pas le premier son. Écoute bien le début : chat.
+qu, ce n'est pas le son suivant. Dis le mot doucement : chat.
 Bravo ! 1 seconde
 Bravo ! 2 secondes
 Bravo ! 3 secondes
@@ -5708,6 +5719,295 @@ marche
 dans
 la
 rue
+Écris la phrase : La sirène est sur la roche.
+La sirène est sur la roche.
+La
+sirène
+est
+sur
+la
+roche
+Écris la phrase : Le chêne est énorme.
+Le chêne est énorme.
+Le
+chêne
+est
+énorme
+Écris la phrase : Il y a une forêt.
+Il y a une forêt.
+Il
+y
+a
+une
+forêt
+Écris la phrase : La lumière est sur le mur.
+La lumière est sur le mur.
+La
+lumière
+est
+sur
+le
+mur
+Écris la phrase : La mèche est sur le sofa.
+La mèche est sur le sofa.
+La
+mèche
+est
+sur
+le
+sofa
+Écris la phrase : Malo a un vélo.
+Malo a un vélo.
+Malo
+a
+un
+vélo
+Écris la phrase : Il a vu une louve.
+Il a vu une louve.
+Il
+a
+vu
+une
+louve
+Écris la phrase : La louve est dans la forêt.
+La louve est dans la forêt.
+La
+louve
+est
+dans
+la
+forêt
+Écris la phrase : La vache est dans la rivière.
+La vache est dans la rivière.
+La
+vache
+est
+dans
+la
+rivière
+Écris la phrase : Malo a une tarte.
+Malo a une tarte.
+Malo
+a
+une
+tarte
+Écris la phrase : La tortue est sur le tapis.
+La tortue est sur le tapis.
+La
+tortue
+est
+sur
+le
+tapis
+Écris la phrase : Il a mal à la tête.
+Il a mal à la tête.
+Il
+a
+mal
+à
+la
+tête
+Écris la phrase : Elle a une tartine.
+Elle a une tartine.
+Elle
+a
+une
+tartine
+Écris la phrase : La poupée est sur le sofa.
+La poupée est sur le sofa.
+La
+poupée
+est
+sur
+le
+sofa
+Écris la phrase : Papi a une pomme.
+Papi a une pomme.
+Papi
+a
+une
+pomme
+Écris la phrase : La purée est salée.
+La purée est salée.
+La
+purée
+est
+salée
+Écris la phrase : Papa a un polo.
+Papa a un polo.
+Papa
+a
+un
+polo
+Écris la phrase : La douche est rapide.
+La douche est rapide.
+La
+douche
+est
+rapide
+Écris la phrase : Le dé est sur le tapis.
+Le dé est sur le tapis.
+Le
+dé
+est
+sur
+le
+tapis
+Écris la phrase : Malo a dormi.
+Malo a dormi.
+Malo
+a
+dormi
+Écris la phrase : La sardine est dans la soupe.
+La sardine est dans la soupe.
+La
+sardine
+est
+dans
+la
+soupe
+Écris la phrase : Le bébé a une banane.
+Le bébé a une banane.
+Le
+bébé
+a
+une
+banane
+Écris la phrase : Le hibou est sur le chêne.
+Le hibou est sur le chêne.
+Le
+hibou
+est
+sur
+le
+chêne
+Écris la phrase : Le bébé a bu.
+Le bébé a bu.
+Le
+bébé
+a
+bu
+Écris la phrase : Il y a un bol sur le tapis.
+Il y a un bol sur le tapis.
+Il
+y
+a
+un
+bol
+sur
+le
+tapis
+Écris la phrase : Le lézard est sur le mur.
+Le lézard est sur le mur.
+Le
+lézard
+est
+sur
+le
+mur
+Écris la phrase : Il y a un lézard dans la cabane.
+Il y a un lézard dans la cabane.
+Il
+y
+a
+un
+lézard
+dans
+la
+cabane
+Écris la phrase : Le canard est sur la colline.
+Le canard est sur la colline.
+Le
+canard
+est
+sur
+la
+colline
+Écris la phrase : La capuche est sur la tête.
+La capuche est sur la tête.
+La
+capuche
+est
+sur
+la
+tête
+Écris la phrase : Malo a une cabane.
+Malo a une cabane.
+Malo
+a
+une
+cabane
+Écris la phrase : Le chocolat est sur le sofa.
+Le chocolat est sur le sofa.
+Le
+chocolat
+est
+sur
+le
+sofa
+Écris la phrase : Le crabe est sur la roche.
+Le crabe est sur la roche.
+Le
+crabe
+est
+sur
+la
+roche
+Écris la phrase : Il y a un arbre dans la forêt.
+Il y a un arbre dans la forêt.
+Il
+y
+a
+un
+arbre
+dans
+la
+forêt
+Écris la phrase : Le crocodile est dans la rivière.
+Le crocodile est dans la rivière.
+Le
+crocodile
+est
+dans
+la
+rivière
+Écris la phrase : Le livre est sur le lit.
+Le livre est sur le lit.
+Le
+livre
+est
+sur
+le
+lit
+Écris la phrase : La clé est dans le cartable.
+La clé est dans le cartable.
+La
+clé
+est
+dans
+le
+cartable
+Écris la phrase : La plume est sur la table.
+La plume est sur la table.
+La
+plume
+est
+sur
+la
+table
+Écris la phrase : La cloche sonne.
+La cloche sonne.
+La
+cloche
+sonne
+Écris la phrase : Il y a de la pluie.
+Il y a de la pluie.
+Il
+y
+a
+de
+la
+pluie
 Écris la phrase : Le chat dort sur le lit.
 Le chat dort sur le lit.
 Le
@@ -5917,6 +6217,29 @@ marche
 dans
 la
 rue
+Écris la phrase : Le bébé a une capuche.
+Le bébé a une capuche.
+Le
+bébé
+a
+une
+capuche
+Écris la phrase : Le chocolat est dans la tasse.
+Le chocolat est dans la tasse.
+Le
+chocolat
+est
+dans
+la
+tasse
+Écris la phrase : La sirène est dans la rivière.
+La sirène est dans la rivière.
+La
+sirène
+est
+dans
+la
+rivière
 Écoute la phrase, et écris-la sur ton cahier
 Voici le modèle. As-tu mis la majuscule et le point ?
 Corrige sur ton cahier, mot par mot, en regardant bien le modèle.
@@ -5971,3 +6294,867 @@ Génial !
 Excellent !
 Parfait !
 Bravo ! Tu connais 0 sons, et tu maîtrises 0 questions.
+Repasse sur la syllabe la,
+la ?
+Repasse sur la syllabe li,
+li ?
+Repasse sur la syllabe lo,
+lo ?
+Repasse sur la syllabe lu,
+lu ?
+Repasse sur la syllabe lé,
+lé ?
+Repasse sur la syllabe lè,
+lè ?
+Repasse sur la syllabe le,
+le ?
+Repasse sur la syllabe lou,
+lou ?
+Repasse sur la syllabe lon,
+lon ?
+Repasse sur la syllabe lan,
+lan ?
+Repasse sur la syllabe lin,
+lin ?
+Repasse sur la syllabe loi,
+loi ?
+Repasse sur la syllabe ra,
+ra ?
+Repasse sur la syllabe ri,
+ri ?
+Repasse sur la syllabe ro,
+ro ?
+Repasse sur la syllabe ru,
+ru ?
+Repasse sur la syllabe ré,
+ré ?
+Repasse sur la syllabe rè,
+rè ?
+Repasse sur la syllabe re,
+re ?
+Repasse sur la syllabe rou,
+rou ?
+Repasse sur la syllabe ron,
+ron ?
+Repasse sur la syllabe ran,
+ran ?
+Repasse sur la syllabe rin,
+rin ?
+Repasse sur la syllabe roi,
+roi ?
+Repasse sur la syllabe ma,
+ma ?
+Repasse sur la syllabe mi,
+mi ?
+Repasse sur la syllabe mo,
+mo ?
+Repasse sur la syllabe mu,
+mu ?
+Repasse sur la syllabe mé,
+mé ?
+Repasse sur la syllabe mè,
+mè ?
+Repasse sur la syllabe me,
+me ?
+Repasse sur la syllabe mou,
+mou ?
+Repasse sur la syllabe mon,
+mon ?
+Repasse sur la syllabe man,
+man ?
+Repasse sur la syllabe min,
+min ?
+Repasse sur la syllabe moi,
+moi ?
+Repasse sur la syllabe sa,
+sa ?
+Repasse sur la syllabe si,
+si ?
+Repasse sur la syllabe so,
+so ?
+Repasse sur la syllabe su,
+su ?
+Repasse sur la syllabe sé,
+sé ?
+Repasse sur la syllabe sè,
+sè ?
+Repasse sur la syllabe se,
+se ?
+Repasse sur la syllabe sou,
+sou ?
+Repasse sur la syllabe son,
+son ?
+Repasse sur la syllabe san,
+san ?
+Repasse sur la syllabe sin,
+sin ?
+Repasse sur la syllabe soi,
+soi ?
+Repasse sur la syllabe fa,
+fa ?
+Repasse sur la syllabe fi,
+fi ?
+Repasse sur la syllabe fo,
+fo ?
+Repasse sur la syllabe fu,
+fu ?
+Repasse sur la syllabe fé,
+fé ?
+Repasse sur la syllabe fè,
+fè ?
+Repasse sur la syllabe fe,
+fe ?
+Repasse sur la syllabe fou,
+fou ?
+Repasse sur la syllabe fon,
+fon ?
+Repasse sur la syllabe fan,
+fan ?
+Repasse sur la syllabe fin,
+fin ?
+Repasse sur la syllabe foi,
+foi ?
+Repasse sur la syllabe cha,
+cha ?
+Repasse sur la syllabe chi,
+chi ?
+Repasse sur la syllabe cho,
+cho ?
+Repasse sur la syllabe chu,
+chu ?
+Repasse sur la syllabe ché,
+ché ?
+Repasse sur la syllabe chè,
+chè ?
+Repasse sur la syllabe che,
+che ?
+Repasse sur la syllabe chou,
+chou ?
+Repasse sur la syllabe chon,
+chon ?
+Repasse sur la syllabe chan,
+chan ?
+Repasse sur la syllabe chin,
+chin ?
+Repasse sur la syllabe choi,
+choi ?
+Repasse sur la syllabe va,
+va ?
+Repasse sur la syllabe vi,
+vi ?
+Repasse sur la syllabe vo,
+vo ?
+Repasse sur la syllabe vu,
+vu ?
+Repasse sur la syllabe vé,
+vé ?
+Repasse sur la syllabe vè,
+vè ?
+Repasse sur la syllabe ve,
+ve ?
+Repasse sur la syllabe vou,
+vou ?
+Repasse sur la syllabe von,
+von ?
+Repasse sur la syllabe van,
+van ?
+Repasse sur la syllabe vin,
+vin ?
+Repasse sur la syllabe voi,
+voi ?
+Repasse sur la syllabe ja,
+ja ?
+Repasse sur la syllabe ji,
+ji ?
+Repasse sur la syllabe jo,
+jo ?
+Repasse sur la syllabe ju,
+ju ?
+Repasse sur la syllabe jé,
+jé ?
+Repasse sur la syllabe jè,
+jè ?
+Repasse sur la syllabe je,
+je ?
+Repasse sur la syllabe jou,
+jou ?
+Repasse sur la syllabe jon,
+jon ?
+Repasse sur la syllabe jan,
+jan ?
+Repasse sur la syllabe jin,
+jin ?
+Repasse sur la syllabe joi,
+joi ?
+Repasse sur la syllabe na,
+na ?
+Repasse sur la syllabe ni,
+ni ?
+Repasse sur la syllabe no,
+no ?
+Repasse sur la syllabe nu,
+nu ?
+Repasse sur la syllabe né,
+né ?
+Repasse sur la syllabe nè,
+nè ?
+Repasse sur la syllabe ne,
+ne ?
+Repasse sur la syllabe nou,
+nou ?
+Repasse sur la syllabe non,
+non ?
+Repasse sur la syllabe nan,
+nan ?
+Repasse sur la syllabe nin,
+nin ?
+Repasse sur la syllabe noi,
+noi ?
+Repasse sur la syllabe pa,
+pa ?
+Repasse sur la syllabe pi,
+pi ?
+Repasse sur la syllabe po,
+po ?
+Repasse sur la syllabe pu,
+pu ?
+Repasse sur la syllabe pé,
+pé ?
+Repasse sur la syllabe pè,
+pè ?
+Repasse sur la syllabe pe,
+pe ?
+Repasse sur la syllabe pou,
+pou ?
+Repasse sur la syllabe pon,
+pon ?
+Repasse sur la syllabe pan,
+pan ?
+Repasse sur la syllabe pin,
+pin ?
+Repasse sur la syllabe poi,
+poi ?
+Repasse sur la syllabe ta,
+ta ?
+Repasse sur la syllabe ti,
+ti ?
+Repasse sur la syllabe to,
+to ?
+Repasse sur la syllabe tu,
+tu ?
+Repasse sur la syllabe té,
+té ?
+Repasse sur la syllabe tè,
+tè ?
+Repasse sur la syllabe te,
+te ?
+Repasse sur la syllabe tou,
+tou ?
+Repasse sur la syllabe ton,
+ton ?
+Repasse sur la syllabe tan,
+tan ?
+Repasse sur la syllabe tin,
+tin ?
+Repasse sur la syllabe toi,
+toi ?
+Repasse sur la syllabe da,
+da ?
+Repasse sur la syllabe di,
+di ?
+Repasse sur la syllabe do,
+do ?
+Repasse sur la syllabe du,
+du ?
+Repasse sur la syllabe dé,
+dé ?
+Repasse sur la syllabe dè,
+dè ?
+Repasse sur la syllabe de,
+de ?
+Repasse sur la syllabe dou,
+dou ?
+Repasse sur la syllabe don,
+don ?
+Repasse sur la syllabe dan,
+dan ?
+Repasse sur la syllabe din,
+din ?
+Repasse sur la syllabe doi,
+doi ?
+Repasse sur la syllabe ba,
+ba ?
+Repasse sur la syllabe bi,
+bi ?
+Repasse sur la syllabe bo,
+bo ?
+Repasse sur la syllabe bu,
+bu ?
+Repasse sur la syllabe bé,
+bé ?
+Repasse sur la syllabe bè,
+bè ?
+Repasse sur la syllabe be,
+be ?
+Repasse sur la syllabe bou,
+bou ?
+Repasse sur la syllabe bon,
+bon ?
+Repasse sur la syllabe ban,
+ban ?
+Repasse sur la syllabe bin,
+bin ?
+Repasse sur la syllabe boi,
+boi ?
+Repasse sur la syllabe ca,
+ca ?
+Repasse sur la syllabe co,
+co ?
+Repasse sur la syllabe cu,
+cu ?
+Repasse sur la syllabe cou,
+cou ?
+Repasse sur la syllabe con,
+con ?
+Repasse sur la syllabe can,
+can ?
+Repasse sur la syllabe coi,
+coi ?
+Repasse sur la syllabe ga,
+ga ?
+Repasse sur la syllabe go,
+go ?
+Repasse sur la syllabe gu,
+gu ?
+Repasse sur la syllabe gou,
+gou ?
+Repasse sur la syllabe gon,
+gon ?
+Repasse sur la syllabe gan,
+gan ?
+Repasse sur la syllabe goi,
+goi ?
+Repasse sur la syllabe za,
+za ?
+Repasse sur la syllabe zi,
+zi ?
+Repasse sur la syllabe zo,
+zo ?
+Repasse sur la syllabe zu,
+zu ?
+Repasse sur la syllabe zé,
+zé ?
+Repasse sur la syllabe zè,
+zè ?
+Repasse sur la syllabe ze,
+ze ?
+Repasse sur la syllabe zou,
+zou ?
+Repasse sur la syllabe zon,
+zon ?
+Repasse sur la syllabe zan,
+zan ?
+Repasse sur la syllabe zin,
+zin ?
+Repasse sur la syllabe zoi,
+zoi ?
+Repasse sur la syllabe ar,
+ar ?
+Repasse sur la syllabe al,
+al ?
+Repasse sur la syllabe as,
+as ?
+Repasse sur la syllabe af,
+af ?
+Repasse sur la syllabe av,
+av ?
+Repasse sur la syllabe ap,
+ap ?
+Repasse sur la syllabe at,
+at ?
+Repasse sur la syllabe ad,
+ad ?
+Repasse sur la syllabe ab,
+ab ?
+Repasse sur la syllabe ir,
+ir ?
+Repasse sur la syllabe il,
+il ?
+Repasse sur la syllabe is,
+is ?
+Repasse sur la syllabe if,
+if ?
+Repasse sur la syllabe iv,
+iv ?
+Repasse sur la syllabe ip,
+ip ?
+Repasse sur la syllabe it,
+it ?
+Repasse sur la syllabe id,
+id ?
+Repasse sur la syllabe ib,
+ib ?
+Repasse sur la syllabe or,
+or ?
+Repasse sur la syllabe ol,
+ol ?
+Repasse sur la syllabe os,
+os ?
+Repasse sur la syllabe of,
+of ?
+Repasse sur la syllabe ov,
+ov ?
+Repasse sur la syllabe op,
+op ?
+Repasse sur la syllabe ot,
+ot ?
+Repasse sur la syllabe od,
+od ?
+Repasse sur la syllabe ob,
+ob ?
+Repasse sur la syllabe ur,
+ur ?
+Repasse sur la syllabe ul,
+ul ?
+Repasse sur la syllabe us,
+us ?
+Repasse sur la syllabe uf,
+uf ?
+Repasse sur la syllabe uv,
+uv ?
+Repasse sur la syllabe up,
+up ?
+Repasse sur la syllabe ut,
+ut ?
+Repasse sur la syllabe ud,
+ud ?
+Repasse sur la syllabe ub,
+ub ?
+Repasse sur la syllabe our,
+our ?
+Repasse sur la syllabe oul,
+oul ?
+Repasse sur la syllabe ous,
+ous ?
+Repasse sur la syllabe ouf,
+ouf ?
+Repasse sur la syllabe ouv,
+ouv ?
+Repasse sur la syllabe oup,
+oup ?
+Repasse sur la syllabe out,
+out ?
+Repasse sur la syllabe oud,
+oud ?
+Repasse sur la syllabe oub,
+oub ?
+Repasse sur la syllabe èr,
+èr ?
+Repasse sur la syllabe èl,
+èl ?
+Repasse sur la syllabe ès,
+ès ?
+Repasse sur la syllabe èf,
+èf ?
+Repasse sur la syllabe èv,
+èv ?
+Repasse sur la syllabe èp,
+èp ?
+Repasse sur la syllabe èt,
+èt ?
+Repasse sur la syllabe èd,
+èd ?
+Repasse sur la syllabe èb,
+èb ?
+Repasse sur le mot ananas,
+ananas ?
+Repasse sur le mot île,
+île ?
+Repasse sur le mot olive,
+olive ?
+Repasse sur le mot lune,
+lune ?
+Repasse sur le mot éléphant,
+éléphant ?
+Repasse sur le mot cheval,
+cheval ?
+Repasse sur le mot lion,
+lion ?
+Repasse sur le mot rat,
+rat ?
+Repasse sur le mot moto,
+moto ?
+Repasse sur le mot serpent,
+serpent ?
+Repasse sur le mot fusée,
+fusée ?
+Repasse sur le mot chat,
+chat ?
+Repasse sur le mot vélo,
+vélo ?
+Repasse sur le mot judo,
+judo ?
+Repasse sur le mot nid,
+nid ?
+Repasse sur le mot pomme,
+pomme ?
+Repasse sur le mot tomate,
+tomate ?
+Repasse sur le mot loup,
+loup ?
+Repasse sur le mot dé,
+dé ?
+Repasse sur le mot banane,
+banane ?
+Repasse sur le mot mouton,
+mouton ?
+Repasse sur le mot canard,
+canard ?
+Repasse sur le mot pantalon,
+pantalon ?
+Repasse sur le mot fraise,
+fraise ?
+Repasse sur le mot gâteau,
+gâteau ?
+Repasse sur le mot roi,
+roi ?
+Repasse sur le mot lapin,
+lapin ?
+Repasse sur le mot feu,
+feu ?
+Repasse sur le mot bateau,
+bateau ?
+Repasse sur le mot zèbre,
+zèbre ?
+Repasse sur le mot champignon,
+champignon ?
+Repasse sur le mot gorille,
+gorille ?
+Repasse sur le mot phoque,
+phoque ?
+Repasse sur le mot taxi,
+taxi ?
+Repasse sur le mot lama,
+lama ?
+Repasse sur le mot lit,
+lit ?
+Repasse sur le mot mur,
+mur ?
+Repasse sur le mot robe,
+robe ?
+Repasse sur le mot fil,
+fil ?
+Repasse sur le mot riz,
+riz ?
+Repasse sur le mot nez,
+nez ?
+Repasse sur le mot pied,
+pied ?
+Repasse sur le mot poule,
+poule ?
+Repasse sur le mot ours,
+ours ?
+Repasse sur le mot cadeau,
+cadeau ?
+Repasse sur le mot sapin,
+sapin ?
+Repasse sur le mot panda,
+panda ?
+Repasse sur le mot robot,
+robot ?
+Repasse sur le mot tortue,
+tortue ?
+Repasse sur le mot souris,
+souris ?
+Repasse sur le mot vache,
+vache ?
+Repasse sur le mot livre,
+livre ?
+Repasse sur le mot fleur,
+fleur ?
+Repasse sur le mot étoile,
+étoile ?
+Repasse sur le mot poisson,
+poisson ?
+Repasse sur le mot bus,
+bus ?
+Repasse sur le mot sac,
+sac ?
+Repasse sur le mot maison,
+maison ?
+Repasse sur le mot camion,
+camion ?
+Repasse sur le mot avion,
+avion ?
+Repasse sur le mot renard,
+renard ?
+Repasse sur le mot dent,
+dent ?
+Repasse sur le mot valise,
+valise ?
+Repasse sur le mot chou,
+chou ?
+Repasse sur le mot biberon,
+biberon ?
+Repasse sur le mot melon,
+melon ?
+Repasse sur le mot carotte,
+carotte ?
+Repasse sur le mot salade,
+salade ?
+Repasse sur le mot volcan,
+volcan ?
+Repasse sur le mot ballon,
+ballon ?
+Repasse sur le mot robinet,
+robinet ?
+Repasse sur le mot bol,
+bol ?
+Repasse sur le mot château,
+château ?
+Repasse sur le mot mouche,
+mouche ?
+Repasse sur le mot balai,
+balai ?
+Repasse sur le mot lait,
+lait ?
+Repasse sur le mot roue,
+roue ?
+Repasse sur le mot nuage,
+nuage ?
+Repasse sur le mot parasol,
+parasol ?
+Repasse sur le mot coq,
+coq ?
+Repasse sur le mot savon,
+savon ?
+Repasse sur le mot café,
+café ?
+Repasse sur le mot porte,
+porte ?
+Repasse sur le mot loupe,
+loupe ?
+Repasse sur le mot fourchette,
+fourchette ?
+Repasse sur le mot tulipe,
+tulipe ?
+Repasse sur le mot rose,
+rose ?
+Repasse sur le mot pile,
+pile ?
+Repasse sur le mot amis,
+amis ?
+Repasse sur le mot rue,
+rue ?
+Repasse sur le mot ressort,
+ressort ?
+Repasse sur le mot niche,
+niche ?
+Repasse sur le mot ara,
+ara ?
+Repasse sur le mot lilas,
+lilas ?
+Repasse sur le mot iris,
+iris ?
+Repasse sur le mot sirop,
+sirop ?
+Repasse sur le mot lasso,
+lasso ?
+Repasse sur le mot sofa,
+sofa ?
+Repasse sur le mot fourmi,
+fourmi ?
+Repasse sur le mot louche,
+louche ?
+Repasse sur le mot foulard,
+foulard ?
+Repasse sur le mot ruche,
+ruche ?
+Repasse sur le mot farine,
+farine ?
+Repasse sur le mot momie,
+momie ?
+Repasse sur le mot rame,
+rame ?
+Repasse sur le mot cheminée,
+cheminée ?
+Repasse sur le mot mamie,
+mamie ?
+Repasse sur le mot sirène,
+sirène ?
+Repasse sur le mot chêne,
+chêne ?
+Repasse sur le mot noël,
+noël ?
+Repasse sur le mot mèche,
+mèche ?
+Repasse sur le mot forêt,
+forêt ?
+Repasse sur le mot lumière,
+lumière ?
+Repasse sur le mot fête,
+fête ?
+Repasse sur le mot rêve,
+rêve ?
+Repasse sur le mot vis,
+vis ?
+Repasse sur le mot louve,
+louve ?
+Repasse sur le mot rivière,
+rivière ?
+Repasse sur le mot tour,
+tour ?
+Repasse sur le mot tasse,
+tasse ?
+Repasse sur le mot tarte,
+tarte ?
+Repasse sur le mot tartine,
+tartine ?
+Repasse sur le mot tête,
+tête ?
+Repasse sur le mot poupée,
+poupée ?
+Repasse sur le mot pirate,
+pirate ?
+Repasse sur le mot purée,
+purée ?
+Repasse sur le mot polo,
+polo ?
+Repasse sur le mot piano,
+piano ?
+Repasse sur le mot léopard,
+léopard ?
+Repasse sur le mot soupe,
+soupe ?
+Repasse sur le mot douche,
+douche ?
+Repasse sur le mot sardine,
+sardine ?
+Repasse sur le mot domino,
+domino ?
+Repasse sur le mot bébé,
+bébé ?
+Repasse sur le mot hibou,
+hibou ?
+Repasse sur le mot bouche,
+bouche ?
+Repasse sur le mot barbe,
+barbe ?
+Repasse sur le mot lézard,
+lézard ?
+Repasse sur le mot zéro,
+zéro ?
+Repasse sur le mot douze,
+douze ?
+Repasse sur le mot cube,
+cube ?
+Repasse sur le mot capuche,
+capuche ?
+Repasse sur le mot cabane,
+cabane ?
+Repasse sur le mot casserole,
+casserole ?
+Repasse sur le mot chocolat,
+chocolat ?
+Repasse sur le mot coco,
+coco ?
+Repasse sur le mot arbre,
+arbre ?
+Repasse sur le mot crabe,
+crabe ?
+Repasse sur le mot cadre,
+cadre ?
+Repasse sur le mot frites,
+frites ?
+Repasse sur le mot crêpe,
+crêpe ?
+Repasse sur le mot crocodile,
+crocodile ?
+Repasse sur le mot trône,
+trône ?
+Repasse sur le mot drap,
+drap ?
+Repasse sur le mot brose,
+brose ?
+Repasse sur le mot train,
+train ?
+Repasse sur le mot blé,
+blé ?
+Repasse sur le mot clé,
+clé ?
+Repasse sur le mot flûte,
+flûte ?
+Repasse sur le mot plat,
+plat ?
+Repasse sur le mot plume,
+plume ?
+Repasse sur le mot clou,
+clou ?
+Repasse sur le mot cloche,
+cloche ?
+Repasse sur le mot flèche,
+flèche ?
+Repasse sur le mot pluie,
+pluie ?
+Repasse sur le mot cartable,
+cartable ?
+Repasse sur le mot moufles,
+moufles ?
+Repasse sur le mot table,
+table ?
+Repasse sur le mot vipère,
+vipère ?
+Repasse sur le mot papi,
+papi ?
+Repasse sur le mot tapis,
+tapis ?
+Repasse sur le mot but,
+but ?
+Repasse sur le mot coupe,
+coupe ?
+Repasse sur le mot stade,
+stade ?
+Repasse sur le mot filet,
+filet ?
+Repasse sur le mot héros,
+héros ?
+Repasse sur le mot éclair,
+éclair ?
+Repasse sur le mot masque,
+masque ?
+Repasse sur le mot tigre,
+tigre ?
+Repasse sur le mot micro,
+micro ?
+Repasse sur le mot danse,
+danse ?
+Repasse sur le mot épée,
+épée ?
+Repasse sur le mot fée,
+fée ?
+Repasse sur le mot reine,
+reine ?
+Repasse sur le mot prince,
+prince ?
+Repasse sur le mot dragon,
+dragon ?
+Repasse sur le mot sirène,
+sirène ?
+Repasse sur le mot magie,
+magie ?
+Repasse sur le mot brique,
+brique ?
+Repasse sur le mot tour,
+tour ?
+Repasse sur le mot grue,
+grue ?
+Repasse sur le mot monstre,
+monstre ?
+Repasse sur le mot démon,
+démon ?
+Repasse sur le mot dino,
+dino ?
+Repasse sur le mot os,
+os ?
+Repasse sur le mot rex,
+rex ?

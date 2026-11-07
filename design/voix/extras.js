@@ -42,6 +42,10 @@ const { chromium } = require('playwright');
     SHORT_PRAISE.forEach(x => o.push(x));
     [...Object.values(PROCESS_PRAISE).flat(), ...FIX_PRAISE, ...Object.values(THEMES).flatMap(t => t.praise)].forEach(x => o.push(x + ' !'));
     o.push('Bravo ! Tu connais 0 sons, et tu maîtrises 0 questions.');
+    // Tracés et questions qui citent chaque syllabe ou chaque mot
+    state.known = GRAPHEMES.map(g => g[0]);
+    fusionPool().forEach(x => o.push(`Repasse sur la syllabe ${x[2]},`, `${x[2]} ?`));
+    LEXICON.forEach(w => o.push(`Repasse sur le mot ${w.text},`, `${w.text} ?`));
     return o;
   });
   console.log(out.filter(x => !/\bX\b/.test(x) || true).join('\n').replace(/, pour X\./g, ','));
