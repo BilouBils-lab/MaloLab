@@ -833,8 +833,22 @@ const DOMAIN_IMG = new Set(['maths', 'lecture', 'ecriture']);
 const DOMAIN_ART = { maths: 'dé', lecture: 'livre', ecriture: 'fil' };
 const domainIcon = k => DOMAIN_IMG.has(k) ? `<img src="assets/domaine-${k}.webp" alt="" draggable="false">` : artHTML(DOMAIN_ART[k], ACTS[k].icon);
 
+// Bulle du compagnon : une information utile, différente à chaque retour à l'accueil
+let homeTip = 0;
+function homeTips() {
+  const tips = [], g = cardById(state.goal), bal = balance();
+  if (dailyOn() && !pauseLocked()) {
+    if (!dailyDoneToday()) tips.push("Ton entraînement du jour t'attend.");
+    else { const st = dailyStreak(); tips.push(st > 1 ? `Entraînement du jour fait. Ça fait ${st} jours d'affilée !` : 'Entraînement du jour fait. Bravo !'); }
+  }
+  if (g && !owned(g.id)) tips.push(bal >= g.price ? `Tu peux acheter ton objectif : ${g.name} !` : `Encore ${etoiles(g.price - bal)}, pour ${g.name}.`);
+  else tips.push('Choisis une carte objectif dans la boutique.');
+  const ns = [...GRAPHEMES].reverse().find(x => state.known.includes(x[0]) && isSound(x[0]));
+  if (ns) tips.push(`Ton dernier son : ${soundSay(ns[0])}.`);
+  return tips;
+}
 function home() {
-  const t = T(), msg = pick(t.hello).replace('{n}', state.name || '');
+  const t = T(), tips = homeTips(), msg = tips[homeTip++ % tips.length];
   const g = cardById(state.goal), goalOn = g && !owned(g.id), miss = goalOn ? g.price - balance() : 0;
   render(`
     <header class="top home-top">

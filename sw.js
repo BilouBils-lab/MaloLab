@@ -1,6 +1,6 @@
 // Service worker : permet à l'application de fonctionner hors ligne.
 // ⚠️ Après chaque modification de l'app, augmentez le numéro de version ci-dessous.
-const CACHE = 'malolab-v65';
+const CACHE = 'malolab-v66';
 const VOIX = 'malolab-voix-siwis';   // clips de la voix : conservés d'une version à l'autre
 const ASSETS = [
   './', './index.html', './style.css', './art.js', './icons.js', './cursive.js', './lecture.js', './maths.js', './sync.js', './shop.js', './dashboard.js', './daily.js', './pause.js', './progress.js', './voice.js', './app.js', './manifest.webmanifest', './assets/fonts/Marelle-Regular.woff2', './assets/fonts/MarelleBaton-Regular.woff2',

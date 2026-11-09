@@ -50,6 +50,10 @@ const { chromium } = require('playwright');
     o.push("Combien t'en restera-t-il si tu l'achètes ?", 'Il faut être patient !', 'On fait une pause !', 'Si tu achètes celle-ci, il te faudra attendre plus longtemps.');
     CARDS.forEach(c => o.push(`${c.name}. Elle coûte ${etoiles(c.price)}. Tu as 0 étoile. Combien t'en restera-t-il si tu l'achètes ? Attention, tu économises pour ${c.name}. Si tu achètes celle-ci, il te faudra attendre plus longtemps.`,
       `${c.name}. Elle coûte ${etoiles(c.price)}. Il te manque 1 étoile, environ 1 partie. Il faut être patient !`, `C'est ton objectif : ${c.name}.`));
+    // Bulle d'accueil
+    o.push("Ton entraînement du jour t'attend.", 'Entraînement du jour fait. Bravo !', 'Choisis une carte objectif dans la boutique.');
+    R(2, 400).forEach(n => o.push(`Entraînement du jour fait. Ça fait ${n} jours d'affilée !`));
+    GRAPHEMES.forEach(x => isSound(x[0]) && o.push(`Ton dernier son : ${soundSay(x[0])}.`));
     return o;
   });
   console.log(out.filter(x => !/\bX\b/.test(x) || true).join('\n').replace(/, pour X\./g, ','));
